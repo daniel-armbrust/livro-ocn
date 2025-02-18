@@ -1,0 +1,32 @@
+site_name: OCN - Oracle Cloud Native
+site_url: https://daniel-armbrust.github.io/livro-ocn
+repo_url: https://github.com/daniel-armbrust/livro-ocn
+site_description:  Guia Prático para Implantação de Aplicações Cloud Native na Oracle Cloud Infrastructure (OCI).
+site_author: Daniel Armbrust (darmbrust@gmail.com)
+copyright: Copyright &copy; 2024 Daniel Armbrust. Todos os direitos reservados. 
+lang: pt
+
+theme:
+  name: material
+  locale: pt_BR
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: simple/linkedin
+      link: https://www.linkedin.com/in/daniel-armbrust/
