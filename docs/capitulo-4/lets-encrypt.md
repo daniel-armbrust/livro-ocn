@@ -1,6 +1,10 @@
-# 3.5 - Let's Encrypt e o Serviço de Certificados do OCI
+# Capítulo 4: Conectividade e Redes
 
-## Let's Encrypt
+# 4.5 Let's Encrypt e o Serviço de Certificados do OCI
+
+## 4.5.1 Let's Encrypt
+
+![alt_text](./img/lets-encrypt-logo-1.png "Let's Encrypt")
 
 A comunicação segura na web é garantida pelo HTTPS, que exige a utilização de um certificado digital. Esse certificado permite que os navegadores autentiquem a identidade dos servidores web, assegurando a integridade e a confidencialidade das informações trocadas.
 
@@ -22,22 +26,24 @@ Vamos iniciar com a instalação da ferramenta [Certbot](https://certbot.eff.org
 
 O [Certbot](https://certbot.eff.org/) é uma ferramenta que opera em modo cliente e é utilizada para obter certificados digitais emitidos pela Let’s Encrypt.
 
->_**__NOTA:__** Existem várias maneiras de instalar o Certbot. Recomendo visitar a página oficial para explorar outras opções de instalação, acessando o link [Certbot Instructions](https://certbot.eff.org/instructions)._
+!!! note "NOTA"
+    Existem várias maneiras de instalar o Certbot. Recomendo visitar a página oficial para explorar outras opções de instalação, acessando o link [Certbot Instructions](https://certbot.eff.org/instructions).
 
 Aqui, seguiremos a instalação do Certbot utilizando Python e seu gerenciador de pacotes, o [pip](https://pt.wikipedia.org/wiki/Pip_(gerenciador_de_pacotes)). Todo o processo será realizado dentro de um [ambiente virtual Python (venv)](https://virtualenv.pypa.io/en/latest/).
 
-```
+```bash linenums="1"
 $ python3 -m venv venv
 $ source venv/bin/activate
 (venv) $ pip install --upgrade pip
 (venv) $ pip install --no-build-isolation certbot
 ```
 
->_**__NOTA:__** A instalação do Certbot requer que algumas bibliotecas do sistema operacional estejam instaladas previamente. No meu caso, foi necessário instalar os pacotes libffi-dev, python3-dev e openssl-dev para assegurar uma instalação bem-sucedida do Certbot. Para mais informações, consulte o link [System Requirements](https://eff-certbot.readthedocs.io/en/latest/install.html#system-requirements)._
+!!! note "NOTA"
+    A instalação do Certbot requer que algumas bibliotecas do sistema operacional estejam instaladas previamente. No meu caso, foi necessário instalar os pacotes libffi-dev, python3-dev e openssl-dev para assegurar uma instalação bem-sucedida do Certbot. Para mais informações, consulte o link [System Requirements](https://eff-certbot.readthedocs.io/en/latest/install.html#system-requirements).
 
 Após a instalação, você pode verificar a versão do Certbot utilizando o comando abaixo:
 
-```
+```bash linenums="1"
 (venv) $ venv/bin/certbot --version
 certbot 3.0.1
 ```
@@ -46,9 +52,10 @@ certbot 3.0.1
 
 Uma das formas de obter um certificado digital emitido pelo Let’s Encrypt é através do DNS Challenge. Esse método é utilizado para comprovar ao Let’s Encrypt que somos os proprietários do domínio "ocipizza.com.br". Assim, será emitido um certificado digital válido para um host (www) associado a esse domínio.
 
->_**__NOTA:__** O comando abaixo será executado com o usuário root. Se você estiver utilizando outro usuário, será necessário criar alguns diretórios com as permissões adequadas. Para mais detalhes, consulte a documentação oficial no link [Documentation](https://letsencrypt.org/docs/)._
+!!! note "NOTA"
+    O comando abaixo será executado com o usuário root. Se você estiver utilizando outro usuário, será necessário criar alguns diretórios com as permissões adequadas. Para mais detalhes, consulte a documentação oficial no link [Documentation](https://letsencrypt.org/docs/).
 
-```
+```bash linenums="1"
 (venv) # venv/bin/certbot certonly \
 > --manual \
 > --preferred-challenges dns -d www.ocipizza.com.br 
@@ -78,7 +85,7 @@ Press Enter to Continue
 
 A saída do comando acima corresponde a um registro DNS do tipo TXT _(\_acme-challenge.www.ocipizza.com.br)_ e seu respectivo valor _(XaAAAAAAAOZ-uUU-BaCOPAPAMdamsDASKDASAI\_AAOE)_. Antes de prosseguir, é necessário adicionar esse registro com o valor correspondente no domíno "ocipizza.com.br" no [Serviço de DNS Público](https://docs.oracle.com/en-us/iaas/Content/DNS/Concepts/gettingstarted.htm) do OCI:
 
-```
+```bash linenums="1"
 $ oci dns record domain patch \
 > --zone-name-or-id "ocipizza.com.br" \
 > --domain "_acme-challenge.www.ocipizza.com.br" \
@@ -89,7 +96,7 @@ $ oci dns record domain patch \
 
 Tendo os valores inseridos no DNS, é possível seguir novamente com o Certbot que irá então, se tudo estiver correto, emitir o certificado para o host "www" do domínio "ocipizza.com.br":
 
-```
+```bash linenums="1"
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Press Enter to Continue
 
@@ -119,17 +126,18 @@ Neste caso, o certificado e a chave privada foram salvos nos diretórios corresp
 
     - /etc/letsencrypt/live/www.ocipizza.com.br/privkey.pem
 
-## Serviço de Certificados do OCI
+## 4.5.2 Serviço de Certificados do OCI
 
 O [Serviço de Certificados](https://docs.oracle.com/en-us/iaas/Content/certificates/overview.htm) do OCI é uma solução dedicada ao gerenciamento de certificados digitais. Além de gerenciar todo o ciclo de vida de um certificado, incluindo operações de renovação e revogação, o serviço também emite novos certificados e permite a importação de certificados já emitidos.
 
->_**__NOTA:__** Todos os comandos utilizados neste capítulo estão disponíveis nos scripts [scripts/chapter-3/cert-saopaulo.sh](../scripts/chapter-3/cert-saopaulo.sh) e [scripts/chapter-3/cert-vinhedo.sh](../scripts/chapter-3/cert-vinhedo.sh)._
+!!! note "NOTA"
+    Todos os comandos utilizados neste capítulo estão disponíveis nos scripts [scripts/chapter-3/cert-saopaulo.sh](../scripts/chapter-3/cert-saopaulo.sh) e [scripts/chapter-3/cert-vinhedo.sh](../scripts/chapter-3/cert-vinhedo.sh).
 
 Utilizar o Serviço de Certificados do OCI é especialmente vantajoso quando se tem vários Load Balancers que compartilham o mesmo certificado para o HTTPS. Ao chegar o momento de substituir esse certificado, como em casos de expiração, você pode realizar a alteração diretamente no Serviço de Certificados, em vez de precisar atualizar cada Load Balancer individualmente.
 
 Primeiramente, é necessário separar do arquivo _fullchain.pem_ a parte que corresponde ao certificado da aplicação da parte que se refere aos certificados intermediários. Isso pode ser feito utilizando o script abaixo:
 
-```
+```bash linenums="1"
 # awk 'BEGIN {
     c=0;
 } 
@@ -151,7 +159,7 @@ Primeiramente, é necessário separar do arquivo _fullchain.pem_ a parte que cor
 
 Foram criados dois arquivos, além da chave privada, que já existia em outro diretório e foi movida para este local para facilitar o processo de importação.
 
-```
+```bash linenums="1"
 # ls -1 *.pem
 cert.pem
 chain.pem
@@ -172,7 +180,7 @@ privkey.pem
 
 Para criar e importar o certificado no Serviço de Certificados, utilize o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" certs-mgmt certificate create-by-importing-config \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --cert-chain-pem "$(cat chain.pem)" \
@@ -185,7 +193,7 @@ $ oci --region "sa-saopaulo-1" certs-mgmt certificate create-by-importing-config
 
 O comando abaixo é utilizado para obter o OCID do certificado recém-importado:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" certs-mgmt certificate list \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all \
@@ -199,7 +207,7 @@ $ oci --region "sa-saopaulo-1" certs-mgmt certificate list \
 
 Para concluir, o comando a seguir remove o registro DNS do tipo TXT que foi utilizado pelo Let’s Encrypt, uma vez que não será mais necessário:
 
-```
+```bash linenums="1"
 $ oci dns record domain delete \
 > --zone-name-or-id "ocipizza.com.br" \
 > --domain "_acme-challenge.www.ocipizza.com.br." \

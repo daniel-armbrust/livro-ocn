@@ -1,18 +1,21 @@
-# 3.4 - DNS Público
+# Capítulo 4: Conectividade e Redes
 
-## Configurando o Serviço de DNS Global
+# 4.4 DNS Público
 
 Aqui, vou explicar brevemente a teoria por trás do DNS (Domain Name System), ou Sistema de Nomes de Domínio, e também demonstrar como criar um domínio DNS no serviço de [DNS Global](https://docs.oracle.com/en-us/iaas/Content/DNS/Concepts/gettingstarted.htm) no OCI.
 
->_**__NOTA:__** Todos os comandos utilizados neste capítulo estão disponíveis no script [scripts/chapter-3/dns.sh](../scripts/chapter-3/dns.sh)._
+!!! note "NOTA"
+    Todos os comandos utilizados neste capítulo estão disponíveis no script [scripts/chapter-3/dns.sh](../scripts/chapter-3/dns.sh).
 
-## O que é DNS?
+## 4.4.1 O que é DNS?
 
 O DNS, ou Sistema de Nomes de Domínio, é um sistema fundamental da internet que traduz nomes de domínio legíveis por humanos, como **www.ocipizza.com.br**, em endereços IP numéricos, que são utilizados pelos computadores para se comunicarem entre si. Em essência, o DNS atua como uma agenda telefônica da internet, permitindo que os usuários acessem sites e serviços online de maneira mais intuitiva, sem a necessidade de memorizar sequências complexas de números. Além disso, o DNS desempenha um papel crucial na gestão de serviços de e-mail e na segurança da comunicação online.
 
 Podemos afirmar que o DNS é um tipo de banco de dados distribuído que armazena informações sobre hosts. Esse banco de dados, que compõe o serviço DNS, é estruturado como uma árvore invertida, com uma única raiz (root) no topo. Essa hierarquia permite uma organização eficiente e escalável das informações, facilitando a resolução de nomes de domínio em endereços IP e a gestão de recursos na internet.
 
-## Registro.BR e Domínio DNS
+## 4.4.2 Registro.BR e Domínio DNS
+
+![alt_text](./img/registrobr-logo-1.png "Registro.BR")
 
 Podemos definir um domínio como o seu _"espaço na internet"_. Em outras palavras, é um nome que permite localizar e identificar você ou sua empresa online. O domínio representa o nome do seu site e funciona como uma identidade digital, facilitando o acesso dos usuários aos serviços que você oferece ao mundo.
 
@@ -24,7 +27,7 @@ Para garantir que a aplicação seja facilmente acessível e esteja em conformid
 
 Após a conclusão do registro e o pagamento da taxa correspondente, o domínio ficará disponível para configuração. 
 
-## DNS Global e Zona DNS
+## 4.4.3 DNS Global e Zona DNS
 
 Uma das características do DNS é ser um banco de dados de uso mais específico. Quando menciono _"mais específico"_, refiro-me ao fato de que o serviço é projetado exclusivamente para manipular informações relacionadas aos nomes dos hosts e seus endereços IP. Além disso, ao contrário de um banco de dados tradicional, onde os dados são organizados em tabelas, no DNS, as informações são estruturadas e gerenciadas dentro do que chamamos de **Zona DNS**. Essa abordagem permite uma organização hierárquica e eficiente dos registros, facilitando a resolução de nomes e a gestão de domínios e subdomínios.
 
@@ -32,7 +35,7 @@ Antes de começar a inserir registros no DNS, é necessário criar a Zona DNS no
 
 Para criar a Zona através do [OCI CLI](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.50.2/oci_cli_docs/cmdref/dns/zone/create.html), execute o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci dns zone create \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --name "ocipizza.com.br" \
@@ -41,15 +44,15 @@ $ oci dns zone create \
 > --wait-for-state "ACTIVE"
 ```
 
-## Configurações no Registro.BR
+## 4.4.4 Configurações no Registro.BR
 
-Para concluir, é necessário informar ao Registro.BR que, a partir deste momento, os servidores DNS responsáveis pelo domínio "ocipizza.com.br" estão localizados no OCI.
+Para concluir, é necessário informar ao **Registro.BR** que, a partir deste momento, os servidores DNS responsáveis pelo domínio "ocipizza.com.br" estão localizados no OCI.
 
 Como você pode notar, ao criar a Zona DNS, o OCI forneceu um conjunto de servidores DNS que serão responsáveis pela resolução de nomes associados ao domínio. 
 
 Para obter o conjunto de servidores DNS do OCI responsáveis pela resolução de nomes do domínio "ocipizza.com.br", utilize o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci dns zone get \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --zone-name-or-id "ocipizza.com.br" \
@@ -60,7 +63,9 @@ ns2.p201.dns.oraclecloud.net.
 ns3.p201.dns.oraclecloud.net.
 ns4.p201.dns.oraclecloud.net.
 ```
+<br><br>
 
 ![alt_text](./img/registrobr-1.png "registro.br #1")
+<br><br>
 
 ![alt_text](./img/registrobr-2.png "registro.br #2")

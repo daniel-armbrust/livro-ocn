@@ -1,14 +1,17 @@
-# 3.7 - Email Delivery
+# Capítulo 4: Conectividade e Redes
+
+# 4.7 Email Delivery
 
 [Email Delivery](https://docs.oracle.com/en-us/iaas/Content/Email/Concepts/overview.htm) é um serviço gerenciado de [SMTP (Simple Mail Transfer Protocol)](https://datatracker.ietf.org/doc/html/rfc5321) oferecido pelo OCI para o envio de e-mails. Qualquer aplicação que necessite enviar e-mails é um candidato ideal para utilizar esse serviço, pois ele atua como um _"servidor de e-mail de saída" (outbound email server)_. 
 
 No caso da aplicação OCI Pizza, a funcionalidade _"Esqueci minha senha"_ utilizará o Email Delivery para enviar um e-mail ao usuário, permitindo que ele redefina sua senha.
 
->_**__NOTA:__** De acordo com a documentação, o serviço é otimizado para o envio de e-mails em massa, marketing e transacionais, abrangendo comunicações essenciais que incluem alertas de detecção de fraude, verificações de identidade e redefinições de senha. Ele não é destinado ao envio de correspondência pessoal._
+!!! note "NOTA"
+    De acordo com a documentação, o serviço é otimizado para o envio de e-mails em massa, marketing e transacionais, abrangendo comunicações essenciais que incluem alertas de detecção de fraude, verificações de identidade e redefinições de senha. Ele não é destinado ao envio de correspondência pessoal.
 
 Neste capítulo, serão abordados conceitos fundamentais relacionados à entrega de e-mails na Internet, incluindo o Email Delivery. Além disso, o serviço será configurado para que a aplicação OCI Pizza possa utilizá-lo de forma eficaz.
 
-## Email e a Internet
+## 4.7.1 Email e a Internet
 
 O tema _"E-mail e Internet"_ é complexo e abrange uma variedade de especificações e protocolos que definem a estrutura das mensagens de e-mail e o processo de transferência delas do remetente ao destinatário.
 
@@ -44,9 +47,10 @@ Para facilitar a compreensão desse fluxo, irei utilizar a ilustração abaixo, 
 
 7. No exemplo em questão, o e-mail pode ser lido pelo usuário através de uma aplicação web (como o Gmail), que interage com a caixa de entrada utilizando o protocolo IMAP.
 
->_**__NOTA:__** Tanto o protocolo POP3 quanto o IMAP são utilizados para a leitura de e-mails, mas apresentam diferenças significativas em seu funcionamento. O POP3, ao acessar a caixa de entrada do usuário, faz o download das mensagens para o computador local, removendo-as do servidor. Em contrapartida, o IMAP permite que o usuário interaja com a caixa de entrada armazenada no servidor, sem realizar o download das mensagens, o que possibilita o acesso a e-mails de diferentes dispositivos de forma sincronizada._
+!!! note "NOTA"
+    Tanto o protocolo POP3 quanto o IMAP são utilizados para a leitura de e-mails, mas apresentam diferenças significativas em seu funcionamento. O POP3, ao acessar a caixa de entrada do usuário, faz o download das mensagens para o computador local, removendo-as do servidor. Em contrapartida, o IMAP permite que o usuário interaja com a caixa de entrada armazenada no servidor, sem realizar o download das mensagens, o que possibilita o acesso a e-mails de diferentes dispositivos de forma sincronizada.
 
-## DNS
+## 4.7.2 Email e DNS
 
 O DNS possui um papel extremamente importante no roteamento de e-mails entre diferentes MTAs na Internet.
 
@@ -64,7 +68,7 @@ A partir do endereço de e-mail (darmbrust@gmail.com), o símbolo arroba (@) per
 
 Uma maneira de descobrir quais servidores do domínio _"gmail.com"_ são responsáveis por receber e-mails é utilizando o utilitário de linha de comando [nslookup](https://en.wikipedia.org/wiki/Nslookup). Através do parâmetro _-type=mx_, é possível obter a lista de servidores responsáveis pelo recebimento dos e-mails:
 
-```
+```bash linenums="1"
 $ nslookup -type=mx gmail.com
 Server:         10.255.255.254
 Address:        10.255.255.254#53
@@ -79,19 +83,21 @@ gmail.com       mail exchanger = 40 alt4.gmail-smtp-in.l.google.com.
 
 É importante notar que, à frente do nome de cada servidor, há um número que indica a ordem de prioridade. Quanto menor o número, maior a prioridade. Assim, o servidor com o número _5_ será o primeiro a ser contatado para a entrega de e-mails. Se esse servidor estiver inacessível, o próximo a ser acionado será o servidor com o número _10_. Esse processo continua até o servidor com o número _40_, que é o último MTA da lista.
 
->_**__NOTA:__** Os números de prioridade podem variar de 0 a 65536. Por convenção, muitos administradores optam por definir valores de prioridade em múltiplos de 10, o que proporciona maior flexibilidade ao adicionar servidores temporários entre dois servidores em produção, por exemplo._
+!!! note "NOTA"
+    Os números de prioridade podem variar de 0 a 65536. Por convenção, muitos administradores optam por definir valores de prioridade em múltiplos de 10, o que proporciona maior flexibilidade ao adicionar servidores temporários entre dois servidores em produção, por exemplo.
 
-## Domínio DNS no Email Delivery
+## 4.7.3 Domínio DNS no Email Delivery
 
 O primeiro passo na configuração do Email Delivery deve ser a configuração do domínio dentro do serviço. 
 
 No contexto do Email Delivery, o domínio refere-se ao domínio DNS que você controla e que será utilizado para o envio de e-mails. Essa configuração é necessária para que o serviço saiba qual é o domínio que ele está autorizado a enviar e-mails.
 
->_**__NOTA:__** É importante destacar que o domínio da aplicação "ocipizza.com.br" já foi criado e configurado na seção [3.4 - DNS Público](./dns.md). A configuração que será realizada aqui não interfere nem altera o domínio no serviço de DNS Público._
+!!! note "NOTA"
+    É importante destacar que o domínio da aplicação "ocipizza.com.br" já foi criado e configurado na seção [3.4 - DNS Público](./dns.md). A configuração que será realizada aqui não interfere nem altera o domínio no serviço de DNS Público.
 
 Para criar o domínio no serviço de Email Delivery na região sa-saopaulo-1, utilize o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email domain create \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --name "ocipizza.com.br" \
@@ -99,9 +105,10 @@ $ oci --region "sa-saopaulo-1" email domain create \
 > --wait-for-state "SUCCEEDED"
 ```
 
->_**__NOTA:__** É importante lembrar que o serviço é regional, e será necessário aplicar as mesmas configurações na região sa-vinhedo-1. Isso garantirá que, em caso de indisponibilidade da região sa-saopaulo-1, a aplicação continue a enviar e-mails a partir de sa-vinhedo-1._
+!!! note "NOTA"
+    É importante lembrar que o serviço é regional, e será necessário aplicar as mesmas configurações na região sa-vinhedo-1. Isso garantirá que, em caso de indisponibilidade da região sa-saopaulo-1, a aplicação continue a enviar e-mails a partir de sa-vinhedo-1.
 
-## SPF e DKIM
+## 4.7.4 SPF e DKIM
  
 [SPF (Sender Policy Framework)](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configurespf.htm) e [DKIM (DomainKeys Identified Mail)](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configuredkim.htm) são ambos mecanismos de autenticação de e-mail que ajudam a proteger contra fraudes e spoofing.
 
@@ -121,7 +128,8 @@ A configuração do SPF consiste em adicionar um registro DNS do tipo TXT que in
 
 Os servidores autorizados a enviar e-mails em nome de um domínio são declarados em um registro DNS do tipo TXT, utilizando uma sintaxe específica. Para a aplicação OCI Pizza, esse registro será adicionado ao DNS Público associado ao domínio _"ocipizza.com.br"_. Dessa forma, quando um servidor receber um e-mail desse domínio, ele consultará o DNS responsável por _"ocipizza.com.br"_ para verificar se o servidor que enviou a mensagem possui autorização para fazê-lo.
 
->_**__NOTA:__** Consulte o link [Sender Policy Framework](http://www.open-spf.org/Introduction/) para maiores detalhes._
+!!! note "NOTA"
+    Consulte o link [Sender Policy Framework](http://www.open-spf.org/Introduction/) para maiores detalhes.
 
 Por ser um serviço gerenciado, a Oracle disponibiliza na [documentação](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configurespf.htm#top) do Email Delivery o valor do SPF que será inserido no DNS da aplicação.
 
@@ -129,7 +137,7 @@ Por ser um serviço gerenciado, a Oracle disponibiliza na [documentação](https
 
 Para a aplicação OCI Pizza, localizada na região das Américas, o registro TXT correspondente ao SPF pode ser adicionado ao DNS utilizando o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" dns record domain patch \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --zone-name-or-id "ocipizza.com.br" \
@@ -140,7 +148,7 @@ $ oci --region "sa-saopaulo-1" dns record domain patch \
 
 Para verificar se o valor foi inserido corretamente, é possível realizar uma consulta utilizando o utilitário [nslookup](https://en.wikipedia.org/wiki/Nslookup):
 
-```
+```bash linenums="1"
 $ nslookup -type=txt ocipizza.com.br
 Server:         10.255.255.254
 Address:        10.255.255.254#53
@@ -155,11 +163,12 @@ DKIM (DomainKeys Identified Mail) é um framework de autenticação de e-mails q
 
 Por meio do DKIM, ao enviar um e-mail, o servidor de e-mail do remetente utiliza sua chave privada para gerar uma assinatura digital, que é baseada em partes específicas da mensagem, como o corpo do e-mail e determinados cabeçalhos. O servidor destinatário, por sua vez, localiza a chave pública no DNS do domínio do remetente e a utiliza para validar a assinatura.
 
->_**__NOTA:__** Lembrando que todo esse processo de utilizar chaves para criptografar, assinar e validar assinaturas digitais, ocorre nos bastidores pelos MTAs que implementam o DKIM sem intervenção dos usuários. Consulte o link [DomainKeys Identified Mail (DKIM) Signatures](https://datatracker.ietf.org/doc/html/rfc6376) para maiores informações sobre o funcionamento do DKIM_
+!!! note "NOTA"
+    Lembrando que todo esse processo de utilizar chaves para criptografar, assinar e validar assinaturas digitais, ocorre nos bastidores pelos MTAs que implementam o DKIM sem intervenção dos usuários. Consulte o link [DomainKeys Identified Mail (DKIM) Signatures](https://datatracker.ietf.org/doc/html/rfc6376) para maiores informações sobre o funcionamento do DKIM.
 
 Para configurar o DKIM, é necessário primeiro obter o valor do OCID do domínio que foi criado no Email Delivery:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email domain list \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all \
@@ -193,7 +202,7 @@ Com base nessas informações, para a região _sa-saopaulo-1_, a string seletora
 
 Para criar o DKIM utilizando a string do seletor, utilize o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email dkim create \
 > --email-domain-id "ocid1.emaildomain.oc1.sa-saopaulo-1.aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --name "ocipizza-sa-saopaulo-1-20241221" \
@@ -203,7 +212,7 @@ $ oci --region "sa-saopaulo-1" email dkim create \
 
 Em seguida, é necessário obter o seu OCID: 
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email dkim list \
 > --email-domain-id "ocid1.emaildomain.oc1.sa-saopaulo-1.aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all \
@@ -216,14 +225,14 @@ $ oci --region "sa-saopaulo-1" email dkim list \
 
 Com o OCID do DKIM, é possível obter o registro DNS CNAME e seu valor correspondente:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email dkim get \
 > --dkim-id "ocid1.emaildkim.oc1.sa-saopaulo-1.aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --query "data.\"dns-subdomain-name\""
 "ocipizza-sa-saopaulo-1-20241221._domainkey.ocipizza.com.br."
 ```
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email dkim get \
 > --dkim-id "ocid1.emaildkim.oc1.sa-saopaulo-1.aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --query "data.\"cname-record-value\""
@@ -232,7 +241,7 @@ $ oci --region "sa-saopaulo-1" email dkim get \
 
 Por fim, esses valores devem ser inseridos no DNS público da aplicação:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" dns record domain patch \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --zone-name-or-id "ocipizza.com.br" \
@@ -245,20 +254,20 @@ Ao final do processo, é possível verificar na console web que tanto o SPF quan
 
 ![alt_text](./img/email-delivery-8.png "SPF e DKIM - OK")
 
-## Approved Senders
+## 4.7.4 Approved Senders
 
 Basicamente, um [Approved Sender](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/managingapprovedsenders.htm) é um endereço de e-mail que está autorizado a enviar mensagens. Cada região deve ter seu próprio conjunto de Approved Senders para poder enviar e-mails pelo Email Delivery da região.
 
 Para a funcionalidade _"Esqueci minha senha"_ da aplicação OCI Pizza, o Approved Sender que será criado é o e-mail **no-reply@ocipizza.com.br**. Este será o endereço do remetente que aparecerá para o usuário.
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email sender create \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --email-address "no-reply@ocipizza.com.br" \
 > --wait-for-state "ACTIVE"
 ```
 
-## Testando o Email Delivery
+## 4.7.5 Testando o Email Delivery
 
 O serviço Email Delive possibilita submeter e-mails para envio através de dois diferentes modos:
 
@@ -274,11 +283,12 @@ A principal diferença entre os dois modos é que o modo HTTPS utiliza uma API R
 
 Para enviar um e-mail utilizando o modo SMTP, é necessário que a aplicação tenha suporte para interagir diretamente com o protocolo SMTP. Isso implica a adição de bibliotecas específicas e a implementação de códigos adicionais para lidar com o SMTP. Por outro lado, como a aplicação OCI Pizza já utiliza o SDK do OCI, optar pelo modo HTTPS torna-se mais simples.
 
->_**__NOTA:__** Para saber mais detalhes sobre como interagir com o Email Delivery através do protocolo SMTP consulte ["Using SMTP for Email Submissions"](https://docs.oracle.com/en-us/iaas/Content/Email/Concepts/email-submission-using-smtp.htm)._
+!!! note "NOTA"
+    Para saber mais detalhes sobre como interagir com o Email Delivery através do protocolo SMTP consulte ["Using SMTP for Email Submissions"](https://docs.oracle.com/en-us/iaas/Content/Email/Concepts/email-submission-using-smtp.htm).
 
 Para enviar um e-mail de teste utilizando o modo HTTPS, utilize o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email-data-plane email-submitted-response submit-email \
 > --recipients "{
     \"to\": [
@@ -301,7 +311,7 @@ Por fim, é possível confirmar o recebimento do e-mail:
 
 ![alt_text](./img/email-delivery-9.png "E-mail de teste")
 
-## Suppression List
+## 4.7.6 Suppression List
 
 Parte do funcionamento de um serviço de e-mail eficaz é identificar quando um e-mail não pode ser entregue a um destinatário por algum motivo.
 
@@ -317,19 +327,21 @@ Sempre que o Email Delivery não consegue entregar um e-mail por conta de um _Ha
 
 Também é possível adicionar ou remover um e-mail manualmente da Lista de Supressão. O comando abaixo mostra como adicionar um e-mail manualmente:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email suppression create \
 > --compartment-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --email-address "nao-sei@dominio-inexistente.com.br"
 ```
 
->_**__NOTA:__** Observe que o valor do parâmetro --compartment-id é o OCID que representa o Tenancy, e não um compartimento criado. Essa é uma exigência ao adicionar um e-mail à lista de supressão._
+!!! note "NOTA"
+    Observe que o valor do parâmetro --compartment-id é o OCID que representa o Tenancy, e não um compartimento criado. Essa é uma exigência ao adicionar um e-mail à lista de supressão.
 
->_**__NOTA:__** A [Suppression List](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/managingsuppressionlist.htm) é um componente regional. Tanto os e-mails adicionados manualmente quanto aqueles inseridos automaticamente pelo Email Delivery, devem ser replicados para as demais regiões._
+!!! note "NOTA"
+    A [Suppression List](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/managingsuppressionlist.htm) é um componente regional. Tanto os e-mails adicionados manualmente quanto aqueles inseridos automaticamente pelo Email Delivery, devem ser replicados para as demais regiões.
 
 Para visualizar os e-mails adicionados na Lista de Supressão, utilize o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" email suppression list \
 > --compartment-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all \
@@ -344,7 +356,3 @@ $ oci --region "sa-saopaulo-1" email suppression list \
 | user1@user.com                     | HARDBOUNCE |
 +------------------------------------+------------+
 ```
-
-## Conclusão
-
-Neste capítulo, foram apresentados os conceitos básicos relacionados ao envio de e-mails na Internet, além de detalhes sobre a configuração do serviço Email Delivery. O Email Delivery já está configurado e pronto para ser utilizado pela aplicação OCI Pizza.

@@ -1,8 +1,11 @@
-# 3.3 - Reserva de Endereço IP Público
+# Capítulo 4: Conectividade e Redes
+
+# 4.3 Reserva de Endereço IP Público
 
 Um endereço IP público é um endereço que pode ser acessado pela internet. Para que um recurso seja acessível a partir da internet, ele deve estar localizado em uma sub-rede pública, equipada com um Internet Gateway, e deve possuir um endereço IP público.
 
->_**__NOTA:__** Todos os comandos utilizados neste capítulo estão disponíveis nos scripts [scripts/chapter-3/pubip-reserved-saopaulo.sh](../scripts/chapter-3/pubip-reserved-saopaulo.sh) e [scripts/chapter-3/network-vinhedo.sh](../scripts/chapter-3/network-vinhedo.sh)._
+!!! note "NOTA"
+    Todos os comandos utilizados neste capítulo estão disponíveis nos scripts [scripts/chapter-3/pubip-reserved-saopaulo.sh](../scripts/chapter-3/pubip-reserved-saopaulo.sh) e [scripts/chapter-3/network-vinhedo.sh](../scripts/chapter-3/network-vinhedo.sh).
 
 Qualquer recurso criado e que utiliza um endereço IP público no OCI, está sujeito a usar um destes dois tipos:
 
@@ -22,7 +25,7 @@ Para a aplicação OCI Pizza, será reservado um endereço IP público em cada r
 
 Para reservar o endereço IP público, utilize o seguinte comando:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" network public-ip create \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --lifetime "RESERVED" \
@@ -32,7 +35,7 @@ $ oci --region "sa-saopaulo-1" network public-ip create \
 
 Para verificar qual foi o endereço IP que o OCI reservou, utilize o seguinte comando:
 
-```
+```bash linenums="1"
 $ oci --region "sa-saopaulo-1" network public-ip list \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --lifetime "RESERVED" \
@@ -44,4 +47,5 @@ $ oci --region "sa-saopaulo-1" network public-ip list \
 ]
 ```
 
->_**__NOTA:__** Se mais de um endereço IP tiver sido reservado, o comando acima retornará mais de um._
+!!! note "NOTA"
+    Se mais de um endereço IP tiver sido reservado, o comando acima retornará mais de um.

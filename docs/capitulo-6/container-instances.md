@@ -1,4 +1,6 @@
-# 2. Container Instances
+# Capítulo 6: Desenvolvimento Moderno
+
+# 6.3 Container Instances
 
 A maneira mais rápida e prática de executar uma aplicação conteinerizada no OCI  é através do serviço [Container Instances](https://docs.oracle.com/en-us/iaas/Content/container-instances/overview-of-container-instances.htm#overview-of-container-instances).
 
@@ -12,13 +14,13 @@ Para a aplicação _OCI Pizza_, serão implementados dois Container Instances. O
 
 ![alt_text](./img/ci-1.png "Oracle Container Instace")
 
-## Compute Shape
+## 6.3.1 Compute Shape
 
 Primeiramente, ao criar um Container Instance, é necessário escolher um dos Compute Shapes disponíveis. Os shapes que terminam com ".Flex" são shapes flexíveis, permitindo que você defina tanto o número de OCPUs quanto a quantidade de memória RAM que o contêiner pode utilizar.
 
 Para listar os shapes disponíveis para uso, utilize o comando abaixo:
 
-```
+```bash linenums="1"
 $ oci container-instances container-instance list-shapes \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all \
@@ -38,17 +40,18 @@ $ oci container-instances container-instance list-shapes \
 
 É importante ressaltar que cada shape possui limitações em relação à quantidade máxima de OCPUs, memória e largura de banda de rede. Por exemplo, o comando abaixo lista todas as propriedades de todos os shapes disponíveis:
 
-```
+```bash linenums="1"
 $ oci container-instances container-instance list-shapes \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all
 ```
 
->_**__NOTA:__** Para obter mais detalhes sobre os shapes disponíveis para Container Instances, consulte a documentação oficial neste [link](https://docs.oracle.com/en-us/iaas/Content/container-instances/container-instance-shapes.htm#container-instance-shapes)._
+!!! note "NOTA"
+    Para obter mais detalhes sobre os shapes disponíveis para Container Instances, consulte a documentação oficial neste [link](https://docs.oracle.com/en-us/iaas/Content/container-instances/container-instance-shapes.htm#container-instance-shapes).
 
 Para a aplicação OCI Pizza, será usado o shape CI.Standard.E4.Flex com 4 GB de memória RAM e 2 OCPUs.
 
-## Container Instance da aplicação OCI Pizza
+## 6.3.2 Container Instance da aplicação OCI Pizza
 
 Para criar um Container Instance, é necessário especificar a URL da imagem do contêiner armazenada no [OCIR](https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm), além de fornecer detalhes sobre o shape, como a quantidade de OCPUs e memória. Também é possível definir variáveis de ambiente, o a[availability domain](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm) e o OCID da sub-rede a ser utilizada. Esses elementos são fundamentais para garantir que o contêiner seja configurado de acordo com as necessidades da aplicação.
 
@@ -56,7 +59,7 @@ Os comandos para a criação dos dois Container Instances na região _Brazil Eas
 
 Abaixo o comando de exemplo para se criar o Container Instance primário (ci-ocipizza-primary):
 
-```
+```bash linenums="1"
 $ oci container-instances container-instance create \
 > --display-name "ci-ocipizza-primary" \
 > --availability-domain "$AVAILABILITY_DOMAIN" \
@@ -84,8 +87,9 @@ $ oci container-instances container-instance create \
 > --wait-for-state "ACCEPTED"
 ```
 
->_**__NOTA:__** Os valores das variáveis $AVAILABILITY_DOMAIN, $COMPARTMENT_OCID, $SECRET_KEY, $NOSQL_COMPARTMENT_OCID e $SUBNET_OCID devem ser substituídos pelos correspondentes ao seu ambiente no OCI. Para obter uma visão geral dos valores, consulte o [script](../scripts/ci-saopaulo.sh) de exemplo._
+!!! note "NOTA"
+    Os valores das variáveis $AVAILABILITY_DOMAIN, $COMPARTMENT_OCID, $SECRET_KEY, $NOSQL_COMPARTMENT_OCID e $SUBNET_OCID devem ser substituídos pelos correspondentes ao seu ambiente no OCI. Para obter uma visão geral dos valores, consulte o [script](../scripts/ci-saopaulo.sh) de exemplo.
 
-## Container Instance como Backend do Load Balancer
+## 6.3.3 Container Instance como Backend do Load Balancer
 
 Além disso, um dos _Container Instances_ será configurado como _Backup_ no _Backend Set_. Caso o Health Check falhe, o Container Instance Backup assumirá automaticamente a função de _Primário_, garantindo assim a continuidade da disponibilidade da aplicação.
