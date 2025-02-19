@@ -46,3 +46,9 @@ extra:
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/daniel-armbrust/
+
+plugins:
+  - minify:
+      minify_html: true
+      minify_css: true
+      minify_js: true
