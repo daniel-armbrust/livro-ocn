@@ -10,6 +10,7 @@ theme:
   name: material
   locale: pt_BR
   font:
+    text: Open Sans
     code: Red Hat Mono
   palette:
     # Dark Mode
@@ -35,6 +36,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
+  - pymdownx.details
 
 extra_css:
   - stylesheets/extra.css

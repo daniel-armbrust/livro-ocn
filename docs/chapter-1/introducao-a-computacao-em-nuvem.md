@@ -12,7 +12,8 @@ Explicar o que é _Computação em Nuvem_ torna-se mais claro quando se compreen
 
 Essa necessidade impulsionou a empresa a buscar soluções que permitissem escalar rapidamente sua infraestrutura, resultando na inovação que conhecemos hoje como Computação em Nuvem.
 
->_**__NOTA:__** Outras empresas também desempenharam papéis pioneiros e significativos no desenvolvimento e na popularização da computação em nuvem. O texto destaca a Amazon, pois ela foi uma das primeiras plataformas a oferecer serviços de Computação em Nuvem de maneira abrangente e acessível._
+!!! note "NOTA"
+    Outras empresas também desempenharam papéis pioneiros e significativos no desenvolvimento e na popularização da computação em nuvem. O texto destaca a Amazon, pois ela foi uma das primeiras plataformas a oferecer serviços de Computação em Nuvem de maneira abrangente e acessível.
 
 A Amazon foi fundada por _[Jeff Bezos](https://en.wikipedia.org/wiki/Jeff_Bezos)_ em 1994, começando sua trajetória como uma _livraria online_. Bezos teve a ideia de colocar a venda na Internet, uma quantidade enorme de livros num volume comparável, na sua cabeça, à quantidade de água do rio Amazonas.
 
@@ -128,7 +129,8 @@ Um provedor de nuvem, de acordo com a especificação do NIST, deve ser capaz de
 
 ![alt_text](./img/iaas-paas-saas-1.png "IaaS, PaaS e SaaS")
 
->_**__NOTA:__** Para maiores informações sobre as responsabilidades que envolve o uso da nuvem entre você e a Oracle, consulte [Modelo de Responsabilidade Compartilhada para Resiliência](https://docs.oracle.com/pt-br/iaas/Content/cloud-adoption-framework/oci-shared-responsibility.htm)._
+!!! note "NOTA"
+    Para maiores informações sobre as responsabilidades que envolve o uso da nuvem entre você e a Oracle, consulte [Modelo de Responsabilidade Compartilhada para Resiliência](https://docs.oracle.com/pt-br/iaas/Content/cloud-adoption-framework/oci-shared-responsibility.htm).
 
 #### IaaS - Infrastructure as a Service (Infraestrutura como Serviço)
 
@@ -168,7 +170,8 @@ Em outras palavras, a Private Cloud é um modelo em que os serviços de nuvem s�
 
 Um exemplo é o _[OCI Dedicated Region](https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/)_, também conhecido como _Oracle Dedicated Region Cloud@Customer_. Essa solução da Oracle permite que as organizações implementem uma região completa da Oracle Cloud em suas próprias instalações ou em um data center específico.
 
->_**__NOTA:__** Para maiores informações consulte ["Dedicated Region"](https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/)._
+!!! note "NOTA"
+    Para maiores informações consulte ["Dedicated Region"](https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/).
 
 #### Nuvem Híbrida
 
@@ -216,7 +219,8 @@ Ambientes computacionais configurados para estarem sempre disponíveis (24 horas
 
 Descreve como um provedor de Computação em Nuvem assegura um nível mínimo de indisponibilidade para os serviços oferecidos aos seus consumidores.
 
->_**__NOTA:__** Consulte [Objetivos de Nível de Serviço para Serviços de Nuvem Pública Oracle PaaS e IaaS](https://docs.oracle.com/pt-br/iaas/Content/General/Reference/servicelevelobjectives.htm) para obter mais informações sobre os tempos de SLA dos serviços disponíveis no OCI._
+!!! note "NOTA"
+    Consulte [Objetivos de Nível de Serviço para Serviços de Nuvem Pública Oracle PaaS e IaaS](https://docs.oracle.com/pt-br/iaas/Content/General/Reference/servicelevelobjectives.htm) para obter mais informações sobre os tempos de SLA dos serviços disponíveis no OCI.
 
 ### 1.5.3 Escalabilidade (Scalability)
 
@@ -308,11 +312,13 @@ Uma das desvantagens mais comuns da Computação em Nuvem é a dependência de u
 
 A ideia ao se utiliar a Computação em Nuvem é sempre dimensionar para baixo, criar um recurso com o mínimo aceitável de CPU e memória e, ir expandindo, aumentando, gradativamente. 
 
->_**__NOTA:__** Utilizo CPU e memória como exemplos para facilitar a compreensão, mas essa lógica se aplica igualmente a todos os outros serviços disponíveis na nuvem._
+!!! note "NOTA"
+    Utilizo CPU e memória como exemplos para facilitar a compreensão, mas essa lógica se aplica igualmente a todos os outros serviços disponíveis na nuvem.
 
 No OCI, há ferramentas como o _[Cost Analysis](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm)_ que tornam a gestão e o monitoramento dos seus custos mais simples e eficazes.
 
->_**__NOTA:__** Uma excelente ferramenta é [OCI360 - Oracle Cloud Infrastructure 360º View](https://github.com/dbarj/oci360), que permite visualizar os recursos ativos do seu ambiente no OCI de forma abrangente e intuitiva._
+!!! note "NOTA"
+    Uma excelente ferramenta é [OCI360 - Oracle Cloud Infrastructure 360º View](https://github.com/dbarj/oci360), que permite visualizar os recursos ativos do seu ambiente no OCI de forma abrangente e intuitiva.
 
 #### Complexidade
 
@@ -322,7 +328,8 @@ Outra complexidade está relacionada à forma como os recursos são provisionado
 
 A boa notícia é que a nuvem oferece diversas maneiras de criar e atualizar sua infraestrutura. Uma dessas opções é por meio de ferramentas de _Infraestrutura como Código (IaC - Infrastructure as Code)_. Ao representar sua infraestrutura em código, o gerenciamento se torna mais eficiente e organizado, além de o código servir como uma forma de documentação. No entanto, isso requer que os administradores tenham conhecimentos em programação.
 
->_**__NOTA:__** Consulte [Why Infrastructure as Code Matters](https://blogs.oracle.com/ateam/post/why-infrastructure-as-code-matters) para uma visão dos benefícios de utilizar ferramentas de IaC._
+!!! note "NOTA"
+    Consulte [Why Infrastructure as Code Matters](https://blogs.oracle.com/ateam/post/why-infrastructure-as-code-matters) para uma visão dos benefícios de utilizar ferramentas de IaC.
 
 #### Interação com o Suporte
 
@@ -498,7 +505,8 @@ Nesse contexto, _Computação em Nuvem_ refere-se ao ambiente onde o software é
 
 Além de tudo o que já foi dito, desenvolver software de acordo com os padrões Cloud Native frequentemente contribui para a redução de custos, pois elimina o _[overprovisioning](https://en.wikipedia.org/wiki/Overprovisioning)_ ao permitir que os recursos sejam escalados conforme a demanda de utilização. 
 
->_**__NOTA:__** Overprovisioning é um termo utilizado em ambientes de computação e infraestrutura de TI que se refere à prática de alocar mais recursos do que o necessário para atender à demanda de uma aplicação ou serviço._
+!!! note "NOTA"
+    Overprovisioning é um termo utilizado em ambientes de computação e infraestrutura de TI que se refere à prática de alocar mais recursos do que o necessário para atender à demanda de uma aplicação ou serviço.
 
 Aplicações Cloud Native possuem as seguintes características:
 
@@ -518,13 +526,15 @@ _[CNCF](https://www.cncf.io/)_ promove, por meio de um ecossistema de projetos d
 
 Conforme mencionado em seu _[FAQ](https://www.cncf.io/about/faq/#why-is-cncf-needed)_, as tecnologias da CNCF não estão sujeitas ao chamado _[vendor lock-in](https://en.wikipedia.org/wiki/Vendor_lock-in)_ e são portáveis entre diferentes provedores de nuvem.
 
->_**__NOTA:__** Consulte a definição de [Cloud Native da CNCF na versão 1.1](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro), que descreve os princípios e características fundamentais desse conceito._
+!!! note "NOTA"
+    Consulte a definição de [Cloud Native da CNCF na versão 1.1](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro), que descreve os princípios e características fundamentais desse conceito.
 
 A CNCF hospeda diversos projetos que possibilitam o desenvolvimento de aplicações Cloud Native sem o risco de _[vendor lock-in](https://en.wikipedia.org/wiki/Vendor_lock-in)_, garantindo a portabilidade entre diferentes provedores de nuvem.
 
 ![alt_text](./img/cncf-projects-logo-1.png "Projetos desenvolvidos pela CNFC")
 
->_**__NOTA:__** Consulte ["Graduated and Incubating Projects"](https://www.cncf.io/projects/) para acessar a lista dos projetos mantidos pela CNCF._
+!!! note "NOTA"
+    Consulte ["Graduated and Incubating Projects"](https://www.cncf.io/projects/) para acessar a lista dos projetos mantidos pela CNCF.
 
 ## 1.9 Conclusão
 
