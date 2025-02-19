@@ -1,25 +1,31 @@
-![alt_text](./img/oci-pizza-logo-1.png "OCI Pizza")
+# Livro: OCN - Oracle Cloud Native
+### Guia Prático para Implantação de Aplicações Cloud Native na Oracle Cloud Infrastructure (OCI)
 <br>
 
-# Bem-vindo ao OCI Pizza
+![alt_text](./img/livro-ocn-logo-1.jpg "Livro: OCN - Oracle Cloud Native")
+<br>
 
-_OCI Pizza_ é uma aplicação web foi desenvolvida para documentar de forma abrangente todo o processo de desenvolvido e implantação (deploy) de uma aplicação _[Cloud Native](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro)_ na _[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_.
+O livro **"OCN - Oracle Cloud Native"**, utiliza uma aplicação web chamada **OCI Pizza** para oferecer uma explicação abrangente sobre todo o processo de desenvolvimento e implantação (deploy) de uma aplicação **[Cloud Native](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro)** na **[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)**.
 
-Com o objetivo de facilitar a compreensão e a execução das melhores práticas, a documentação do _OCI Pizza_ oferece um guia detalhado que abrange desde a concepção inicial até a implementação final, garantindo que os usuários possam aproveitar ao máximo os recursos e serviços oferecidos pelo _OCI_.
+Nesta obra, você encontrará informações detalhadas sobre como aproveitar os diversos serviços disponíveis no OCI para construir e implantar uma aplicação Cloud Native de maneira eficiente e econômica.
 
-A aplicação é desenvolvida com tecnologias modernas que, em conjunto com os robustos serviços de infraestrutura disponíveis pelo _OCI_, asseguram alto desempenho, escalabilidade e segurança. Essa combinação permite que a aplicação suporte um grande volume de usuários simultâneos, oferecendo uma experiência fluida e responsiva para todos os usuários.
+Espero que este livro o ajude a explorar os incríveis serviços de nuvem oferecidos pelo OCI.
 
-Nesta documentação, você encontrará informações detalhadas sobre como utilizar os diversos serviços disponíveis no _OCI_ para construir e implantar uma aplicação _Cloud Native_ de forma eficiente e de baixo custo.
-
-Bora entender...
+Boa leitura!
 
 [LICENÇA DE USO](./license.md)
+<br><br>
+<a href="/livro-ocn/license/">
+   <img src="./img/cc-by-40.png" alt="CC BY 4.0" class="align-left">
+</a>
+<br><br>
 
 ## Sumário
 
 - [Prefácio](./prefacio.md)
 - [Sobre o Autor](./sobre-o-autor.md)
 - [Introdução](./introducao.md)
+<br><br>
 
 - [Capítulo 1: Introdução a Computação em Nuvem](./chapter-1/index.md)
     - [1.1 O que é Computação em Nuvem?](./chapter-1/introducao-a-computacao-em-nuvem.md#11-o-que-é-computação-em-nuvem)    
@@ -69,5 +75,6 @@ Bora entender...
 
 - [Capítulo 12: HOWTOs Extras](./chapter-12/index.md)
     - [12.1 Roteamento de Trânsito com pfSense](./chapter-12/transit-routing-pfsense.md)
+<br><br>
 
 - [Bibliografia](./bibliografia.md)

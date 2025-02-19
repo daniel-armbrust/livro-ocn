@@ -1,5 +1,8 @@
 # LICENÇA DE USO
 
+![alt_text](./img/cc-by-40.png  "CC BY 4.0")
+<br>
+
 **Licença Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)**
 
 A licença Creative Commons Atribuição 4.0 Internacional (CC BY 4.0) permite que outros compartilhem, remixem, adaptem e utilizem a obra, mesmo para fins comerciais, desde que atribuam o crédito ao autor original.
