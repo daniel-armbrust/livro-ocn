@@ -23,6 +23,7 @@ Sob as seguintes condições:
 Para mais informações, visite:
 [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
 
-- Data de criação: 18/12/2024
 - Autor: Daniel Armbrust (darmbrust@gmail.com)
-- Título da obra: OCI Pizza - Guia Prático para Implantação de Aplicações Cloud Native na Oracle Cloud Infrastructure (OCI)
+- Título da obra: OCN - Oracle Cloud Native (OCI) - Guia Prático para Implantação de Aplicações Cloud Native na Oracle Cloud Infrastructure (OCI).
+
+Copyright &copy; 2024 Daniel Armbrust. Todos os direitos reservados. 
