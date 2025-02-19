@@ -15,7 +15,7 @@ Boa leitura!
 
 [LICENÇA DE USO](./license.md)
 <br><br>
-<a href="/livro-ocn/license/">
+<a href="/license/">
    <img src="./img/cc-by-40.png" alt="CC BY 4.0" class="align-left">
 </a>
 <br><br>
