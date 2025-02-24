@@ -23,7 +23,7 @@ Sob as seguintes condições:
 Para mais informações, visite:
 [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
 
+- Título da obra: OCN - OCI Cloud Native - Um guia prático para a construção de aplicações nativas da nuvem na Oracle Cloud Infrastructure (OCI).
 - Autor: <a href="mailto:darmbrust@gmail.com">Daniel Armbrust (darmbrust@gmail.com)</a>
-- Título da obra: OCN - Oracle Cloud Native (OCI) - Guia Prático para Implantação de Aplicações Cloud Native na Oracle Cloud Infrastructure (OCI).
 
 Copyright &copy; 2024 Daniel Armbrust. Todos os direitos reservados. 

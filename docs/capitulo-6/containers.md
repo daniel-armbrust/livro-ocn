@@ -4,7 +4,29 @@
 
 Definir contêineres de maneira concisa pode ser um desafio, pois abrange uma série de conceitos interconectados. Para tornar essa compreensão mais acessível, apresentarei alguns princípios fundamentais que esclarecerão o que são contêineres e como funcionam.
 
-Em 2006, foi quando o Google desenvolveu um projeto chamado Process Container que foi uma evolução em cima dos Jails de BSD ou Zonas do Solaris. Esse projeto foi depois renomeado para Control Groups ou CGROUPS. A ideia é fazer a Kernel do sistema operacional mentir para os processos (dois processos podem rodar no mesmo sistema operacional porém um sem saber da existência um do outro). Isso é mais leve do ponto de vista de consumo de recursos computacionais pois, você está executando somente uma Kernel em vez de múltiplas Kernels virtualizadas.
+Em 2006, foi quando o Google desenvolveu um projeto chamado Process Container que foi uma evolução em cima dos Jails de BSD ou Zonas do Solaris. Esse projeto foi depois renomeado para Control Groups ou CGROUPS. A ideia é fazer a Kernel do sistema operacional "mentir" para os processos de uma maneira em que dois processos podem rodar no mesmo sistema operacional porém um sem saber da existência um do outro. Isso é mais leve do ponto de vista de consumo de recursos computacionais pois, você está executando somente uma Kernel em vez de múltiplas Kernels virtualizadas.
+
+Em março de 2013, uma palestra relâmpago de 5 minutos chamada "O futuro dos contêineres Linux", apresentada por Solomon Hykes na PyCon, introduziu uma futura ferramenta de código aberto chamada "Docker" para criar e usar contêineres Linux. O Docker introduziu um nível de usabilidade aos contêineres Linux que os tornou acessíveis a mais usuários do que nunca, e a popularidade do Docker, e portanto dos contêineres Linux, disparou. Com o Docker tornando a abstração dos contêineres Linux acessível a todos, executar aplicativos de maneiras muito mais portáteis e repetíveis de repente se tornou possível, mas a questão da escala permaneceu.
+
+Em 2013 o _[Docker](https://en.wikipedia.org/wiki/Docker_(software))_ é apresentado por _[Solomon Hykes](https://fr.wikipedia.org/wiki/Solomon_Hykes)_ na conferência _[dotScale em 2013](https://youtu.be/3N3n9FzebAA?si=g6g9bRJYCVk64apa)_ que inicialmente, era somente um conjunto de ferramentas que fazia uso do _[Linux Containers (LXC)](https://docs.oracle.com/en/operating-systems/oracle-linux/7/containers/lxc-ol7-containers.html)_ que tinha como objetivo executar de forma isolada as aplicações dentro do mesmo sistema operacional. 
+
+Nesta época, o Google já estava usando contêiners a mais ou menos 15 anos porém através de ferramentas internas e proprietárias nas quais não eram divulgadas ao público.
+
+Antes do Docker, muitas empresas sabiam dos contêineres porém isso era secreto. Muitos engenheiros de software não sabiam disso na época. Isso só era utilizado em grandes empresas por debaixo dos panos como Google e Heroku, por exemplo.
+
+Antes do Docker, existiam diferentes ferramentas e frameworks proprietários no qual permitiam os desenvolvedores construir software local. Porém, o próximo passo era trazer o software, desenvolvido localmente, para a produção de um modo que ele poderia escalar.
+
+Docker tooling and experience popularized a brand-new cloud native approach to application packaging and maintenance. 
+
+!!! note "NOTA"
+    Para ter uma noção da complexidade envolvida na criação de um contêiner manualmente, sem o uso do Docker, assista ao vídeo _["Fábio Akita - Entendendo o Funcionamento de Containers"](https://youtu.be/85k8se4Zo70?si=kWHQA8SQaHvkJobR)_.
+
+
+Inicialmente o Docker era somente um conjunto de ferramentas que fazia uso do _[Linux Containers (LXC)](https://docs.oracle.com/en/operating-systems/oracle-linux/7/containers/lxc-ol7-containers.html)_.
+
+A ideia de se utilizar e implementar contêineres afeta a forma como se cria software e distribuí software.
+
+A ideia de contêineres é executar programas dentro do mesmo sistema operacional. Docker não é full virtualization, não é paravirtualization e não é um hypervisor.
 
 Em 2013 surge o tal Docker que inicialmente usou o Linux Containers ou LXC. Docker não é full virtualization, não é paravirtualization e não é um hypervisor. Virtualização é literalmente falsificar o hardware físico. Nesse hardware virtual, você pode executar mutiplos e diferentes sistemas operacionais cada um contendo o seu próprio Kernel. A ideia toda, dos containers, é executar todos os programas dentro do mesmo sistema operacional.
 

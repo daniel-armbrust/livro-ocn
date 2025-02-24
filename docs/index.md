@@ -1,15 +1,15 @@
-# Livro: OCN - Oracle Cloud Native 
-### Guia Prático para Implantação de Aplicações Cloud Native na Oracle Cloud Infrastructure (OCI)
+# Livro: OCN - OCI Cloud Native
+### Um guia prático para a construção de aplicações nativas da nuvem na Oracle Cloud Infrastructure (OCI).
 <br>
 
 ![alt_text](./img/livro-ocn-logo-1.jpg "Livro: OCN - Oracle Cloud Native")
 <br>
 
-O livro **"OCN - Oracle Cloud Native"**, utiliza uma aplicação web chamada **OCI Pizza** para oferecer uma explicação abrangente sobre todo o processo de desenvolvimento e implantação (deploy) de uma aplicação **[Cloud Native](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro)** na **[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)**.
+**"OCN - OCI Cloud Native"** é um livro brasileiro que apresenta um guia completo sobre a construção de aplicações nativas da nuvem. Através de uma aplicação web chamada **OCI Pizza**, o autor fornece uma explicação detalhada de todo o processo de desenvolvimento e implantação (deploy) de uma aplicação **[Cloud Native](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro)** na **[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)**.
 
-Nesta obra, você encontrará informações detalhadas sobre como aproveitar os diversos serviços disponíveis no OCI para construir e implantar uma aplicação Cloud Native de maneira eficiente e econômica.
+Aqui, você encontrará informações sobre como aproveitar os diversos serviços disponíveis no OCI para construir e implantar uma aplicação nativas da nuvem de forma eficiente e econômica.
 
-Espero que este livro o ajude a explorar os incríveis serviços de nuvem oferecidos pelo OCI.
+Espero que este livro o ajude a explorar os incríveis serviços de nuvem disponíveis na OCI.
 
 Boa leitura!
 
@@ -45,9 +45,9 @@ Boa leitura!
 - [Capítulo 2: OCI Foundations](./capitulo-2/index.md)
 <br><br>
 
-- [Capítulo 3: Introdução a Aplicação OCI Pizza](./capitulo-3/index.md)
+- [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
     - [3.1 Visão geral](./capitulo-3/ocipizza-overview.md)
-    - [3.2 Microsserviços](./capitulo-3/microservices.md)
+    - [3.2 Monolito vs. Microsserviços](./capitulo-3/microservices.md)
 <br><br>
 
 - [Capítulo 4: Conectividade e Redes](./capitulo-4/index.md)
@@ -73,6 +73,7 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 7: Oracle Kubernetes Engine (OKE)](./capitulo-7/index.md)
+    - [7.1 O que é o Kubernetes?](./capitulo-7/o-que-e-kubernetes.md)
 <br><br>
 
 - [Capítulo 8: Serviço DevOps](./capitulo-8/index.md)
