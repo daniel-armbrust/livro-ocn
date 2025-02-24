@@ -1,6 +1,8 @@
 # Capítulo 7: Oracle Kubernetes Engine (OKE)
 
-# 7.1 Um pouco de História
+# 7.1 O que é o Kubernetes?
+
+## 7.1.1 Um pouco de História
 
 A criação do Kubernetes teve origem no Google, que, no início dos anos 2000, buscava formas de gerenciar de maneira eficiente sua extensa infraestrutura de servidores e aplicações.
 
@@ -32,9 +34,9 @@ Desenvolvido do zero com uma arquitetura mais consistente, o Omega integrou dive
 !!! note "NOTA"
     O termo "agendamento" ou _"scheduling"_ será melhor compreendido na seção seguinte, que aborda o processo de implantação de uma aplicação no Kubernetes.
 
-## 7.1.1 Do Docker ao Kubernetes
+## 7.1.2 Do Docker ao Kubernetes
 
-Por volta de 2013, o Google já utilizava e executava contêineres há aproximadamente 15 anos, por meio de seus sistemas Borg e Omega que também já implementavam a _orquestração de contêineres_. No entanto, esses são sistemas de uso interno e proprietários.
+Por volta de 2013, o Google já utilizava e executava contêineres há aproximadamente 15 anos, por meio de seus sistemas _Borg_ e _Omega_ que também já implementavam a _orquestração de contêineres_. No entanto, esses são sistemas de uso interno e proprietários.
 
 !!! note "NOTA"
     A expressão _"orquestração de contêineres"_ refere-se ao processo de automatizar a implantação, gerenciamento, escalonamento e rede de contêineres em ambientes de computação.
@@ -47,7 +49,7 @@ Embora o Docker fosse excelente para criar e empacotar contêineres individuais 
 
 Um contêiner Docker era um meio para se ter uma unidade de software que poderia ser reproduzida. No entanto, **_como garantir que três instâncias do mesmo software possam ser executadas em conjunto?_**
 
-Uma equipe de engenheiros do Google, composta por _[Brendan Burns](https://www.linkedin.com/in/brendan-burns-487aa590/)_, _[Joe Beda](https://www.linkedin.com/in/jbeda/)_, _[Craig McLuckie](https://www.linkedin.com/in/craigmcluckie/)_ e outros que já estavam familiarizados com os sistemas Borg e Omega e outros profissionais já familiarizados com os sistemas Borg e Omega, viram a crescente popularidade da conteinerização impulsionada pelo Docker. Eles reconheceram a necessidade de desenvolver um sistema de orquestração de contêineres de código aberto, que fosse amplamente acessível e permitisse que qualquer pessoa o utilizasse, e não apenas grandes corporações como o Google.
+Uma equipe de engenheiros do Google, composta por _[Brendan Burns](https://www.linkedin.com/in/brendan-burns-487aa590/)_, _[Joe Beda](https://www.linkedin.com/in/jbeda/)_, _[Craig McLuckie](https://www.linkedin.com/in/craigmcluckie/)_ e outros que já estavam familiarizados com os sistemas Borg e Omega, viram a crescente popularidade da conteinerização impulsionada pelo Docker. Eles reconheceram a necessidade de desenvolver um sistema de orquestração de contêineres de código aberto, que fosse amplamente acessível e permitisse que qualquer pessoa o utilizasse, e não apenas grandes corporações como o Google.
 
 No entanto, internalizar e obter aprovação para essa ideia open source dentro do Google não foi uma tarefa fácil. Juntamente com outros colegas da época, eles dedicaram um tempo considerável para convencer a liderança executiva de que transformar esse projeto em um empreendimento de código aberto seria uma excelente iniciativa.
 
@@ -80,7 +82,7 @@ A Oracle, também em 2017, juntou-se à comunidade _Cloud Native Computing Found
 !!! note "NOTA"
     Os detalhes do anúncio referente a Oracle juntar-se ao _Cloud Native Computing Foundation (CNCF)_ pode ser visualizado em _["Oracle joins Cloud Native Computing Foundation as Platinum Member"](https://www.cncf.io/announcements/2017/09/13/oracle-joins-cloud-native-computing-foundation-platinum-member/)_.
 
-## 7.1.2 Outras soluções para Orquestração de Contêineres
+## 7.1.3 Outras soluções para Orquestração de Contêineres
 
 Empresas como _Netflix_, _Apple_ e _Airbnb_ utilizavam o _[Apache Mesos](https://mesos.apache.org/)_ antes da adoção do Kubernetes, pois, na época, essa era uma solução consolidada que já estava em uso há algum tempo e podia escalar para até 10.000 instâncias.
 
@@ -105,7 +107,7 @@ Embora o Kubernetes seja a solução mais popular para orquestração de contêi
 - **[Docker Swarn](https://docs.docker.com/engine/swarm/)**
     - Docker Swarm é uma ferramenta de orquestração de contêineres nativa do Docker que permite gerenciar um cluster de instâncias do Docker como um único sistema.
 
-## 7.1.3 Implementações Kubernetes em Cloud
+## 7.1.4 Implementações Kubernetes em Cloud
 
 Hoje, diversos provedores de Computação em Nuvem implementam e disponibilizam o Kubernetes como serviço.
 
@@ -126,4 +128,4 @@ Hoje, diversos provedores de Computação em Nuvem implementam e disponibilizam 
 - **[Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift)**
 
 !!! note "NOTA"
-    Red Hat OpenShift não é exclusivamente uma solução de Kubernetes em nuvem. Ele é uma plataforma de contêineres que se fundamenta no Kubernetes no qual pode ser implantada em diversas nuvens.
+    _Red Hat OpenShift_ não é exclusivamente uma solução de Kubernetes em nuvem. Ele é uma plataforma de contêineres que se fundamenta no Kubernetes no qual pode ser implantada em diversas nuvens.
