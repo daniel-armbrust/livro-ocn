@@ -34,10 +34,14 @@
 
 - [Davis, Cornelia (2019). Cloud Native Patterns: Designing change-tolerant software. Manning.](https://amzn.to/3EEK5nS)
 
-- [Google Inc (2015). Large-scale cluster management at Google with Borg](https://dl.acm.org/doi/pdf/10.1145/2741948.2741964)
+- [Kubernetes Documentation.](https://kubernetes.io/docs/home/)
 
-- [Google Inc (2016). Borg, Omega, and Kubernetes](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44843.pdf)
+- [Google Inc (2015). Large-scale cluster management at Google with Borg.](https://dl.acm.org/doi/pdf/10.1145/2741948.2741964)
 
-- [Burns, Brendan (2018). The History of Kubernetes & the Community Behind It](https://kubernetes.io/blog/2018/07/20/the-history-of-kubernetes-the-community-behind-it/)
+- [Google Inc (2016). Borg, Omega, and Kubernetes.](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44843.pdf)
 
-- [10 Years of Kubernetes (2024)](https://kubernetes.io/blog/2024/06/06/10-years-of-kubernetes/)
+- [Burns, Brendan (2018). The History of Kubernetes & the Community Behind It.](https://kubernetes.io/blog/2018/07/20/the-history-of-kubernetes-the-community-behind-it/)
+
+- [10 Years of Kubernetes (2024). Kubernetes Blog.](https://kubernetes.io/blog/2024/06/06/10-years-of-kubernetes/)
+
+- [Madapparambath, Gineesh; McKendrick, Russ (2024). The Kubernetes Bible - Second Edition. Packt Publishing.](https://amzn.to/4beZtDA)

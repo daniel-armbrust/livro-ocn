@@ -1,6 +1,8 @@
-# Capítulo 6: Desenvolvimento Moderno
+# Capítulo 7: Desenvolvimento Moderno
 
-# 6.1 Entendendo os Contêineres
+# 7.1 Entendendo os Contêineres
+
+containers are the first-choice solution for most new applications.
 
 Definir contêineres de maneira concisa pode ser um desafio, pois abrange uma série de conceitos interconectados. Para tornar essa compreensão mais acessível, apresentarei alguns princípios fundamentais que esclarecerão o que são contêineres e como funcionam.
 
@@ -30,7 +32,7 @@ A ideia de contêineres é executar programas dentro do mesmo sistema operaciona
 
 Em 2013 surge o tal Docker que inicialmente usou o Linux Containers ou LXC. Docker não é full virtualization, não é paravirtualization e não é um hypervisor. Virtualização é literalmente falsificar o hardware físico. Nesse hardware virtual, você pode executar mutiplos e diferentes sistemas operacionais cada um contendo o seu próprio Kernel. A ideia toda, dos containers, é executar todos os programas dentro do mesmo sistema operacional.
 
-## 6.1.2 Processos
+## 7.1.2 Processos
 
 Programa é uma entidade passiva onde as suas instruções são armazenadas em disco. Pode-se dizer também que, um programa é um _arquivo executável_. 
 
@@ -51,7 +53,7 @@ Uma vez gerada, uma imagem de contêiner pode ser transportada e executada em qu
 
 Os contêineres revolucionaram o desenvolvimento de software ao oferecer agilidade e simplificar o empacotamento e a distribuição de aplicações. Todas as dependências necessárias para uma aplicação estão incluídas dentro do contêiner, resultando em um pacote autocontido. Isso permite que o mesmo software seja executado em diferentes ambientes (desenvolvimento, teste e produção) sem a necessidade de realizar qualquer modificação.
 
-## 6.1.3 Docker
+## 7.1.3 Docker
 
 ![alt_text](./img/docker-logo-1.png "Docker")
 
@@ -62,7 +64,7 @@ Docker é um conjunto de ferramentas desenvolvido para simplificar a criação, 
 
 Contêineres não são máquinas virtuais. Enquanto uma máquina virtual inclui um sistema operacional completo e inicializável, um contêiner opera dentro de um sistema operacional existente. Isso significa que um único sistema operacional pode executar múltiplos contêineres, que são significativamente mais leves do que máquinas virtuais completas. Essa leveza permite um uso mais eficiente dos recursos, resultando em tempos de inicialização mais rápidos e uma maior densidade de aplicações em um mesmo ambiente.
 
-## 6.1.4 Container Registry
+## 7.1.4 Container Registry
 
 O _Container Registry_ é um serviço fundamental presenten no ecossistema de contêineres pois é ele quem permite armazenar, gerenciar e distribuir imagens de contêiner.
 
@@ -101,7 +103,7 @@ bash-4.4# whoami
 root
 ```
 
-## 6.1.5 Dockerfile
+## 7.1.5 Dockerfile
 
 O Dockerfile é um arquivo de texto que contém todas as instruções necessárias para construir uma imagem de contêiner. O Dockerfile da aplicação _OCI Pizza_ inclui o seguinte conteúdo:
 
@@ -188,7 +190,7 @@ ocipizza                                       1.0       5f3324071ab8   4 second
 container-registry.oracle.com/os/oraclelinux   8-slim    95e2d27d5c61   2 weeks ago     115MB
 ```
 
-## 6.1.6 Oracle Cloud Infrastructure Registry (OCIR)
+## 7.1.6 Oracle Cloud Infrastructure Registry (OCIR)
 
 Já sabemos que o Container Registry é um repositório utilizado para armazenar imagens de contêineres. No contexto do OCI, temos o [Oracle Cloud Infrastructure Registry (OCIR)](https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm), que é um serviço gerenciado especificamente para o armazenamento e gerenciamento de imagens de contêineres.
 
@@ -277,7 +279,7 @@ $ oci artifacts container image list \
 > --repository-name "ocipizza"
 ```
 
-## 6.1.7 Habilitando o Scan de Vulnerabilidades
+## 7.1.7 Habilitando o Scan de Vulnerabilidades
 
 Allow service vulnerability-scanning-service to read compartments in tenancy
 Allow service vulnerability-scanning-service to read repos in tenancy

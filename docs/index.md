@@ -22,7 +22,7 @@ Boa leitura!
 
 | Status              | Último Atualização | Versão   |
 |---------------------|--------------------|----------|
-| Ainda escrevendo... | 24/02/2026         | 1.0.0b   |
+| Ainda escrevendo... | 27/02/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -65,25 +65,28 @@ Boa leitura!
     - [5.1 Persistência dos dados com o Oracle NoSQL](./capitulo-5/nosql.md)
 <br><br>
 
-- [Capítulo 6: Desenvolvimento Moderno](./capitulo-6/index.md)
-    - [6.1 Entendendo os Contêineres](./capitulo-6/containers.md)
-    - [6.2 Introdução ao GraalVM](./capitulo-6/graalvm.md)
-    - [6.3 Container Instances](./capitulo-6/container-instances.md)
-    - [6.4 Functions](./capitulo-6/functions.md)
+- [Capítulo 6: Serviço de Computação](./capitulo-6/index.md)
 <br><br>
 
-- [Capítulo 7: Oracle Kubernetes Engine (OKE)](./capitulo-7/index.md)
-    - [7.1 O que é o Kubernetes?](./capitulo-7/o-que-e-kubernetes.md)
+- [Capítulo 7: Desenvolvimento Moderno](./capitulo-7/index.md)
+    - [7.1 Entendendo os Contêineres](./capitulo-7/containers.md)
+    - [7.2 Introdução ao GraalVM](./capitulo-7/graalvm.md)
+    - [7.3 Container Instances](./capitulo-7/container-instances.md)
+    - [7.4 Functions](./capitulo-7/functions.md)
 <br><br>
 
-- [Capítulo 8: Serviço DevOps](./capitulo-8/index.md)
-    - [8.1 Do GitHub para o OCI DevOps](./capitulo-8/github-ocidevops.md)
+- [Capítulo 8: Oracle Kubernetes Engine (OKE)](./capitulo-8/index.md)
+    - [8.1 Um pouco de História](./capitulo-8/historia-do-kubernetes.md)
+    - [8.2 Introdução ao Kubernetes](./capitulo-8/introducao-ao-kubernetes.md)
+    - [8.3 Arquitetura do Kubernetes](./capitulo-8/arquitetura-kubernetes.md)
+    - [8.4 Objetos Kubernetes](./capitulo-8/objetos-kubernetes.md)
 <br><br>
 
-- [Capítulo 9: Monitoração e Observabilidade](./capitulo-9/index.md)
+- [Capítulo 9: Serviço DevOps](./capitulo-9/index.md)
+    - [9.1 Do GitHub para o OCI DevOps](./capitulo-9/github-ocidevops.md)
 <br><br>
 
-- [Capítulo 10: Serviços de Computação](./capitulo-10/index.md)
+- [Capítulo 10: Monitoração e Observabilidade](./capitulo-10/index.md)
 <br><br>
 
 - [Capítulo 11: Ferramental de IA](./capitulo-11/index.md)
@@ -91,7 +94,8 @@ Boa leitura!
 
 - [Capítulo 12: HOWTOs Extras](./capitulo-12/index.md)
     - [12.1 Roteamento de Trânsito com pfSense](./capitulo-12/transit-routing-pfsense.md)
-    - [12.2 Kubernetes the Hard Way on OCI](./capitulo-12/kubernetes-hard-way-oci.md)
+    - [12.2 Ansible Básico](./capitulo-12/ansible-básico.md)
+    - [12.3 OCI: Kubernetes the Hard Way](./capitulo-12/oci-kubernetes-hard-way.md)
 <br><br>
 
 - [Bibliografia](./bibliografia.md)

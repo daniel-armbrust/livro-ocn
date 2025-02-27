@@ -13,20 +13,19 @@ theme:
     text: Open Sans
     code: Red Hat Mono
   palette:
+  # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode      
+      accent: deep orange
     # Dark Mode
     - scheme: slate
       toggle:
         icon: material/weather-sunny
         name: Dark mode
       primary: blue
-      accent: deep purple
-
-    # Light Mode
-    - scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Light mode      
-      accent: deep orange
+      accent: deep purple    
 
 markdown_extensions:
   - pymdownx.highlight:      

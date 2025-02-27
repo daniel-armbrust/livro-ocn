@@ -1,6 +1,6 @@
-# Capítulo 6: Desenvolvimento Moderno
+# Capítulo 7: Desenvolvimento Moderno
 
-# 6.4 Functions
+# 7.4 Functions
 
 [Oracle Functions](https://docs.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm), ou simplesmente [Functions](https://docs.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm), é uma plataforma _serverless_ que possibilita a criação e execução de códigos na infraestrutura do OCI, sem a necessidade de provisionar, configurar ou gerenciar servidores.
 
@@ -17,7 +17,7 @@ O serviço OCI Functions é baseado no projeto de código aberto [Fn Project](ht
 
 Embora o conceito de serverless possa parecer a solução mágica e definitiva para a construção de aplicações, ele não é uma _"bala de prata"_ que se aplica a todos os casos. Veremos que existem algumas limitações e seu uso exige uma nova abordagem na forma como as aplicações são desenvolvidas.
 
-## 6.4.1 Funções em Contêineres
+## 7.4.1 Funções em Contêineres
 
 Uma [função](https://docs.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm) é, essencialmente, um contêiner que é executado na infraestrutura do OCI, seja por meio de uma chamada direta ou em resposta a um evento específico. O processo de construção da imagem do contêiner e seu envio para o [OCIR](https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm) permanece o mesmo;  no entanto, é realizado de maneira diferente, utilizando a ferramenta de linha de comando fornecida pelo Fn Project.
 
@@ -43,7 +43,7 @@ Essas limitações também se refletem na forma como o serviço é cobrado. A co
 
 É fundamental entender a tecnologia para projetar de forma eficaz o que pode ser transformado em uma função ou o que é mais apropriado para essa finalidade. Neste capítulo, utilizaremos como exemplo duas funcionalidades da aplicação OCI Pizza que utilizam o OCI Functions para enviar e-mails aos usuários finais.
 
-## 6.4.2 Cold Start e Hot Start
+## 7.4.2 Cold Start e Hot Start
 
 Como já mencionado, uma função é essencialmente um contêiner que é executado pelo OCI. Essa execução pode ser realizada por meio do utilitário de linha de comando fornecido pelo Fn Project, OCI CLI, SDKs, chamadas HTTP diretas ou em resposta a eventos configuráveis.
 
@@ -63,7 +63,7 @@ Já o termo **Hot Start** tem um significado oposto. Quando uma função ainda e
 
 É importante dizer que, requisições subsequentes são direcionadas ao mesmo contêiner. Se necessário, o OCI escala automaticamente a infraestrutura de forma horizontal para atender a um maior volume de requisições, até um limite máximo de _60 GB de memória_ para execução de todas as funções. Esse é o limite do tenancy, e, se necessário, é possível solicitar uma alteração para aumentar a capacidade máxima de memória.
 
-## 6.4.3 Provisioned Concurrency
+## 7.4.3 Provisioned Concurrency
 
 Uma maneira de garantir que as funções estejam prontas para uso e evitar o cold start é utilizar o recurso _[Provisioned Concurrency](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsusingprovisionedconcurrency.htm#functionsusingprovisionedconcurrency)_. Essa funcionalidade assegura que a infraestrutura de execução permaneça disponível para um número mínimo de invocações simultâneas, permitindo que as funções sejam acionadas rapidamente.
 
@@ -73,7 +73,7 @@ Provisioned Concurrency é medido em _"provisioned concurrency units" (PCUs)_. V
 
 Para a aplicação OCI Pizza, não será definido nenhum valor para Provisioned Concurrency, uma vez que as funções da aplicação podem tolerar o cold start. Para mais informações sobre o assunto, consulte _["Reducing Initial Latency Using Provisioned Concurrency"](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsusingprovisionedconcurrency.htm#functionsusingprovisionedconcurrency)_.
 
-## 6.4.4 Criando Funções
+## 7.4.4 Criando Funções
 
 Agora que a teoria e as limitações do uso de funções foram abordadas, é hora de aplicar esse conhecimento na prática e preparar o ambiente para o desenvolvimento de funções.
 

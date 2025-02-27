@@ -1,1 +1,0 @@
-# Capítulo 7: Oracle Kubernetes Engine (OKE)

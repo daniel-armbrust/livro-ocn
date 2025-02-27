@@ -1,6 +1,6 @@
-# Capítulo 6: Desenvolvimento Moderno
+# Capítulo 7: Desenvolvimento Moderno
 
-# 6.5 Conclusão
+# 7.5 Conclusão
 
 Neste capítulo, abordamos a importância dos contêineres, o processo de construção de uma imagem de contêiner e como enviá-la para o serviço _OCIR_. 
 
