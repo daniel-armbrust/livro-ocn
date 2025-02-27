@@ -1,15 +1,21 @@
 # Livro: OCN - OCI Cloud Native
-### Um guia prático para a construção de aplicações nativas da nuvem na Oracle Cloud Infrastructure (OCI).
+<h2 style="text-align: center; font-style: italic;">
+Um guia prático para a construção de aplicações nativas da nuvem na Oracle Cloud Infrastructure (OCI).
+</h2>
 <br>
 
 ![alt_text](./img/livro-ocn-logo-1.jpg "Livro: OCN - Oracle Cloud Native")
+
+<h4 style="text-align: center; font-style: italic;">
+   Muitas pessoas precisam compreender aquilo que você já entendeu... por isso, compartilhe o conhecimento que você possui.
+</h4>
 <br>
 
-**"OCN - OCI Cloud Native"** é um livro brasileiro que apresenta um guia completo sobre a construção de aplicações nativas da nuvem. Através de uma aplicação web chamada **OCI Pizza**, o autor fornece uma explicação detalhada de todo o processo de desenvolvimento e implantação (deploy) de uma aplicação **[Cloud Native](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro)** na **[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)**.
+**OCN - OCI Cloud Native** é um livro brasileiro que oferece um guia completo e prático sobre a construção de aplicações nativas da nuvem na **_[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_**. Por meio de uma aplicação web chamada **OCI Pizza**, o autor fornece uma explicação detalhada de todo o processo de desenvolvimento, implantação e execução de uma aplicação **_[Cloud Native](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro)_** na **_[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_**.
 
-Aqui, você encontrará informações sobre como aproveitar os diversos serviços disponíveis no OCI para construir e implantar uma aplicação nativas da nuvem de forma eficiente e econômica.
+Aqui, você encontrará informações sobre como aproveitar os diversos serviços disponíveis no _OCI_ para construir e implantar uma aplicação nativas da nuvem de forma eficiente e econômica.
 
-Espero que este livro o ajude a explorar os incríveis serviços de nuvem disponíveis na OCI.
+Espero que este livro o ajude a explorar os incríveis serviços de nuvem disponíveis no _OCI_.
 
 Boa leitura!
 

@@ -2,7 +2,7 @@
 
 # 8.3 Arquitetura do Kubernetes
 
-O Kubernetes é formado por diversos componentes distribuídos e independentes, cada um com sua própria responsabilidade, todos desenvolvidos na linguagem de programação Go. Para que um cluster Kubernetes funcione, é necessário instalar e configurar esses diferentes componentes.
+O Kubernetes é formado por diversos componentes distribuídos e independentes, cada um com sua própria responsabilidade, todos desenvolvidos na _[linguagem de programação Go](https://go.dev/)_. Para que um cluster Kubernetes funcione, é necessário instalar e configurar esses diferentes componentes.
 
 Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto Kubernetes. A exceção a essa convenção são duas dependências externas: o **_Container Engine_** e o **_etcd_**.
 
@@ -84,6 +84,8 @@ O _[OCI Cloud Controller Manager](https://github.com/oracle/oci-cloud-controller
 Uma das funcionalidades do _[oci-cloud-controller-manager](https://github.com/oracle/oci-cloud-controller-manager)_ é a criação de _[Load Balance](../capitulo-4/load-balancer.md)_ no OCI por meio do do objeto _Service_.
 
 ### Compute Nodes ou Worker Nodes
+
+Em resumo, os Worker Nodes têm a função de executar as aplicações.
 
 !!! note "NOTA"
     É importante ressaltar que, embora seja possível executar todos os componentes do Kubernetes em uma única máquina, essa configuração não oferece tolerância a falhas. A abordagem recomendada é ter pelo menos duas máquinas configuradas como Master Nodes e outras duas como Worker Nodes. Essa configuração proporciona maior resiliência e disponibilidade.

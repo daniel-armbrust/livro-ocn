@@ -50,7 +50,7 @@ A escalabilidade refere-se à capacidade de ajustar o poder computacional de uma
 
 A escalabilidade horizontal é realizada por meio do **Horizontal Pod Autoscaler (HPA)**, que permite aumentar automaticamente o número de réplicas de uma aplicação. Por outro lado, a escalabilidade vertical é gerenciada pelo **Vertical Pod Autoscaler (VPA)**, que ajusta CPU e memória.
 
-## 8.2.2 Demais implementações Kubernete
+## 8.2.2 Demais implementações Kubernetes
 
 Implementações menores:
 
