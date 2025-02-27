@@ -7,7 +7,7 @@ Um guia prático para a construção de aplicações nativas da nuvem na Oracle 
 ![alt_text](./img/livro-ocn-logo-1.jpg "Livro: OCN - Oracle Cloud Native")
 
 <h4 style="text-align: center; font-style: italic;">
-   Muitas pessoas precisam compreender aquilo que você já entendeu... por isso, compartilhe o conhecimento que você possui.
+   As vezes, algumas pessoas gostariam de entender aquilo que você já entendeu... por isso, compartilhe o conhecimento que você possui.
 </h4>
 <br>
 
