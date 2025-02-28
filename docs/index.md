@@ -28,7 +28,7 @@ Boa leitura!
 
 | Status              | Último Atualização | Versão   |
 |---------------------|--------------------|----------|
-| Ainda escrevendo... | 27/02/2026         | 1.0.0b   |
+| Ainda escrevendo... | 28/02/2026         | 1.0.0b   |
 
 ## Sumário
 

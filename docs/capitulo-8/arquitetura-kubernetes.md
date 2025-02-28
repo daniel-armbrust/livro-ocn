@@ -2,18 +2,21 @@
 
 # 8.3 Arquitetura do Kubernetes
 
-O Kubernetes é formado por diversos componentes distribuídos e independentes, cada um com sua própria responsabilidade, todos desenvolvidos na _[linguagem de programação Go](https://go.dev/)_. Para que um cluster Kubernetes funcione, é necessário instalar e configurar esses diferentes componentes.
+O Kubernetes é formado por diversos componentes distribuídos e independentes, cada um com sua própria responsabilidade, todos desenvolvidos na _[linguagem de programação Go](https://go.dev/)_. Para que um cluster Kubernetes funcione, é necessário instalar e configurar todos esses componentes, que serão detalhados a seguir.
 
-Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto Kubernetes. A exceção a essa convenção são duas dependências externas: o **_Container Engine_** e o **_etcd_**.
+Além de detalhar os componentes, será apresentada a arquitetura geral do Kubernetes e a forma como esses componentes interagem entre si.
 
-Aqui, será apresentado de forma resumida a aquitetura do Kubernetes e como, esses diferentes componentes trabalham em conjunto.
+Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto. A exceção a essa convenção são duas dependências externas: o **_Container Engine_** e o **_etcd_**.
 
 ## 8.3.1 Master Nodes e Worker Nodes
 
 Um cluster Kubernetes típico é composto por várias máquinas, que podem ser físicas, virtuais ou uma combinação de ambas, conhecidas como _Nodes_. Esses nodes são organizados em dois grupos principais:
 
 !!! note "NOTA"
-    As máquinas do Master Nodes deve ser Linux. Já as máquinas dos Worker Nodes podem ser Linux ou Windows.
+    É importante ressaltar que, embora seja possível executar todos os componentes do Kubernetes em uma única máquina, essa configuração não oferece tolerância a falhas. A abordagem recomendada é ter pelo menos duas máquinas configuradas como _Master Nodes_ e outras duas como _Worker Nodes_. Essa configuração proporciona maior resiliência e disponibilidade.
+
+!!! note "NOTA"
+    As máquinas do _Master Nodes_ deve ser _Linux_. Já as máquinas dos _Worker Nodes_ podem ser _Linux_ ou _Windows_.
 
 ### Control Plane ou Master Nodes
 
@@ -30,7 +33,7 @@ Há uma coleção de serviços que operam continuamente em cada Master Node, res
 
 É o _frontend_ do Kubernetes, utilizado para enviar comandos e consultar o estado do cluster.
 
-Esse componente, que expõe uma _API RESTful via HTTPS_, permite comandar, monitorar e obter informações sobre todo o cluster. Todas as interações com essa API podem ser realizadas por meio do utilitário de linha de comando **_[kubectl](https://kubernetes.io/docs/reference/kubectl/)_**.
+Esse componente expõe uma API RESTful via HTTPS, que, por padrão, "escuta" as requisições na porta 6443/TCP. Ele permite comandar, monitorar e obter informações sobre todo o cluster. Todas as interações com essa API podem ser realizadas por meio do utilitário de linha de comando **_[kubectl](https://kubernetes.io/docs/reference/kubectl/)_**.
 
 !!! note "NOTA"
     Devido ao fato de o _[kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)_ ser uma _API RESTful_, é possível interagir com ele utilizando até mesmo o utilitário de linha de comando _[curl](https://curl.se/)_. No entanto, é mais prático e fácil realizar essas interações através do _[kubectl](https://kubernetes.io/docs/reference/kubectl/)_.
@@ -85,7 +88,34 @@ Uma das funcionalidades do _[oci-cloud-controller-manager](https://github.com/or
 
 ### Compute Nodes ou Worker Nodes
 
-Em resumo, os Worker Nodes têm a função de executar as aplicações.
+Em resumo, os Worker Nodes têm a função de executar aplicações contêinerizadas, ou, mais precisamente, executar Pods.
 
-!!! note "NOTA"
-    É importante ressaltar que, embora seja possível executar todos os componentes do Kubernetes em uma única máquina, essa configuração não oferece tolerância a falhas. A abordagem recomendada é ter pelo menos duas máquinas configuradas como Master Nodes e outras duas como Worker Nodes. Essa configuração proporciona maior resiliência e disponibilidade.
+Existem, basicamente, três componentes do cluster Kubernetes que são executados nos Worker Nodes e são responsáveis pela execução dos Pods. São eles:
+
+#### [Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)
+
+O _[Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)_ é o software responsável pela criação, execução e gerenciamento de contêineres nos Worker Nodes. É necessário instalar um _[Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)_ em cada Worker Node para que os Pods possam ser criados e executados.
+
+Existem diferentes [Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)_ suportados e disponíveis para instalação, incluindo:
+
+- [containerd](https://containerd.io/)
+- [CRI-O](https://cri-o.io/)
+- [Docker Engine](https://www.docker.com/products/container-runtime/)
+- [Mirantis Container Runtime](https://www.mirantis.com/software/mirantis-container-runtime/)
+
+O _[Docker Engine](https://www.docker.com/products/container-runtime/)_ foi, por muito tempo, o _[Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)_ padrão para a execução de contêineres no Kubernetes. Em dezembro de 2020, com o lançamento da versão 1.20, o projeto Kubernetes anunciou a descontinuação do suporte ao _[Docker Engine](https://www.docker.com/products/container-runtime/)_. Na versão 1.24, esse suporte foi completamente removido.
+
+Essa decisão foi motivada para permitir a adoção de outros runtimes de contêiner, como _[containerd](https://containerd.io/)_, _[CRI-O](https://cri-o.io/)_, além de qualquer outro que siga as definições do _[Container Runtime Interface (CRI)](https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes/)_.
+
+Isso não significa que imagens de contêineres Docker não são compatíveis com o Kubernetes. Todas as imagens que seguem a especificação da _[Open Container Initiative](https://opencontainers.org/)_, são totalmente suportadas no Kubernetes, incluindo as imagens Docker.
+
+Atualmente, é comum ter instalações do _[containerd](https://containerd.io/)_ e _[CRI-O](https://cri-o.io/)_ sendo utilizados como runtimes de contêiner. Por exemplo, o _[Oracle Kubernetes Engine (OKE)](./funcionamento-provisionamento-oke.md)_ utiliza o _[containerd](https://containerd.io/)_ como seu runtime padrão.
+
+!!! note "NOTA" 
+    Consulte o artigo _["Don't Panic: Kubernetes and Docker"](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/)_ para obter informações mais detalhadas sobre a remoção do _[Docker Engine](https://www.docker.com/products/container-runtime/)_.
+
+#### [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
+
+O _[kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)_, componente principal do Worker Node, é responsável por realizar consultas regulares ao _[kube-apiserver](https://kubernetes.io/docs/concepts/architecture/#kube-apiserver)_, buscando informações sobre os Pods a serem criados ou removidos. Após obter essas informações, o _[kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)_ interage diretamente com o _[Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)_ no Worker Node para a criação ou exclusão efetiva dos Pods.
+
+Mais especificamente, o _[kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)_ obtém e processa o chamado _[PodSpec](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodSpec)_, que é basicamente uma descrição que inclui instruções sobre o comportamento desejado do Pod.

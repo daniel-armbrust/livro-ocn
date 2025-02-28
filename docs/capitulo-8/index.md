@@ -11,3 +11,5 @@ O _OKE_ será utilizado para ilustrar de forma prática os detalhes e conceitos 
 - [8.1 Um pouco de História](./historia-do-kubernetes.md)
 - [8.2 Introdução ao Kubernetes](./introducao-ao-kubernetes.md)
 - [8.3 Arquitetura do Kubernetes](./arquitetura-kubernetes.md)
+- [8.4 Funcionamento e Provisionamento do OKE](./funcionamento-provisionamento-oke.md)
+- [8.5 Objetos Kubernetes](./objetos-kubernetes.md)
