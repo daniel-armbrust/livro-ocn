@@ -85,7 +85,8 @@ Boa leitura!
     - [8.1 Um pouco de História](./capitulo-8/historia-do-kubernetes.md)
     - [8.2 Introdução ao Kubernetes](./capitulo-8/introducao-ao-kubernetes.md)
     - [8.3 Arquitetura do Kubernetes](./capitulo-8/arquitetura-kubernetes.md)
-    - [8.4 Objetos Kubernetes](./capitulo-8/objetos-kubernetes.md)
+    - [8.4 Funcionamento e Provisionamento do OKE](./capitulo-8/funcionamento-provisionamento-oke.md)
+    - [8.5 Objetos Kubernetes](./capitulo-8/objetos-kubernetes.md)
 <br><br>
 
 - [Capítulo 9: Serviço DevOps](./capitulo-9/index.md)
