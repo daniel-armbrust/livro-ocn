@@ -8,6 +8,9 @@ Além de detalhar os componentes, será apresentada a arquitetura geral do Kuber
 
 Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto. A exceção a essa convenção são duas dependências externas: o **_Container Engine_** e o **_etcd_**.
 
+!!! note "NOTA"
+    Aqui, são apresentados alguns termos e objetos do Kubernetes, como Pods, Services e Deployments. Não se preocupe, pois os detalhes de cada um deles e seu funcionamento serão explorados na seção _[8.5 Objetos Kubernetes](./objetos-kubernetes.md)_.
+
 ## 8.3.1 Master Nodes e Worker Nodes
 
 Um cluster Kubernetes típico é composto por várias máquinas, que podem ser físicas, virtuais ou uma combinação de ambas, conhecidas como _Nodes_. Esses nodes são organizados em dois grupos principais:
@@ -112,7 +115,7 @@ Isso não significa que imagens de contêineres Docker não são compatíveis co
 Atualmente, é comum ter instalações do _[containerd](https://containerd.io/)_ e _[CRI-O](https://cri-o.io/)_ sendo utilizados como runtimes de contêiner. Por exemplo, o _[Oracle Kubernetes Engine (OKE)](./funcionamento-provisionamento-oke.md)_ utiliza o _[containerd](https://containerd.io/)_ como seu runtime padrão.
 
 !!! note "NOTA" 
-    Consulte o artigo _["Don't Panic: Kubernetes and Docker"](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/)_ para obter informações mais detalhadas sobre a remoção do _[Docker Engine](https://www.docker.com/products/container-runtime/)_.
+    Consulte o artigo _["Don't Panic: Kubernetes and Docker"](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/)_ que aborda a remoção do _[Docker Engine](https://www.docker.com/products/container-runtime/)_ como um runtime de contêiner suportado diretamente pelo Kubernetes.
 
 #### [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 
@@ -126,4 +129,40 @@ Cada Worker Node deve executar uma instância do _[kube-proxy](https://kubernete
 
 Assim como o _[kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)_, o _[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)_ também interage regularmente com o _[kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)_.
 
-### Addons
+## 8.3.2 Addons
+
+_[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ são ferramentas que estendem as funcionalidades do Kubernetes.
+
+Alguns _[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ são essenciais para o funcionamento adequado do cluster, enquanto outros são opcionais.
+
+Alguns exemplos de _[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ essenciais incluem:
+
+- **[CoreDNS](https://coredns.io/manual/toc/#what-is-coredns)**
+    - O CoreDNS é um servidor DNS mais simples em comparação com implementações como o _[BIND](https://www.isc.org/bind/)_. Ele é projetado para ser utilizado como padrão no Kubernetes, desempenhando a função de resolver nomes de Services e Pods dentro do cluster.
+
+- **CNI plugin for pod networking**
+    - _[CNI (Container Network Interface)](https://www.cni.dev/)_ é uma especificação e um conjunto de padrões que define uma interface para a configuração de redes em ambientes de contêineres. As implementações _[CNI](https://www.cni.dev/)_ mais utilizados no _[OKE](./funcionamento-provisionamento-oke.md)_ são:
+
+    - [Flannel](https://github.com/flannel-io/flannel)
+        - O plug-in CNI _[Flannel](https://github.com/flannel-io/flannel)_ fornece uma rede para os _Pods_ sem utilizar os endereços IP disponíveis de uma sub-rede. A rede disponibilizada pelo CNI _[Flannel](https://github.com/flannel-io/flannel)_ é frequentemente chamada de _"rede de sobreposição"_, pois consiste em uma rede IP que existe somente dentro do cluster, mais especificamente, nos _Worker Nodes_.
+
+    - [OCI VCN-Native](https://docs.oracle.com/pt-br/iaas/Content/ContEng/Concepts/contengpodnetworking_topic-OCI_CNI_plugin.htm)
+        - O plugin _[OCI VCN-Native](https://docs.oracle.com/pt-br/iaas/Content/ContEng/Concepts/contengpodnetworking_topic-OCI_CNI_plugin.htm)_ Pod Networking CNI, aloca endereços IP de uma sub-rede diretamente para os _Pods_. Isso permite que os _Pods_ se comuniquem entre si de forma direta, sem a necessidade de utilizar um _Service_. Com essa abordagem, os _Pods_ se tornam roteáveis, assim como qualquer outro recurso que utilize um endereço IP, facilitando a comunicação e a integração dentro do ambiente de rede.
+
+Alguns exemplos de _[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ opcionais incluem:
+
+- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
+    - O _[Kubernetes Dashboard](https://github.com/kubernetes/dashboard)_ é uma aplicação Web projetada para administrar, monitorar e gerenciar _Pods, Services, Deployments_ e outros componentes, além de fornecer uma visão geral do próprio cluster Kubernetes.
+
+- [Kubernetes Autoscaler](https://github.com/kubernetes/autoscaler)
+    - O _[Kubernetes Autoscaler](https://github.com/kubernetes/autoscaler)_ é um addon que ajusta automaticamente a capacidade de um cluster Kubernetes com base na demanda de recursos. Ele opera em duas frentes principais: o _HPA (Horizontal Pod Autoscaler)_, que tem como objetivo escalar horizontalmente, ou seja, aumentar ou diminuir o número de réplicas de um Pod, e o _VPA (Vertical Pod Autoscaler)_, que modifica a quantidade de recursos, como CPU e memória, alocados para um Pod.
+
+- [OCI Native Ingress Controller](https://docs.oracle.com/pt-br/iaas/Content/ContEng/Tasks/contengsettingupnativeingresscontroller-cluster-addon-top-level.htm#contengsettingupnativeingresscontroller-cluster-addon-top-level)
+    - É um [proxy reverso](https://en.wikipedia.org/wiki/Reverse_proxy) desenvolvido pela Oracle, projetado para balancear e rotear o tráfego de rede para os _Services_ que residem nos _Worker Nodes_.
+
+- [NVIDIA GPU Plugin](https://github.com/NVIDIA/k8s-device-plugin)
+    - É um _addon_ que permite expor um número de _GPUs NVIDIA_ em cada _Worker Node_.
+
+## 8.3.3 Conclusão
+
+Neste capítulo, foi apresentada uma visão geral do funcionamento e da arquitetura de um cluster Kubernetes. Foram explorados os diversos componentes de software que compõem o cluster, destacando suas funções e como eles interagem entre si para formar o ecossistema do Kubernetes.
