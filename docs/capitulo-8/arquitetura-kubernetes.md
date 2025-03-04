@@ -4,6 +4,8 @@
 
 O Kubernetes é formado por diversos componentes distribuídos e independentes, cada um com sua própria responsabilidade, todos desenvolvidos na _[linguagem de programação Go](https://go.dev/)_. Para que um cluster Kubernetes funcione, é necessário instalar e configurar todos esses componentes, que serão detalhados a seguir.
 
+![alt_text](./img/golang-kubernetes-logo-1.png "Golang + Kubernetes")
+
 Além de detalhar os componentes, será apresentada a arquitetura geral do Kubernetes e a forma como esses componentes interagem entre si.
 
 Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto. A exceção a essa convenção são duas dependências externas: o **_Container Engine_** e o **_etcd_**.
@@ -21,6 +23,8 @@ Um cluster Kubernetes típico é composto por várias máquinas, que podem ser f
 !!! note "NOTA"
     As máquinas do _Master Nodes_ deve ser _Linux_. Já as máquinas dos _Worker Nodes_ podem ser _Linux_ ou _Windows_.
 
+![alt_text](./img/kubernetes-master-worker-nodes-1.png "Master Nodes e Worker Nodes")
+
 ### Control Plane ou Master Nodes
 
 Esse grupo de máquinas supervisiona e envia tarefas para os Worker Nodes. Ou seja, elas são responsáveis por manter o _"estado desejado do cluster"_.
@@ -30,13 +34,15 @@ Toda a inteligência do Kubernetes está concentrada nos Master Nodes, e cada cl
 Há uma coleção de serviços que operam continuamente em cada Master Node, responsáveis por manter o estado do cluster, incluindo:
 
 !!! note "NOTA"
-    A documentação de todos os componentes do Kubernetes está disponível no link _["Core Components"](https://kubernetes.io/docs/concepts/overview/components/#core-components)_
+    A documentação de todos os componentes do Kubernetes está disponível no link _["Core Components"](https://kubernetes.io/docs/concepts/overview/components/#core-components)_.
 
 #### [kube-apiserver](https://kubernetes.io/docs/concepts/architecture/#kube-apiserver)
 
 É o _frontend_ do Kubernetes, utilizado para enviar comandos e consultar o estado do cluster.
 
 Esse componente expõe uma _API RESTful via HTTPS_, que, por padrão, _"escuta"_ as requisições na porta _6443/TCP_. Ele permite comandar, monitorar e obter informações sobre todo o cluster. Todas as interações com essa API podem ser realizadas por meio do utilitário de linha de comando **_[kubectl](https://kubernetes.io/docs/reference/kubectl/)_**.
+
+![alt_text](./img/kube-apiserver-1.gif "kube-apiserver")
 
 !!! note "NOTA"
     Devido ao fato de o _[kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)_ ser uma _API RESTful_, é possível interagir com ele utilizando até mesmo o utilitário de linha de comando _[curl](https://curl.se/)_. No entanto, é mais prático e fácil realizar essas interações através do _[kubectl](https://kubernetes.io/docs/reference/kubectl/)_.
@@ -45,16 +51,18 @@ Uma outra função desse componente, é realizar cosultas periódicas ao banco d
 
 #### [etcd](https://etcd.io/)
 
-Todos os comandos enviados pelo _kube-apiserver_, especialmente aqueles que alteram o _"estado"_, são persistidos ou atualizados em um banco de dados chave/valor distribuído nos Master Nodes, conhecido como _[etcd](https://etcd.io/)_.
+Todos os comandos enviados pelo _[kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)_, especialmente aqueles que alteram o _"estado"_, são persistidos ou atualizados em um banco de dados chave/valor distribuído nos Master Nodes conhecido como _[etcd](https://etcd.io/)_.
 
 A principal função do _etcd_ é armazenar de maneira persistente todas as alterações que foram enviadas ao _kube-apiserver_. O Kubernetes consulta periodicamente o _etcd_ para verificar se o _"estado do cluster"_ está em conformidade com os dados ali armazenados.
+
+![alt_text](./img/etcd-1.gif "etcd")
 
 Outro ponto importante é que nenhum componente pode ler ou escrever no _etcd_ sem passar pelo _kube-apiserver_. 
 
 O _etcd_ não é um componente do projeto Kubernetes, mas é um projeto independente que também faz parte da _[Cloud Native Computing Foundation (CNCF)](../capitulo-1/cloud-native.md)_.
 
 !!! note "NOTA"
-    Existe um playground online acessível pelo link _[http://play.etcd.io/play]_, que permite aprender e gerenciar clusters com o etcd.
+    Existe um playground online acessível pelo link _[http://play.etcd.io/play](http://play.etcd.io/play)_, que permite aprender e gerenciar clusters com o _etcd_.
 
 #### [kube-scheduler](https://kubernetes.io/docs/concepts/architecture/#kube-scheduler)
 
@@ -125,7 +133,7 @@ Mais especificamente, o _[kubelet](https://kubernetes.io/docs/reference/command-
 
 #### [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)
 
-Cada Worker Node deve executar uma instância do _[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)_, que atua como um proxy de rede, possibilitando conectividade interna e externa. É o _[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)_ que torna os Pods acessíveis na rede por meio do objeto Service.
+Em cada _Worker Node_, há uma instância em execução do _[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)_, que funciona como um proxy de rede, garantindo a conectividade interna e externa. É o _[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)_ que torna os Pods acessíveis na rede por meio do objeto _Service_.
 
 Assim como o _[kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)_, o _[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)_ também interage regularmente com o _[kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)_.
 
@@ -134,6 +142,9 @@ Assim como o _[kubelet](https://kubernetes.io/docs/reference/command-line-tools-
 _[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ são ferramentas que estendem as funcionalidades do Kubernetes.
 
 Alguns _[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ são essenciais para o funcionamento adequado do cluster, enquanto outros são opcionais.
+
+!!! note "NOTA"
+    Para uma lista mais completa sobre os _[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ disponíveis, consulte o link _["Installing Addons"](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_.
 
 Alguns exemplos de _[Addons](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ essenciais incluem:
 
