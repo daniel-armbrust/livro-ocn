@@ -38,9 +38,9 @@ Há uma coleção de serviços que operam continuamente em cada Master Node, res
 
 #### [kube-apiserver](https://kubernetes.io/docs/concepts/architecture/#kube-apiserver)
 
-É o _frontend_ do Kubernetes, utilizado para enviar comandos e consultar o estado do cluster.
+O _[kube-apiserver](https://kubernetes.io/docs/concepts/architecture/#kube-apiserver)_ atua como o _"ponto de administração"_ e o _frontend_ do Kubernetes, sendo utilizado pelos usuários para enviar comandos e consultar o estado do cluster.
 
-Esse componente expõe uma _API RESTful via HTTPS_, que, por padrão, _"escuta"_ as requisições na porta _6443/TCP_. Ele permite comandar, monitorar e obter informações sobre todo o cluster. Todas as interações com essa API podem ser realizadas por meio do utilitário de linha de comando **_[kubectl](https://kubernetes.io/docs/reference/kubectl/)_**.
+Esse componente expõe uma _API RESTful via HTTPS_, que, por padrão, _"escuta"_ as requisições na porta **_6443/TCP_**. Essa API permite que os usuários gerenciem, monitorem e obtenham informações sobre todo o cluster, através do utilitário de linha de comando **_[kubectl](https://kubernetes.io/docs/reference/kubectl/)_**.
 
 ![alt_text](./img/kube-apiserver-1.gif "kube-apiserver")
 
@@ -66,14 +66,19 @@ O _etcd_ não é um componente do projeto Kubernetes, mas é um projeto independ
 
 #### [kube-scheduler](https://kubernetes.io/docs/concepts/architecture/#kube-scheduler)
 
-A função principal do kube-scheduler é monitorar, por meio de consultas regulares ao kube-apiserver, a presença de novos Pods a serem criados e selecionar um ou mais Worker Nodes para sua execução.
+A principal função do _[kube-scheduler](https://kubernetes.io/docs/concepts/architecture/#kube-scheduler)_ é monitorar periodicamente o _[kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)_ em busca de novos _Pods_ que precisam ser criados. Com base nas informações disponíveis, o  _[kube-scheduler](https://kubernetes.io/docs/concepts/architecture/#kube-scheduler)_ seleciona um ou mais Worker Nodes adequados para a execução desses _Pods_, garantindo que os requisitos de recursos e restrições de afinidade sejam atendidos.
+
+![alt_text](./img/kube-scheduler-1.gif "kube-scheduler")
 
 !!! note "NOTA"    
-    Uma explicação mais detalhada sobre objetos do Kubernetes, incluindo Pods, será apresentada no capítulo _[8.4 Objetos Kubernetes](./objetos-kubernetes.md)_. Por enquanto, é importante compreender que um Pod é um objeto do Kubernetes utilizado para definir uma unidade de execução que pode conter um ou mais contêineres.
-    
-Assim que um Pod é criado, ainda não há um Worker Node designado para sua execução. Chamamos de _"Unschedule Pod"_ o Pod que não possui um Worker Node elegível para execução, e seu status permanece como _"Pending"_. Já o termo "Schedule" refere-se ao processo de atribuição do Pod a um Worker Node capaz de realizar a sua execução. Em outras palavras, quando um Pod é _"scheduled"_, isso significa que ele foi atribuído a um Worker Node específico e está pronto para ser executado. 
+    Uma explicação mais detalhada sobre objetos do Kubernetes será apresentada no capítulo _[8.4 Objetos Kubernetes](./objetos-kubernetes.md)_. Por enquanto, é importante compreender que um _Pod_ é um objeto do Kubernetes utilizado para definir uma unidade de execução que pode conter um ou mais contêineres.
 
-Além disso, o kube-scheduler desempenha outras funções importantes, como a verificação de regras de afinidade e antiafinidade, a checagem da disponibilidade de portas de rede e a validação dos recursos de CPU e memória.
+Um _Pod_ recém-criado não possui um Worker Node designado para sua execução. Chamamos de _"Unschedule Pod"_ o _Pod_ que não possui um Worker Node elegível para execução, e seu status permanece como _"Pending"_. Já o termo _"Schedule"_ refere-se ao processo de atribuição do _Pod_ a um Worker Node capaz de realizar a sua execução. Em outras palavras, quando um _Pod_ é _"scheduled"_, isso significa que ele foi atribuído a um Worker Node específico que é capaz de executá-lo.
+
+Além disso, o _[kube-scheduler](https://kubernetes.io/docs/concepts/architecture/#kube-scheduler)_ desempenha outras funções importantes, como a verificação de regras de afinidade e antiafinidade, a checagem da disponibilidade de portas de rede e a validação dos recursos de CPU e memória.
+
+!!! note "NOTA" 
+    O processo de _Scheduling_ do Kubernetes é bem mais complexo do que foi descrito aqui. Para maiores detalhes, consulte o _["Scheduling, Preemption and Eviction"](https://kubernetes.io/docs/concepts/scheduling-eviction/)_.
 
 #### [kube-controller-manager](https://kubernetes.io/docs/concepts/architecture/#kube-controller-manager)
 
