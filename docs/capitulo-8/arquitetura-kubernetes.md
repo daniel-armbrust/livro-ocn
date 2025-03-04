@@ -11,7 +11,7 @@ Além de detalhar os componentes, será apresentada a arquitetura geral do Kuber
 Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto. A exceção a essa convenção são duas dependências externas: o **_Container Engine_** e o **_etcd_**.
 
 !!! note "NOTA"
-    Aqui, são apresentados alguns termos e objetos do Kubernetes, como Pods, Services e Deployments. Não se preocupe, pois os detalhes de cada um deles e seu funcionamento serão explorados na seção _[8.5 Objetos Kubernetes](./objetos-kubernetes.md)_.
+    Aqui, são apresentados alguns termos e objetos do Kubernetes, como Pods, Services e Deployments. Não se preocupe, pois os detalhes de cada um deles e o seu funcionamento serão explorados na seção _[8.5 Objetos Kubernetes](./objetos-kubernetes.md)_.
 
 ## 8.3.1 Master Nodes e Worker Nodes
 
@@ -86,6 +86,8 @@ O _[kube-controller-manager](https://kubernetes.io/docs/concepts/architecture/#k
 
 Por exemplo, quando solicitado, o Kubernetes é capaz de manter um número específico de Pods distribuídos entre os diferentes _Worker Nodes_. Se, por qualquer motivo, o número total de Pods ativos divergir do número de Pods registrado no _etcd_, o _"loop de reconciliação"_ garantirá que os Pods ausentes sejam iniciados. Vale ressaltar que essa verificação é um processo contínuo, o que justifica o uso da palavra _"loop"_ para descrever sua funcionalidade.
 
+![alt_text](./img/kube-controller-manager-1.gif "kube-controller-manager")
+
 Há diferentes _controllers_ que fazem parte do _"loop de reconciliação"_ e cada um deles é responsável por gerenciar e cuidar de um tipo específico de objeto Kubernetes. Alguns deles são:
 
 - Replication Controller
@@ -93,14 +95,16 @@ Há diferentes _controllers_ que fazem parte do _"loop de reconciliação"_ e ca
 - Job Controller
 - Namespace Controller
 
-### [OCI Cloud Controller Manager (CCM)](https://github.com/oracle/oci-cloud-controller-manager)
+#### [OCI Cloud Controller Manager (CCM)](https://github.com/oracle/oci-cloud-controller-manager)
 
-O _[OCI Cloud Controller Manager](https://github.com/oracle/oci-cloud-controller-manager)_, ou _[oci-cloud-controller-manager](https://github.com/oracle/oci-cloud-controller-manager)_, é a implementação do _[cloud-controller-manager](https://kubernetes.io/docs/concepts/architecture/#cloud-controller-manager)_ responsável por conectar o Kubernetes às APIs do OCI.
+O _[OCI Cloud Controller Manager](https://github.com/oracle/oci-cloud-controller-manager)_ _[(oci-cloud-controller-manager)](https://github.com/oracle/oci-cloud-controller-manager)_, é a implementação do _[cloud-controller-manager](https://kubernetes.io/docs/concepts/architecture/#cloud-controller-manager)_ responsável por conectar o Kubernetes às APIs do OCI.
 
 !!! note "NOTA"
-    O _[oci-cloud-controller-manager](https://github.com/oracle/oci-cloud-controller-manager)_ é um projeto de código aberto mantido pela Oracle. O código-fonte da implementação pode ser acessado por meio do link _[https://github.com/oracle/oci-cloud-controller-manager](https://github.com/oracle/oci-cloud-controller-manager)_
+    O _[oci-cloud-controller-manager](https://github.com/oracle/oci-cloud-controller-manager)_ é um projeto de código aberto mantido pela Oracle. O código-fonte da implementação pode ser acessado por meio do link _[https://github.com/oracle/oci-cloud-controller-manager](https://github.com/oracle/oci-cloud-controller-manager)_.
 
 Uma das funcionalidades do _[oci-cloud-controller-manager](https://github.com/oracle/oci-cloud-controller-manager)_ é a criação de _[Load Balance](../capitulo-4/load-balancer.md)_ no OCI por meio do do objeto _Service_.
+
+![alt_text](./img/oci-cloud-controller-manager-1.gif "oci-cloud-controller-manager")
 
 ### Compute Nodes ou Worker Nodes
 
@@ -118,6 +122,8 @@ Existem diferentes [Container Runtime](https://kubernetes.io/docs/setup/producti
 - [CRI-O](https://cri-o.io/)
 - [Docker Engine](https://www.docker.com/products/container-runtime/)
 - [Mirantis Container Runtime](https://www.mirantis.com/software/mirantis-container-runtime/)
+
+![alt_text](./img/kubernetes-container-runtime-1.png "Container Runtime")
 
 O _[Docker Engine](https://www.docker.com/products/container-runtime/)_ foi, por muito tempo, o _[Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)_ padrão para a execução de contêineres no Kubernetes. Em dezembro de 2020, com o lançamento da versão 1.20, o projeto Kubernetes anunciou a descontinuação do suporte ao _[Docker Engine](https://www.docker.com/products/container-runtime/)_. Na versão 1.24, esse suporte foi completamente removido.
 
