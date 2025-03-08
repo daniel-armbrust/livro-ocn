@@ -2,9 +2,7 @@
 
 # 2.1 Introdução ao OCI
 
-A _[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_ é a plataforma de computação em nuvem da Oracle, projetada para atender a diversas necessidades empresariais. Ela oferece uma ampla gama de serviços, incluindo computação, armazenamento, rede, banco de dados, inteligência artificial e muito mais, permitindo que as empresas implementem soluções flexíveis e escaláveis em um ambiente seguro e de alto desempenho.
-
-De forma direta e objetiva, um provedor de computação em nuvem como o _[OCI](https://www.oracle.com/cloud/)_, oferece uma série de _[APIs REST](https://en.wikipedia.org/wiki/REST)_ que permitem gerenciar a criação, modificação e exclusão de diversos recursos computacionais disponíveis. 
+A _[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_ é a plataforma de computação em nuvem da Oracle, projetada para atender a diversas necessidades pessoais e empresariais. Ela oferece uma ampla gama de serviços, incluindo computação, armazenamento, rede, banco de dados, inteligência artificial e muito mais. Isso permite que você ou sua empresa implementem soluções em nuvem flexíveis e escaláveis em um ambiente seguro e de alto desempenho.
 
 Antes de começar a utilizar o _[OCI](https://www.oracle.com/cloud/)_, é fundamental compreender alguns conceitos básicos que ajudarão no planejamento da sua arquitetura computacional na nuvem.
 
