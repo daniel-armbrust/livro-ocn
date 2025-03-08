@@ -10,7 +10,7 @@ Para que um cluster Kubernetes funcione corretamente, é necessário instalar e 
 
 Além de detalhar os componentes, será apresentada a arquitetura geral do Kubernetes e a forma como esses componentes interagem entre si.
 
-Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto. A exceção a essa convenção são duas dependências externas: o **_Container Engine_** e o **_etcd_**.
+Para facilitar a identificação, a equipe de desenvolvimento do Kubernetes utiliza o prefixo **_kube_** na maioria dos componentes e utilitários que fazem parte do projeto. A exceção a essa convenção são duas dependências externas: o **_[Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)_** e o **_[etcd](https://etcd.io/)_**.
 
 !!! note "NOTA"
     Aqui, são apresentados alguns termos e objetos do Kubernetes, como _Pods, Services e Deployments_. Não se preocupe, pois os detalhes de cada um deles e o seu funcionamento serão explorados na seção _[8.5 Objetos Kubernetes](./objetos-kubernetes.md)_.

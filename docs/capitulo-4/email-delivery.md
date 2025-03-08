@@ -1,6 +1,6 @@
 # Capítulo 4: Conectividade e Redes
 
-# 4.7 Email Delivery
+# 4.8 Email Delivery
 
 [Email Delivery](https://docs.oracle.com/en-us/iaas/Content/Email/Concepts/overview.htm) é um serviço gerenciado de [SMTP (Simple Mail Transfer Protocol)](https://datatracker.ietf.org/doc/html/rfc5321) oferecido pelo OCI para o envio de e-mails. Qualquer aplicação que necessite enviar e-mails é um candidato ideal para utilizar esse serviço, pois ele atua como um _"servidor de e-mail de saída" (outbound email server)_. 
 
@@ -11,7 +11,7 @@ No caso da aplicação OCI Pizza, a funcionalidade _"Esqueci minha senha"_ utili
 
 Neste capítulo, serão abordados conceitos fundamentais relacionados à entrega de e-mails na Internet, incluindo o Email Delivery. Além disso, o serviço será configurado para que a aplicação OCI Pizza possa utilizá-lo de forma eficaz.
 
-## 4.7.1 Email e a Internet
+## 4.8.1 Email e a Internet
 
 O tema _"E-mail e Internet"_ é complexo e abrange uma variedade de especificações e protocolos que definem a estrutura das mensagens de e-mail e o processo de transferência delas do remetente ao destinatário.
 
@@ -50,7 +50,7 @@ Para facilitar a compreensão desse fluxo, irei utilizar a ilustração abaixo, 
 !!! note "NOTA"
     Tanto o protocolo POP3 quanto o IMAP são utilizados para a leitura de e-mails, mas apresentam diferenças significativas em seu funcionamento. O POP3, ao acessar a caixa de entrada do usuário, faz o download das mensagens para o computador local, removendo-as do servidor. Em contrapartida, o IMAP permite que o usuário interaja com a caixa de entrada armazenada no servidor, sem realizar o download das mensagens, o que possibilita o acesso a e-mails de diferentes dispositivos de forma sincronizada.
 
-## 4.7.2 Email e DNS
+## 4.8.2 Email e DNS
 
 O DNS possui um papel extremamente importante no roteamento de e-mails entre diferentes MTAs na Internet.
 
@@ -86,7 +86,7 @@ gmail.com       mail exchanger = 40 alt4.gmail-smtp-in.l.google.com.
 !!! note "NOTA"
     Os números de prioridade podem variar de 0 a 65536. Por convenção, muitos administradores optam por definir valores de prioridade em múltiplos de 10, o que proporciona maior flexibilidade ao adicionar servidores temporários entre dois servidores em produção, por exemplo.
 
-## 4.7.3 Domínio DNS no Email Delivery
+## 4.8.3 Domínio DNS no Email Delivery
 
 O primeiro passo na configuração do Email Delivery deve ser a configuração do domínio dentro do serviço. 
 
@@ -108,7 +108,7 @@ $ oci --region "sa-saopaulo-1" email domain create \
 !!! note "NOTA"
     É importante lembrar que o serviço é regional, e será necessário aplicar as mesmas configurações na região sa-vinhedo-1. Isso garantirá que, em caso de indisponibilidade da região sa-saopaulo-1, a aplicação continue a enviar e-mails a partir de sa-vinhedo-1.
 
-## 4.7.4 SPF e DKIM
+## 4.8.4 SPF e DKIM
  
 [SPF (Sender Policy Framework)](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configurespf.htm) e [DKIM (DomainKeys Identified Mail)](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configuredkim.htm) são ambos mecanismos de autenticação de e-mail que ajudam a proteger contra fraudes e spoofing.
 
@@ -254,7 +254,7 @@ Ao final do processo, é possível verificar na console web que tanto o SPF quan
 
 ![alt_text](./img/email-delivery-8.png "SPF e DKIM - OK")
 
-## 4.7.4 Approved Senders
+## 4.8.4 Approved Senders
 
 Basicamente, um [Approved Sender](https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/managingapprovedsenders.htm) é um endereço de e-mail que está autorizado a enviar mensagens. Cada região deve ter seu próprio conjunto de Approved Senders para poder enviar e-mails pelo Email Delivery da região.
 
@@ -267,7 +267,7 @@ $ oci --region "sa-saopaulo-1" email sender create \
 > --wait-for-state "ACTIVE"
 ```
 
-## 4.7.5 Testando o Email Delivery
+## 4.8.5 Testando o Email Delivery
 
 O serviço Email Delive possibilita submeter e-mails para envio através de dois diferentes modos:
 
@@ -311,7 +311,7 @@ Por fim, é possível confirmar o recebimento do e-mail:
 
 ![alt_text](./img/email-delivery-9.png "E-mail de teste")
 
-## 4.7.6 Suppression List
+## 4.8.6 Suppression List
 
 Parte do funcionamento de um serviço de e-mail eficaz é identificar quando um e-mail não pode ser entregue a um destinatário por algum motivo.
 

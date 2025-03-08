@@ -28,7 +28,7 @@ Boa leitura!
 
 | Status              | Último Atualização | Versão   |
 |---------------------|--------------------|----------|
-| Ainda escrevendo... | 04/03/2026         | 1.0.0b   |
+| Ainda escrevendo... | 08/03/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -49,6 +49,8 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 2: OCI Foundations](./capitulo-2/index.md)
+    - [2.1 Introdução ao OCI](./capitulo-2/introducao-ao-oci.md)
+    - [2.2 Criando a sua conta Always Free](./capitulo-2/criando-a-sua-conta-always-free.md)
 <br><br>
 
 - [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
@@ -63,8 +65,9 @@ Boa leitura!
     - [4.4 DNS Público](./capitulo-4/dns-publico.md)
     - [4.5 Let's Encrypt e o Serviço de Certificados do OCI](./capitulo-4/lets-encrypt.md)
     - [4.6 Load Balancer](./capitulo-4/load-balancer.md)
-    - [4.7 Email Delivery](./capitulo-4/email-delivery.md)
-    - [4.8 Conclusão](./capitulo-4/conclusao.md)
+    - [4.7 Web Application Firewall (WAF)](./capitulo-4/waf.md)
+    - [4.8 Email Delivery](./capitulo-4/email-delivery.md)
+    - [4.9 Conclusão](./capitulo-4/conclusao.md)
 <br><br>
 
 - [Capítulo 5: Oracle NoSQL Database Cloud Service](./capitulo-5/index.md)
