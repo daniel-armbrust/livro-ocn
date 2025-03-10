@@ -28,7 +28,7 @@ Boa leitura!
 
 | Status              | Último Atualização | Versão   |
 |---------------------|--------------------|----------|
-| Ainda escrevendo... | 08/03/2026         | 1.0.0b   |
+| Ainda escrevendo... | 10/03/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -50,7 +50,10 @@ Boa leitura!
 
 - [Capítulo 2: OCI Foundations](./capitulo-2/index.md)
     - [2.1 Introdução ao OCI](./capitulo-2/introducao-ao-oci.md)
-    - [2.2 Criando a sua conta Always Free](./capitulo-2/criando-a-sua-conta-always-free.md)
+    - [2.2 Criando e Ativando a sua Conta no OCI](./capitulo-2/criando-e-ativando-a-sua-conta-no-oci.md)
+    - [2.3 Modelos de Cobraça](./capitulo-2/modelos-de-cobraca.md)
+    - [2.4 Acessando o OCI](./capitulo-2/acessando-o-oci.md)
+    - [2.5 IAM Básico](./capitulo-2/iam-basico.md)
 <br><br>
 
 - [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
