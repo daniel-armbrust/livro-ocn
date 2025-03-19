@@ -43,7 +43,7 @@ Já o nome do domínio utilizado pelo serviço do _[Container Registry](https://
 
 ![alt_text](./img/oci-region-key-1.png "Chave da Região")
 
-Por fim, algumas regiões oferecem conectividade direta com outros provedores de nuvem, como _[Microsoft Azure](https://docs.oracle.com/pt-br/iaas/Content/Network/Concepts/azure.htm)_ e _[Google Cloud](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)_, o que possibilita a criação de arquiteturas _[Multicloud](https://pt.wikipedia.org/wiki/Multicloud)_.
+Por fim, algumas regiões oferecem conectividade direta com outros provedores de nuvem, como _[Microsoft Azure](https://docs.oracle.com/pt-br/iaas/Content/Network/Concepts/azure.htm)_ e _[Google Cloud](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)_, o que possibilita a criação de arquiteturas _[Multicloud](https://docs.oracle.com/pt-br/iaas/Content/multicloud/Oraclemulticloud.htm)_.
 
 ![alt_text](./img/oci-regions-3.png "Microsoft Azure e Google Cloud")
 
@@ -111,3 +111,20 @@ Em resumo, os níveis de proteção contra falhas que o OCI disponibiliza são:
 
 - **Fault Domains**
     - Proporciona proteção e disponibilidade dentro de um Availability Domain, isolando os recursos em diferentes conjuntos de hardware.
+
+## 2.1.5 OCI Status
+
+_[OCI Status](https://ocistatus.oraclecloud.com)_ ou _[OCI Service Health Dashboard](https://ocistatus.oraclecloud.com)_ é um painel de acesso público que fornece o _"status atual"_ de todos os serviços do OCI por região. Além da monitoração em tempo real, é possível consultar o histórico de incidentes que já ocorreram na infraestrutura do OCI.
+
+Para acessar a página do _[OCI Status](https://ocistatus.oraclecloud.com)_ ou _[OCI Service Health Dashboard](https://ocistatus.oraclecloud.com)_, insira o seguinte endereço no seu navegador:
+
+![alt_text](./img/oci-status-1.png "OCI Status #1")
+
+Assim que a página for carregada, você poderá selecionar a localidade geográfica para verificar o _"status atual"_ dos serviços nas regiões da localidade selecionada:
+
+![alt_text](./img/oci-status-2.png "OCI Status #2")
+<br><br>
+
+Por meio do link **_History_**, é possível consultar os problemas anteriores de uma região específica:
+
+![alt_text](./img/oci-status-3.png "OCI Status #3")

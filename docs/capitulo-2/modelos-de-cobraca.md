@@ -144,7 +144,7 @@ Após criar e ativar sua conta no OCI, a Oracle oferece **_US$300_** em crédito
     Consulte _["Perguntas frequentes do Modo Gratuito da OCI Cloud"](https://www.oracle.com/br/cloud/free/faq/)_ para maiores detalhes sobre o _[Modo Gratuito](https://www.oracle.com/br/cloud/free/)_.
 
 !!! note "NOTA"
-    Lembrando que o _[Modo Gratuito](https://www.oracle.com/br/cloud/free/)_ **não inclui SLA**. Isso quer dizer que, usuários que usam apenas recursos de uso livre não podem utilizar o _[Oracle Support](https://www.oracle.com/br/support/)_.
+    Lembrando que o _[Modo Gratuito](https://www.oracle.com/br/cloud/free/)_ **_não inclui SLA_**. Isso quer dizer que, usuários que usam apenas recursos de uso livre não podem utilizar o _[Oracle Support](https://www.oracle.com/br/support/)_.
 
 ### Always Free
 
@@ -170,9 +170,9 @@ Esses serviços permitem que você explore e utilize o OCI sem custos, enquanto 
 !!! note "NOTA"
     Sempre consulte o link _"[Recursos Always Free](https://docs.oracle.com/pt-br/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)"_ para obter uma lista completa e atualizada dos recursos elegíveis ao  _[Always Free](https://docs.oracle.com/pt-br/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)_.
 
-## 2.3.4 O custo da Transferência de dados
+## 2.3.4 O custo da Transferência de Dados
 
-Como parte da análise de custos no OCI, é fundamental entender o custo de Transferência de Dados, ou Data Transfer. Este custo está associado ao tráfego de dados que sai (outbound) do OCI para a Internet ou para outra região.
+Como parte da análise de custos no OCI, é fundamental entender o custo de _Transferência de Dados_, ou _Data Transfer_. Este custo está associado ao tráfego de dados que sai (outbound) do OCI para a Internet ou para outra região.
 
 ![alt_text](./img/oci-data-transfer-1.png "Data Transfer #1")
 <br>
