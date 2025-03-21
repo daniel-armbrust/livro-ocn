@@ -189,7 +189,7 @@ Pronto! Agora podemos confirmar que a atualização do _[OCI CLI](https://docs.o
 
 ```bash linenums="1"
 $ oci --latest-version
-3.52.1
+3.53.0
 ```
 
 ## 2.4.3 OCI APIs
@@ -333,7 +333,7 @@ Uma instalação _"pronta para uso"_ do _[OCI CLI](https://docs.oracle.com/pt-br
 ![alt_text](./img/cloud-shell-1.png "Cloud Shell #1")
 <br>
 
-O _[Cloud Shell](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cloudshellintro.htm)_ é um terminal Linux acessível por meio da _Web Console_ que oferece um _shell_ pré-autenticado com várias ferramentas já instaladas, incluindo o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_.
+O _[Cloud Shell](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cloudshellintro.htm)_ é um terminal Linux acessível por meio da _Web Console_ que oferece um _shell_ pré-autenticado com diversas ferramentas já instaladas, incluindo o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_. Isso significa que não é necessário realizar a instalação e configuração de uma _[API Key](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/working-with-console-passwords-and-API-keys.htm#one)_.
 
 ![alt_text](./img/cloud-shell-2.png "Cloud Shell #2")
 
