@@ -128,3 +128,6 @@ Assim que a página for carregada, você poderá selecionar a localidade geográ
 Por meio do link **_History_**, é possível consultar os problemas anteriores de uma região específica:
 
 ![alt_text](./img/oci-status-3.png "OCI Status #3")
+
+!!! note "NOTA"
+    Para mais informações, consulte a documentação do _[OCI Status](https://ocistatus.oraclecloud.com)_ em _["Status do Sistema"](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/status-service.htm)_.

@@ -28,7 +28,7 @@ Boa leitura!
 
 | Status              | Último Atualização | Versão   |
 |---------------------|--------------------|----------|
-| Ainda escrevendo... | 19/03/2026         | 1.0.0b   |
+| Ainda escrevendo... | 21/03/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -53,9 +53,8 @@ Boa leitura!
     - [2.2 Criando e Ativando a sua Conta no OCI](./capitulo-2/criando-e-ativando-a-sua-conta-no-oci.md)
     - [2.3 Modelos de Cobraça](./capitulo-2/modelos-de-cobraca.md)
     - [2.4 Acessando o OCI](./capitulo-2/acessando-o-oci.md)
-    - [2.5 Introdução ao OCI CLI](./capitulo-2/introducao-oci-cli.md)
-    - [2.6 IAM Básico, Limites e Quotas](./capitulo-2/iam-basico-quotas.md)
-    - [2.7 Documentações, Treinamentos e Certificações](./capitulo-2/documentacoes-treinamentos-certificacoes.md)
+    - [2.5 IAM, Limites e Quotas](./capitulo-2/iam-limites-e-quotas.md)
+    - [2.6 Ajuda Extra, Treinamentos e Certificações](./capitulo-2/ajuda-extra-treinamentos-certificacoes.md)
 <br><br>
 
 - [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)

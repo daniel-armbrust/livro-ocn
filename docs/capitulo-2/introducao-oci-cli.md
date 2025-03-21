@@ -83,3 +83,29 @@ O _[Cloud Shell](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cloudsh
 
 ## 2.5.2 API Keys
 
+A API Key do Oracle Cloud Infrastructure (OCI) é uma chave de autenticação que permite que aplicativos e serviços se conectem à API da OCI de forma segura. 
+
+ 
+
+
+
+Uma API Key é uma chave de autenticação que um usuário no OCI pode criar, para permitir 
+
+
+que assegura que apenas usuários ou sistemas autorizados possam acessar e gerenciar os recursos e serviços disponíveis na OCI.
+
+
+
+e permitir que determinado usuário interaja com as APIs do OCI. A API Key desempenha um papel fundamental no processo de autenticação, permitindo que você se identifique de forma segura ao realizar chamadas às APIs do OCI.
+
+
+utilizada para validar as solicitações feitas às APIs do Oracle Cloud Infrastructure (OCI). Ela assegura que apenas usuários ou sistemas autorizados possam acessar e gerenciar os recursos e serviços disponíveis na OCI. A API Key desempenha um papel fundamental no processo de autenticação, permitindo que você se identifique de forma segura ao realizar chamadas às APIs do OCI.
+
+
+Uma API Key é uma chave de autenticação que é utilizada para autenticar as solicitações feitas as APIs do OCI, garantindo que apenas usuários ou sistemas autorizados possam acessar e gerenciar recursos e serviços do OCI. A API Key é parte do processo de autenticação que permite que você se identifique ao fazer chamadas as APIs do OCI.
+
+Toda interação que é feita as APIs do OCI, necessita de um usuário válido, autenticado e com as devidas Policies que autorizem um usuário em utilizar os serviços que o OCI disponibiliza.
+
+Uma API Key é uma chave de autenticação que permite que aplicativos e serviços se conectem as APIs do OCI de forma segura. Ela é usada para autenticar solicitações feitas as APIs do OCI, garantindo que apenas usuários ou sistemas autorizados possam acessar e gerenciar recursos e serviços do OCI.
+
+Todo usuário no OCI tem a possibilidade de criar uma ou mais APIs Keys que podem ser usados pelo OCI CLI, SDKs e Terraform.
