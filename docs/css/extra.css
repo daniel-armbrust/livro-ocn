@@ -1,18 +1,11 @@
-.md-sidebar {
-    display: none;
+.md-grid {
+    max-width: 90%; 
 }
 
 .md-sidebar-right {
     display: none;
 }
 
-.md-sidebar md-sidebar--secondary {
-    display: none;
-}
-
-.md-sidebar__inner {
-    display: none;
-}
 
 p {
     text-align: justify;

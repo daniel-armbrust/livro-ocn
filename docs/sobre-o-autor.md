@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Sobre o Autor
 
 ![alt_text](./img/daniel-armbrust.png "Daniel Armbrust")

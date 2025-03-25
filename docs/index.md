@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # OCN - OCI Cloud Native
 <h2 style="text-align: center; font-style: italic;">
 Um guia prático para a construção de aplicações nativas da nuvem na Oracle Cloud Infrastructure (OCI).
