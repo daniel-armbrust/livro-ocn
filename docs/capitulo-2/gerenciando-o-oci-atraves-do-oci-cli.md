@@ -110,7 +110,7 @@ $ oci --latest-version
 3.53.0
 ```
 
-## 2.5.3 OCI APIs
+## 2.5.3 APIs do OCI
 
 O OCI como todo provedor de computação em Nuvem, disponibilizam seus serviços através de um conjunto de diferentes APIs. 
 
@@ -242,13 +242,19 @@ $ oci os ns get
 !!! note "NOTA"
     Lembre-se de que todos os valores retornados pelo OCI nos exemplos apresentados aqui para a configuração do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ são fictícios e não funcionarão para você. Para configurar o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ corretamente, utilize os valores reais fornecidos pelo seu _Tenancy_.
 
+!!! note "NOTA"
+    Nos exemplos apresentados no livro, o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ sempre utilizará o conjunto de configurações **_DEFAULT_**, conforme indicado por **_[DEFAULT]_** no arquivo **_"~/.oci/config"_**. No entanto, você pode usar o parâmetro global **_[--profile](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-profile)_** para especificar um conjunto diferente de configurações.
+    
 ## 2.5.4 Trabalhando com o OCI CLI
 
 Após o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ estar devidamente instalado e funcionando com as configurações do seu _Tenancy_, é hora de entender em como trabalhar diretamente com o OCI através do OCI CLI.
 
 Criar e gerenciar sua infraestrutura no OCI utilizando _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ ou _[Terraform](https://www.terraform.io/)_ é mais rápido do que realizar operações manualmente através de cliques na _Web Console_. Além disso, ao trabalhar com código, você pode automatizar tarefas repetitivas, versionar suas configurações para acompanhar alterações, reverter para versões anteriores quando necessário e facilitar a colaboração com outros membros da equipe.
 
-Para demonstrar a utilização do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_, apresentarei a criação de uma VCN (Virtual Cloud Network) por meio de uma sequência de etapas.
+Para demonstrar a utilização do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_, apresentarei a criação de uma _[VCN (Virtual Cloud Network)](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_ por meio de uma sequência de etapas.
+
+!!! note "NOTA"
+    Os recursos de rede do OCI, incluindo a _[VCN (Virtual Cloud Network)](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_, serão abordados no _[Capítulo 4: Conectividade e Redes](../capitulo-4/index.md)_.
 
 **1.** O primeiro passo é localizar o recurso desejado no link _[Oracle Cloud Infrastructure CLI Command Reference](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/index.html#)_. Os recursos disponíveis de redes no OCI, incluindo a VCN, estes estão contidos em _[Networking Service (network)](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network.html)_:
 
@@ -270,6 +276,37 @@ Para demonstrar a utilização do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/
 ![alt_text](./img/oci-cli-network-4.png  "OCI CLI Network VCN #4")
 <br>
 
+### Parâmetros Globais
+
+Os **_parâmetros globais_** como o própio nome diz, são globais pois podem ser usados juntos com qualquer outro comando do OCI CLI. 
+
+![alt_text](./img/oci-cli-params-3.png "OCI CLI Parâmetros #3")
+<br>
+
+Para os exemplos apresentados no livro, os **_parâmetros globais_** mais utilizados são:
+
+#### [--region](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-region)
+
+Permite especificar a região do OCI onde ocorrerá a interação com um determinado recurso.
+
+#### [--query](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-query)
+
+Parâmetro utilizado para filtrar a resposta _JSON_ recebida do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_. A filtragem é especialmente útil ao lidar com grandes volumes de informações vindas através do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_. 
+
+Esta opção utiliza a linguagem de consulta **_[JMESPath](https://jmespath.org/)_** para manipulação de _JSON_. 
+
+Por exemplo, o comando abaixo utiliza a opção **_[--query](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-query)_** para listar as _[VCNs](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_ cujo nome contém _"vcn-saopaulo"_:
+
+```bash linenums="1"
+$ oci network vcn list \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --all \
+> --query "data [?contains(\"display-name\",'vcn-saopaulo')]"
+```
+
+!!! note "NOTA"
+    Consulte a página do **_[JMESPath](https://jmespath.org/)_** para explorar opções mais avançadas relacionadas aos filtros _JSON_.
+
 ### Parâmetros Simples e Complexos
 
 Tanto um parâmetro sendo obrigatório ou opcional, pode aceitar um **_valor simples_** ou **_complexo_**. O _valor simples_ é um único valor, que pode ser um texto, um número ou um valor booleano. Por outro lado, o _valor complexo_ deve ser fornecido no formato _JSON_, que pode combinar diferentes tipos de valores, como texto, número e booleano.
@@ -290,15 +327,6 @@ $ oci network vcn create --generate-param-json-input cidr-blocks
 !!! note "NOTA"    
     Todo parâmetro utilizado como valor do **_[--generate-param-json-input](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-generate-param-json-input)_** não deve ser precedido pelos dois traços (--). Por exemplo, o parâmetro complexo **_--cidr-blocks_** deve ser referenciado apenas como **_cidr-blocks_** ao ser usado como valor do **_[--generate-param-json-input](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-generate-param-json-input)_**.
 
-### Parâmetros Globais
-
-Os **_parâmetros globais_** como o própio nome diz, são globais pois podem ser usados juntos com qualquer outro comando do OCI CLI. 
-
-![alt_text](./img/oci-cli-params-3.png "OCI CLI Parâmetros #3")
-<br>
-
-Para os exemplos apresentados no livro, o **_parâmetro global_** que será mais utilizado junto aos comandos do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ é o **_[--region](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-region)_**, que permite especificar a região do OCI onde ocorrerá a interação com um determinado recurso.
-
 ### Ciclo de Vida (Lifecycle)
 
 Muitos recursos do OCI possuem o chamado **_"Ciclo de Vida" (Lifecycle)_**, que indica o **_estado atual_** de um determinado recurso. É por meio desse _"ciclo de vida"_ que é possível determinar se um recurso já está disponível para uso ou se ainda está em processo de criação, atualização ou exclusão.
@@ -317,24 +345,24 @@ O parâmetro **_[--wait-for-state](https://docs.oracle.com/en-us/iaas/tools/oci-
 O significado de cada etapa do _"ciclo de vida"_ da _[vcn](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_ é descrito a seguir:
 
 - **AVAILABLE**
-    - A VCN está pronta e disponível para ser utilizada.
+    - A _[VCN](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_ está pronta e disponível para ser utilizada.
 
 - **PROVISIONING**
-    - Esse estado indica que o comando para criar a VCN foi aceito pelo OCI, e o recurso agora está na fila de criação ou provisionamento.
+    - Esse estado indica que o comando para criar a _[VCN](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_ foi aceito pelo OCI, e o recurso agora está na fila de criação ou provisionamento.
 
 - **UPDATING**
-    - A VCN encontra-se em em processo de atualização.
+    - A _[VCN](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_ encontra-se em em processo de atualização.
 
 - **TERMINATING**
-    - Esse estado indica que a VCN entrou em processo de exclusão ou terminate.
+    - Esse estado indica que a _[VCN](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_ entrou em processo de exclusão ou terminate.
     
 - **TERMINATED**
-    - A VCN foi excluída com sucesso e não existe mais.
+    - A _[VCN](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_ foi excluída com sucesso e não existe mais.
 
 !!! note "NOTA"
     Sempre consulte a documentação do recurso que você deseja gerenciar para entender os estados do seu _"ciclo de vida"_. Por exemplo, os estados disponíveis de uma _[VCN](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_ são completamente diferentes dos estados de um _[Container Instance](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/container-instances/container-instance/create.html)_, que incluem _ACCEPTED_, _CANCELED_, _CANCELING_, _FAILED_, _IN\_PROGRESS_ e _SUCCEEDED_.    
 
-### Exemplo: Criação e Consulta de Informações da VCN
+### Exemplo: Criando e Consultando Informações sobre uma VCN
 
 O comando a seguir pode ser utilizado para criar uma _[VCN](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/cmdref/network/vcn.html)_:
 
@@ -408,6 +436,10 @@ $ oci network vcn list \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all
 ```
+
+### Exemplo: Consultas Complexas
+
+O parâmetro global --query
 
 ## 2.5.5 Work Request
 

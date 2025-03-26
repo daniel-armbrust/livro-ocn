@@ -1,9 +1,3 @@
----
-hide:
-  - navigation
-  - toc
----
-
 # Capítulo 2: OCI Foundations
 
 - [2.1 Introdução ao OCI](./introducao-ao-oci.md)

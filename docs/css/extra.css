@@ -6,6 +6,35 @@
     display: none;
 }
 
+.md-typeset h1 {
+   font-weight: 500;
+   color: #4051B5;
+}
+
+.md-typeset h2 {
+    font-weight: 500;
+    color: #4051B5;
+}
+
+.md-typeset h3 {
+    font-weight: 500;
+    color: #4051B5;
+}
+
+.md-typeset h4 {
+    font-weight: 500;
+    color: #4051B5;
+}
+
+.md-typeset h5 {
+    font-weight: 500;
+    color: #4051B5;
+}
+
+.md-typeset h6 {
+    font-weight: 500;
+    color: #4051B5;
+}
 
 p {
     text-align: justify;
@@ -19,4 +48,18 @@ p {
 
 .align-left {
     float: left;    
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    color: #877000;
+}
+
+@keyframes blink-animation {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
