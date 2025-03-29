@@ -185,14 +185,14 @@ A concessão de acesso ou autorização no OCI é realizada por meio de dois rec
 
 Uma boa prática é iniciar o _"desenho do processo de autorização"_ com as definições dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_. Após a criação dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, é necessário criar as _[políticas de acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/manage-accessresources.htm)_ para permitir que um _[grupo de usuários](#criando-grupos)_ crie e gerencie os recursos contidos em cada _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ específico.
 
-### Criando Compartimentos
+### [Compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)
 
 _[Compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, ou _[Compartments](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, são uma **_estrutura lógica_** que permite **_organizar_** e **_isolar_** os recursos que você cria no OCI. Utilizar _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ facilita o gerenciamento desses recursos e proporciona uma camada adicional de **_proteção contra acessos não autorizados_**.
 
 !!! note "NOTA"
-    Lembre-se: um _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, juntamente com sua _[política de acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/manage-accessresources.htm)_ correspondente, protege o acesso dos usuários às APIs do OCI, permitindo listar, criar, excluir ou atualizar recursos na nuvem. No entanto, os _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ não impõem controle de acesso em nível de rede, ou seja, não funcionam como um _firewall_.
+    **Lembre-se:** um _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, juntamente com sua _[política de acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/manage-accessresources.htm)_ correspondente, protege o acesso dos usuários às APIs do OCI, permitindo listar, criar, excluir ou atualizar recursos na nuvem. No entanto, os _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ não impõem controle de acesso em nível de rede, ou seja, não funcionam como um _firewall_.
 
-Toda conta no OCI possui um **_Root Compartment_** ou **_Tenancy Compartment_**, que é criado automaticamente após a ativação da conta. Isso se deve ao fato de que todos os recursos que você cria deve ser colocado dentro de um _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_. Em outras palavras, cada recurso deve pertencer a um único _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_.
+Toda conta no OCI possui um **_Root Compartment_** ou **_Tenancy Compartment_**, que é criado automaticamente após a ativação da conta. Isso se deve ao fato de que todos os recursos que você cria, deve ser colocado dentro de um _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_. Em outras palavras, cada recurso deve pertencer a um único _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_.
 
 O nome do **_Root Compartment_** corresponde ao **_nome da conta_** que foi especificado durante o processo de cadastro _(ocipizza)_. Você pode obter o seu _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ utilizando o comando abaixo:
 
@@ -220,10 +220,87 @@ A _[Web Console](./acessando-o-oci.md#web-console)_ filtra a exibição dos seus
 ![alt_text](./img/oci-comp-filter-1.png "Filtro de Compartmento")
 <br>
 
-Os _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ são recursos globais e, uma vez criados, estarão disponíveis em todas as regiões onde o seu _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ foi inscrito.
+Os _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ são **_recursos globais_** e, uma vez criados, estarão disponíveis em todas as regiões inscritas.
 
-Por fim, é possível criar até **_seis subcompartimentos_** dentro de um compartimento, e a maioria dos recursos pode ser movida entre compartimentos.
+Por fim, é possível criar até **_seis subcompartimentos_** dentro de um _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, e a maioria dos recursos pode ser movida entre _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_.
 
 ![alt_text](./img/oci-subcompartments-1.png "Subcompartimentos")
 <br>
 
+#### Compartimentos da Aplicação OCI Pizza
+
+Para ilustrar melhor o uso de _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, imagine diferentes grupos de profissionais de TI colaborando no desenvolvimento da aplicação **_[OCI PIZZA](../capitulo-3/ocipizza-overview.md)_**. Esses grupos incluem:
+
+- **REDES**
+    - Grupo de pessoas responsáveis pela criação e gerenciamento dos recursos de rede no OCI.
+        
+- **APLICAÇÃO**
+    - Grupo de pessoas responsáveis pela criação e gerenciamento de recursos de computação, bem como pela implantação da aplicação.
+
+- **DBA**
+    - Grupo de pessoas responsáveis pela criação e gerenciamento dos Bancos de Dados.
+
+A separação de funções por tipo de profissional é uma prática comum que garante que cada equipe tenha acesso somente aos recursos necessários para desempenhar suas atividades. Por exemplo, os profissionais da equipe de **_REDES_** terão permissão apenas para gerenciar recursos de rede, como _[VCNs](../capitulo-4/servico-de-redes.md)_, _[sub-redes](../capitulo-4/servico-de-redes.md)_, _[VPNs Site-To-Site](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/overviewIPsec.htm)_, etc.
+
+Por outro lado, os profissionais de **_APLICAÇÃO_** terão acesso somente aos recursos de computação, como _[Compute Instances](https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm)_, _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_, _[Kubernetes Engine (OKE)](https://docs.oracle.com/pt-br/iaas/Content/ContEng/Concepts/contengoverview.htm)_, etc.
+
+Da mesma forma, os profissionais **_DBA_** terão acesso somente aos recursos de bancos de dados, como o _[Oracle NoSQL](https://docs.oracle.com/en/database/other-databases/nosql-database/index.html)_.
+
+Além da separação por grupos de usuários, outra forma de organizar os recursos é através da distinção por _"ambientes"_, como **_Produção (PRD)_**, **_Homologação (HML)_** e **_Desenvolvimento (DEV)_**.
+
+Com base nessas definições, temos a seguinte estrutura de _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ e _subcompartimentos (child compartments)_ para o _ambiente de produção (prd)_:
+
+![alt_text](./img/oci-comp-ocipizza-1.png "Compartimentos da Aplicação OCI PIZZA")
+<br>
+
+A partir do desenho, é possível observar que o grupo de usuários de redes _(group-network)_ terá autorização para criar recursos de rede exclusivamente no _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ _cmp-network_. Outros grupos de usuários, como o de _aplicação (group-appl)_ e o de _DBA (group-dba)_, também terão permissões restritas aos seus respectivos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ _(cmp-appl e cmp-database)_. Por fim, o grupo _Administrators_ tem acesso total a todos os _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_.
+
+Para criar um compartimento, utilize o seguinte comando:
+
+```bash linenums="1"
+$ oci iam compartment create \
+> --compartment-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --name "cmp-prd" \
+> --description "Compartimento para os recursos de produção (cmp-prd)." \
+> --wait-for-state "ACTIVE"
+```
+
+Após a criação do _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, obteremos seu  _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ que será utilizado na criação do próximo _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, estabelecendo assim a hierarquia de _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, igual ao que foi apresentado na imagem anterior.
+
+```bash linenums="1"
+$ oci iam compartment list \
+> --name "cmp-prd" \
+> --query "data[].id"
+[
+  "ocid1.compartment.oc1..aaaaaavvvvvvvddddddddddd"
+]
+```
+
+Com o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ do _ambiente de produção (prd)_, prosseguimos para a criação do próximo _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, que é o _cmp-network_:
+
+```bash linenums="1"
+$ oci iam compartment create \
+> --compartment-id "ocid1.compartment.oc1..aaaaaavvvvvvvddddddddddd" \
+> --name "cmp-network" \
+> --description "Compartimento para os recursos de redes do ambiente de produção." \
+> --wait-for-state "ACTIVE"
+```
+
+A criação dos demais _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ seguem a mesma lógica e não serão apresentados aqui.
+
+!!! note "NOTA"
+    O script **_[scripts/capitulo-2/compartments.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/compartments.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos para a criação dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ da aplicação OCI PIZZA.
+
+
+### [Políticas de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/manage-accessresources.htm)
+
+!!! note "NOTA"
+    Esse tipo de separação, aplica o conceito de _segurança da informação_ conhecido como _[principio do menor ou mínimo privilégio (least privilege)](https://en.wikipedia.org/wiki/Principle_of_least_privilege)_, no qual determina que um usuário, programa ou sistema, deve ter acesso restrito apenas às permissões necessárias para desempenhar suas funções específicas.
+
+## 2.6.3 Grupos Dinâmicos
+
+## 2.6.4 Gerenciamento de Regiões
+
+### Home Region
+
+## 2.6.5 Audit
