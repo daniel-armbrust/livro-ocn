@@ -117,7 +117,9 @@ Em resumo, os níveis de proteção contra falhas que o OCI disponibiliza são:
 - **Fault Domains**
     - Proporciona proteção e disponibilidade dentro de um Availability Domain, isolando os recursos em diferentes conjuntos de hardware.
 
-## 2.1.5 OCI Status
+## 2.1.5 Principais Serviços
+
+## 2.1.6 OCI Status
 
 _[OCI Status](https://ocistatus.oraclecloud.com)_ ou _[OCI Service Health Dashboard](https://ocistatus.oraclecloud.com)_ é um painel de acesso público que fornece o _"status atual"_ de todos os serviços do OCI por região. Além da monitoração em tempo real, é possível consultar o histórico de incidentes que já ocorreram na infraestrutura do OCI.
 

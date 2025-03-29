@@ -8,14 +8,13 @@ hide:
 <h2 style="text-align: center; font-style: italic;">
 Um guia prático para a construção de aplicações nativas da nuvem na Oracle Cloud Infrastructure (OCI).
 </h2>
-<br>
 
 ![alt_text](./img/livro-ocn-logo-1.jpg "Livro: OCN - Oracle Cloud Native")
+<br>
 
 <h4 style="text-align: center; font-style: italic;">
    As vezes, algumas pessoas gostariam de entender aquilo que você já entendeu... por isso, compartilhe o conhecimento que você possui.
 </h4>
-<br>
 
 **OCN - OCI Cloud Native** é um livro brasileiro que oferece um guia completo e prático sobre a construção de aplicações nativas da nuvem na **_[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_**. Por meio de uma aplicação web chamada **OCI Pizza**, o autor fornece uma explicação detalhada de todo o processo de desenvolvimento, implantação e execução de uma aplicação **_[Cloud Native](https://github.com/cncf/toc/blob/main/DEFINITION.md#portugu%C3%AAs-brasileiro)_** na **_[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_**.
 
@@ -32,15 +31,15 @@ Boa leitura!
 </a>
 <br><br><br>
 
-| Status              | Último Atualização | Versão   |
+| Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 26/03/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 29/03/2026         | 1.0.0b   |
 
 ## Sumário
 
 - [Prefácio](./prefacio.md)
 - [Sobre o Autor](./sobre-o-autor.md)
-- [Introdução](./introducao.md)
+- [Como usar este Livro](./como-usar-este-livro.md)
 <br><br>
 
 - [Capítulo 1: Introdução a Computação em Nuvem](./capitulo-1/index.md)
@@ -60,7 +59,7 @@ Boa leitura!
     - [2.3 Modelos de Cobraça](./capitulo-2/modelos-de-cobraca.md)
     - [2.4 Acessando o OCI](./capitulo-2/acessando-o-oci.md)
     - [2.5 Gerenciando o OCI através do OCI CLI](./capitulo-2/gerenciando-o-oci-atraves-do-oci-cli.md)
-    - [2.6 IAM, Limites e Quotas](./capitulo-2/iam-limites-e-quotas.md)
+    - [2.6 IAM, Limites e Cotas](./capitulo-2/iam-limites-e-cotas.md)
     - [2.7 Ajuda Extra, Treinamentos e Certificações](./capitulo-2/ajuda-extra-treinamentos-certificacoes.md)
 <br><br>
 
@@ -113,10 +112,11 @@ Boa leitura!
 - [Capítulo 11: Ferramental de IA](./capitulo-11/index.md)
 <br><br>
 
-- [Capítulo 12: HOWTOs Extras](./capitulo-12/index.md)
-    - [12.1 Roteamento de Trânsito com pfSense](./capitulo-12/transit-routing-pfsense.md)
-    - [12.2 Ansible Básico](./capitulo-12/ansible-básico.md)
-    - [12.3 OCI: Kubernetes the Hard Way](./capitulo-12/oci-kubernetes-hard-way.md)
+- [Apêndice A: OCI HOWTOs](./apendice-a/index.md)
+    - [A.1 Roteamento de Trânsito com pfSense](./apendice-a/transit-routing-pfsense.md)
+    - [A.2 Ansible Básico](./apendice-a/ansible-basico.md)
+    - [A.3 Kubernetes the Hard Way](./apendice-a/kubernetes-hard-way.md)
+    - [A.4 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
 <br><br>
 
 - [Bibliografia](./bibliografia.md)

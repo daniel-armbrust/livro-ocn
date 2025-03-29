@@ -40,7 +40,7 @@ Por exemplo, o _[OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concep
 
 ![alt_text](./img/ocid-2.png "OCID #2")
 
-Alguns _[OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle)_ que identificam recursos globais omitem a parte que indica a região. Por exemplo, os OCIDs utilizados para identificar usuários, grupos, políticas, compartments e tenancy não incluem a região:
+Alguns _[OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle)_ que identificam recursos globais omitem a parte que indica a região. Por exemplo, os _[OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle)_ utilizados para identificar usuários, grupos, políticas, compartimentos e tenancy, não incluem a região:
 
 ![alt_text](./img/ocid-3.png "OCID #3")
 
@@ -189,6 +189,11 @@ Para criar uma _[API Key](https://docs.oracle.com/pt-br/iaas/Content/Identity/ac
 **5.** Por fim, o OCI exibe um conjunto de informações que devem ser inseridas no arquivo **_"~/.oci/config"_** para serem utilizadas pelo _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_:
 
 ![alt_text](./img/api-key-5.png "API Key #5")
+
+!!! note "NOTA"
+    A partir deste ponto, a sequência de comandos via _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ que utilizaremos ao longo do livro, requer que o usuário seja membro do grupo **_Administrators_**. No caso, o usuário **_darmbrust@gmail.com_**, especificado durante o processo de registro da conta, foi adicionado automaticamente pelo OCI no grupo **_Administrators_**. Mais detalhes serão apresentados no capítulo _["2.6 IAM, Limites e Quotas"](./iam-limites-e-quotas.md)_.
+    
+![alt_text](./img/oci-admin-group-1.png "Administrators Group")
 
 ### Utilizando a API Key com o OCI CLI
 
@@ -436,10 +441,6 @@ $ oci network vcn list \
 > --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
 > --all
 ```
-
-### Exemplo: Consultas Complexas
-
-O parâmetro global --query
 
 ## 2.5.5 Work Request
 

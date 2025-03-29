@@ -59,6 +59,9 @@ plugins:
       minify_js: true
 
 nav:
+  - Prefácio: ./prefacio.md
+  - Sobre o Autor: ./sobre-o-autor.md
+  - Como usar este Livro: ./como-usar-este-livro.md
   - Capítulo 1 - Introdução a Computação em Nuvem: ./capitulo-1/index.md
   - Capítulo 2 - OCI Foundations: ./capitulo-2/index.md
   - Capítulo 3 - Aplicação OCI Pizza: ./capitulo-3/index.md
@@ -70,4 +73,4 @@ nav:
   - Capítulo 9 - Serviço DevOps: ./capitulo-9/index.md
   - Capítulo 10 - Monitoração e Observabilidade: ./capitulo-10/index.md
   - Capítulo 11 - Ferramental de IA: ./capitulo-11/index.md
-  - Capítulo 12 - HOWTOs Extras: ./capitulo-12/index.md
+  - Apêndice A - OCI HOWTOs: ./capitulo-a/index.md

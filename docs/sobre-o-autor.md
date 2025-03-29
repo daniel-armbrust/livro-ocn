@@ -1,6 +1,5 @@
 ---
 hide:
-  - navigation
   - toc
 ---
 
@@ -12,4 +11,4 @@ Meu nome é **[Daniel Armbrust](https://www.linkedin.com/in/daniel-armbrust/)** 
 
 Atualmente, trabalho na **Oracle** como **Engenheiro de Soluções em Nuvem**.
 
-Este livro é fruto das minhas experiências com **Oracle Cloud Infrastructure (OCI)**. Quando me deparo com um desafio, busco entender melhor o assunto e, para isso, escrevo sobre ele.
+Este livro é baseado nas minhas experiências com **Oracle Cloud Infrastructure (OCI)**. Quando me deparo com um desafio, busco entender melhor o assunto e, para isso, escrevo sobre ele.
