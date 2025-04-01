@@ -32,7 +32,7 @@ O gerenciamento de identidades no OCI é feito através de dois recursos:
 
 Iniciaremos a explicação sobre o _Gerenciamento de Identidades_ através do usuário _Administrador_ do _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_. Em seguida, abordaremos o processo de criação de usuários e grupos.
 
-### Usuário Administrador
+### **Usuário Administrador**
 
 Toda conta criada no OCI possui, por padrão, um usuário _administrador_. Além de ter **_acesso total_** ao _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_, este é o primeiro usuário do _[IAM](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm)_ criado após a ativação da conta, sendo responsável por configurar todos os demais usuários.
 
@@ -74,7 +74,7 @@ $ oci iam policy list \
 !!! note "NOTA"
     O comando para consultar a _[policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm#top)_ _"Tenant Admin Policy"_ deve incluir, no parâmetro _--compartment-id_, o valor _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_. Note que o comando anterior, que exibiu o grupo _Administrators_, trouxe esse valor por meio da chave _"compartment-id"_.
 
-### Criando Usuários
+### **Criando Usuários**
 
 O comando abaixo é utilizado para criar um novo usuário com o nome de login _fulano.beltrano_:
 
@@ -122,7 +122,7 @@ Observe que a senha, presente na chave _"password"_, foi gerada automaticamente 
 !!! note "NOTA"
     O OCI também oferece suporte ao uso de usuários federados, além dos usuários locais criados diretamente no IAM. Para um exemplo de como federar usuários com o _Microsoft Active Directory (AD)_, consulte o apêndice _[A.4 Federação com Microsoft Active Directory (AD)](../apendice-a/federacao-com-microsoft-active-directory.md)_.
 
-### Criando Grupos
+### **Criando Grupos**
 
 O acesso aos diversos recursos do OCI é concedido a grupos, e não a usuários individuais. Isso significa que, como administrador, você deve autorizar um grupo de usuários em vez de conceder permissões a cada usuário individual.
 
@@ -132,26 +132,26 @@ Para criar um grupo de usuários, execute o comando abaixo:
 
 ```bash linenums="1"
 $ oci iam group create \
-> --name "group-network" \
+> --name "network-users" \
 > --description "Grupo de usuários que pertencem à equipe de Redes." \
 > --wait-for-state "ACTIVE"
 ```
 
 !!! note "NOTA"
-    O script **_[scripts/capitulo-2/groups.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/groups.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos necessários para a criação dos grupos que serão utilizados nos exemplos apresentados neste capítulo.
+    O script **_[scripts/capitulo-2/group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos necessários para a criação dos grupos que serão utilizados nos exemplos apresentados neste capítulo.
 
 Após a criação do grupo, é possível adicionar usuários a ele. Para isso, é necessário obter o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ tanto do grupo quanto do usuário que será adicionado.
 
 O comando abaixo retorna o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do grupo _group-network_ recém-criado:
 
 ```bash linenums="1"
-$ oci iam group list --name "group-network" --query "data[].id"
+$ oci iam group list --name "network-users" --query "data[].id"
 [
   "ocid1.group.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 ]
 ```
 
-Para adicionar o usuário _fulano.beltrano_ ao grupo _group-network_, utilize o seguinte comando:
+Para adicionar o usuário _fulano.beltrano_ ao grupo _network-users_, utilize o seguinte comando:
 
 ```bash linenums="1"
 $ oci iam group add-user \
@@ -159,7 +159,7 @@ $ oci iam group add-user \
 > --user-id "ocid1.user.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 ```
 
-O comando abaixo exibe a lista de usuários que são membros do grupo _group-network_:
+O comando abaixo exibe a lista de usuários que são membros do grupo _network-users_:
 
 ```bash linenums="1"
 $ oci iam group list-users \
@@ -180,12 +180,12 @@ A concessão de acesso ou autorização no OCI é realizada por meio de dois rec
 - **[Compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)**
     - São unidades de organização que permitem agrupar e isolar recursos, facilitando a gestão e o controle de acesso.
 
-- **[Políticas de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/manage-accessresources.htm)**
+- **[Políticas de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)**
     - São regras que definem permissões e controlam o acesso aos recursos.
 
-Uma boa prática é iniciar o _"desenho do processo de autorização"_ com as definições dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_. Após a criação dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, é necessário criar as _[políticas de acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/manage-accessresources.htm)_ para permitir que um _[grupo de usuários](#criando-grupos)_ crie e gerencie os recursos contidos em cada _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ específico.
+Uma boa prática é iniciar o _"desenho do processo de autorização"_ com as definições dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_. Após a criação dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, é necessário criar as _[políticas de acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ para permitir que um _[grupo de usuários](#criando-grupos)_ crie e gerencie os recursos contidos em cada _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ específico.
 
-### [Compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)
+### **[Compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)**
 
 _[Compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, ou _[Compartments](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, são uma **_estrutura lógica_** que permite **_organizar_** e **_isolar_** os recursos que você cria no OCI. Utilizar _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ facilita o gerenciamento desses recursos e proporciona uma camada adicional de **_proteção contra acessos não autorizados_**.
 
@@ -213,7 +213,7 @@ $ oci iam compartment list \
 Entenda o **_Root ou Tenancy Compartment_**, como se fosse o _"contêiner pai"_ que abriga todos os seus recursos no OCI, incluindo os recursos de outros _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_.
 
 !!! note "NOTA"
-    Alocar recursos diretamente no _Root Compartment_ não é uma boa prática, especialmente quando há diferentes usuários na organização que precisarão interagir com os recursos no OCI. A boa prática é ter diferentes _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ sendo que cada compartimento, será gerenciado por um grupo específico de usuários.
+    Alocar recursos diretamente no _Root Compartment_ não é uma boa prática, especialmente quando há diferentes usuários na organização que precisarão interagir com os recursos no OCI. A boa prática é ter diferentes _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ sendo que cada _[compartimento](#compartimentos)_, será gerenciado por um grupo específico de usuários.
 
 A _[Web Console](./acessando-o-oci.md#web-console)_ filtra a exibição dos seus recursos por _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ dentro da região, e você deve selecionar o _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ em que deseja trabalhar a partir de uma lista.
 
@@ -227,9 +227,9 @@ Por fim, é possível criar até **_seis subcompartimentos_** dentro de um _[com
 ![alt_text](./img/oci-subcompartments-1.png "Subcompartimentos")
 <br>
 
-#### Compartimentos da Aplicação OCI Pizza
+#### **Compartimentos da Aplicação OCI Pizza**
 
-Para ilustrar melhor o uso de _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, imagine diferentes grupos de profissionais de TI colaborando no desenvolvimento da aplicação **_[OCI PIZZA](../capitulo-3/ocipizza-overview.md)_**. Esses grupos incluem:
+Para ilustrar melhor o uso de _[Compartimento](#compartimentos)_, imagine diferentes grupos de profissionais de TI colaborando no desenvolvimento da aplicação **_[OCI PIZZA](../capitulo-3/ocipizza-overview.md)_**. Esses grupos incluem:
 
 - **REDES**
     - Grupo de pessoas responsáveis pela criação e gerenciamento dos recursos de rede no OCI.
@@ -248,14 +248,14 @@ Da mesma forma, os profissionais **_DBA_** terão acesso somente aos recursos de
 
 Além da separação por grupos de usuários, outra forma de organizar os recursos é através da distinção por _"ambientes"_, como **_Produção (PRD)_**, **_Homologação (HML)_** e **_Desenvolvimento (DEV)_**.
 
-Com base nessas definições, temos a seguinte estrutura de _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ e _subcompartimentos (child compartments)_ para o _ambiente de produção (prd)_:
+Com base nessas definições, temos a seguinte estrutura de _[compartimento](#compartimentos)_ e _subcompartimentos (child compartments)_ para o _ambiente de produção (prd)_:
 
 ![alt_text](./img/oci-comp-ocipizza-1.png "Compartimentos da Aplicação OCI PIZZA")
 <br>
 
-A partir do desenho, é possível observar que o grupo de usuários de redes _(group-network)_ terá autorização para criar recursos de rede exclusivamente no _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ _cmp-network_. Outros grupos de usuários, como o de _aplicação (group-appl)_ e o de _DBA (group-dba)_, também terão permissões restritas aos seus respectivos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ _(cmp-appl e cmp-database)_. Por fim, o grupo _Administrators_ tem acesso total a todos os _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_.
+A partir do desenho, é possível observar que o grupo de usuários de redes _(group-network)_ terá autorização para criar recursos de rede exclusivamente no _[compartimento](#compartimentos)_ _cmp-network_. Outros grupos de usuários, como o de _aplicação (group-appl)_ e o de _DBA (group-dba)_, também terão permissões restritas aos seus respectivos _[compartimentos](#compartimentos)_ _(cmp-appl e cmp-database)_. Por fim, o grupo _Administrators_ tem acesso total a todos os _[compartimentos](#compartimentos)_.
 
-Para criar um compartimento, utilize o seguinte comando:
+Para criar um _[compartimento](#compartimentos)_, utilize o seguinte comando:
 
 ```bash linenums="1"
 $ oci iam compartment create \
@@ -265,7 +265,7 @@ $ oci iam compartment create \
 > --wait-for-state "ACTIVE"
 ```
 
-Após a criação do _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, obteremos seu  _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ que será utilizado na criação do próximo _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, estabelecendo assim a hierarquia de _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, igual ao que foi apresentado na imagem anterior.
+Após a criação do _[compartimento](#compartimentos)_, obteremos seu  _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ que será utilizado na criação do próximo _[compartimentos](#compartimentos)_, estabelecendo assim a hierarquia de _[compartimentos](#compartimentos)_, igual ao que foi apresentado na imagem anterior.
 
 ```bash linenums="1"
 $ oci iam compartment list \
@@ -276,7 +276,7 @@ $ oci iam compartment list \
 ]
 ```
 
-Com o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ do _ambiente de produção (prd)_, prosseguimos para a criação do próximo _[compartimento](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_, que é o _cmp-network_:
+Com o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do _[compartimento](#compartimentos)_ do _ambiente de produção (prd)_, prosseguimos para a criação do próximo _[compartimento](#compartimentos)_, que é o _cmp-network_:
 
 ```bash linenums="1"
 $ oci iam compartment create \
@@ -286,21 +286,138 @@ $ oci iam compartment create \
 > --wait-for-state "ACTIVE"
 ```
 
-A criação dos demais _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ seguem a mesma lógica e não serão apresentados aqui.
+A criação dos demais _[compartimentos](#compartimentos)_ seguem a mesma lógica e não serão apresentados aqui.
 
 !!! note "NOTA"
-    O script **_[scripts/capitulo-2/compartments.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/compartments.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos para a criação dos _[compartimentos](https://docs.oracle.com/pt-br/iaas/Content/Identity/compartments/managingcompartments.htm)_ da aplicação OCI PIZZA.
-
-
-### [Políticas de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/access/manage-accessresources.htm)
+    O script **_[scripts/capitulo-2/compartment.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/compartment.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos para a criação dos _[compartimentos](#compartimentos)_ da aplicação **OCI PIZZA**.
 
 !!! note "NOTA"
-    Esse tipo de separação, aplica o conceito de _segurança da informação_ conhecido como _[principio do menor ou mínimo privilégio (least privilege)](https://en.wikipedia.org/wiki/Principle_of_least_privilege)_, no qual determina que um usuário, programa ou sistema, deve ter acesso restrito apenas às permissões necessárias para desempenhar suas funções específicas.
+    A Oracle recomenda a criação e configuração de um _[compartimentos](#compartimentos)_ **_sandbox_** para proporcionar aos usuários um espaço dedicado para testar recursos. No _[compartimento](#compartimentos)_ _sandbox_, você pode conceder permissões aos usuários para criar e gerenciar recursos, enquanto mantém permissões mais restritivas nos demais _[compartimentos](#compartimentos)_.
 
-## 2.6.3 Grupos Dinâmicos
+### **[Políticas de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)**
 
-## 2.6.4 Gerenciamento de Regiões
+Uma _[Política de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_, _[Política](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ ou _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_, é um documento que contém uma ou mais declarações destinadas a conceder acesso e autorizar, um grupo de usuários, em gerenciar determinado serviço ou recurso do OCI. A Policy permite especificar permissões em nível de _[compartimento](#compartimentos)_ ou para todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
 
-### Home Region
+A concessão de acesso é feita a um grupo de usuários ou a um serviço, e não a um usuário específico. Além disso, todo grupo de usuários que é criado não possui nenhuma permissão de acesso, a menos que uma _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ tenha sido previamente definida. É responsabilidade do administrador do _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ conceder permissões ao grupo ou serviço por meio de uma ou mais _[policies](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_.
 
-## 2.6.5 Audit
+Basicamente, a sintaxe geral da _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ possui o seguinte formato:
+
+![alt_text](./img/oci-iam-policy-1.png "IAM Policy Sintaxe")
+
+_[Policies](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ sempre começam com a palavra **_Allow_**. Isso significa que as _[Policies](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ que você cria apenas concedem ou autorizam acesso, não podendo negá-lo, uma vez que, por padrão, tudo já é negado.
+
+Abaixo está o significado de cada uma das partes em destaque que compõem uma _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_:
+
+#### **[Assunto](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/subject.htm)**
+
+O elemento _[assunto](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/subject.htm)_ pode especificar um _[Grupo de Usuários](#261-gerenciamento-de-identidades)_, _[Grupo Dinâmico](https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Identity/dynamicgroups/Working_with_Dynamic_Groups.htm)_ ou serviços do OCI, utilizando uma das seguintes formas:
+
+- **group**
+    - Nome do _[Grupo de Usuários](#261-gerenciamento-de-identidades)_ no qual o acesso será concedido.
+
+- **group id**
+    - _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do _[Grupo de Usuários](#261-gerenciamento-de-identidades)_ no qual o acesso será concedido.
+
+- **dynamic-group**
+    - Nome do _[Grupo Dinâmico](https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Identity/dynamicgroups/Working_with_Dynamic_Groups.htm)_ no qual o acesso será concedido.
+
+- **dynamic-group id**
+    - _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do _[Grupo Dinâmico](https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Identity/dynamicgroups/Working_with_Dynamic_Groups.htm)_ no qual o acesso será concedido.
+
+- **service**
+    - Especifica o nome do serviço OCI no qual o acesso será concedido.
+
+- **any-group**
+    - Indica todos os _[Grupos de Usuários](#261-gerenciamento-de-identidades)_ e _[Grupos Dinâmico](https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Identity/dynamicgroups/Working_with_Dynamic_Groups.htm)_ do _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
+
+Há também a sintaxe **_<Nome do Domínio de Identidade\>/<Nome do Grupo\>_** que pode ser utilizada para se referir a um _[Grupo de Usuários](#261-gerenciamento-de-identidades)_ existente em um _[Domínio de Identidade](https://docs.oracle.com/pt-br/iaas/Content/Identity/domains/overview.htm)_ que não é o **_Default_**.
+
+!!! note "NOTA"
+    O livro utiliza o _[Domínio de Identidade](https://docs.oracle.com/pt-br/iaas/Content/Identity/domains/overview.htm)_ **_Default_**, que é criado automaticamente durante o processo de ativação da conta. Para saber mais sobre _[Domínios de Identidade](https://docs.oracle.com/pt-br/iaas/Content/Identity/domains/overview.htm)_, consulte _["Gerenciando Domínios de Identidade"](https://docs.oracle.com/pt-br/iaas/Content/Identity/domains/overview.htm)_.
+
+#### **[Verbo](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Verbs.htm)**
+
+O elemento _[verbo](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Verbs.htm)_ especifica o _tipo de acesso_ que será concedido em relação as operações que podem ser feitas em uma determinada API de um determinado serviço. Seus valores incluem:
+
+- **inspect**
+    - Concede a autorização para listar recursos.
+
+- **read**
+    - Inclui as permissões do verbo _inspect_ mais a capacidade de obter metadados do recurso.
+
+- **use**
+    - Inclui as permissões do verbo _read_ mais a capacidade de poder _atualizar_ o recurso _(operações de update)_. Em geral, esse verbo não inclui a capacidade de criar ou excluir um recurso.
+
+- **manage**
+    - Inclui todas as permissões para o recurso. 
+
+!!! note "NOTA"
+    Como é possível perceber o nível de acesso é cumulativo à medida que você vai de _inspect > read > use > manage_.
+
+Sabemos que, para cada serviço disponibilizado pelo OCI, existem uma ou mais APIs disponíveis, e cada API oferece uma funcionalidade específica relacionada ao serviço.
+
+Em termos de concessão de acesso, por exemplo, o verbo _inspect_ para o serviço de _[Load Balancer](../capitulo-4/load-balancer.md)_, inclui a permissão nomeada **_LOAD\_BALANCER\_INSPECT_** que contém as APIs **_ListLoadBalancers_**, **_ListShapes_**, **_ListPolicies_** e **_ListProtocols_**.
+
+![alt_text](./img/oci-api-doc-1.png "Load Balancer API - ListLoadBalancers")
+<br>
+
+!!! note "NOTA"
+    Todas as APIs disponibilizadas pelo OCI estão documentadas no link _["API Reference and Endpoints"](https://docs.oracle.com/en-us/iaas/api/#/)_. Na seção _["2.5.3 APIs do OCI"](../capitulo-2/gerenciando-o-oci-atraves-do-oci-cli.md#253-apis-do-oci)_ há também mais informações relacionadas ao tema de APIs.
+
+O objetivo dos _verbos_ é simplificar o processo de concessão de diversas permissões relacionadas. A tabela abaixo ajuda a esclarecer o significado do _verbo_ em relação à concessão de acesso às operações disponíveis nas APIs do serviço _[Load Balancer](../capitulo-4/load-balancer.md)_:
+
+| Verbo   | Permissão                      | API                                                         |
+|---------|--------------------------------|-------------------------------------------------------------|
+| inspect | LOAD_BALANCER_INSPECT          | _[ListLoadBalancers](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/ListLoadBalancers)_, _[ListShapes](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/LoadBalancerShape/ListShapes)_, _[ListPolicies](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/LoadBalancerPolicy/ListPolicies)_ e _[ListProtocols](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/LoadBalancerProtocol/ListProtocols)_ |
+| read    | _inspect_ + LOAD_BALANCER_READ | _[GetLoadBalancer](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/GetLoadBalancer)_, _[GetBackendSet](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/BackendSet/GetBackendSet)_, _[GetBackend](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/Backend/GetBackend)_, _[GetHealthChecker](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/HealthChecker/GetHealthChecker)_, etc. |
+| use     | _read_ + LOAD_BALANCER_UPDATE e LOAD_BALANCER_MOVE | _[UpdateBackendSet](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/BackendSet/UpdateBackendSet)_, _[DeleteBackendSet](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/BackendSet/DeleteBackendSet)_, _[UpdateListener](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/Listener/UpdateListener)_, etc. |
+| manage  | _use_ + LOAD_BALANCER_CREATE e LOAD_BALANCER_DELETE | _[CreateLoadBalancer](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/CreateLoadBalancer)_ e _[DeleteLoadBalancer](https://docs.oracle.com/en-us/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/DeleteLoadBalancer)_ |
+
+!!! note "NOTA"
+    O link _["Referência da Política de Serviço Detalhada"](https://docs.oracle.com/pt-br/iaas/Content/Identity/policyreference/policyreference.htm)_ contém todos os detalhes referente as permissões e operações às APIs para todos os serviços disponibilizados pelo OCI.
+
+No exemplo abaixo, a _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ escrita concede ao _grupo network-users_, acesso a todas as APIs do serviço que gerencia _[VCNs](../capitulo-4/servico-de-redes.md)_ em todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_:
+
+![alt_text](./img/oci-iam-policy-2.png "OCI IAM Policy #2")
+<br>
+
+Compreender a relação entre permissões e as APIs disponíveis por serviço facilita a elaboração de _[Policies](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ mais granulares em termos de acesso. Veremos adiante que é possível, por exemplo, conceder acesso apenas às APIs _[AddVcnCidr](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Vcn/AddVcnCidr)_ e _[RemoveVcnCidr](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Vcn/RemoveVcnCidr)_ do verbo _manage_, sem conceder acesso às demais APIs, como _[CreateVcn](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Vcn/CreateVcn)_, _[UpdateVcn](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Vcn/UpdateVcn)_ ou _[DeleteVcn](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Vcn/DeleteVcn)_.
+
+#### **[Tipo do Recurso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policiesgs/policies_topic-ResourceTypes.htm)**
+
+O elemento _[Tipo do Recurso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policiesgs/policies_topic-ResourceTypes.htm)_ refere-se a um recurso específico ou a uma _família de recursos_.
+
+Por exemplo, a _família de recursos_ **_virtual-network-family_** abrange vários recursos específicos relacionados a _[VCN](../capitulo-4/servico-de-redes.md)_, como **_vcns_**, **_subnets_**, **_route-tables_**, **_security-lists_**, entre outros. Nesse contexto, **_vcns_** e **_subnets_** correspondem a recursos específicos, como _[VCNs](../capitulo-4/servico-de-redes.md)_ e _[Sub-rede](../capitulo-4/servico-de-redes.md)_.
+
+Trabalhar com um recurso específico ou uma _família de recursos_ proporciona a flexibilidade de definir exatamente quais recursos terão acesso concedido.
+
+Há também o tipo **_all-resources_**, que pode ser usado para fazer referência a todos os recursos do _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
+
+![alt_text](./img/oci-iam-policy-3.png "IAM Policy Exemplos #3")
+
+!!! note "NOTA"
+    Consulte _["Referência da Política de Serviço Detalhada"](https://docs.oracle.com/pt-br/iaas/Content/Identity/policyreference/policyreference.htm)_ para verificar os tipos de recursos disponíveis e o nome da família de recursos à qual cada recurso pertence.
+
+#### **[Local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)**
+
+O elemento _[Local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ especifica o _[Compartimento](#compartimentos)_ ou _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ no qual a _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ concede acesso. Em outras palavras, ele define o escopo do acesso, que pode ser um _[compartimento](#compartimentos)_ específico ou todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
+
+Os seguintes valores que podem ser usados para o elemento _[local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ são:
+
+- **tenancy**
+    - Abrange todos os recursos do Tenancy.
+
+- **compartment**
+    - Usado para especificar o nome do compartimento onde a policy será aplicada. Se houver subcompartimentos abaixo do compartimento especificado, a policy se aplicará a todos os compartimentos a partir do nível mais alto da hierarquia.
+  
+- **compartment id**
+    - Usado para especificar o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do compartimento onde a policy será aplicada. 
+
+Valores válidos para o elemento _[Local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ também podem incluír um _[compartimento](#compartimentos)_ específico dentro de uma hierarquia de _[compartimentos](#compartimentos)_:
+
+![alt_text](./img/oci-iam-policy-4.png "IAM Policy Exemplos #4")
+
+Para **_compartment id_**, é possível utilizar apenas um valor _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ de um  _[compartimento](#compartimentos)_ específico. Não é permitido fazer referência a uma hierarquia de  _[compartimentos](#compartimentos)_.
+
+#### **[Condição](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/conditions.htm)**
+

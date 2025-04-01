@@ -115,7 +115,7 @@ $ oci --latest-version
 O OCI como todo provedor de computação em Nuvem, disponibilizam seus serviços através de um conjunto de diferentes APIs. 
 
 !!! note "NOTA"
-    Todas as APIs que o OCI disponibiliza, estão documentadas no link _[API Reference and Endpoints](https://docs.oracle.com/en-us/iaas/api/#/)_.
+    Todas as APIs disponibilizadas pelo OCI estão documentadas no link _[API Reference and Endpoints](https://docs.oracle.com/en-us/iaas/api/#/)_.
 
 As APIs do OCI são públicas, acessíveis pela Internet por meio do protocolo _HTTPS_. Por exemplo, o conjunto de APIs denominado _[Core Services API](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/latest/)_, permite gerenciar recursos como _[VCN](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_, _[Compute Instances](https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm)_ e _[Block Storage](https://docs.oracle.com/pt-br/iaas/Content/Block/Concepts/overview.htm)_.
 
