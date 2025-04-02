@@ -242,7 +242,7 @@ Para ilustrar melhor o uso de _[Compartimento](#compartimentos)_, imagine difere
 
 A separação de funções por tipo de profissional é uma prática comum que garante que cada equipe tenha acesso somente aos recursos necessários para desempenhar suas atividades. Por exemplo, os profissionais da equipe de **_REDES_** terão permissão apenas para gerenciar recursos de rede, como _[VCNs](../capitulo-4/servico-de-redes.md)_, _[sub-redes](../capitulo-4/servico-de-redes.md)_, _[VPNs Site-To-Site](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/overviewIPsec.htm)_, etc.
 
-Por outro lado, os profissionais de **_APLICAÇÃO_** terão acesso somente aos recursos de computação, como _[Compute Instances](https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm)_, _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_, _[Kubernetes Engine (OKE)](https://docs.oracle.com/pt-br/iaas/Content/ContEng/Concepts/contengoverview.htm)_, etc.
+Por outro lado, os profissionais de **_APLICAÇÃO_** terão acesso somente aos recursos de computação, como _[Compute Instances](https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm)_, _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_, _[Kubernetes Engine (OKE)](../capitulo-8/index.md)_, etc.
 
 Da mesma forma, os profissionais **_DBA_** terão acesso somente aos recursos de bancos de dados, como o _[Oracle NoSQL](https://docs.oracle.com/en/database/other-databases/nosql-database/index.html)_.
 
@@ -302,7 +302,7 @@ A concessão de acesso é feita a um grupo de usuários ou a um serviço, e não
 
 Basicamente, a sintaxe geral da _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ possui o seguinte formato:
 
-![alt_text](./img/oci-iam-policy-1.png "IAM Policy Sintaxe")
+![alt_text](./img/oci-iam-policy-1.png "IAM Policy - Exemplo #1")
 
 _[Policies](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ sempre começam com a palavra **_Allow_**. Isso significa que as _[Policies](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ que você cria apenas concedem ou autorizam acesso, não podendo negá-lo, uma vez que, por padrão, tudo já é negado.
 
@@ -356,15 +356,15 @@ O elemento _[verbo](https://docs.oracle.com/pt-br/iaas/Content/Identity/policies
 
 Sabemos que, para cada serviço disponibilizado pelo OCI, existem uma ou mais APIs disponíveis, e cada API oferece uma funcionalidade específica relacionada ao serviço.
 
-Em termos de concessão de acesso, por exemplo, o verbo _inspect_ para o serviço de _[Load Balancer](../capitulo-4/load-balancer.md)_, inclui a permissão nomeada **_LOAD\_BALANCER\_INSPECT_** que contém as APIs **_ListLoadBalancers_**, **_ListShapes_**, **_ListPolicies_** e **_ListProtocols_**.
+Em termos de concessão de acesso, por exemplo, o verbo _inspect_ para o serviço de _[Load Balancer](../capitulo-4/load-balancer.md)_, inclui a permissão nomeada **_LOAD\_BALANCER\_INSPECT_** que concede acesso às APIs **_ListLoadBalancers_**, **_ListShapes_**, **_ListPolicies_** e **_ListProtocols_**.
 
 ![alt_text](./img/oci-api-doc-1.png "Load Balancer API - ListLoadBalancers")
 <br>
 
 !!! note "NOTA"
-    Todas as APIs disponibilizadas pelo OCI estão documentadas no link _["API Reference and Endpoints"](https://docs.oracle.com/en-us/iaas/api/#/)_. Na seção _["2.5.3 APIs do OCI"](../capitulo-2/gerenciando-o-oci-atraves-do-oci-cli.md#253-apis-do-oci)_ há também mais informações relacionadas ao tema de APIs.
+    Normalmente, os nomes das APIs são autoexplicativos. No entanto, se você deseja obter informações detalhadas sobre os tipos de operações de uma API específica, consulte o link _["API Reference and Endpoints"](https://docs.oracle.com/en-us/iaas/api/#/)_.
 
-O objetivo dos _verbos_ é simplificar o processo de concessão de diversas permissões relacionadas. A tabela abaixo ajuda a esclarecer o significado do _verbo_ em relação à concessão de acesso às operações disponíveis nas APIs do serviço _[Load Balancer](../capitulo-4/load-balancer.md)_:
+O objetivo dos _verbos_ é simplificar o processo de concessão de diversas permissões relacionadas. Para facilitar a compreensão, abaixo está um exemplo da correlação entre um _verbo_ e as _permissões_ associadas às APIs do serviço _[Load Balancer](../capitulo-4/load-balancer.md)_:
 
 | Verbo   | Permissão                      | API                                                         |
 |---------|--------------------------------|-------------------------------------------------------------|
@@ -385,7 +385,7 @@ Compreender a relação entre permissões e as APIs disponíveis por serviço fa
 
 #### **[Tipo do Recurso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policiesgs/policies_topic-ResourceTypes.htm)**
 
-O elemento _[Tipo do Recurso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policiesgs/policies_topic-ResourceTypes.htm)_ refere-se a um recurso específico ou a uma _família de recursos_.
+O elemento _[tipo do recurso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policiesgs/policies_topic-ResourceTypes.htm)_ refere-se a um recurso específico ou a uma _família de recursos_.
 
 Por exemplo, a _família de recursos_ **_virtual-network-family_** abrange vários recursos específicos relacionados a _[VCN](../capitulo-4/servico-de-redes.md)_, como **_vcns_**, **_subnets_**, **_route-tables_**, **_security-lists_**, entre outros. Nesse contexto, **_vcns_** e **_subnets_** correspondem a recursos específicos, como _[VCNs](../capitulo-4/servico-de-redes.md)_ e _[Sub-rede](../capitulo-4/servico-de-redes.md)_.
 
@@ -393,14 +393,14 @@ Trabalhar com um recurso específico ou uma _família de recursos_ proporciona a
 
 Há também o tipo **_all-resources_**, que pode ser usado para fazer referência a todos os recursos do _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
 
-![alt_text](./img/oci-iam-policy-3.png "IAM Policy Exemplos #3")
+![alt_text](./img/oci-iam-policy-3.png "IAM Policy - Exemplo #3")
 
 !!! note "NOTA"
     Consulte _["Referência da Política de Serviço Detalhada"](https://docs.oracle.com/pt-br/iaas/Content/Identity/policyreference/policyreference.htm)_ para verificar os tipos de recursos disponíveis e o nome da família de recursos à qual cada recurso pertence.
 
 #### **[Local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)**
 
-O elemento _[Local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ especifica o _[Compartimento](#compartimentos)_ ou _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ no qual a _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ concede acesso. Em outras palavras, ele define o escopo do acesso, que pode ser um _[compartimento](#compartimentos)_ específico ou todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
+O elemento _[local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ especifica o _[Compartimento](#compartimentos)_ ou _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ no qual a _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ concede acesso. Em outras palavras, ele define o escopo do acesso, que pode ser um _[compartimento](#compartimentos)_ específico ou todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
 
 Os seguintes valores que podem ser usados para o elemento _[local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ são:
 
@@ -413,11 +413,128 @@ Os seguintes valores que podem ser usados para o elemento _[local](https://docs.
 - **compartment id**
     - Usado para especificar o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do compartimento onde a policy será aplicada. 
 
-Valores válidos para o elemento _[Local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ também podem incluír um _[compartimento](#compartimentos)_ específico dentro de uma hierarquia de _[compartimentos](#compartimentos)_:
+Valores válidos para o elemento _[local](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/location.htm)_ também podem incluír um _[compartimento](#compartimentos)_ específico dentro de uma hierarquia de _[compartimentos](#compartimentos)_:
 
-![alt_text](./img/oci-iam-policy-4.png "IAM Policy Exemplos #4")
+![alt_text](./img/oci-iam-policy-4.png "IAM Policy - Exemplo #4")
 
 Para **_compartment id_**, é possível utilizar apenas um valor _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ de um  _[compartimento](#compartimentos)_ específico. Não é permitido fazer referência a uma hierarquia de  _[compartimentos](#compartimentos)_.
 
 #### **[Condição](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/conditions.htm)**
 
+O elemento _[condição](https://docs.oracle.com/pt-br/iaas/Content/Identity/policysyntax/conditions.htm)_ e é opcional e pode ser usado para restringir o escopo das permissões concedidas em uma política.
+
+Uma condição é escrita utilizando a cláusula **where**, seguida de uma comparação que pode ser simples (uma única condição) ou que pode abranger múltiplas condições.
+
+O exemplo abaixo demonstra a utilização de uma condição simples que usa o operador de negação **!=** para excluír somente a permissão **VCN_DELETE** do grupo _network-users_. Com isso, os usuários desse grupo podem criar VCNs, listar ou atualizar suas informações, mas não têm permissão para excluir uma VCN.
+
+![alt_text](./img/oci-iam-policy-5.png "IAM Policy - Exemplo #5")
+
+Além de **_request.permission_** é possível utilizar **_request.operation_** para fazer referência a uma operação específica da API:
+
+![alt_text](./img/oci-iam-policy-6.png "IAM Policy - Exemplo #6")
+
+As condições podem ser agrupadas entre chaves na forma **_{ condição-1, condição-2 }_** para avaliação. Para criar um _OR lógico_ entre um conjunto de condições, utilize a palavra **any**. Para estabelecer um _AND lógico_ entre um conjunto de condições, utilize **all**.
+
+A _[policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ de exemplo abaixo utiliza o operador **any** para criar um _OR lógico_, limitando o acesso do grupo _network-users_ às operações de APIs _[AddVcnCidr](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Vcn/AddVcnCidr)_ ou _[RemoveVcnCidr](https://docs.oracle.com/en-us/iaas/api/#/en/iaas/20160918/Vcn/RemoveVcnCidr)_.
+
+![alt_text](./img/oci-iam-policy-7.png "IAM Policy - Exemplo #7")
+
+!!! note "NOTA"
+    A página da documentação do OCI sobre _[Políticas Comuns](https://docs.oracle.com/pt-br/iaas/Content/Identity/Concepts/commonpolicies.htm)_ apresenta diversos exemplos de policies que podem servir como base para a elaboração das suas próprias políticas de acesso.
+
+### **As Políticas de Acesso da Aplicação OCI PIZZA**
+
+O script **_[scripts/capitulo-2/policy.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/policy.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todas as políticas de acesso utilizadas pela aplicação **OCI PIZZA**.
+
+Uma política de acesso pode ser escrita da seguinte maneira utilizando o _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_:
+
+```bash linenums="1"
+$ oci iam policy create \
+> --compartment-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --name "network-users-policy" \
+> --description "Políticas de Acesso para o Grupo network-users." \
+> --statements "[
+> 'Allow group network-users to manage virtual-network-family in compartment cmp-prd:cmp-network',
+> 'Allow group network-users to manage virtual-network-family in compartment cmp-hml:cmp-network',
+> 'Allow group network-users to manage virtual-network-family in compartment cmp-dev:cmp-network']" \
+> --wait-for-state "ACTIVE"
+```
+
+## 2.6.3 Grupos Dinâmicos
+
+Os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ são um tipo especial de grupo projetado para agrupar recursos, em vez de usuários. 
+
+A finalidade dos _[Grupos dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ é conceder acesso às APIs do OCI a uma _[instância de computação](../capitulo-6/index.md)_ ou recurso, que podem incluir não apenas servidores virtuais, mas também servidores que fazem parte de um cluster _[Kubernetes (OKE)](../capitulo-8/index.md)_ ou um _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_, por exemplo.
+
+<div align="center" style="font-weight: bold; font-style: italic;">
+Pense da seguinte forma: quando a intenção é conceder acesso de um serviço do OCI a outro, você deve utilizar Grupos Dinâmicos.
+</div>
+
+Uma vez que o _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ foi criado, também é necessário criar uma _[política de acesso](#políticas-de-acesso)_ para autorizar esse grupo a interagir com uma ou mais APIs do OCI. É importante destacar que os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ inclui como membro um recurso específico, e o acesso concedido a esse recurso, conforme definido na _[política de acesso](#políticas-de-acesso)_, permitirá que ele crie e gerencie outros recursos no OCI.
+
+A definição de um recurso que faz parte do _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ é feita através de um conjunto de _regras de correspondência_ que especificam recursos através do uso das seguintes variáveis:
+
+- **instance.compartment.id**
+    - Especifica o compartimento onde a instância de computação reside.
+
+- **instance.id**
+    - Especifica o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ da instância de computação.
+
+- **tag.<tagnamespace\>.<tagkey\>.value**
+    - Especifica o _namespace da tag_ e a _chave da tag_ que podem fazer referência a uma ou mais instâncias de computação no qual incluem as informações da _[tag](https://docs.oracle.com/pt-br/iaas/Content/Tagging/Concepts/taggingoverview.htm)_ especificada.
+
+- **tag.<tagnamespace\>.<tagkey\>.value='<tagvalue\>'**
+    - Especifica além do _namespace da tag_ e a _chave da tag_, é possível fazer referência ao valor que uma _[tag](https://docs.oracle.com/pt-br/iaas/Content/Tagging/Concepts/taggingoverview.htm)_ específica possui.
+
+- **resource.compartment.id**
+    - Especifica o compartimento onde o recurso reside.
+
+- **resource.id**
+    - Especifica o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do recurso.
+
+- **resource.type**
+    - Especifica o tipo do recurso.
+
+!!! note "NOTA"
+    Consulte a página _["Visão Geral do Serviço Tagging"](https://docs.oracle.com/pt-br/iaas/Content/Tagging/Concepts/taggingoverview.htm)_ para obter mais informações sobre o uso de _tags_ em recursos.
+
+Os operadores lógicos **any (OR)** e **all (AND)** podem ser utilizados para criar regras de correspondência em um _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_.
+
+Por exemplo, a imagem abaixo ilustra uma regra de correspondência de um _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ **_instances-dyngrp_**, que incluem as _[instâncias de computação](../capitulo-6/index.md)_ de um compartimento específico **_(instance.compartment.id)_** ou **_(OR lógico)_**, uma única instância **_(instance.id)_**:
+
+![alt_text](./img/oci-dynagrp-1.png "Grupos Dinâmico #1")
+
+!!! note "NOTA"
+    Os nomes dos _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ devem ser exclusivos em todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
+
+A partir do _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ que foi definido, podemos escrever uma _[policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ que concede acesso total aos objetos do serviço _[Object Storage](https://docs.oracle.com/pt-br/iaas/Content/Object/Concepts/objectstorageoverview.htm)_ dentro do compartimento especificado:
+
+![alt_text](./img/oci-iam-policy-8.png "IAM Policy - Exemplo #8")
+
+Em resumo, neste exemplo, a definição do _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ e da _[policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ associada permitem que qualquer _[instância de computação](../capitulo-6/index.md)_ dentro do compartimento especificado, ou a instância identificada pelo seu _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_, manipule objetos do serviço _[Object Storage](https://docs.oracle.com/pt-br/iaas/Content/Object/Concepts/objectstorageoverview.htm)_ que estão armazenados no compartimento _cmp-prd:cmp-appl_.
+
+### **Grupos Dinâmicos da Aplicação OCI PIZZA**
+
+O script **_[scripts/capitulo-2/dynamic-group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/dynamic-group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ utilizadas pela aplicação **OCI PIZZA**.
+
+Para criar um _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ através do _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_, utilize como exemplo o seguinte comando:
+
+```bash linenums="1"
+$ oci iam dynamic-group create \
+> --name "instances-dyngrp" \
+> --description "Grupo dinâmico das instâncias de computação que usam o Object Storage." \
+> --matching-rule "any {
+> instance.compartment.id = 'ocid1.compartment.oc1..aaaaaavvvvvvvddddddddddd', 
+> instance.id = 'ocid1.instance.oc1.sa-saopaulo-1.acccccvvvbbbbbbbbbbb'}" \
+> --wait-for-state "ACTIVE"
+```
+
+## 2.6.4 Gerenciamento de Regiões
+
+### Home Region
+
+A região onde os seus recursos IAM residem. 
+
+Todos os recursos IAM são globais e estão disponíveis por todas as regiões porém, deve-se ter uma região no qual toda interação aos recursos do IAM serão feitas. Ou seja, qualquer alteração nos recursos IAM, deve ser feita na home region.
+
+## 2.6.5 Audit

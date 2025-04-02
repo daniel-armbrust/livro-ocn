@@ -65,6 +65,6 @@ A descrição sucinta do que cada capítulo abrange pode ser consultada a seguir
 - [Apêndice A: OCI HOWTOs](./apendice-a/index.md)
     - Este apêndice contém HOWTOs (guias práticos) sobre temas variados e úteis que não se encaixaram na abordagem linear proposta pelo livro, todos relacionados ao OCI.
 
-Para críticas, sugestões ou reportar qualquer erro, mesmo que um simples erro ortográfico, entre em contato comigo pelo e-mail: <a href="darmbrust@gmail.com">darmbrust@gmail.com</a>
+Para críticas, sugestões ou reportar qualquer erro, seja um link "quebrado" ou mesmo um simples erro ortográfico, entre em contato comigo pelo e-mail: <a href="darmbrust@gmail.com">darmbrust@gmail.com</a>
 
 Direitos autorais reservados. Versão para uso pessoal. 
