@@ -51,3 +51,5 @@ hide:
 - [10 Years of Kubernetes (2024). Kubernetes Blog.](https://kubernetes.io/blog/2024/06/06/10-years-of-kubernetes/)
 
 - [Madapparambath, Gineesh; McKendrick, Russ (2024). The Kubernetes Bible - Second Edition. Packt Publishing.](https://amzn.to/4beZtDA)
+
+- [Tomasz Jakóbczyk, Michal (2020). Practical Oracle Cloud Infrastructure: Infrastructure as a Service, Autonomous Database, Managed Kubernetes, and Serverless. Apress.](https://amzn.to/4iTws3u)

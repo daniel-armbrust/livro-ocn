@@ -137,9 +137,6 @@ $ oci iam group create \
 > --wait-for-state "ACTIVE"
 ```
 
-!!! note "NOTA"
-    O script **_[scripts/capitulo-2/group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos necessários para a criação dos grupos que serão utilizados nos exemplos apresentados neste capítulo.
-
 Após a criação do grupo, é possível adicionar usuários a ele. Para isso, é necessário obter o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ tanto do grupo quanto do usuário que será adicionado.
 
 O comando abaixo retorna o _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_ do grupo _group-network_ recém-criado:
@@ -170,6 +167,10 @@ $ oci iam group list-users \
   "fulano.beltrano"
 ]
 ```
+
+### **Grupos de Usuários da Aplicação OCI PIZZA**
+
+O script **_[scripts/capitulo-2/group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos necessários para a criação dos Grupos de Usuários utilizados pela aplicação **OCI PIZZA**.
 
 ## 2.6.2 Controle de Acesso
 
@@ -227,7 +228,7 @@ Por fim, é possível criar até **_seis subcompartimentos_** dentro de um _[com
 ![alt_text](./img/oci-subcompartments-1.png "Subcompartimentos")
 <br>
 
-#### **Compartimentos da Aplicação OCI Pizza**
+#### **Compartimentos da Aplicação OCI PIZZA**
 
 Para ilustrar melhor o uso de _[Compartimento](#compartimentos)_, imagine diferentes grupos de profissionais de TI colaborando no desenvolvimento da aplicação **_[OCI PIZZA](../capitulo-3/ocipizza-overview.md)_**. Esses grupos incluem:
 
@@ -288,8 +289,7 @@ $ oci iam compartment create \
 
 A criação dos demais _[compartimentos](#compartimentos)_ seguem a mesma lógica e não serão apresentados aqui.
 
-!!! note "NOTA"
-    O script **_[scripts/capitulo-2/compartment.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/compartment.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos para a criação dos _[compartimentos](#compartimentos)_ da aplicação **OCI PIZZA**.
+O script **_[scripts/capitulo-2/compartment.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/compartment.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos para a criação dos _[compartimentos](#compartimentos)_ da aplicação **OCI PIZZA**.
 
 !!! note "NOTA"
     A Oracle recomenda a criação e configuração de um _[compartimentos](#compartimentos)_ **_sandbox_** para proporcionar aos usuários um espaço dedicado para testar recursos. No _[compartimento](#compartimentos)_ _sandbox_, você pode conceder permissões aos usuários para criar e gerenciar recursos, enquanto mantém permissões mais restritivas nos demais _[compartimentos](#compartimentos)_.
@@ -439,14 +439,7 @@ A _[policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Poli
 
 ![alt_text](./img/oci-iam-policy-7.png "IAM Policy - Exemplo #7")
 
-!!! note "NOTA"
-    A página da documentação do OCI sobre _[Políticas Comuns](https://docs.oracle.com/pt-br/iaas/Content/Identity/Concepts/commonpolicies.htm)_ apresenta diversos exemplos de policies que podem servir como base para a elaboração das suas próprias políticas de acesso.
-
-### **As Políticas de Acesso da Aplicação OCI PIZZA**
-
-O script **_[scripts/capitulo-2/policy.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/policy.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todas as políticas de acesso utilizadas pela aplicação **OCI PIZZA**.
-
-Uma política de acesso pode ser escrita da seguinte maneira utilizando o _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_:
+Uma política de acesso pode ser criada da seguinte forma, utilizando o _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_:
 
 ```bash linenums="1"
 $ oci iam policy create \
@@ -459,6 +452,13 @@ $ oci iam policy create \
 > 'Allow group network-users to manage virtual-network-family in compartment cmp-dev:cmp-network']" \
 > --wait-for-state "ACTIVE"
 ```
+
+!!! note "NOTA"
+    A página da documentação do OCI sobre _[Políticas Comuns](https://docs.oracle.com/pt-br/iaas/Content/Identity/Concepts/commonpolicies.htm)_ apresenta diversos exemplos de policies que podem servir como base para a elaboração das suas próprias políticas de acesso.
+
+### **As Políticas de Acesso da Aplicação OCI PIZZA**
+
+O script **_[scripts/capitulo-2/policy.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/policy.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todas as políticas de acesso utilizadas pela aplicação **OCI PIZZA**.
 
 ## 2.6.3 Grupos Dinâmicos
 
@@ -513,10 +513,6 @@ A partir do _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identi
 
 Em resumo, neste exemplo, a definição do _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ e da _[policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ associada permitem que qualquer _[instância de computação](../capitulo-6/index.md)_ dentro do compartimento especificado, ou a instância identificada pelo seu _[OCID](./gerenciando-o-oci-atraves-do-oci-cli.md#251-oracle-cloud-identifier-ocid)_, manipule objetos do serviço _[Object Storage](https://docs.oracle.com/pt-br/iaas/Content/Object/Concepts/objectstorageoverview.htm)_ que estão armazenados no compartimento _cmp-prd:cmp-appl_.
 
-### **Grupos Dinâmicos da Aplicação OCI PIZZA**
-
-O script **_[scripts/capitulo-2/dynamic-group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/dynamic-group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ utilizadas pela aplicação **OCI PIZZA**.
-
 Para criar um _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ através do _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_, utilize como exemplo o seguinte comando:
 
 ```bash linenums="1"
@@ -529,7 +525,150 @@ $ oci iam dynamic-group create \
 > --wait-for-state "ACTIVE"
 ```
 
-## 2.6.4 Gerenciamento de Regiões
+### **Grupos Dinâmicos da Aplicação OCI PIZZA**
+
+O script **_[scripts/capitulo-2/dynamic-group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/dynamic-group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ utilizadas pela aplicação **OCI PIZZA**.
+
+## 2.6.4 Limites e Cotas
+
+### **[Limites](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/servicelimits.htm)**
+
+Após a ativação da sua conta, o OCI estabelece um conjunto de limites para os recursos que você pode criar. Esses limites referem-se à quantidade máxima de recursos permitidos em seu _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_, e cada recurso ou serviço possui um limite específico. 
+
+Por exemplo, o OCI estabelece um limite inicial de criação de até seis _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_ em todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_, para contas que utilizam o modelo de cobrança _[Pay As You Go](./modelos-de-cobraca.md#231-pay-as-you-go-payg-e-upfront-subscription)_ ou _Trial (contas para avaliação)_. Em contrapartida, para contas que operam sob o modelo _[Oracle Universal Credits](./modelos-de-cobraca.md#231-pay-as-you-go-payg-e-oracle-universal-credits-ouc)_, o limite inicial é de até dois mil _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_.
+
+!!! note "NOTA"
+    Todos os limites iniciais para os diversos serviços, seja para contas que utilizam o modelo de cobrança _[Pay As You Go](./modelos-de-cobraca.md#231-pay-as-you-go-payg-e-upfront-subscription)_, _Trial_ ou _[Oracle Universal Credits](./modelos-de-cobraca.md#231-pay-as-you-go-payg-e-oracle-universal-credits-ouc)_, podem ser consultados na documentação oficial do OCI em _["Limites do Serviço"](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/servicelimits.htm)_.
+
+Para consultar o limite de um serviço específico utilizando o _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_, é necessário, primeiramente, ter em mãos o _"Nome do Serviço"_, conforme demonstrado no comando a seguir:
+
+```bash linenums="1"
+$ oci limits service list \
+> --compartment-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --all \
+> --query 'data[*].{"Descrição do Serviço": description, "Nome do Serviço": name}' \
+> --output table
++---------------------------------------+-----------------------------+
+| Descrição do Serviço                  | Nome do Serviço             |
++---------------------------------------+-----------------------------+
+| Application Dependency Management     | adm                         |
+| Access Governance                     | agcs                        |
+| AI Anomaly Detection                  | ai-anomaly-detection        |
+| AI Document                           | ai-document                 |
+| AI Forecasting                        | ai-forecasting              |
+| Generative AI                         | ai-generative               |
+| AI Language                           | ai-language                 |
+| AI Speech                             | ai-speech                   |
+| AI Vision                             | ai-vision                   |
+| Analytics                             | analytics                   |
+| Announcements                         | announcements               |
+| API Gateway                           | api-gateway                 |
+| Application Performance Monitoring    | apm                         |
+| Application Configuration             | app-configuration           |
+| Account Tracking and Automation Tools | atat                        |
+| Auto Scaling                          | auto-scaling                |
+| Autonomous Recovery Service           | autonomous-recovery-service |
+| Big Data                              | big-data                    |
+```
+
+!!! note "NOTA"
+    O resultado do comando acima foi limitada devido à grande quantidade de serviços disponíveis no OCI. Você pode obter esse comando a partir do script **_[scripts/capitulo-2/all-services.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/all-services.sh)_**, que está contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**.
+
+Uma vez que você tenha o nome do serviço, é possível consultar os limites associados a ele:
+
+```bash linenums="1"
+$ oci limits value list \
+> --compartment-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --all \
+> --service-name "vpn"
+{
+  "data": [
+    {
+      "availability-domain": null,
+      "name": "cpe-count",
+      "scope-type": "REGION",
+      "value": 10
+    },
+    {
+      "availability-domain": null,
+      "name": "ipsec-connection-count",
+      "scope-type": "REGION",
+      "value": 4
+    }
+  ]
+}
+```
+
+Neste caso, para o serviço de VPN que foi consultado, existem dois limites aplicáveis:
+
+- **cpe-count**
+    - Este limite indica que você pode ter até dez _[Customer Premises Equipment (CPE)](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/configuringCPE.htm)_ em uma região específica. O CPE é um dispositivo que conecta sua rede local à rede do OCI, permitindo a comunicação entre os dois ambientes.
+
+- **ipsec-connection-count**
+    - Este limite especifica que você pode ter até quatro conexões _[IPSec](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/overviewIPsec.htm)_ em uma região. As conexões _[IPSec](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/overviewIPsec.htm)_ são usadas para estabelecer uma conexão segura entre sua rede local e o OCI, utilizando criptografia para proteger os dados transmitidos.
+
+#### **[Solicitando Aumento dos Limites](https://support.oracle.com/knowledge/Oracle%20Cloud/2907244_1.html)**
+
+Para solicitar aumento de limites para qualquer serviço do OCI, utilize a opção **_"Request a limit increase"_** da _[Web Console](./acessando-o-oci.md#web-console)_ conforme demonstrado na figura abaixo:
+
+![alt_text](./img/oci-request-new-limits-1.png "Solicitando Aumento dos Limites #1")
+<br>
+
+Após isso, você será direcionado para um assistente virtual, onde deverá clicar no botão **_"Limit Increase"_** em duas telas consecutivas:
+
+![alt_text](./img/oci-request-new-limits-2.png "Solicitando Aumento dos Limites #2")
+<br>
+
+Um formulário será exibido, onde você deverá selecionar a categoria do serviço **_(Service Category)_**, o recurso ou item relacionado ao serviço **_(Resource)_**, o novo limite desejado para a região **_(sa-saopaulo-1 Region Limit)_**, e fornecer uma justificativa **_(Reason for request)_**. Em seguida, basta clicar no botão **_"Create Support Request"_**:
+
+![alt_text](./img/oci-request-new-limits-3.png "Solicitando Aumento dos Limites #3")
+<br>
+
+Essa ação criará uma solicitação para a equipe do OCI, que, após análise, irá efetivar o novo valor solicitado. Toda a comunicação será realizada por meio do e-mail cadastrado do usuário que está solicitando o aumento do limite.
+
+### **[Cotas](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)**
+
+_[Cotas](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_ ou _[Cotas de Compartimento](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_ são utilizadas para controlar a quantidade de recursos que podem ser criados dentro de um _[compartimento](#compartimentos)_. As cotas de compartimento são semelhantes aos _[limites do serviço](#limites)_, mas a principal diferença é que os _[limites do serviço](#limites)_ são estabelecidos pela Oracle, enquanto as _[cotas de compartimento](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_ são definidas pelos administradores do _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ ou por qualquer outro usuário que possua privilégios adequados.
+
+De forma prática, você pode definir, por meio de _[cotas](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_, o número máximo de _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_ que podem ser criadas no _[compartimento](#compartimentos)_ _cmp-appl_, por exemplo. Isso permite um controle eficaz sobre a utilização dos recursos dentro de um _[compartimento](#compartimentos)_.
+
+Para definir cotas, utiliza-se uma linguagem declarativa própria, semelhante à utilizada nas políticas de acesso. Essa linguagem inclui três tipos de instruções que podem ser usadas. São elas:
+
+- **zero**
+    - Redefine todos os limites de cota de um recurso para zero.
+
+- **unset**
+    - Redefine as cotas de volta para os limites do serviço padrão.
+
+- **set**
+    - Define um número máximo de recursos que podem ser criados.
+
+Por exemplo, o seguinte comando pode ser utilizado para restringir a criação de até oito _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_ com processadores do tipo E4 nas regiões _sa-saopaulo-1_ ou _sa-vinhedo-1_:
+
+```bash linenums="1"
+$ oci limits quota create \
+> --compartment-id ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --name "container-instance-quota" \
+> --description "Cotas para Container Instance." \
+> --statements "[
+> 'zero compute-core quota in tenancy', 
+> 'set compute-core quota standard-e4-core-count to 8 in tenancy where any {request.region = sa-saopaulo-1, request.region = sa-vinhedo-1}']" \
+> --wait-for-state "ACTIVE"
+```
+
+Observe que, para aplicar a _[cota](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_ de forma eficaz, inicialmente zeramos o limite utilizando a instrução **_zero_**. Em seguida, com a instrução **_set_**, definimos o valor do limite para um item específico, que neste caso é a CPU do tipo E4, identificada como **_standard-e4-core-count_**, pertencente à família do serviço **_compute-core_**.
+
+!!! note "NOTA"
+    As cotas para o serviço de _[Container Instances](https://docs.oracle.com/pt-br/iaas/Content/container-instances/overview-of-container-instances.htm)_ pertencem à mesma família **_compute-core_** que as cotas do serviço _[Compute Instances](https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm)_.
+
+!!! note "NOTA"
+    A documentação disponível em _[Cotas Disponíveis por Serviço](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas_topic-Available_Quotas_by_Service.htm)_ contém informações sobre todas as _[cotas](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_ disponíveis por serviço.
+
+#### **Cotas da Aplicação OCI PIZZA**
+
+O script **_[scripts/capitulo-2/quotas.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/quotas.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, contém as _[cotas](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_ utilizadas pela aplicação **OCI PIZZA**.
+
+## 2.6.5 Gerenciamento de Regiões
 
 ### Home Region
 
@@ -537,4 +676,4 @@ A região onde os seus recursos IAM residem.
 
 Todos os recursos IAM são globais e estão disponíveis por todas as regiões porém, deve-se ter uma região no qual toda interação aos recursos do IAM serão feitas. Ou seja, qualquer alteração nos recursos IAM, deve ser feita na home region.
 
-## 2.6.5 Audit
+## 2.6.6 Audit

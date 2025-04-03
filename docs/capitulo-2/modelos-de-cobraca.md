@@ -8,13 +8,13 @@ O OCI oferece uma ampla gama de serviços e recursos computacionais que podem se
 
 Neste capítulo, abordaremos os diferentes modelos de cobrança disponíveis no OCI, detalhando como a tarifação de alguns serviços e recursos computacionais
 
-## 2.3.1 Pay-As-You-Go (PAYG) e Upfront Subscription
+## 2.3.1 Pay As You Go (PAYG) e Oracle Universal Credits (OUC)
 
 Basicamente há dois _Modelos de Cobrança_ disponíveis:
 
-### Pay-As-You-Go (PAYG)
+### Pay As You Go (PAYG)
 
-_Pay-As-You-Go (PAYG)_ ou _"Pague conforme o uso"_ é o mais popular no universo da Computação em Nuvem, sendo especialmente indicado para usuários que estão explorando a nuvem ou desenvolvendo protótipos.
+_Pay As You Go (PAYG)_ ou _"Pague conforme o uso"_ é o mais popular no universo da Computação em Nuvem, sendo especialmente indicado para usuários que estão explorando a nuvem ou desenvolvendo protótipos.
 
 Dentro desse modelo de cobrança, existe o que chamados de _["Preço de Lista"](https://www.oracle.com/cloud/price-list/)_, que consiste em uma tabela que detalha todos os serviços e recursos disponíveis no OCI, incluindo seus respectivos valores e a forma como cada um deles é cobrado. A maioria dos itens dessa lista é cobrado por _"horas de utilização"_.
 
@@ -96,18 +96,18 @@ Como o exemplo envolve uma _[Máquina Virtual](https://docs.oracle.com/en-us/iaa
 
 #### Custo Total da Máquina Virtual
 
-Após calcular todos os itens, obtemos o custo total de uma _[Máquina Virtual](https://docs.oracle.com/en-us/iaas/Content/Compute/Concepts/computeoverview.htm)_ no OCI para o período de **31 dias**, utilizando o modelo de cobrança _Pay-As-You-Go (PAYG)_:
+Após calcular todos os itens, obtemos o custo total de uma _[Máquina Virtual](https://docs.oracle.com/en-us/iaas/Content/Compute/Concepts/computeoverview.htm)_ no OCI para o período de **31 dias**, utilizando o modelo de cobrança _Pay As You Go (PAYG)_:
 
 ![alt_text](./img/oci-vm-price-total-1.png "Preço Total")
 <br>
 
-### Upfront Subscription
+### [Oracle Universal Credits (OUC)](https://www.oracle.com/cloud/universal-credits/)
 
-O modelo de cobrança _Pay-As-You-Go (PAYG)_ é vantajoso porque permite que os usuários paguem apenas pelos recursos que realmente utilizam, facilitando a realização de testes e _provas de conceito (PoC)_. Além disso, esse modelo possibilita que startups e pequenas empresas criem recursos de TI sem a necessidade de grandes investimentos iniciais.
+O modelo de cobrança _Pay As You Go (PAYG)_ é vantajoso porque permite que os usuários paguem apenas pelos recursos que realmente utilizam, facilitando a realização de testes e _provas de conceito (PoC)_. Além disso, esse modelo possibilita que startups e pequenas empresas criem recursos de TI sem a necessidade de grandes investimentos iniciais.
 
-Quando a sua necessidade por recursos computacionais no OCI se torna **_mais previsível_** — ou seja, quando você sabe que uma determinada máquina virtual, banco de dados, etc., precisarão permanecer _"ligados"_ durante todo o ano devido às exigências do negócio e dos clientes — os custos do modelo _Pay-As-You-Go_ podem ser otimizados. 
+Quando a sua necessidade por recursos computacionais no OCI se torna **_mais previsível_** — ou seja, quando você sabe que uma determinada máquina virtual, banco de dados, etc., precisarão permanecer _"ligados"_ durante todo o ano devido às exigências do negócio e dos clientes — os custos do modelo _Pay As You Go_ podem ser otimizados. 
 
-**_Upfront Subscription_** é um modelo de cobrança em que o cliente paga antecipadamente por um conjunto de recursos ou serviços por um período específico, geralmente de um ano ou mais. Isso implica a existência de um **_contrato fixo_** que detalha quais recursos do OCI serão utilizados pelo cliente durante esse período determinado.
+**_[Oracle Universal Credits](https://www.oracle.com/cloud/universal-credits/)_** é um modelo de cobrança em que o cliente paga antecipadamente por um conjunto de recursos ou serviços por um período específico, geralmente de um ano ou mais. Isso implica a existência de um **_contrato fixo_** que detalha quais recursos do OCI serão utilizados pelo cliente durante esse período determinado.
 
 Esse modelo é contratado diretamente com a equipe de vendas da Oracle. Após uma análise das suas necessidades, é possível negociar descontos sobre os itens do _["Preço de Lista"](https://www.oracle.com/cloud/price-list/)_.
 
@@ -118,7 +118,7 @@ Por fim, é importante lembrar que a Computação em Nuvem é uma forma de dispo
 !!! note "NOTA"
     Quando a criação de um recurso no OCI falha devido à falta de capacidade, o erro **_"Out of host capacity"_** é exibido. Esse erro ocorre quando não há infraestrutura física suficiente para provisionar uma instância de computação. Isso pode acontecer ao tentar criar instâncias em um _Fault Domain_ ou em um _Availability Domain_ específicos, onde a capacidade disponível foi totalmente utilizada.
 
-Por outro lado, ao optar pelo modelo **_Upfront Subscription_**, você tem a garantia de que os recursos estarão prontos para uso assim que solicitar sua criação. Isso ocorre porque você pagou antecipadamente, o que notifica a Oracle sobre sua intenção de utilizar os recursos definidos no contrato. Em resposta, a Oracle, por meio de seu Gerenciamento de Capacidade, ajusta a região, o _Availability Domain_ e o _Fault Domain_ para atender a essa demanda.
+Por outro lado, ao optar pelo modelo **_[Oracle Universal Credits](https://www.oracle.com/cloud/universal-credits/)_**, você tem a garantia de que os recursos estarão prontos para uso assim que solicitar sua criação. Isso ocorre porque você pagou antecipadamente, o que notifica a Oracle sobre sua intenção de utilizar os recursos definidos no contrato. Em resposta, a Oracle, por meio de seu Gerenciamento de Capacidade, ajusta a região, o _Availability Domain_ e o _Fault Domain_ para atender a essa demanda.
 
 ## 2.3.2 OCI Cost Estimator
 

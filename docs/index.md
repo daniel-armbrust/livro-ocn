@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 02/04/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 03/04/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -116,7 +116,9 @@ Boa leitura!
     - [A.1 Roteamento de Trânsito com pfSense](./apendice-a/transit-routing-pfsense.md)
     - [A.2 Ansible Básico](./apendice-a/ansible-basico.md)
     - [A.3 Kubernetes the Hard Way](./apendice-a/kubernetes-hard-way.md)
-    - [A.4 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
+    - [A.4 kubectl HOWTO](./apendice-a/kubectl-howto.md)
+    - [A.5 OCI CLI HOWTO](./apendice-a/oci-cli-howto.md)
+    - [A.6 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
 <br><br>
 
 - [Bibliografia](./bibliografia.md)
