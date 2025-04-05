@@ -7,5 +7,5 @@ _"O modo como você se organiza acaba direcionando a arquitetura de seus sistema
 - [2.3 Modelos de Cobraça](./modelos-de-cobraca.md)
 - [2.4 Acessando o OCI](./acessando-o-oci.md)
 - [2.5 Gerenciando o OCI através do OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)
-- [2.6 IAM, Limites e Cotas](./iam-limites-e-cotas.md)
+- [2.6 IAM, Limites, Cotas e Audit](./capitulo-2/iam-limites-cotas-e-audit.md)
 - [2.7 Ajuda Extra, Treinamentos e Certificações](./ajuda-extra-treinamentos-certificacoes.md)

@@ -1,6 +1,6 @@
 # Capítulo 2: OCI Foundations
 
-# 2.6 IAM, Limites e Cotas
+# 2.6 IAM, Limites, Cotas e Audit
 
 O serviço _[Identity and Access Management (IAM)](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm)_ fornece recursos para o **_gerenciamento de identidades_** e o **_controle de acesso_** aos recursos que você cria e gerencia no OCI.
 
@@ -708,7 +708,7 @@ $ oci iam region-subscription list \
 +-----------------+----------------+--------+
 ```
 
-## 2.6.6 Audit
+## 2.6.6 Serviço Audit
 
 O _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_ registra automaticamente todas as chamadas e ações realizadas nas _APIs do OCI_, proporcionando um histórico detalhado das operações executadas em sua conta.
 
