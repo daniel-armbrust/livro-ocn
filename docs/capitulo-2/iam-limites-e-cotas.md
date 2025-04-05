@@ -649,7 +649,7 @@ Por exemplo, o seguinte comando pode ser utilizado para restringir a criação d
 $ oci limits quota create \
 > --compartment-id ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
 > --name "container-instance-quota" \
-> --description "Cotas para Container Instance." \
+> --description "Cotas para os serviços Compute Instances e Container Instances." \
 > --statements "[
 > 'zero compute-core quota in tenancy', 
 > 'set compute-core quota standard-e4-core-count to 8 in tenancy where any {request.region = sa-saopaulo-1, request.region = sa-vinhedo-1}']" \
@@ -670,10 +670,86 @@ O script **_[scripts/capitulo-2/quotas.sh](https://github.com/daniel-armbrust/oc
 
 ## 2.6.5 Gerenciamento de Regiões
 
-### Home Region
+Um _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ dentro do modelo de cobrança _[Pay As You Go](./modelos-de-cobraca.md#231-pay-as-you-go-payg-e-upfront-subscription)_ ou _[Free Tier](./modelos-de-cobraca.md#233-free-tier-e-o-always-free)_ é restrito a uma única _[região](./introducao-ao-oci.md#211-região)_. Isso significa que, para utilizar outra _[região](./introducao-ao-oci.md#211-região)_, você precisará solicitar uma inscrição para essa nova _[região](./introducao-ao-oci.md#211-região)_.
 
-A região onde os seus recursos IAM residem. 
+O comando abaixo solicita a inscrição na _[região](./introducao-ao-oci.md#211-região)_ _"Sudeste do Brasil (Vinhedo)"_:
 
-Todos os recursos IAM são globais e estão disponíveis por todas as regiões porém, deve-se ter uma região no qual toda interação aos recursos do IAM serão feitas. Ou seja, qualquer alteração nos recursos IAM, deve ser feita na home region.
+```bash linenums="1"
+$ oci iam region-subscription create \
+> --tenancy-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --region-key "VCP"
+{
+  "data": {
+    "is-home-region": false,
+    "region-key": "VCP",
+    "region-name": "sa-vinhedo-1",
+    "status": "IN_PROGRESS"
+  }
+}
+```
+
+Observe que a região é especificada por meio de sua chave, que neste caso é **_VCP_**.
+
+![alt_text](./img/oci-iam-region-subscribe-1.png "Chave da Região")
+
+Após alguns minutos, você poderá verificar que a região solicitada já está disponível para uso **_(STATUS: READY)_**:
+
+```bash linenums="1"
+$ oci iam region-subscription list \
+> --tenancy-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --all \
+> --query 'data[*].{"Nome da Região": "region-name", "Chave da Região": "region-key", "Status": status}' \
+> --output table
++-----------------+----------------+--------+
+| Chave da Região | Nome da Região | Status |
++-----------------+----------------+--------+
+| GRU             | sa-saopaulo-1  | READY  |
+| VCP             | sa-vinhedo-1   | READY  |
++-----------------+----------------+--------+
+```
 
 ## 2.6.6 Audit
+
+O _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_ registra automaticamente todas as chamadas e ações realizadas nas _APIs do OCI_, proporcionando um histórico detalhado das operações executadas em sua conta.
+
+Os eventos de log registrados pelo _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_ incluem todas as chamadas feitas as _APIs do OCI_, seja através do _[Web Console](./acessando-o-oci.md#web-console)_,  _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_, _[SDK](./acessando-o-oci.md#oci-sdk-oci-software-development-kits)_ ou qualquer outra forma personalizada de interação com as _APIs REST_ do OCI. Esses dados de eventos podem ser utilizados para realizar diagnósticos e monitorar atividades relacionadas à criação, exclusão ou modificação de qualquer recurso em seu _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.
+
+Para ilustrar melhor o uso do _[Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_, imagine que você deseja descobrir quem excluiu uma determinada _[VCN](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_ do seu _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_. Como o _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_ fornece informações sobre as interações realizadas com as _APIs do OCI_, o primeiro passo é identificar o **_nome da ação_** que o _[Serviço de Redes](../capitulo-4/index.md)_ utiliza para excluir uma _[VCN](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_.
+
+Os nomes das ações disponíveis para operações relacionadas a uma _[VCN](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_ podem ser encontrados diretamente na documentação _["API Reference and Endpoints"](https://docs.oracle.com/en-us/iaas/api/#/)_:
+
+![alt_text](./img/oci-audit-1.png "OCI Audit - Exemplo #1")
+<br>
+
+A maneira mais simples de visualizar os eventos registrados pelo _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_ é através do _[Web Console](./acessando-o-oci.md#web-console)_. Para isso, acesse o _"menu de hambúrguer"_ e navegue até **_"Identity & Security > Audit"_**.
+
+Depois de identificar o **_nome da ação (DeleteVcn)_**, insira-o no campo **_Keywords_** do serviço _[Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_. Como o serviço registra todas as interações com as _APIs_, você encontrará uma vasta quantidade de registros a serem analisados. Para este exemplo, vamos filtrar apenas as ocorrências do método **_HTTP DELETE_**, definindo um intervalo de datas e horários de início e fim mais restrito:
+
+![alt_text](./img/oci-audit-2.png "OCI Audit - Exemplo #2")
+<br>
+
+!!! note "NOTA"
+    O OCI opera em _[UTC (Tempo Universal Coordenado)](https://pt.wikipedia.org/wiki/Tempo_Universal_Coordenado)_ para garantir consistência global, facilitando a integração entre sistemas em diferentes fusos horários e evitando confusões relacionadas à conversão de horários. Nos exemplos deste livro, o fuso horário utilizado é sempre GMT-3. Assim, um registro com o horário de 13:00 UTC corresponde a 10:00 em GMT-3.
+
+Para cada resultado exibido, há um conjunto de informações que permite identificar o usuário que realizou a **_ação DeleteVcn_**:
+
+![alt_text](./img/oci-audit-3.png "OCI Audit - Exemplo #3")
+
+!!! note "NOTA"
+    Consulte a documentação através do link _["Conteúdo de um Evento de Log de Auditoria"](https://docs.oracle.com/pt-br/iaas/Content/Audit/Reference/logeventreference.htm)_, que apresenta o nome e a descrição de todos os campos registrados pelo _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_.
+
+É possível também obter os eventos pelo _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_ porém como já mencionado aqui, para consultas simples é mais fácil e prático consultar os dados pela _[Web Console](./acessando-o-oci.md#web-console)_.
+
+O comando abaixo lista todos os eventos dentro do intervalo de tempo especificado pelos parâmetros **_--start-time_** e **_--end-time_**:
+
+```bash linenums="1"
+$ oci audit event list \
+> --compartment-id "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" \
+> --start-time "2025-04-04T10:00Z" \
+> --end-time "2025-04-04T11:00Z" \
+> --all
+```
+!!! note "NOTA"
+    A data e a hora para consulta devem ser informadas em um dos formatos especificados na _[RFC 3339 - Date and Time on the Internet: Timestamps](https://datatracker.ietf.org/doc/html/rfc3339)_.
+
+Para o comando exibido, existe a opção **_--stream-output_**, que redireciona todo o resultado para o _stdout_. Como normalmente há uma grande quantidade de informações e eventos, essa opção é útil para direcionar o fluxo de dados para um _[stream](https://docs.oracle.com/pt-br/iaas/Content/Streaming/Concepts/streamingoverview.htm)_, que pode, por exemplo, encaminhar as informações para um _[Serviço Analytics](https://docs.oracle.com/pt-br/iaas/analytics-cloud/index.html)_ usado para processar e visualizar os dados de forma mais eficaz.    
