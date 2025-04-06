@@ -498,7 +498,7 @@ A definição de um recurso que faz parte do _[Grupo Dinâmico](https://docs.ora
 !!! note "NOTA"
     Consulte a página _["Visão Geral do Serviço Tagging"](https://docs.oracle.com/pt-br/iaas/Content/Tagging/Concepts/taggingoverview.htm)_ para obter mais informações sobre o uso de _tags_ em recursos.
 
-Os operadores lógicos **any (OR)** e **all (AND)** podem ser utilizados para criar regras de correspondência em um _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_.
+Os operadores lógicos **_any (OR)_** e **_all (AND)_** podem ser utilizados para criar regras de correspondência em um _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_.
 
 Por exemplo, a imagem abaixo ilustra uma regra de correspondência de um _[Grupo Dinâmico](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ **_instances-dyngrp_**, que incluem as _[instâncias de computação](../capitulo-6/index.md)_ de um compartimento específico **_(instance.compartment.id)_** ou **_(OR lógico)_**, uma única instância **_(instance.id)_**:
 

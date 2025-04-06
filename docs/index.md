@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 05/04/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 06/04/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -60,7 +60,7 @@ Boa leitura!
     - [2.4 Acessando o OCI](./capitulo-2/acessando-o-oci.md)
     - [2.5 Gerenciando o OCI através do OCI CLI](./capitulo-2/gerenciando-o-oci-atraves-do-oci-cli.md)
     - [2.6 IAM, Limites, Cotas e Audit](./capitulo-2/iam-limites-cotas-e-audit.md)
-    - [2.7 Ajuda Extra, Treinamentos e Certificações](./capitulo-2/ajuda-extra-treinamentos-certificacoes.md)
+    - [2.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-2/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
 <br><br>
 
 - [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
