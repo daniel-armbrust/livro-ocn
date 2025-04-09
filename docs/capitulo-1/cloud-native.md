@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 1: Introdução a Computação em Nuvem
 
 # 1.7 Cloud Native
@@ -19,13 +24,47 @@ Além de tudo o que já foi dito, desenvolver software de acordo com os padrões
 !!! note "NOTA"
     Overprovisioning é um termo utilizado em ambientes de computação e infraestrutura de TI que se refere à prática de alocar mais recursos do que o necessário para atender à demanda de uma aplicação ou serviço.
 
-Aplicações Cloud Native possuem as seguintes características:
+Aqui estão os principais componentes e características que compõem uma aplicação cloud native:
 
-### Contêineres
+### **Contêineres**
 
-### Microserviços
+Os contêineres, como os fornecidos pelo _Docker_, são usados para empacotar microserviços e suas dependências em um ambiente isolado. Isso garante que os serviços sejam executados de maneira consistente em diferentes ambientes, desde o desenvolvimento até a produção.
 
-### DevOps e Automação
+### **Microserviços**
+
+As aplicações _Cloud Native_ são frequentemente construídas usando uma arquitetura de microserviços, onde a aplicação é dividida em serviços pequenos e independentes. Cada microserviço é responsável por uma funcionalidade específica e pode ser desenvolvido, implantado e escalado de forma independente.
+
+### **Orquestração de Contêineres**
+
+Ferramentas de orquestração, como Kubernetes, são usadas para gerenciar a implantação, escalabilidade e operação de contêineres. Elas ajudam a automatizar tarefas como balanceamento de carga, recuperação de falhas e gerenciamento de configuração.
+
+### **Escalabilidade**
+
+As aplicações _Cloud Native_ são projetadas para escalar horizontalmente, o que significa que novos instâncias de serviços podem ser adicionadas ou removidas conforme a demanda. Isso permite que a aplicação se adapte rapidamente a mudanças no tráfego.
+
+### **Resiliência**
+
+Uma aplicação _Cloud Native_ deve ser resiliente, ou seja, capaz de se recuperar rapidamente de falhas. Isso é alcançado por meio de práticas como redundância, replicação de dados e monitoramento contínuo.
+
+### **DevOps e Automação**
+
+As práticas de DevOps são fundamentais para aplicações _Cloud Native_. Através de técnicas CI/CD, elas permitem que as equipes integrem e implantem código de forma rápida e eficiente, garantindo que novas funcionalidades e correções sejam entregues aos usuários rapidamente.
+
+### **Serviços Gerenciados**
+
+As aplicações _Cloud Native_ frequentemente utilizam serviços gerenciados oferecidos pelos provedores de nuvem, como bancos de dados, serviços de armazenamento, serviços de autenticação e muito mais. Isso permite que as equipes se concentrem no desenvolvimento de funcionalidades em vez de gerenciar a infraestrutura.
+
+### **API-First**
+
+As aplicações _Cloud Native_ são frequentemente construídas com uma abordagem API-first, onde as interfaces de programação de aplicativos (APIs) são projetadas e documentadas antes do desenvolvimento. Isso facilita a integração entre diferentes serviços e sistemas.
+
+### **Observabilidade**
+
+A observabilidade é crucial para entender o comportamento da aplicação em produção. Isso inclui monitoramento, logging e tracing distribuído, permitindo que as equipes identifiquem e resolvam problemas rapidamente.
+
+### **Segurança**
+
+A segurança deve ser incorporada em todas as etapas do ciclo de vida da aplicação, desde o desenvolvimento até a produção. Isso inclui práticas como autenticação e autorização, criptografia de dados e gerenciamento de vulnerabilidades.
 
 ## 1.7.1 Cloud Native Computing Foundation (CNCF)
 

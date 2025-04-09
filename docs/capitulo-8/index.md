@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 8: Oracle Kubernetes Engine (OKE)
 
 _"Acho que a razão pela qual a nuvem era tão importante, por volta de 2013, era porque todas as empresas eram empresas de internet." - Autor: [Tim Hockin](https://www.linkedin.com/in/thockin/) - Principal SW Engineer, Kubernetes, GKE e Google Cloud._

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 2: OCI Foundations
 
 # 2.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações

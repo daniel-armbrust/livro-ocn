@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 2: OCI Foundations
 
 # 2.2 Criando e Ativando a sua Conta no OCI

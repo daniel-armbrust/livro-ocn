@@ -1,8 +1,13 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 1: Introdução a Computação em Nuvem
 
-_"A verdadeira disrupção não acontece em seu data center, mas sim na nuvem." - Autor: Anônimo_
+_"A nuvem não é apenas uma tecnologia; é uma nova maneira de pensar sobre como podemos inovar e transformar o mundo ao nosso redor." - Autor: [Satya Nadella](https://www.linkedin.com/in/satyanadella/)_
 
-Neste capítulo, apresentaremos o que é Computação em Nuvem, sua história e as necessidades que motivaram sua criação. Além disso, discutiremos como a Computação em Nuvem transformou a maneira como o software é desenvolvido e operado, dando origem a novos conceitos e paradigmas, como DevOps e Cloud Native.
+Neste capítulo, apresentaremos o que é _Computação em Nuvem_, sua história e as necessidades que motivaram sua criação. Além disso, discutiremos como a _Computação em Nuvem_ transformou a maneira como o software é desenvolvido e operado, dando origem a novos conceitos e paradigmas, como _DevOps_ e _Cloud Native_.
 
 - [1.1 Um pouco de História](./historia-computacao-em-nuvem.md)
 - [1.2 Definições do NIST](./definicoes-nist.md)

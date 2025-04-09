@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 06/04/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 09/04/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -64,8 +64,9 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
-    - [3.1 Visão geral](./capitulo-3/ocipizza-overview.md)
-    - [3.2 Monolito vs. Microsserviços](./capitulo-3/microservices.md)
+    - [3.1 Conceitos Básicos da Engenharia de Software](./capitulo-3/conceitos-basicos-da-engenharia-de-software.md)
+    - [3.2 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)
+    - [3.3 Desenvolvimento Web com Python/Flask](./capitulo-3/desenvolvimento-web-com-python-flask.md)
 <br><br>
 
 - [Capítulo 4: Conectividade e Redes](./capitulo-4/index.md)

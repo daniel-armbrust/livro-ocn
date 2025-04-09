@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 2: OCI Foundations
 
 # 2.6 IAM, Limites, Cotas e Audit

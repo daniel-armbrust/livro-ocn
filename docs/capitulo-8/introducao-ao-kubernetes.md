@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 8: Oracle Kubernetes Engine (OKE)
 
 # 8.2 Introdução ao Kubernetes

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Como usar este Livro
 
 A motivação para escrever um livro sobre _[Cloud Native](./capitulo-1/cloud-native.md)_ na _[Oracle Cloud (OCI)](./capitulo-2/index.md)_ surgiu principalmente da minha falta de entendimento sobre o tema. Posso afirmar que o processo de escrita, combinado com minha experiência cotidiana, me ajudaram a compreender um pouco mais sobre o assunto.
@@ -14,7 +19,7 @@ Vale lembrar que a ordem sugerida para a leitura dos capítulos não é uma exig
 
 Além de apresentar alguns dos serviços disponíveis na Oracle Cloud, o livro inclui uma aplicação web simples, desenvolvida em _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_ pelo próprio autor. O objetivo de incluir essa aplicação é fornecer uma demonstração prática de como implantar uma aplicação utilizando os serviços do OCI.
 
-Boas práticas para a escrita de aplicações web, assim como orientações sobre desenvolvimento, não estão incluídas no escopo deste livro. Da mesma forma, detalhes avançados sobre arquitetura de sistemas, separação de responsabilidades entre serviços, também não são abordados.
+Este não é um livro sobre Engenharia de Software ou Programação, e não aborda boas práticas para a escrita de aplicações web ou orientações específicas sobre desenvolvimento. Além disso, não são discutidos detalhes avançados sobre arquitetura de sistemas ou a separação de responsabilidades entre serviços. O foco deste livro é fornecer uma visão geral e prática sobre o Oracle Cloud Infrastructure (OCI), sem entrar em aspectos técnicos profundos relacionados ao desenvolvimento de software.
 
 Por fim, o livro conta com três repositórios no _[GitHub](https://github.com/)_:
 
@@ -26,6 +31,10 @@ Por fim, o livro conta com três repositórios no _[GitHub](https://github.com/)
 
 - [https://github.com/daniel-armbrust/ocipizza-microsservicos](https://github.com/daniel-armbrust/ocipizza-microsservicos)
     - Este repositório contém os códigos referentes aos microsserviços da aplicação OCI PIZZA. Os serviços que compõem a aplicação, disponíveis neste repositório, serão implantados utilizando o _[OKE (Oracle Kubernetes Engine)](./capitulo-8/index.md)_.
+
+## Pré-requisitos
+
+## Descrição dos Capítulos
 
 A descrição sucinta do que cada capítulo abrange pode ser consultada a seguir:
 

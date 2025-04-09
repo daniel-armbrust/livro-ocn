@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 2: OCI Foundations
 
 # 2.5 Gerenciando o OCI através do OCI CLI

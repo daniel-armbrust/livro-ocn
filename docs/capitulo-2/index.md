@@ -1,6 +1,13 @@
+---
+hide:
+  - toc
+---
+
 # Capítulo 2: OCI Foundations
 
-_"O modo como você se organiza acaba direcionando a arquitetura de seus sistemas, para o bem ou para o mal." - Autor: [Sam Newman](https://www.linkedin.com/in/samnewman/)_
+_"A verdadeira disrupção não acontece em seu data center, mas sim na nuvem." - Autor: Anônimo_
+
+Este capítulo apresenta uma visão abrangente dos Fundamentos do OCI, abordando desde a criação e ativação da sua nova conta até aspectos relacionados à cobrança dos serviços, controle de acesso e o uso do _[OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)_. Como este livro é orientado a código, o _[OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)_ será a principal ferramenta utilizada para gerenciar seus recursos no OCI.
 
 - [2.1 Introdução ao OCI](./introducao-ao-oci.md)
 - [2.2 Criando e Ativando a sua Conta no OCI](./criando-e-ativando-a-sua-conta-no-oci.md)

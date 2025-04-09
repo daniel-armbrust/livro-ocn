@@ -1,0 +1,187 @@
+---
+hide:
+  - toc
+---
+
+# Capítulo 3: Aplicação OCI Pizza
+
+## 3.1 Conceitos Básicos sobre Engenharia de Software
+
+Este capítulo oferece uma introdução aos conceitos basicos da construção de software no contexto da Engenharia de Software. Nele, apresento noções básicas que ilustram o desenvolvimento de uma aplicação web simples, que será utilizada como exemplo ao longo do livro para demonstrar a utilização dos serviços do OCI.
+
+### **Contato do Cliente**
+
+Imagine que você é uma empresa ou uma agência de desenvolvimento de software que acaba de receber uma ligação de um potencial cliente, ansioso para discutir suas necessidades e como você pode ajudá-lo a transformar suas ideias em soluções digitais eficazes.
+
+O diálogo a seguir ilustra a interação entre você, o desenvolvedor, e seu cliente, Gabriel:
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Olá! Eu sou o Gabriel, proprietário da "OCI PIZZA". Estou interessado em criar um site para o meu negócio. Você pode me ajudar?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right;">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Olá, Gabriel! Claro, ficaremos felizes em ajudar. Você já tem alguma ideia do que gostaria de incluir no seu site?
+    </p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Sim, eu gostaria de ter uma página inicial com uma apresentação da pizzaria, uma seção para o nosso cardápio, informações de contato e um formulário para pedidos online.</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right;">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Ótimo! Isso é um bom começo. Você já tem um design em mente ou gostaria de sugestões?
+    </p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Eu gostaria de algo que fosse visualmente atraente, com cores quentes, que lembrassem pizza. Também quero que seja fácil de navegar.</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Perfeito! Podemos desenvolver um design que atenda perfeitamente às suas necessidades. Você tem fotos das suas pizzas e do local que gostaria de usar no site?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Sim, tenho algumas fotos que tirei. Posso enviá-las para vocês.</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Excelente! Isso ajudará a tornar o site mais pessoal. E quanto ao cardápio, você já tem uma versão digital que podemos usar?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Sim, eu tenho um PDF do cardápio. Posso enviar isso também.</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Ótimo! E sobre o sistema de pedidos online, você gostaria de integrar um serviço de entrega ou prefere que os pedidos sejam feitos apenas para retirada?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Eu gostaria de oferecer ambos, se possível. Quero que os clientes possam escolher entre retirar na loja ou receber em casa.</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Entendi. Podemos implementar um sistema de pedidos que permita essas opções. Você já tem um método de pagamento em mente?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Eu gostaria de aceitar cartões de crédito e débito, além de pagamentos via PIX.</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Sem problemas! Vamos integrar essas opções de pagamento. Agora, você já tem um domínio registrado para o site?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Não, ainda não. Você pode me ajudar com isso?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Claro! Podemos ajudá-lo a registrar um domínio que se encaixe no nome da sua pizzaria. Você tem alguma ideia de qual nome gostaria de usar?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Eu pensei em algo como "ocipizza.com.br".</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Esse nome parece ótimo! Vamos verificar se está disponível. Por último, qual é o seu prazo para ter o site pronto?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Eu gostaria de ter o site pronto em um mês, se possível. Estamos planejando uma promoção e seria ótimo ter tudo funcionando até lá.</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">Vamos trabalhar para atender a esse prazo. Vou preparar uma proposta com todos os detalhes e custos envolvidos e entrarei em contato em breve. Alguma outra dúvida ou consideração?</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Gabriel (cliente)</p>
+    <p>Não, isso é tudo por enquanto. Obrigado pela ajuda!</p>
+</div>
+
+<div class="caixa-de-dialogo">
+    <p style="font-size: 15pt; font-weight: bold; color: #006336; text-align: right">Você (desenvolvedor)</p>
+    <p style="text-align: right;">De nada, Gabriel! Estamos ansiosos para trabalhar com você. Fique à vontade para entrar em contato se tiver mais perguntas. Até logo!</p>
+</div>
+
+### **Engenharia de Requisitos**
+
+Com base neste primeiro contato, podemos iniciar a elaboração de uma descrição concisa das funcionalidades do sistema, alinhadas às necessidades do cliente.
+
+Definir _"o que um sistema deve fazer"_, ou seja, suas funcionalidades, refere-se ao que chamamos de **_Requisitos Funcionais_** ou **_Requisitos do Usuário_**. 
+
+Além dos requisitos funcionais, há uma outra categoria de requisitos chamada **_Requisitos Não-Funcionais_** ou **_Requisitos de Sistema_**. Esses requisitos tratam de aspectos como desempenho, usabilidade, segurança e escalabilidade, entre outros, e são especificados de maneira quantitativa, utilizando métricas para garantir sua mensuração e avaliação.
+
+A definição e especificação de requisitos são etapas fundamentais no processo de desenvolvimento de software, pois estabelecem as diretrizes necessárias para a construção e entrega do produto. Basicamente, existem duas abordagens principais que podem ser adotadas, abrangendo desde a definição dos requisitos até os processos de desenvolvimento, documentação e entrega:
+
+- **[Processos Waterfall (Modelo em cascata)](https://pt.wikipedia.org/wiki/Modelo_em_cascata)**
+    - Primeiro a ser proposto e inspirado nos processos das engenharias tradicionais, esse modelo coleta todas as informações no início do projeto, e o trabalho é realizado de forma contínua ao longo de todo o processo, sem interações ou feedback durante a fase de produção.
+
+- **[Processos Ágeis](https://pt.wikipedia.org/wiki/Desenvolvimento_%C3%A1gil_de_software)**
+    - Modo alternativo ao _Waterfall_ para o desenvolvimento de software que prioriza a construção incremental de sistemas, mantendo uma interação contínua com o cliente. Processos ágeis focam na coleta constante de feedback, possibilitando entregas regulares e frequentes de pequenas funcionalidades.
+
+Processos no estilo _[Waterfall](https://pt.wikipedia.org/wiki/Modelo_em_cascata)_ exigem um levantamento detalhado dos requisitos, seguido pela elaboração de uma documentação completa antes da implementação do que foi especificado. Somente após tudo construído é que o sistema é então disponibilizado aos usuários para que eles realizam a validação do que foi feito.
+
+O principal problema do modelo _[Waterfall](https://pt.wikipedia.org/wiki/Modelo_em_cascata)_ é que a documentação se torna um requisito obrigatório, muitas vezes mais valorizado do que o próprio software funcionando conforme as expectativas do cliente. A espera pela conclusão de toda a documentação antes de iniciar o desenvolvimento pode resultar em um produto que não atende mais às necessidades do cliente, que podem ter mudado desde o início do projeto.
+
+Em fevereiro de 2001, na cidade de Snowbird, no estado de Utah, nos Estados Unidos, um grupo de dezessete Engenheiros de Software propôs um modo alternativo para construção de software, que prioriza a proximidade com o cliente, promovendo interações curtas e constantes ao longo do processo de desenvolvimento. Essa nova metodologia resultou no que é conhecido como _[Manifesto Ágil](https://agilemanifesto.org/iso/ptbr/manifesto.html)_, que prioriza determinados princípios em relação a outros, incluindo:
+
+![alt_text](./img/manifesto-agil-1.png "Manifesto Ágil")
+
+!!! note "NOTA"
+    A versão em português do Brasil do _[Manifesto Ágil](https://agilemanifesto.org/iso/ptbr/manifesto.html)_ está disponível neste _[link](https://agilemanifesto.org/iso/ptbr/manifesto.html)_.
+
+O desenvolvimento ágil trouxe à tona novas práticas para a criação de software, como testes automatizados, _[desenvolvimento guiado por testes (test-driven development)](https://pt.wikipedia.org/wiki/Test-driven_development)_, que consiste em escrever os testes antes do próprio código, e _[integração contínua (continuous integration)](https://pt.wikipedia.org/wiki/Integra%C3%A7%C3%A3o_cont%C3%ADnua)_ que recomenda que os desenvolvedores integrem o código produzido o quanto antes no repositório principal do projeto, se possível todo dia.
+
+No contexto do _desenvolvimento ágil_, a documentação dos requisitos é um processo simplificado que utiliza linguagem natural, empregando o que chamamos de _[Histórias de Usuários (User Stories)](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, que será explorado a seguir.
+
+#### **[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)**
+
+Conforme discutido na reunião com o cliente, há a necessidade de desenvolver uma aplicação web que apresente a pizzaria e inclua seções para o cardápio, informações de contato e cadastro de usuários para realizar pedidos de pizza.
+
+Documentar requisitos não é uma tarefa fácil, e mesmo utilizando as _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, é impossível prever todos os aspectos do sistema desde o início. Dessa forma, as _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ começam com uma visão geral do problema que a aplicação pretende resolver, permitindo que, ao longo do desenvolvimento, novas funcionalidades possam surgir ou ser ajustadas. Entretanto, o _[produto mínimo viável (MVP - Minimum Viable Product)](https://pt.wikipedia.org/wiki/Produto_vi%C3%A1vel_m%C3%ADnimo)_ e suas funcionalidades são constantemente apresentados ao cliente para validação, assegurando que o desenvolvimento permaneça alinhado às suas expectativas.
+
+Ao detalharmos o problema em _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, podemos identificar:
+
+- **Cadastro de Usuário**
+    - Como um novo cliente, eu quero me cadastrar na aplicação, para que eu possa fazer pedidos de pizzas.
+
+- **Cardápio de Pizzas**
+    - Como um cliente, eu quero navegar pelo cardápio de pizzas, para que eu possa ver as opções disponíveis e escolher a que mais gosto.
+
+- **Filtros de Pesquisa**
+    - Como um cliente, eu quero filtrar as pizzas por categoria (como vegetarianas ou especiais), para que eu possa encontrar rapidamente o que estou procurando.
+
+- **Adicionar ao Carrinho**
+    - Como um cliente, eu quero adicionar pizzas e bebidas ao meu carrinho, para que eu possa revisar antes de finalizar o meu pedido.
+
+- **Painel Administrativo**
+    - Como um funcionário da pizzaria, eu quero que o sistema me permita visualizar e gerenciar os pedidos em andamento, além de gerar relatórios sobre vendas e o desempenho geral da pizzaria
+
+- **Suporte ao Cliente**
+    - Como um cliente, eu quero ter acesso a um chat de suporte, para que eu possa esclarecer dúvidas, obter informações sobre o status do meu pedido e resolver quaisquer problemas relacionados à minha experiência de compra.
+
+### Design da Aplicação
