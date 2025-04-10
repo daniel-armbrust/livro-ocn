@@ -192,6 +192,9 @@ Com base na necessidade apresentada, é possível especificar de forma simples a
 
 É importante ressaltar que, no caso desta aplicação, os requisitos são simples. No entanto, documentar os requisitos de uma aplicação maior, com mais funcionalidades a serem desenvolvidas, não é uma tarefa fácil, pois é impossível prever todos os aspectos do sistema desde o início.
 
+!!! note "NOTA"
+    O documento _[workflow-funcionament-pizzaria.pdf](./workflow-funcionament-pizzaria.pdf)_, enviado pelo cliente, serviu como base para a elaboração das _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ e também proporcionou uma visão geral do funcionamento da pizzaria.
+
 #### **Requisitos de Sistema através dos Doze Fatores (Twelve-Factor)**
 
 ![alt_text](./img/os-doze-fatores-1.png "Os Doze Fatores")
