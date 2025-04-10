@@ -135,36 +135,42 @@ Definir _"o que um sistema deve fazer"_, ou seja, suas funcionalidades, refere-s
 
 Além dos requisitos funcionais, há uma outra categoria de requisitos chamada **_Requisitos Não-Funcionais_** ou **_Requisitos de Sistema_**. Esses requisitos tratam de aspectos como desempenho, usabilidade, segurança e escalabilidade, entre outros, e são especificados de maneira quantitativa, utilizando métricas para garantir sua mensuração e avaliação.
 
-A definição e especificação de requisitos são etapas fundamentais no processo de desenvolvimento de software, pois estabelecem as diretrizes necessárias para a construção e entrega do produto. Basicamente, existem duas abordagens principais que podem ser adotadas, abrangendo desde a definição dos requisitos até os processos de desenvolvimento, documentação e entrega:
+A definição e especificação de requisitos são etapas fundamentais no processo de desenvolvimento de software, pois estabelecem as diretrizes necessárias para a construção e entrega do produto. Basicamente, quando o assunto é desenvolvimento de software, duas abordagens principais que podem ser adotadas, abrangendo desde a definição dos requisitos até os processos de desenvolvimento, documentação e entrega:
 
 - **[Processos Waterfall (Modelo em cascata)](https://pt.wikipedia.org/wiki/Modelo_em_cascata)**
-    - Primeiro a ser proposto e inspirado nos processos das engenharias tradicionais, esse modelo coleta todas as informações no início do projeto, e o trabalho é realizado de forma contínua ao longo de todo o processo, sem interações ou feedback durante a fase de produção.
+    - Primeiro a ser proposto e inspirado nos processos das engenharias tradicionais, esse modelo coleta todas as informações necessárias para o desenvolvimento no início do projeto. Após a criação de uma documentação detalhada, o desenvolvimento avança de forma linear e sequencial, seguindo etapas que se sucedem em cascata, sem realizar interações ou coletar feedback do cliente ao longo do processo.
+    
+- **[Práticas Ágeis](https://pt.wikipedia.org/wiki/Desenvolvimento_%C3%A1gil_de_software)**
+    - Modo alternativo ao _Waterfall_ para o desenvolvimento de software que prioriza a construção incremental de sistemas, mantendo uma interação contínua com o cliente. Práticas ágeis focam na coleta constante de feedback, possibilitando entregas regulares e frequentes de pequenas funcionalidades.
 
-- **[Processos Ágeis](https://pt.wikipedia.org/wiki/Desenvolvimento_%C3%A1gil_de_software)**
-    - Modo alternativo ao _Waterfall_ para o desenvolvimento de software que prioriza a construção incremental de sistemas, mantendo uma interação contínua com o cliente. Processos ágeis focam na coleta constante de feedback, possibilitando entregas regulares e frequentes de pequenas funcionalidades.
-
-Processos no estilo _[Waterfall](https://pt.wikipedia.org/wiki/Modelo_em_cascata)_ exigem um levantamento detalhado dos requisitos, seguido pela elaboração de uma documentação completa antes da implementação do que foi especificado. Somente após tudo construído é que o sistema é então disponibilizado aos usuários para que eles realizam a validação do que foi feito.
+Processos no estilo _[Waterfall](https://pt.wikipedia.org/wiki/Modelo_em_cascata)_ exigem um levantamento detalhado dos requisitos, seguido pela elaboração de uma documentação completa antes da implementação do que foi especificado. O sistema é disponibilizado ao cliente para validação somente após a conclusão de todo o desenvolvimento.
 
 O principal problema do modelo _[Waterfall](https://pt.wikipedia.org/wiki/Modelo_em_cascata)_ é que a documentação se torna um requisito obrigatório, muitas vezes mais valorizado do que o próprio software funcionando conforme as expectativas do cliente. A espera pela conclusão de toda a documentação antes de iniciar o desenvolvimento pode resultar em um produto que não atende mais às necessidades do cliente, que podem ter mudado desde o início do projeto.
 
-Em fevereiro de 2001, na cidade de Snowbird, no estado de Utah, nos Estados Unidos, um grupo de dezessete Engenheiros de Software propôs um modo alternativo para construção de software, que prioriza a proximidade com o cliente, promovendo interações curtas e constantes ao longo do processo de desenvolvimento. Essa nova metodologia resultou no que é conhecido como _[Manifesto Ágil](https://agilemanifesto.org/iso/ptbr/manifesto.html)_, que prioriza determinados princípios em relação a outros, incluindo:
+Em fevereiro de 2001, na cidade de Snowbird, no estado de Utah, nos Estados Unidos, um grupo de dezessete Engenheiros de Software propôs um modo alternativo para construção de software, que prioriza a proximidade com o cliente e não documentações extensas antes de todo o desenvolvimento, promovendo interações curtas e constantes ao longo do processo de desenvolvimento. Essa nova forma de trabalho resultou no que é conhecido como _["Manifesto do Desenvolvimento Ágil de Software"](https://agilemanifesto.org/iso/ptbr/manifesto.html)_, que prioriza certos princípios e valores em relação a outros, conforme destacado na imagem abaixo:
 
 ![alt_text](./img/manifesto-agil-1.png "Manifesto Ágil")
 
 !!! note "NOTA"
-    A versão em português do Brasil do _[Manifesto Ágil](https://agilemanifesto.org/iso/ptbr/manifesto.html)_ está disponível neste _[link](https://agilemanifesto.org/iso/ptbr/manifesto.html)_.
+    A versão em português do Brasil do _["Manifesto do Desenvolvimento Ágil de Software"](https://agilemanifesto.org/iso/ptbr/manifesto.html)_ está disponível neste _[link](https://agilemanifesto.org/iso/ptbr/manifesto.html)_.
 
-O desenvolvimento ágil trouxe à tona novas práticas para a criação de software, como testes automatizados, _[desenvolvimento guiado por testes (test-driven development)](https://pt.wikipedia.org/wiki/Test-driven_development)_, que consiste em escrever os testes antes do próprio código, e _[integração contínua (continuous integration)](https://pt.wikipedia.org/wiki/Integra%C3%A7%C3%A3o_cont%C3%ADnua)_ que recomenda que os desenvolvedores integrem o código produzido o quanto antes no repositório principal do projeto, se possível todo dia.
+De certa forma, _"Práticas Ágeis"_ ou _"ser ágil"_ estão mais relacionadas a um estilo de _"fazer acontecer"_ do que à implementação de uma ferramenta, processo ou qualquer forma de controle. A agilidade está mais relacionada às ações necessárias para alcançar um objetivo acordado, com expectativas alinhadas, especialmente quando não se tem clareza sobre como atingi-lo. Esse processo, de certa forma, segue um ciclo que se repete da seguinte maneira:
 
-No contexto do _desenvolvimento ágil_, a documentação dos requisitos é um processo simplificado que utiliza linguagem natural, empregando o que chamamos de _[Histórias de Usuários (User Stories)](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, que será explorado a seguir.
+1. Avançar um passo de cada vez.
+2. Avaliar os resultados de cada passo.
+3. Ajustar o caminho caso os resultados não estejam de acordo com o esperado.
+4. Repetir o ciclo.
+
+Além disso, as _"Práticas Ágeis"_ introduziram novas abordagens para a criação de software, incluindo o [desenvolvimento guiado por testes (test-driven development)](https://pt.wikipedia.org/wiki/Test-driven_development)_, que consiste em escrever os testes antes do código, e a _[integração contínua (continuous integration)](https://pt.wikipedia.org/wiki/Integra%C3%A7%C3%A3o_cont%C3%ADnua)_, que recomenda que os desenvolvedores integrem o código produzido o quanto antes no repositório principal do projeto, se possível todo dia.
+
+Para se definir requisitos dentro das _"Práticas Ágeis"_, utiliza-se linguagem natural, empregando o que chamamos de _[Histórias de Usuários (User Stories)](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, que será explorado a seguir.
 
 #### **[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)**
 
-Conforme discutido na reunião com o cliente, há a necessidade de desenvolver uma aplicação web que apresente a pizzaria e inclua seções para o cardápio, informações de contato e cadastro de usuários para realizar pedidos de pizza.
+Após o diálogo com o cliente, identificou-se a necessidade de desenvolver uma aplicação web que apresente a pizzaria e inclua seções para o cardápio, informações 
+de contato e cadastro de usuários para realizar pedidos de pizza.
 
-Documentar requisitos não é uma tarefa fácil, e mesmo utilizando as _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, é impossível prever todos os aspectos do sistema desde o início. Dessa forma, as _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ começam com uma visão geral do problema que a aplicação pretende resolver, permitindo que, ao longo do desenvolvimento, novas funcionalidades possam surgir ou ser ajustadas. Entretanto, o _[produto mínimo viável (MVP - Minimum Viable Product)](https://pt.wikipedia.org/wiki/Produto_vi%C3%A1vel_m%C3%ADnimo)_ e suas funcionalidades são constantemente apresentados ao cliente para validação, assegurando que o desenvolvimento permaneça alinhado às suas expectativas.
-
-Ao detalharmos o problema em _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, podemos identificar:
+Com base na necessidade apresentada, é possível especificar de forma simples as _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ a seguir:
 
 - **Cadastro de Usuário**
     - Como um novo cliente, eu quero me cadastrar na aplicação, para que eu possa fazer pedidos de pizzas.
@@ -184,4 +190,8 @@ Ao detalharmos o problema em _[Histórias de Usuários](https://pt.wikipedia.org
 - **Suporte ao Cliente**
     - Como um cliente, eu quero ter acesso a um chat de suporte, para que eu possa esclarecer dúvidas, obter informações sobre o status do meu pedido e resolver quaisquer problemas relacionados à minha experiência de compra.
 
-### Design da Aplicação
+É importante ressaltar que, no caso desta aplicação, os requisitos são simples. No entanto, documentar os requisitos de uma aplicação maior, com mais funcionalidades a serem desenvolvidas, não é uma tarefa fácil, pois é impossível prever todos os aspectos do sistema desde o início.
+
+#### **Requisitos de Sistema através dos Doze Fatores (Twelve-Factor)**
+
+![alt_text](./img/os-doze-fatores-1.png "Os Doze Fatores")

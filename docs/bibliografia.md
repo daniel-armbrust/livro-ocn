@@ -30,6 +30,8 @@ hide:
 
 - [Akita, Fábio (2019). Entendendo "Devops" para Iniciantes em Programação (Parte 2) Série "Começando aos 40"](https://youtu.be/mcwnQVAn0pw?si=2wslNnqxcSqg9GdD)
 
+- [Akita, Fábio (2019). Esqueça Metodologias "Ágeis" | [Rated R]](https://youtu.be/xjjX3R2WuoM?si=RQLtwG56GarHvnZH)
+
 - [Vieira, Eduardo (2003). Os bastidores da internet no Brasil. Editora Manole.](https://amzn.to/4aLTfuO)
 
 - [Tulio Valente, Marco (2022). Engenharia de Software Moderna.](https://amzn.to/40SMfYu)
