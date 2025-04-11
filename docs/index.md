@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 10/04/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 11/04/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -64,9 +64,10 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
-    - [3.1 Conceitos Básicos da Engenharia de Software](./capitulo-3/conceitos-basicos-da-engenharia-de-software.md)
-    - [3.2 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)
-    - [3.3 Desenvolvimento Web com Python/Flask](./capitulo-3/desenvolvimento-web-com-python-flask.md)
+    - [3.1 Da Necessidade à Definição de Requisitos](./capitulo-3/da-necessidade-a-definicao-de-requisitos.md)
+    - [3.2 Design da Aplicação: Wireframes e Mockups](./capitulo-3/design-da-aplicacao-wireframes-e-mockups.md)
+    - [3.3 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)    
+    
 <br><br>
 
 - [Capítulo 4: Conectividade e Redes](./capitulo-4/index.md)

@@ -5,4 +5,4 @@ hide:
 
 # Capítulo 3: Aplicação OCI Pizza
 
-# 3.5 Desenvolvimento Web com Python/Flask
+# 3.2 Design da Aplicação: Wireframes e Mockups

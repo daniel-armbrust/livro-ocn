@@ -5,11 +5,11 @@ hide:
 
 # Capítulo 3: Aplicação OCI Pizza
 
-## 3.1 Conceitos Básicos sobre Engenharia de Software
+# 3.1 Da Necessidade à Definição de Requisitos
 
-Este capítulo oferece uma introdução aos conceitos basicos da construção de software no contexto da Engenharia de Software. Nele, apresento noções básicas que ilustram o desenvolvimento de uma aplicação web simples, que será utilizada como exemplo ao longo do livro para demonstrar a utilização dos serviços do OCI.
+Este capítulo apresenta uma introdução básica à Engenharia de Requisitos. Nele, apresento as etapas iniciais, desde a definição do problema até a formulação dos requisitos, que servirão como guia para o desenvolvimento de uma aplicação web simples.
 
-### **Contato do Cliente**
+## **Contado do Cliente**
 
 Imagine que você é uma empresa ou uma agência de desenvolvimento de software que acaba de receber uma ligação de um potencial cliente, ansioso para discutir suas necessidades e como você pode ajudá-lo a transformar suas ideias em soluções digitais eficazes.
 
@@ -127,7 +127,7 @@ O diálogo a seguir ilustra a interação entre você, o desenvolvedor, e seu cl
     <p style="text-align: right;">De nada, Gabriel! Estamos ansiosos para trabalhar com você. Fique à vontade para entrar em contato se tiver mais perguntas. Até logo!</p>
 </div>
 
-### **Engenharia de Requisitos**
+## **Engenharia de Requisitos**
 
 Com base neste primeiro contato, podemos iniciar a elaboração de uma descrição concisa das funcionalidades do sistema, alinhadas às necessidades do cliente.
 
@@ -161,11 +161,11 @@ De certa forma, _"Práticas Ágeis"_ ou _"ser ágil"_ estão mais relacionadas a
 3. Ajustar o caminho caso os resultados não estejam de acordo com o esperado.
 4. Repetir o ciclo.
 
-Além disso, as _"Práticas Ágeis"_ introduziram novas abordagens para a criação de software, incluindo o [desenvolvimento guiado por testes (test-driven development)](https://pt.wikipedia.org/wiki/Test-driven_development)_, que consiste em escrever os testes antes do código, e a _[integração contínua (continuous integration)](https://pt.wikipedia.org/wiki/Integra%C3%A7%C3%A3o_cont%C3%ADnua)_, que recomenda que os desenvolvedores integrem o código produzido o quanto antes no repositório principal do projeto, se possível todo dia.
+Além disso, as _"Práticas Ágeis"_ introduziram novas abordagens para a criação de software, incluindo o _[desenvolvimento guiado por testes (test-driven development)](https://pt.wikipedia.org/wiki/Test-driven_development)_, que consiste em escrever os testes antes do código, e a _[integração contínua (continuous integration)](https://pt.wikipedia.org/wiki/Integra%C3%A7%C3%A3o_cont%C3%ADnua)_, que recomenda que os desenvolvedores integrem o código produzido o quanto antes no repositório principal do projeto, se possível todo dia.
 
 Para se definir requisitos dentro das _"Práticas Ágeis"_, utiliza-se linguagem natural, empregando o que chamamos de _[Histórias de Usuários (User Stories)](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_, que será explorado a seguir.
 
-#### **[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)**
+### **[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)**
 
 Após o diálogo com o cliente, identificou-se a necessidade de desenvolver uma aplicação web que apresente a pizzaria e inclua seções para o cardápio, informações 
 de contato e cadastro de usuários para realizar pedidos de pizza.
@@ -194,7 +194,3 @@ Com base na necessidade apresentada, é possível especificar de forma simples a
 
 !!! note "NOTA"
     O documento _[workflow-funcionament-pizzaria.pdf](./workflow-funcionament-pizzaria.pdf)_, enviado pelo cliente, serviu como base para a elaboração das _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ e também proporcionou uma visão geral do funcionamento da pizzaria.
-
-#### **Requisitos de Sistema através dos Doze Fatores (Twelve-Factor)**
-
-![alt_text](./img/os-doze-fatores-1.png "Os Doze Fatores")
