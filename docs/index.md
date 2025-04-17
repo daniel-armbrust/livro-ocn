@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 11/04/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 17/04/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -65,9 +65,10 @@ Boa leitura!
 
 - [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
     - [3.1 Da Necessidade à Definição de Requisitos](./capitulo-3/da-necessidade-a-definicao-de-requisitos.md)
-    - [3.2 Design da Aplicação: Wireframes e Mockups](./capitulo-3/design-da-aplicacao-wireframes-e-mockups.md)
-    - [3.3 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)    
-    
+    - [3.2 Frontend com Javascript/React](./capitulo-3/frontend-com-javascript-react.md)
+    - [3.3 Backend com Python/Flask](./capitulo-3/backend-com-python-flask.md)    
+    - [3.4 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)
+    - [3.5 Git no OCI DevOps](./capitulo-3/git-no-oci-devops.md)
 <br><br>
 
 - [Capítulo 4: Conectividade e Redes](./capitulo-4/index.md)
@@ -121,6 +122,7 @@ Boa leitura!
     - [A.4 kubectl HOWTO](./apendice-a/kubectl-howto.md)
     - [A.5 OCI CLI HOWTO](./apendice-a/oci-cli-howto.md)
     - [A.6 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
+    - [A.7 Perguntas e Respostas sobre OCI](./apendice-a/perguntas-e-respostas-sobre-oci.md)
 <br><br>
 
 - [Bibliografia](./bibliografia.md)
