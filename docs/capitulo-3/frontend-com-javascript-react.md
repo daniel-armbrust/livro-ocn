@@ -3,11 +3,13 @@ hide:
   - toc
 ---
 
-# Capítulo 3: Aplicação **OCI PIZZA**
+# Capítulo 3: Aplicação OCI PIZZA
 
 Após a análise dos requisitos, é hora de converter essas informações em código, ou seja, em instruções que o computador possa executar. Essa fase é conhecida como codificação e, no contexto de aplicações web, é geralmente dividida em duas partes:  a _codificação do frontend_ e a _codificação do backend_.
 
-O frontend, também conhecido como _"client side"_, é a interface gráfica que serve como o principal ponto de interação do usuário. Ou seja, é a parte da aplicação que o usuário vê e interage, sendo desenvolvido com as tecnologias _HTML_, _CSS_ e _JavaScript_.
+O frontend, frequentemente chamado de _"client side"_, refere-se à interface gráfica que atua como o principal ponto de interação do usuário. Em outras palavras, é a parte da aplicação que o usuário visualiza e com a qual interage, sendo desenvolvida com as tecnologias _HTML_, _CSS_ e _JavaScript_. É importante destacar que os navegadores são responsáveis pela renderização das páginas da web, que são compostas por marcações HTML, estilizadas com CSS e se tornam interativas por meio do JavaScript.
+
+O frontend, também conhecido como _"client side"_, é a interface gráfica que serve como o principal ponto de interação do usuário. Ou seja, é a parte da aplicação que o usuário vê e interage, sendo desenvolvido com as tecnologias _HTML_, _CSS_ e _JavaScript_. É fundamental ressaltar que os navegadores são responsáveis por renderizar as páginas da web. Essas páginas são formadas por marcações HTML, que são estilizadas com CSS e se tornam interativas por meio do JavaScript.
 
 Por outro lado, o backend, também conhecido como _"server side"_, é responsável pelo processamento dos dados da aplicação através das suas regras de negócios (ou lógica de negócios). É no backend que são tratadas questões relacionadas à autenticação de usuários e à comunicação com o banco de dados.
 
@@ -15,7 +17,7 @@ Iniciarei com uma descrição básica do desenvolvimento do frontend, seguida pe
 
 # 3.1 Desenvolvimento Frontend e Backend
 
-## 3.1.1 Desenvolvimento Frontend com Bootstrap e React
+## 3.1.1 Frontend com Bootstrap e React
 
 Frameworks e bibliotecas podem ser usadas para facilitar e auxiliar no desenvolvimento do frontend e no caso do frontend da aplicação **OCI PIZZA**, será utilizado o framework _[Bootstrap](https://getbootstrap.com/)_ e a biblioteca JavaScript _[React](https://react.dev/)_ para desenvolver a interface do usuário.
 
@@ -59,11 +61,55 @@ Uma aplicação web é composta por diversas páginas HTML, cada uma contendo el
 
 Com base na estrutura da aplicação **OCI PIZZA** apresentada, é possível identificar alguns **_elementos visuais_** que se repetem em todas as páginas. Entre esses elementos, destacam-se o _menu de navegação no topo (navbar)_, o _logotipo_, o _rodapé (footer)_ e o botão para acessar o _assistente digital_.
 
-No mundo _[React](https://react.dev)_, esses elementos visuais são conhecidos como **_componentes_** e são a essência de qualquer aplicação _[React](https://react.dev)_. Cada componente possui sua própria lógica e aparência, e, o mais importante, são projetados para serem **_reutilizáveis_**.
+No mundo _[React](https://react.dev)_, esses elementos visuais independentes são conhecidos como **_componentes_** e são a essência de qualquer aplicação _[React](https://react.dev)_. 
 
-Por exemplo, o elemento visual que representa o _menu de navegação no topo (navbar)_ é exibido em todas as páginas da aplicação. Com isso, é possível criar um componente _[React](https://react.dev)_ que pode ser reutilizado em todas as páginas, eliminando a necessidade de repetir o mesmo HTML em cada uma delas. Isso não significa que o elemento HTML do menu não esteja presente em todas as páginas; na verdade, em  _[React](https://react.dev)_, você escreve o componente uma única vez e o referencia nas páginas desejadas, promovendo assim a reutilização do componente.
+Um componente possui sua própria lógica e aparência, e, o mais importante, são projetados para serem **_reutilizáveis_**. 
 
-A proposta é criar componentes sempre que você identificar um "padrão de repetição", ou seja, elementos que aparecem em diferentes páginas. Com isso em mente, podemos inicialmente identificar e nomear os seguintes componentes da aplicação, destacados em azul no desenho abaixo:
+Em outras palavras, pode-se dizer que o _React_ incentiva a decomposição da interface gráfica em partes menores, chamadas de componentes, que podem ser reutilizados em diferentes páginas da aplicação. Essa abordagem é conhecida como desenvolvimento _[DRY (Don't repeat yourself - Não repita a si mesmo)](https://pt.wikipedia.org/wiki/Don%27t_repeat_yourself)_.
+
+Por exemplo, o elemento visual que representa o _menu de navegação no topo (navbar)_ é exibido em todas as páginas da aplicação. Com isso, é possível criar um componente _[React](https://react.dev)_ que pode ser reutilizado em todas as páginas, eliminando a necessidade de repetir o mesmo HTML em cada uma delas. Isso não significa que o elemento HTML do menu não esteja presente em todas as páginas; na verdade, em _[React](https://react.dev)_, você escreve o componente uma única vez e o referencia nas páginas que quiser, promovendo assim a reutilização.
+
+A proposta é criar componentes sempre que você identificar um _"padrão de repetição"_, ou seja, elementos que aparecem em diferentes páginas. Com isso em mente, podemos inicialmente identificar e nomear os seguintes componentes da aplicação **OCI PIZZA**, destacados em azul no desenho abaixo:
 
 ![alt_text](./img/ocipizza-react-component-1.png "OCI PIZZA - Componentes React #1")
 <br>
+
+Outra forma de identificar componentes em uma aplicação web é consultar a página de documentação do _[Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)_, disponível neste _[link aqui](https://getbootstrap.com/docs/5.3/getting-started/introduction/)_.
+
+![alt_text](./img/componentes-bootstrap-1.png "Bootstrap - Componentes #1")
+<br>
+
+### **E porque toda essa explicação de React?**
+
+Lembre-se de que o objetivo é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar uma aplicação _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ é que elas fazem uso de _APIs (API-First)_.
+
+Isso nos leva a um conceito importante no desenvolvimento de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_: o frontend é desacoplado do backend. 
+
+Isso significa que, como uma boa prática, o frontend web opera de maneira independente do backend. Assim, é possível desenvolver páginas web com _[React](https://react.dev)_ e criar uma aplicação _[Android](https://pt.wikipedia.org/wiki/Android)_ nativa utilizando _[Java](https://www.java.com/en/)_ ou _[Kotlin](https://kotlinlang.org/)_, por exemplo. Toda a comunicação, independentemente da forma como o frontend é desenvolvido, ocorre por meio de APIs. Isso também permite que equipes independentes trabalhem de acordo com suas especialidades, aumentando a eficiência e a agilidade no desenvolvimento.
+
+!!! note "NOTA"
+    Como informação, para o desenvolvimento de aplicativos móveis, é possível utilizar também o framework _[React Native](https://reactnative.dev/)_.
+
+### **Node.js**
+
+Para desenvolver uma aplicação _[React](https://react.dev)_, é necessário primeiro instalar o _[Node.js](https://nodejs.org/en/download)_, que é um ambiente de execução JavaScript (runtime) que possibilita a execução de código JavaScript fora do navegador.
+
+!!! note "NOTA"
+    O processo de instalação do _[Node.js](https://nodejs.org/en/download)_ é bastante simples e não será detalhado aqui. Instruções específicas para cada sistema operacional podem ser encontradas diretamente na página do _[Node.js](https://nodejs.org/en/download)_ através deste _[link](https://nodejs.org/en/download)_.
+
+A versão do _[Node.js](https://nodejs.org/en/download)_ utilizadas no livro podem ser conferidas abaixo:
+
+```bash linenums="1"
+$ node -v
+v22.14.0
+```
+
+### **Create React App (create-react-app)**
+
+```bash linenums="1"
+$ npx create-react-app frontend
+```
+
+```bash linenums="1"
+npm install react-router-dom@latest
+```

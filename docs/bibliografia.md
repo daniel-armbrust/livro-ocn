@@ -52,3 +52,9 @@ hide:
 - [Madapparambath, Gineesh; McKendrick, Russ (2024). The Kubernetes Bible - Second Edition. Packt Publishing.](https://amzn.to/4beZtDA)
 
 - [Tomasz Jakóbczyk, Michal (2020). Practical Oracle Cloud Infrastructure: Infrastructure as a Service, Autonomous Database, Managed Kubernetes, and Serverless. Apress.](https://amzn.to/4iTws3u)
+
+- [Rocketseat (2024). Simplificando o conceito de componentes e propriedades no React](https://youtu.be/00nfvN2UTZc?si=OC3h6g6WH3K22cW0)
+
+- [Kumar, Tejas (2024). React Fluente: Crie aplicações web rápidas, eficazes e intuitivas. Novatec Editora](https://amzn.to/4ijxAMr)
+
+- [Adedeji, Olatunde (2023). Full-Stack Flask and React: Learn, code, and deploy powerful web applications with Flask 2 and React 18. Packt Publishing](https://amzn.to/42k4pEw)
