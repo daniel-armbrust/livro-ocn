@@ -80,13 +80,13 @@ Outra forma de identificar componentes em uma aplicação web é consultar a pá
 ![alt_text](./img/componentes-bootstrap-1.png "Bootstrap - Componentes #1")
 <br>
 
-### **E porque toda essa explicação de React?**
+### **E por que toda essa explicação sobre o React?**
 
-Lembre-se de que o objetivo é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar uma aplicação _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ é que elas fazem uso de _APIs (são API-First)_.
+Lembre-se de que o objetivo do livro é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características desse tipo de aplicação é que elas fazem uso de _APIs REST (são API-First)_ para a troca de informações.
 
-Isso nos leva a um conceito importante no desenvolvimento de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_: o frontend é desacoplado do backend. 
+Isso nos leva a um outro conceito importante no desenvolvimento de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_: o frontend é desacoplado do backend. 
 
-Isso significa que, como uma boa prática, o frontend web opera de maneira independente do backend. Assim, é possível desenvolver páginas web com _[React](https://react.dev)_ e criar uma aplicação _[Android](https://pt.wikipedia.org/wiki/Android)_ nativa utilizando _[Java](https://www.java.com/en/)_ ou _[Kotlin](https://kotlinlang.org/)_, por exemplo. Toda a comunicação, independentemente da forma como o frontend é desenvolvido, ocorre por meio de APIs. Isso também permite que equipes independentes trabalhem de acordo com suas especialidades, aumentando a eficiência e a agilidade no desenvolvimento.
+Isso significa que, como uma boa prática, o frontend web deve operar de maneira independente do backend. Assim, é possível desenvolver páginas web com _[React](https://react.dev)_ e criar uma aplicação _[Android](https://pt.wikipedia.org/wiki/Android)_ nativa utilizando _[Java](https://www.java.com/en/)_ ou _[Kotlin](https://kotlinlang.org/)_, por exemplo. Toda a comunicação, independentemente da forma como o frontend é desenvolvido, ocorre por meio de _APIs REST_. Isso também permite que equipes independentes trabalhem de acordo com suas especialidades, aumentando a eficiência e a agilidade no desenvolvimento.
 
 !!! note "NOTA"
     Como informação, para o desenvolvimento de aplicativos móveis, é possível utilizar também o framework _[React Native](https://reactnative.dev/)_.
