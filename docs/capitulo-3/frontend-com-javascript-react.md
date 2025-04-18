@@ -63,13 +63,14 @@ Com base na estrutura da aplicação **OCI PIZZA** apresentada, é possível ide
 
 No mundo _[React](https://react.dev)_, esses elementos visuais independentes são conhecidos como **_componentes_** e são a essência de qualquer aplicação _[React](https://react.dev)_. 
 
-Um componente possui sua própria lógica e aparência, e, o mais importante, são projetados para serem **_reutilizáveis_**. 
+Por enquanto, sem entrar em detalhes, um componente _[React](https://react.dev)_ é uma função JavaScript que possui sua própria lógica e aparência. Ele pode representar desde uma página inteira ou um simples botão e, o mais importante, deve ser projetado para ser **_reutilizável_**. Quanto menor a abstração, de certa forma, mais reutilizável o componetne se torna.
 
-Em outras palavras, pode-se dizer que o _React_ incentiva a decomposição da interface gráfica em partes menores, chamadas de componentes, que podem ser reutilizados em diferentes páginas da aplicação. Essa abordagem é conhecida como desenvolvimento _[DRY (Don't repeat yourself - Não repita a si mesmo)](https://pt.wikipedia.org/wiki/Don%27t_repeat_yourself)_.
+!!! note "NOTA"
+    A abordagem de desenvolvimento que consiste em dividir a interface gráfica em partes menores, projetadas para serem reutilizáveis em diferentes páginas da aplicação, é conhecida pela sigla _[DRY (Don't repeat yourself - Não repita a si mesmo)](https://pt.wikipedia.org/wiki/Don%27t_repeat_yourself)_.
 
 Por exemplo, o elemento visual que representa o _menu de navegação no topo (navbar)_ é exibido em todas as páginas da aplicação. Com isso, é possível criar um componente _[React](https://react.dev)_ que pode ser reutilizado em todas as páginas, eliminando a necessidade de repetir o mesmo HTML em cada uma delas. Isso não significa que o elemento HTML do menu não esteja presente em todas as páginas; na verdade, em _[React](https://react.dev)_, você escreve o componente uma única vez e o referencia nas páginas que quiser, promovendo assim a reutilização.
 
-A proposta é criar componentes sempre que você identificar um _"padrão de repetição"_, ou seja, elementos que aparecem em diferentes páginas. Com isso em mente, podemos inicialmente identificar e nomear os seguintes componentes da aplicação **OCI PIZZA**, destacados em azul no desenho abaixo:
+A proposta é criar componentes sempre que você identificar um _"padrão de repetição"_, ou seja, elementos visuais iguais que aparecem em diferentes páginas. Com isso em mente, podemos inicialmente identificar e nomear os seguintes componentes da aplicação **OCI PIZZA**, destacados em azul no desenho abaixo:
 
 ![alt_text](./img/ocipizza-react-component-1.png "OCI PIZZA - Componentes React #1")
 <br>
@@ -81,7 +82,7 @@ Outra forma de identificar componentes em uma aplicação web é consultar a pá
 
 ### **E porque toda essa explicação de React?**
 
-Lembre-se de que o objetivo é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar uma aplicação _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ é que elas fazem uso de _APIs (API-First)_.
+Lembre-se de que o objetivo é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar uma aplicação _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ é que elas fazem uso de _APIs (são API-First)_.
 
 Isso nos leva a um conceito importante no desenvolvimento de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_: o frontend é desacoplado do backend. 
 
@@ -104,7 +105,11 @@ $ node -v
 v22.14.0
 ```
 
-### **Create React App (create-react-app)**
+### **Create React App**
+
+O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que simplifica o processo de configuração e inicialização de projetos React, configurando automaticamente um ambiente de desenvolvimento com todas as dependências necessárias.
+
+Create React App é ideal para iniciantes pois possibilita que os desenvolvedores se concentrem na construção dos seus componentes. A partir dele é possível iniciar rapidamente novos projetos com uma estrutura de arquivos e diretórios padrão prontas para o uso que organizam a aplicação e facilitam o desenvolvimento.
 
 ```bash linenums="1"
 $ npx create-react-app frontend
@@ -113,3 +118,5 @@ $ npx create-react-app frontend
 ```bash linenums="1"
 npm install react-router-dom@latest
 ```
+
+### **Criando um componente**
