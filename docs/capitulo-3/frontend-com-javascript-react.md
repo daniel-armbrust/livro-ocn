@@ -63,7 +63,7 @@ Com base na estrutura da aplicação **OCI PIZZA** apresentada, é possível ide
 
 No mundo _[React](https://react.dev)_, esses elementos visuais independentes são conhecidos como **_componentes_** e são a essência de qualquer aplicação _[React](https://react.dev)_. 
 
-Por enquanto, sem entrar em detalhes, um componente _[React](https://react.dev)_ é uma função JavaScript que possui sua própria lógica e aparência. Ele pode representar desde uma página inteira ou um simples botão e, o mais importante, deve ser projetado para ser **_reutilizável_**. Quanto menor a abstração, de certa forma, mais reutilizável o componetne se torna.
+Por enquanto, sem entrar em detalhes, um componente _[React](https://react.dev)_ é uma função JavaScript que possui sua própria lógica e aparência. Ele pode representar desde uma página inteira ou um simples botão e, o mais importante, deve ser projetado para ser **_reutilizável_**. Quanto menor a abstração fica, de certa forma, mais reutilizável o componetne se torna.
 
 !!! note "NOTA"
     A abordagem de desenvolvimento que consiste em dividir a interface gráfica em partes menores, projetadas para serem reutilizáveis em diferentes páginas da aplicação, é conhecida pela sigla _[DRY (Don't repeat yourself - Não repita a si mesmo)](https://pt.wikipedia.org/wiki/Don%27t_repeat_yourself)_.
@@ -84,12 +84,15 @@ Outra forma de identificar componentes em uma aplicação web é consultar a pá
 
 Lembre-se de que o objetivo do livro é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características desse tipo de aplicação é que elas fazem uso de _APIs REST (são API-First)_ para a troca de informações.
 
-Isso nos leva a um outro conceito importante no desenvolvimento de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_: o frontend é desacoplado do backend. 
-
-Isso significa que, como uma boa prática, o frontend web deve operar de maneira independente do backend. Assim, é possível desenvolver páginas web com _[React](https://react.dev)_ e criar uma aplicação _[Android](https://pt.wikipedia.org/wiki/Android)_ nativa utilizando _[Java](https://www.java.com/en/)_ ou _[Kotlin](https://kotlinlang.org/)_, por exemplo. Toda a comunicação, independentemente da forma como o frontend é desenvolvido, ocorre por meio de _APIs REST_. Isso também permite que equipes independentes trabalhem de acordo com suas especialidades, aumentando a eficiência e a agilidade no desenvolvimento.
+Isso nos leva a um outro conceito importante no desenvolvimento de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_: o frontend é _desacoplado_ do backend. 
 
 !!! note "NOTA"
-    Como informação, para o desenvolvimento de aplicativos móveis, é possível utilizar também o framework _[React Native](https://reactnative.dev/)_.
+    Para fins de informação, a definição da palavra _"desacoplado"_ refere-se à condição que dois ou mais elementos, sistemas ou componentes funcionem de maneira independente, de modo que uma alteração ou falha em um deles não afete diretamente o outro.
+
+Isso significa que, como uma boa prática, o frontend web deve operar de maneira independente do backend. Uma das vantagens dessa abordagem é a possibilidade de separar o desenvolvimento frontend, criando páginas web com _[React](https://react.dev)_ e uma aplicação móvel nativa para _[Android](https://pt.wikipedia.org/wiki/Android)_ desenvolvida em _[Java](https://www.java.com/en/)_ ou _[Kotlin](https://kotlinlang.org/)_, por exemplo, ambas utilizando o mesmo backend.
+
+!!! note "NOTA"
+    Para o desenvolvimento de aplicativos móveis, também é possível utilizar o framework _[React Native](https://reactnative.dev/)_.
 
 ### **Node.js**
 
