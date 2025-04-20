@@ -7,17 +7,11 @@ hide:
 
 Após a análise dos requisitos, é hora de converter essas informações em código, ou seja, em instruções que o computador possa executar. Essa fase é conhecida como codificação e, no contexto de aplicações web, é geralmente dividida em duas partes:  a _codificação do frontend_ e a _codificação do backend_.
 
-O frontend, frequentemente chamado de _"client side"_, refere-se à interface gráfica que atua como o principal ponto de interação do usuário. Em outras palavras, é a parte da aplicação que o usuário visualiza e com a qual interage, sendo desenvolvida com as tecnologias _HTML_, _CSS_ e _JavaScript_. É importante destacar que os navegadores são responsáveis pela renderização das páginas da web, que são compostas por marcações HTML, estilizadas com CSS e se tornam interativas por meio do JavaScript.
-
-O frontend, também conhecido como _"client side"_, é a interface gráfica que serve como o principal ponto de interação do usuário. Ou seja, é a parte da aplicação que o usuário vê e interage, sendo desenvolvido com as tecnologias _HTML_, _CSS_ e _JavaScript_. É fundamental ressaltar que os navegadores são responsáveis por renderizar as páginas da web. Essas páginas são formadas por marcações HTML, que são estilizadas com CSS e se tornam interativas por meio do JavaScript.
-
-Por outro lado, o backend, também conhecido como _"server side"_, é responsável pelo processamento dos dados da aplicação através das suas regras de negócios (ou lógica de negócios). É no backend que são tratadas questões relacionadas à autenticação de usuários e à comunicação com o banco de dados.
+O frontend, frequentemente chamado de _"client side"_, refere-se à interface gráfica que atua como o principal ponto de interação do usuário. Em outras palavras, é a parte da aplicação que o usuário visualiza e com a qual interage, sendo desenvolvida com as tecnologias _HTML_, _CSS_ e _JavaScript_. É importante destacar que os navegadores _(web browsers)_ são responsáveis pela renderização das páginas da web, que são compostas por marcações HTML, estilizadas com CSS e se tornam interativas por meio do JavaScript.
 
 Iniciarei com uma descrição básica do desenvolvimento do frontend, seguida pela explicação do desenvolvimento do backend da aplicação **OCI PIZZA**.
 
-# 3.1 Desenvolvimento Frontend e Backend
-
-## 3.1.1 Frontend com Bootstrap e React
+# 3.1 Frontend com Bootstrap e React
 
 Frameworks e bibliotecas podem ser usadas para facilitar e auxiliar no desenvolvimento do frontend e no caso do frontend da aplicação **OCI PIZZA**, será utilizado o framework _[Bootstrap](https://getbootstrap.com/)_ e a biblioteca JavaScript _[React](https://react.dev/)_ para desenvolver a interface do usuário.
 
@@ -29,7 +23,7 @@ Frameworks e bibliotecas podem ser usadas para facilitar e auxiliar no desenvolv
 
 O _[Bootstrap](https://getbootstrap.com/)_ fornece uma série de componentes HTML responsivos e estilos predefinidos prontos para uso que serão usados para a construção do _layout_ das páginas da aplicação. Já o _[React](https://react.dev/)_, será usado para construir toda a estrutura de navegação do site, gerenciar a interação com as APIs do backend e atualizar o frontend com os dados recebidos do servidor.
 
-### **Layout da Aplicação**
+## 3.1.2 Layout da Aplicação
 
 O _layout_ básico da aplicação **OCI PIZZA** é organizado tendo um _menu de navegação no topo (navbar)_, o _logotipo_, uma _seção central_ que muda o seu conteúdo de acordo com a página da aplicação que está sendo acessada, um _rodapé (footer)_ e um botão para acessar um _assistente digital_ que tem como finalidade ajudar o usuário a realizar consultas e obter informações sobre pizzas e pedidos.
 
@@ -55,7 +49,7 @@ Assim, pode-se afirmar que as páginas da aplicação compartilham a mesma estru
 
 ### **Bootstrap**
 
-### **Pensando como um Desenvolvedor React**
+## 3.1.3 Pensando como um desenvolvedor React
 
 Uma aplicação web é composta por diversas páginas HTML, cada uma contendo elementos visuais que colaboram para oferecer uma experiência interativa e funcional ao usuário. Estruturar a aplicação em múltiplas páginas facilita a organização do conteúdo, permitindo que cada página tenha um propósito específico, como a página de login, a página do cardápio de pizzas, a página para adicionar um novo usuário, entre outras.
 
@@ -63,7 +57,7 @@ Com base na estrutura da aplicação **OCI PIZZA** apresentada, é possível ide
 
 No mundo _[React](https://react.dev)_, esses elementos visuais independentes são conhecidos como **_componentes_** e são a essência de qualquer aplicação _[React](https://react.dev)_. 
 
-Por enquanto, sem entrar em detalhes, um componente _[React](https://react.dev)_ é uma função JavaScript que possui sua própria lógica e aparência. Ele pode representar desde uma página inteira ou um simples botão e, o mais importante, deve ser projetado para ser **_reutilizável_**. Quanto menor a abstração fica, de certa forma, mais reutilizável o componetne se torna.
+Por enquanto, sem entrar em detalhes, um componente _[React](https://react.dev)_ é uma função JavaScript que pode receber dados, encapsula sua própria lógica e aparência, e, por fim, retorna um elemento HTML. Ele pode representar desde uma página inteira até um simples botão e, o mais importante, deve ser projetado para ser **_reutilizável_**. Quanto maior a abstração do seu componente, maior será sua capacidade de reutilização.
 
 !!! note "NOTA"
     A abordagem de desenvolvimento que consiste em dividir a interface gráfica em partes menores, projetadas para serem reutilizáveis em diferentes páginas da aplicação, é conhecida pela sigla _[DRY (Don't repeat yourself - Não repita a si mesmo)](https://pt.wikipedia.org/wiki/Don%27t_repeat_yourself)_.
@@ -94,32 +88,109 @@ Isso significa que, como uma boa prática, o frontend web deve operar de maneira
 !!! note "NOTA"
     Para o desenvolvimento de aplicativos móveis, também é possível utilizar o framework _[React Native](https://reactnative.dev/)_.
 
+## 3.1.4 Desenvolvimento React
+
 ### **Node.js**
 
-Para desenvolver uma aplicação _[React](https://react.dev)_, é necessário primeiro instalar o _[Node.js](https://nodejs.org/en/download)_, que é um ambiente de execução JavaScript (runtime) que possibilita a execução de código JavaScript fora do navegador.
+Para desenvolver uma aplicação _[React](https://react.dev)_, é necessário primeiro instalar o _[Node.js](https://nodejs.org/en)_, que é um ambiente de execução JavaScript (runtime) que possibilita a execução de código JavaScript fora do navegador.
 
 !!! note "NOTA"
-    O processo de instalação do _[Node.js](https://nodejs.org/en/download)_ é bastante simples e não será detalhado aqui. Instruções específicas para cada sistema operacional podem ser encontradas diretamente na página do _[Node.js](https://nodejs.org/en/download)_ através deste _[link](https://nodejs.org/en/download)_.
+    O processo de instalação do _[Node.js](https://nodejs.org/en)_ é bastante simples e não será detalhado aqui. Instruções específicas para cada sistema operacional podem ser encontradas diretamente na página do _[Node.js](https://nodejs.org/en/download)_ através deste _[link](https://nodejs.org/en/download)_.
 
-A versão do _[Node.js](https://nodejs.org/en/download)_ utilizadas no livro podem ser conferidas abaixo:
+A versão do _[Node.js](https://nodejs.org/en)_ utilizada no livro pode ser conferida abaixo:
 
 ```bash linenums="1"
 $ node -v
 v22.14.0
 ```
 
-### **Create React App**
+### **Create React App (create-react-app)**
 
-O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que simplifica o processo de configuração e inicialização de projetos React, configurando automaticamente um ambiente de desenvolvimento com todas as dependências necessárias.
+O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que simplifica o processo de configuração e inicialização de projetos React. Ideal para iniciantes, ela permite que os desenvolvedores se concentrem na construção de seus componentes, sem se preocupar com a configuração do ambiente. Com o _[Create React App](https://create-react-app.dev/)_, é possível iniciar rapidamente novos projetos, fornecendo uma estrutura de arquivos e diretórios que organiza a aplicação e simplifica o processo de desenvolvimento.
 
-Create React App é ideal para iniciantes pois possibilita que os desenvolvedores se concentrem na construção dos seus componentes. A partir dele é possível iniciar rapidamente novos projetos com uma estrutura de arquivos e diretórios padrão prontas para o uso que organizam a aplicação e facilitam o desenvolvimento.
+Para o frontend da aplicação **OCI PIZZA**, utilizaremos o _[Create React App](https://create-react-app.dev/)_ para inicializar e criar toda a estrutura de arquivos e diretórios da aplicação _[React](https://react.dev)_ no diretório _"frontend/"_, conforme exibido abaixo:
 
 ```bash linenums="1"
 $ npx create-react-app frontend
 ```
 
+Após alguns minutos temos a seguinte estrutura de diretórios que foram criadas pelo _[Create React App](https://create-react-app.dev/)_:
+
 ```bash linenums="1"
-npm install react-router-dom@latest
+$ tree -d -L 1 frontend/
+frontend/
+├── node_modules
+├── public
+└── src
+
+3 directories
 ```
 
-### **Criando um componente**
+- **node_modules/**
+    - O diretório _"node\_modules/"_ armazena todas as dependências e pacotes instalados para um projeto _[Node.js](https://nodejs.org/en)_, incluindo suas dependências.
+
+- **public/**
+    - Contém arquivos estáticos que são servidos diretamente pelo servidor, incluindo o arquivo _index.html_, que é o ponto de entrada da aplicação.
+
+- **src/**
+    - O diretório _"src/"_ em um projeto _[React](https://react.dev)_ contém o código-fonte da aplicação, incluindo componentes, estilos CSS e outros arquivos JavaScript que compõem a lógica e a interface do usuário. 
+
+O diretório _"node\_modules/"_ possui uma extensa estrutura de arquivos e subdiretórios, pois contém todas as dependências do projeto. Abaixo, utilizaremos a opção _-I_ do comando _tree_ para ocultar a exibição do diretório _"node\_modules/"_ e assim obter uma visão mais enxuta de como o _[Create React App](https://create-react-app.dev/)_ organizou a aplicação:
+
+```bash linenums="1"
+$ tree -I "node_modules" frontend/
+frontend/
+├── README.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── reportWebVitals.js
+    └── setupTests.js
+
+2 directories, 17 files
+```
+
+### **Dependências Complementares**
+
+O frontend da aplicação **OCI PIZZA** requer a instalação de outros pacotes, que podem ser instalados com o comando abaixo:
+
+```bash linenums="1"
+$ npm install react-router-dom@latest
+```
+
+- **react-router-dom**
+
+### **npm start**
+
+Utiliza-se o comando _"npm start"_ dentro do diretório _"frontend/"_ para iniciar o ambiente de desenvolvimento da aplicação _[React](https://react.dev)_:
+
+```bash linenums="1"
+$ npm start
+```
+
+Após a conclusão da inicialização, você pode acessar a aplicação pelo endereço: _http://localhost:3000/_
+
+De forma simplificada, as etapas de inicialização de uma aplicação _[React](https://react.dev)_ seguem o seguinte fluxo:
+
+
+### **Criando um Componente**
+
+Antes de criar um componente, vamos criar dois diretórios dentro do diretório _"src/"_ para organizar melhor os componentes e as páginas que farão parte da aplicação.
+
+```bash linenums="1"
+$ mkdir src/componentes
+$ mkdir src/pages
+```
