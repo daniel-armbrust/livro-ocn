@@ -11,19 +11,25 @@ O frontend, frequentemente chamado de _"client side"_, refere-se à interface gr
 
 Iniciarei com uma descrição básica do desenvolvimento do frontend, seguida pela explicação do desenvolvimento do backend da aplicação **OCI PIZZA**.
 
-# 3.1 Frontend com Bootstrap e React
+# 3.2 Frontend com Bootstrap e React
 
-Frameworks e bibliotecas podem ser usadas para facilitar e auxiliar no desenvolvimento do frontend e no caso do frontend da aplicação **OCI PIZZA**, será utilizado o framework _[Bootstrap](https://getbootstrap.com/)_ e a biblioteca JavaScript _[React](https://react.dev/)_ para desenvolver a interface do usuário.
+Frameworks e bibliotecas podem ser usadas para facilitar e auxiliar no desenvolvimento. Para o frontend da aplicação **OCI PIZZA**, decidi utilizar o framework _[Bootstrap](https://getbootstrap.com/)_ e a biblioteca JavaScript _[React](https://react.dev/)_ para a construção da interface do usuário pois ambos são os mais utilizados no momento em que escrevo este livro.
 
 - **[Bootstrap](https://getbootstrap.com/)**
-    - Bootstrap é um framework de código aberto criado inicialmente por desenvolvedores do Twitter que facilita o desenvolvimento de sites e aplicações web responsivas e móveis.
+    - Bootstrap é um framework de código aberto criado inicialmente por desenvolvedores do _[Twitter](https://pt.wikipedia.org/wiki/Twitter)_ que facilita o desenvolvimento de sites e aplicações web responsivas e móveis.
+
+![alt_text](./img/bootstrap-logo-1.png "Bootstrap - Logo #1")
+<br>
 
 - **[React](https://react.dev/)**
-    - React é uma biblioteca JavaScript de código aberto desenvolvida e mantida pelo Facebook para a construção de interfaces de usuário especialmente para aplicações web de página única conhecidas pela sigla _SPA (Single Page Application)_.
+    - React é uma biblioteca JavaScript de código aberto desenvolvida e mantida pelo _[Facebook](https://pt.wikipedia.org/wiki/Facebook)_ para a construção de interfaces de usuário especialmente para aplicações web de página única conhecidas pela sigla _SPA (Single Page Application)_.
+
+![alt_text](./img/react-logo-1.png "React - Logo #1")
+<br>
 
 O _[Bootstrap](https://getbootstrap.com/)_ fornece uma série de componentes HTML responsivos e estilos predefinidos prontos para uso que serão usados para a construção do _layout_ das páginas da aplicação. Já o _[React](https://react.dev/)_, será usado para construir toda a estrutura de navegação do site, gerenciar a interação com as APIs do backend e atualizar o frontend com os dados recebidos do servidor.
 
-## 3.1.2 Layout da Aplicação
+## 3.2.2 Layout da Aplicação
 
 O _layout_ básico da aplicação **OCI PIZZA** é organizado tendo um _menu de navegação no topo (navbar)_, o _logotipo_, uma _seção central_ que muda o seu conteúdo de acordo com a página da aplicação que está sendo acessada, um _rodapé (footer)_ e um botão para acessar um _assistente digital_ que tem como finalidade ajudar o usuário a realizar consultas e obter informações sobre pizzas e pedidos.
 
@@ -49,7 +55,7 @@ Assim, pode-se afirmar que as páginas da aplicação compartilham a mesma estru
 
 ### **Bootstrap**
 
-## 3.1.3 Pensando como um desenvolvedor React
+## 3.2.3 Pensando como um desenvolvedor React
 
 Uma aplicação web é composta por diversas páginas HTML, cada uma contendo elementos visuais que colaboram para oferecer uma experiência interativa e funcional ao usuário. Estruturar a aplicação em múltiplas páginas facilita a organização do conteúdo, permitindo que cada página tenha um propósito específico, como a página de login, a página do cardápio de pizzas, a página para adicionar um novo usuário, entre outras.
 
@@ -78,17 +84,14 @@ Outra forma de identificar componentes em uma aplicação web é consultar a pá
 
 Lembre-se de que o objetivo do livro é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características desse tipo de aplicação é que elas fazem uso de _APIs REST (são API-First)_ para a troca de informações.
 
-Isso nos leva a um outro conceito importante no desenvolvimento de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_: o frontend é _desacoplado_ do backend. 
-
-!!! note "NOTA"
-    Para fins de informação, a definição da palavra _"desacoplado"_ refere-se à condição que dois ou mais elementos, sistemas ou componentes funcionem de maneira independente, de modo que uma alteração ou falha em um deles não afete diretamente o outro.
-
-Isso significa que, como uma boa prática, o frontend web deve operar de maneira independente do backend. Uma das vantagens dessa abordagem é a possibilidade de separar o desenvolvimento frontend, criando páginas web com _[React](https://react.dev)_ e uma aplicação móvel nativa para _[Android](https://pt.wikipedia.org/wiki/Android)_ desenvolvida em _[Java](https://www.java.com/en/)_ ou _[Kotlin](https://kotlinlang.org/)_, por exemplo, ambas utilizando o mesmo backend.
+Quando a comunicação entre o frontend e o backend é feita por meio de APIs, podemos afirmar que o frontend é desacoplado do backend, funcionando de forma separada. Essa separação permite que o desenvolvimento do frontend ocorra de maneira independente, possibilitando a criação de páginas web com _[React](https://react.dev)_ e uma aplicação móvel nativa para _[Android](https://pt.wikipedia.org/wiki/Android)_, desenvolvida em _[Java](https://www.java.com/en/)_ ou _[Kotlin](https://kotlinlang.org/)_, por exemplo, ambas utilizando o mesmo conjunto de APIs do backend.
 
 !!! note "NOTA"
     Para o desenvolvimento de aplicativos móveis, também é possível utilizar o framework _[React Native](https://reactnative.dev/)_.
 
-## 3.1.4 Desenvolvimento React
+Essa abordagem, além de ser uma boa prática ao permitir que o frontend opere de forma independente do backend e, é também um tipo de arquitetura utilizada em aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ onde usam APIs para a troca de informações, podem ser desenvolvidas por equipes diferentes cada uma com suas próprias esteiras de testes e processos de deployment CI/CD, entre outras vantagens.
+
+## 3.2.4 Desenvolvimento React
 
 ### **Node.js**
 
@@ -106,9 +109,12 @@ v22.14.0
 
 ### **Create React App (create-react-app)**
 
-O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que simplifica o processo de configuração e inicialização de projetos React. Ideal para iniciantes, ela permite que os desenvolvedores se concentrem na construção de seus componentes, sem se preocupar com a configuração do ambiente. Com o _[Create React App](https://create-react-app.dev/)_, é possível iniciar rapidamente novos projetos, fornecendo uma estrutura de arquivos e diretórios que organiza a aplicação e simplifica o processo de desenvolvimento.
+O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que simplifica o processo de configuração e inicialização de projetos  _[React](https://react.dev)_. Ideal para iniciantes, ela permite que os desenvolvedores se concentrem na construção de seus componentes, sem se preocupar com as configurações do ambiente de desenvolvimento. Com o _[Create React App](https://create-react-app.dev/)_, é possível iniciar rapidamente novos projetos, fornecendo uma estrutura de arquivos e diretórios que organiza a aplicação e simplifica o processo de desenvolvimento.
 
-Para o frontend da aplicação **OCI PIZZA**, utilizaremos o _[Create React App](https://create-react-app.dev/)_ para inicializar e criar toda a estrutura de arquivos e diretórios da aplicação _[React](https://react.dev)_ no diretório _"frontend/"_, conforme exibido abaixo:
+!!! note "NOTA"
+    O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que foi descontinuada. Uma alternativa mais moderna para facilitar a construção de aplicações _[React](https://react.dev)_ é o _[Vite](https://vite.dev/)_. Recomendo explorar o _[Vite](https://vite.dev/)_ para desenvolver novas aplicações _[React](https://react.dev)_. No entanto, neste livro, como a aplicação **OCI PIZZA** é bastante simples e o foco é mais voltado para o conceito de _[Cloud Native](../capitulo-1/cloud-native.md)_ no OCI, o _[Create React App](https://create-react-app.dev/)_ dá conta do recado.
+
+Para o frontend da aplicação **OCI PIZZA**, utilizaremos o _[Create React App](https://create-react-app.dev/)_ para inicializar e criar toda a estrutura de arquivos e diretórios da aplicação _[React](https://react.dev)_ no diretório `frontend/`, conforme exibido abaixo:
 
 ```bash linenums="1"
 $ npx create-react-app frontend
@@ -127,15 +133,15 @@ frontend/
 ```
 
 - **node_modules/**
-    - O diretório _"node\_modules/"_ armazena todas as dependências e pacotes instalados para um projeto _[Node.js](https://nodejs.org/en)_, incluindo suas dependências.
+    - O diretório `node_modules/` armazena todas as dependências e pacotes instalados para um projeto _[Node.js](https://nodejs.org/en)_, incluindo suas dependências.
 
 - **public/**
-    - Contém arquivos estáticos que são servidos diretamente pelo servidor, incluindo o arquivo _index.html_, que é o ponto de entrada da aplicação.
+    - Contém arquivos estáticos e públicos que são servidos diretamente pelo servidor, incluindo o arquivo `index.html`, que é a página principal da aplicação.
 
 - **src/**
-    - O diretório _"src/"_ em um projeto _[React](https://react.dev)_ contém o código-fonte da aplicação, incluindo componentes, estilos CSS e outros arquivos JavaScript que compõem a lógica e a interface do usuário. 
+    - O diretório `src/` em um projeto _[React](https://react.dev)_ contém o código-fonte da aplicação, incluindo componentes, estilos CSS e outros arquivos JavaScript que compõem a lógica e a interface do usuário. 
 
-O diretório _"node\_modules/"_ possui uma extensa estrutura de arquivos e subdiretórios, pois contém todas as dependências do projeto. Abaixo, utilizaremos a opção _-I_ do comando _tree_ para ocultar a exibição do diretório _"node\_modules/"_ e assim obter uma visão mais enxuta de como o _[Create React App](https://create-react-app.dev/)_ organizou a aplicação:
+O diretório `node_modules/` possui uma extensa estrutura de arquivos e subdiretórios, pois contém todas as dependências do projeto. Abaixo, utilizaremos a opção `-I` do comando `tree` para ocultar a exibição do diretório `node_modules/` e assim obter uma visão mais enxuta de como o _[Create React App](https://create-react-app.dev/)_ organizou a aplicação:
 
 ```bash linenums="1"
 $ tree -I "node_modules" frontend/
@@ -163,30 +169,65 @@ frontend/
 2 directories, 17 files
 ```
 
+É importante entender alguns arquivos que são os mais importantes para se começar o desenvolvimento de aplicações _[React](https://react.dev)_. São eles:
+
+#### **public/index.html**
+
+![alt_text](./img/react-index-html-1.png "React - index.html")
+
+A linha `<div id="root"></div>` contida no arquivo `public/index.html` é importante, pois é o local onde a aplicação _[React](https://react.dev)_ será montada. Todos os componentes que você cria em uma aplicação _[React](https://react.dev)_ serão renderizados dentro dessa `<div>` com `id=root`.
+
+Neste arquivo, podemos inicializar o _[Bootstrap](https://getbootstrap.com/)_ que será utilizado na aplicação **OCI PIZZA**, conforme o HTML disponível no próprio site do _[Bootstrap](https://getbootstrap.com/)_ na seção _[Quick start](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start)_.
+
+![alt_text](./img/bootstrap-html-init-1.png "Bootstrap - HTML init #1")
+
+!!! note "NOTA"
+    Não se esqueça de adicionar as tags `<div id="root"></div>` ao substituír o HTML do arquivo `public/index.html` pelo HTML do _[Bootstrap](https://getbootstrap.com/)_. Em caso de dúvidas, consulte o arquivo **_[frontend/public/index.html](https://github.com/daniel-armbrust/ocipizza-monolito/blob/main/frontend/public/index.html)_** disponível no repositório **_["ocipizza-monolito"](https://github.com/daniel-armbrust/ocipizza-monolito)_**
+
+#### **src/index.js**
+
+![alt_text](./img/react-index-js-1.png "React - index.js")
+
+O arquivo `src/index.js` é responsável por renderizar a aplicação _[React](https://react.dev)_ e seus componentes no _[DOM](https://pt.wikipedia.org/wiki/Modelo_de_Objeto_de_Documentos)_, diretamente dentro do elemento HTML `<div id="root"></div>` presente no arquivo `public/index.html`.
+
+É neste arquivo que os componentes _[React](https://react.dev)_ que você cria serão inseridos. É importante destacar que o componente principal da aplicação, `<App />`, também está localizado dentro deste arquivo.
+
+#### **src/App.js**
+
+![alt_text](./img/react-app-js-1.png "React - App.js")
+
+Como mencionado anteriormente, todo componente é uma função JavaScript que retorna um ou mais elementos HTML. O elemento HTML retornado por um componente é escrito em _[JSX (JavaScript XML ou JavaScript Syntax eXtension)](https://en.wikipedia.org/wiki/JSX_(JavaScript))_, uma sintaxe JavaScript desenvolvida originalmente pela _[Meta](https://pt.wikipedia.org/wiki/Meta_Platforms)_ para ser utilizada com o _[React](https://react.dev)_. O _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ permite que você escreva HTML diretamente dentro do código JavaScript, facilitando a criação de interfaces de usuário.
+
+!!! note "NOTA"
+    Observe que as tags HTML de um componente que não possuem conteúdo interno devem ser fechadas corretamente, caso contrário, ocorrerá um erro de sintaxe. Por exemplo, a tag `<img>` do componente acima, não possui uma tag de fechamento `</img>`, portanto, em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_, é obrigatório escrevê-la na forma `<img />`.
+
 ### **Dependências Complementares**
 
 O frontend da aplicação **OCI PIZZA** requer a instalação de outros pacotes, que podem ser instalados com o comando abaixo:
 
 ```bash linenums="1"
+$ cd frontend/
 $ npm install react-router-dom@latest
 ```
 
 - **react-router-dom**
 
+### **Removendo arquivos desnecessários**
+
 ### **npm start**
 
-Utiliza-se o comando _"npm start"_ dentro do diretório _"frontend/"_ para iniciar o ambiente de desenvolvimento da aplicação _[React](https://react.dev)_:
+Utiliza-se o comando `npm start` dentro do diretório `frontend/` para iniciar o ambiente de desenvolvimento da aplicação _[React](https://react.dev)_:
 
 ```bash linenums="1"
 $ npm start
 ```
 
-Após a conclusão da inicialização, você pode acessar a aplicação pelo endereço: _http://localhost:3000/_
+Após a conclusão da inicialização, você pode acessar a aplicação pelo endereço: `http://localhost:3000/`
 
 De forma simplificada, as etapas de inicialização de uma aplicação _[React](https://react.dev)_ seguem o seguinte fluxo:
 
 
-### **Criando um Componente**
+### **Criando Componentes**
 
 Antes de criar um componente, vamos criar dois diretórios dentro do diretório _"src/"_ para organizar melhor os componentes e as páginas que farão parte da aplicação.
 

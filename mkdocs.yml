@@ -75,3 +75,4 @@ nav:
   - Capítulo 11 - Ferramental de IA: ./capitulo-11/index.md
   - Apêndice A - OCI HOWTOs: ./apendice-a/index.md
   - Bibliografia: ./bibliografia.md
+  - ChangeLog: ./changelog.md
