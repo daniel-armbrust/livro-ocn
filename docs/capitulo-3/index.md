@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# Capítulo 3: Aplicação OCI Pizza
+# Capítulo 3: Aplicação OCI PIZZA
 
 _"O modo como você se organiza acaba direcionando a arquitetura de seus sistemas, para o bem ou para o mal." - Autor: [Sam Newman](https://www.linkedin.com/in/samnewman/)_
 

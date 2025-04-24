@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 21/04/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 24/04/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -63,12 +63,13 @@ Boa leitura!
     - [2.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-2/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
 <br><br>
 
-- [Capítulo 3: Aplicação OCI Pizza](./capitulo-3/index.md)
-    - [3.1 Da Necessidade à Definição de Requisitos](./capitulo-3/da-necessidade-a-definicao-de-requisitos.md)
-    - [3.2 Frontend com Javascript/React](./capitulo-3/frontend-com-javascript-react.md)
+- [Capítulo 3: Aplicação OCI PIZZA](./capitulo-3/index.md)
+    - [3.1 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)
+    - [3.2 Da Necessidade à Definição de Requisitos](./capitulo-3/da-necessidade-a-definicao-de-requisitos.md)
     - [3.3 Backend com Python/Flask](./capitulo-3/backend-com-python-flask.md)    
-    - [3.4 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)
-    - [3.5 Git no OCI DevOps](./capitulo-3/git-no-oci-devops.md)
+    - [3.4 Frontend com Javascript/React](./capitulo-3/frontend-com-javascript-react.md)
+    - [3.5 Ambiente de desenvolvimento com Docker Compose](./capitulo-3/ambiente-de-desenvolvimento-com-docker-compose.md)    
+    - [3.6 Git no OCI DevOps](./capitulo-3/git-no-oci-devops.md)
 <br><br>
 
 - [Capítulo 4: Conectividade e Redes](./capitulo-4/index.md)
@@ -95,6 +96,7 @@ Boa leitura!
     - [7.2 Introdução ao GraalVM](./capitulo-7/graalvm.md)
     - [7.3 Container Instances](./capitulo-7/container-instances.md)
     - [7.4 Functions](./capitulo-7/functions.md)
+    - [7.5 Os Doze Fatores (The Twelve-Factor App)](./capitulo-7/os-doze-fatores.md)
 <br><br>
 
 - [Capítulo 8: Oracle Kubernetes Engine (OKE)](./capitulo-8/index.md)

@@ -3,13 +3,13 @@ hide:
   - toc
 ---
 
-# Capítulo 3: Aplicação OCI Pizza
+# Capítulo 3: Aplicação OCI PIZZA
 
-# 3.1 Da Necessidade à Definição de Requisitos
+# 3.2 Da Necessidade à Definição de Requisitos
 
 Este capítulo apresenta uma introdução básica à Engenharia de Requisitos. Nele, apresento as etapas iniciais, desde a definição do problema até a formulação dos requisitos, que servirão como guia para o desenvolvimento de uma aplicação web simples.
 
-## **Contado do Cliente**
+## 3.2.1 Contado do Cliente
 
 Imagine que você é uma empresa ou uma agência de desenvolvimento de software que acaba de receber uma ligação de um potencial cliente, ansioso para discutir suas necessidades e como você pode ajudá-lo a transformar suas ideias em soluções digitais eficazes.
 
@@ -127,7 +127,7 @@ O diálogo a seguir ilustra a interação entre você, o desenvolvedor, e seu cl
     <p style="text-align: right;">De nada, Gabriel! Estamos ansiosos para trabalhar com você. Fique à vontade para entrar em contato se tiver mais perguntas. Até logo!</p>
 </div>
 
-## **Engenharia de Requisitos**
+## 3.2.2 Engenharia de Requisitos
 
 Com base neste primeiro contato, podemos iniciar a elaboração de uma descrição concisa das funcionalidades do sistema, alinhadas às necessidades do cliente.
 
@@ -194,3 +194,5 @@ Com base na necessidade apresentada, é possível especificar de forma simples a
 
 !!! note "NOTA"
     O documento _[workflow-funcionament-pizzaria.pdf](./workflow-funcionament-pizzaria.pdf)_, enviado pelo cliente, serviu como base para a elaboração das _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ e também proporcionou uma visão geral do funcionamento da pizzaria.
+
+## 3.2.3 Projeto de APIs

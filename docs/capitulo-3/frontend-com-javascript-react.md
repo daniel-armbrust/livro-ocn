@@ -11,7 +11,7 @@ O frontend, frequentemente chamado de _"client side"_, refere-se à interface gr
 
 Iniciarei com uma descrição básica do desenvolvimento do frontend, seguida pela explicação do desenvolvimento do backend da aplicação **OCI PIZZA**.
 
-# 3.2 Frontend com Bootstrap e React
+# 3.4 Frontend com Bootstrap e React
 
 Frameworks e bibliotecas podem ser usadas para facilitar e auxiliar no desenvolvimento. Para o frontend da aplicação **OCI PIZZA**, decidi utilizar o framework _[Bootstrap](https://getbootstrap.com/)_ e a biblioteca JavaScript _[React](https://react.dev/)_ para a construção da interface do usuário pois ambos são os mais utilizados no momento em que escrevo este livro.
 
@@ -29,7 +29,7 @@ Frameworks e bibliotecas podem ser usadas para facilitar e auxiliar no desenvolv
 
 O _[Bootstrap](https://getbootstrap.com/)_ fornece uma série de componentes HTML responsivos e estilos predefinidos prontos para uso que serão usados para a construção do _layout_ das páginas da aplicação. Já o _[React](https://react.dev/)_, será usado para construir toda a estrutura de navegação do site, gerenciar a interação com as APIs do backend e atualizar o frontend com os dados recebidos do servidor.
 
-## 3.2.2 Layout da Aplicação
+## 3.4.1 Layout da Aplicação
 
 O _layout_ básico da aplicação **OCI PIZZA** é organizado tendo um _menu de navegação no topo (navbar)_, o _logotipo_, uma _seção central_ que muda o seu conteúdo de acordo com a página da aplicação que está sendo acessada, um _rodapé (footer)_ e um botão para acessar um _assistente digital_ que tem como finalidade ajudar o usuário a realizar consultas e obter informações sobre pizzas e pedidos.
 
@@ -53,9 +53,9 @@ A página de _Login (login.html)_ exibe um formulário onde usuários já cadast
 
 Assim, pode-se afirmar que as páginas da aplicação compartilham a mesma estrutura, sendo que somente a _seção central_ muda conforme a página muda.
 
-### **Bootstrap**
+## 3.4.2 Bootstrap
 
-## 3.2.3 Pensando como um desenvolvedor React
+## 3.4.3 Pensando como um desenvolvedor React
 
 Uma aplicação web é composta por diversas páginas HTML, cada uma contendo elementos visuais que colaboram para oferecer uma experiência interativa e funcional ao usuário. Estruturar a aplicação em múltiplas páginas facilita a organização do conteúdo, permitindo que cada página tenha um propósito específico, como a página de login, a página do cardápio de pizzas, a página para adicionar um novo usuário, entre outras.
 
@@ -63,7 +63,7 @@ Com base na estrutura da aplicação **OCI PIZZA** apresentada, é possível ide
 
 No mundo _[React](https://react.dev)_, esses elementos visuais independentes são conhecidos como **_componentes_** e são a essência de qualquer aplicação _[React](https://react.dev)_. 
 
-Por enquanto, sem entrar em detalhes, um componente _[React](https://react.dev)_ é uma função JavaScript que pode receber dados, encapsula sua própria lógica e aparência, e, por fim, retorna um elemento HTML. Ele pode representar desde uma página inteira até um simples botão e, o mais importante, deve ser projetado para ser **_reutilizável_**. Quanto maior a abstração do seu componente, maior será sua capacidade de reutilização.
+Por enquanto, sem entrar em detalhes, um componente _[React](https://react.dev)_ é uma função JavaScript que pode receber dados, encapsula sua própria lógica e aparência, e, por fim, retorna um HTML. Ele pode representar desde uma página inteira até um simples botão e, o mais importante, deve ser projetado para ser **_reutilizável_**. Quanto maior a abstração do seu componente, maior será sua capacidade de reutilização.
 
 !!! note "NOTA"
     A abordagem de desenvolvimento que consiste em dividir a interface gráfica em partes menores, projetadas para serem reutilizáveis em diferentes páginas da aplicação, é conhecida pela sigla _[DRY (Don't repeat yourself - Não repita a si mesmo)](https://pt.wikipedia.org/wiki/Don%27t_repeat_yourself)_.
@@ -80,6 +80,9 @@ Outra forma de identificar componentes em uma aplicação web é consultar a pá
 ![alt_text](./img/componentes-bootstrap-1.png "Bootstrap - Componentes #1")
 <br>
 
+!!! note "NOTA"
+    Assista _[React.js: The Documentary](https://youtu.be/8pDqJVdNa44?si=pYqZbSVqIjci80BK)_.
+
 ### **E por que toda essa explicação sobre o React?**
 
 Lembre-se de que o objetivo do livro é conhecer os serviços do OCI para possibilitar você a implantar (deploy) e gerenciar aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_. Uma das características desse tipo de aplicação é que elas fazem uso de _APIs REST (são API-First)_ para a troca de informações.
@@ -91,7 +94,7 @@ Quando a comunicação entre o frontend e o backend é feita por meio de APIs, p
 
 Essa abordagem, além de ser uma boa prática ao permitir que o frontend opere de forma independente do backend e, é também um tipo de arquitetura utilizada em aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ onde usam APIs para a troca de informações, podem ser desenvolvidas por equipes diferentes cada uma com suas próprias esteiras de testes e processos de deployment CI/CD, entre outras vantagens.
 
-## 3.2.4 Desenvolvimento React
+## 3.4.4 Desenvolvimento React
 
 ### **Node.js**
 
@@ -112,7 +115,7 @@ v22.14.0
 O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que simplifica o processo de configuração e inicialização de projetos  _[React](https://react.dev)_. Ideal para iniciantes, ela permite que os desenvolvedores se concentrem na construção de seus componentes, sem se preocupar com as configurações do ambiente de desenvolvimento. Com o _[Create React App](https://create-react-app.dev/)_, é possível iniciar rapidamente novos projetos, fornecendo uma estrutura de arquivos e diretórios que organiza a aplicação e simplifica o processo de desenvolvimento.
 
 !!! note "NOTA"
-    O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que foi descontinuada. Uma alternativa mais moderna para facilitar a construção de aplicações _[React](https://react.dev)_ é o _[Vite](https://vite.dev/)_. Recomendo explorar o _[Vite](https://vite.dev/)_ para desenvolver novas aplicações _[React](https://react.dev)_. No entanto, neste livro, como a aplicação **OCI PIZZA** é bastante simples e o foco é mais voltado para o conceito de _[Cloud Native](../capitulo-1/cloud-native.md)_ no OCI, o _[Create React App](https://create-react-app.dev/)_ dá conta do recado.
+    O _[Create React App](https://create-react-app.dev/)_ é uma ferramenta que foi descontinuada. Uma alternativa mais moderna é o _[Vite](https://vite.dev/)_.Recomendo explorar o _[Vite](https://vite.dev/)_ para o desenvolvimento de novas aplicações, pois ele oferece um desempenho superior e uma experiência de desenvolvimento mais ágil.
 
 Para o frontend da aplicação **OCI PIZZA**, utilizaremos o _[Create React App](https://create-react-app.dev/)_ para inicializar e criar toda a estrutura de arquivos e diretórios da aplicação _[React](https://react.dev)_ no diretório `frontend/`, conforme exibido abaixo:
 
@@ -173,46 +176,97 @@ frontend/
 
 #### **public/index.html**
 
-![alt_text](./img/react-index-html-1.png "React - index.html")
+A linha `<div id="root"></div>` contida no arquivo `public/index.html` é importante, pois é o local onde a aplicação _[React](https://react.dev)_ será _"montada"_. Todos os componentes que você cria serão renderizados dentro dessa `<div>` com `id=root`.
 
-A linha `<div id="root"></div>` contida no arquivo `public/index.html` é importante, pois é o local onde a aplicação _[React](https://react.dev)_ será montada. Todos os componentes que você cria em uma aplicação _[React](https://react.dev)_ serão renderizados dentro dessa `<div>` com `id=root`.
+![alt_text](./img/react-index-html-1.png "React - index.html #1")
 
-Neste arquivo, podemos inicializar o _[Bootstrap](https://getbootstrap.com/)_ que será utilizado na aplicação **OCI PIZZA**, conforme o HTML disponível no próprio site do _[Bootstrap](https://getbootstrap.com/)_ na seção _[Quick start](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start)_.
+No caso da aplicação **OCI PIZZA**, o `id=root` foi colocado direto na tag `<body>`.
+
+![alt_text](./img/react-index-html-2.png "React - index.html #2")
+
+Por fim, neste arquivo, o _[Bootstrap](https://getbootstrap.com/)_ será inicializado utilizando as tags HTML contidas na seção _[Quick start](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start)_ do site oficial do _[Bootstrap](https://getbootstrap.com/)_.
 
 ![alt_text](./img/bootstrap-html-init-1.png "Bootstrap - HTML init #1")
 
-!!! note "NOTA"
-    Não se esqueça de adicionar as tags `<div id="root"></div>` ao substituír o HTML do arquivo `public/index.html` pelo HTML do _[Bootstrap](https://getbootstrap.com/)_. Em caso de dúvidas, consulte o arquivo **_[frontend/public/index.html](https://github.com/daniel-armbrust/ocipizza-monolito/blob/main/frontend/public/index.html)_** disponível no repositório **_["ocipizza-monolito"](https://github.com/daniel-armbrust/ocipizza-monolito)_**
-
 #### **src/index.js**
+
+O arquivo `src/index.js` é o primeiro arquivo JavaScript lido e executado pelo navegador, servindo como o ponto de entrada da aplicação _[React](https://react.dev)_. Nele, além de definir o local onde a aplicação será montada pelo `id=root`, também configuramos o roteamento da aplicação através do _[React Router](https://reactrouter.com/)_.
 
 ![alt_text](./img/react-index-js-1.png "React - index.js")
 
-O arquivo `src/index.js` é responsável por renderizar a aplicação _[React](https://react.dev)_ e seus componentes no _[DOM](https://pt.wikipedia.org/wiki/Modelo_de_Objeto_de_Documentos)_, diretamente dentro do elemento HTML `<div id="root"></div>` presente no arquivo `public/index.html`.
+### **Introdução à Criação de Componentes**
 
-É neste arquivo que os componentes _[React](https://react.dev)_ que você cria serão inseridos. É importante destacar que o componente principal da aplicação, `<App />`, também está localizado dentro deste arquivo.
+Como mencionado anteriormente, cada componente em _[React](https://react.dev)_ é uma função JavaScript que retorna um conteúdo HTML. O HTML retornado por um componente é escrito em _[JSX (JavaScript XML ou JavaScript Syntax eXtension)](https://en.wikipedia.org/wiki/JSX_(JavaScript))_, uma sintaxe desenvolvida originalmente pela empresa _[Meta](https://pt.wikipedia.org/wiki/Meta_Platforms)_ para ser utilizada com o _[React](https://react.dev)_ que permite escrever um código parecido com HTML dentro de um código JavaScript.
 
-#### **src/App.js**
+Antes de criar um componente, vamos criar dois diretórios dentro do diretório `src/` para organizar melhor a estrutura da aplicação:
 
-![alt_text](./img/react-app-js-1.png "React - App.js")
+```bash linenums="1"
+$ mkdir src/components
+$ mkdir src/pages
+```
 
-Como mencionado anteriormente, todo componente é uma função JavaScript que retorna um ou mais elementos HTML. O elemento HTML retornado por um componente é escrito em _[JSX (JavaScript XML ou JavaScript Syntax eXtension)](https://en.wikipedia.org/wiki/JSX_(JavaScript))_, uma sintaxe JavaScript desenvolvida originalmente pela _[Meta](https://pt.wikipedia.org/wiki/Meta_Platforms)_ para ser utilizada com o _[React](https://react.dev)_. O _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ permite que você escreva HTML diretamente dentro do código JavaScript, facilitando a criação de interfaces de usuário.
+O diretório `src/components` será utilizado para armazenar os componentes reutilizáveis da aplicação **OCI PIZZA**, que podem ser utilizados em diferentes páginas. Por sua vez, o diretório `src/pages` conterá as páginas da aplicação. É importante ressaltar que, no contexto do _[React](https://react.dev)_, páginas e componentes são essencialmente a mesma coisa: ambos são funções JavaScript escritas em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ que retorna um HTML que o navegador exibirá ao usuário.
+
+#### **Criando um Componente**
+
+Nesta seção, abordaremos os conceitos fundamentais sobre o conteúdo e a estrutura de um componente _[React](https://react.dev)_.
+
+Para começar, é necessário criar um arquivo dentro do diretório `src/components/` que conterá o código _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ que representa o componente:
+
+```bash linenums="1"
+$ touch src/components/MeuComponente.js
+```
+
+A estrutura básica de um componente é composta pelo seguinte código: 
+
+![alt_text](./img/ocipizza-react-component-2.png "React - MeuComponente")
+
+Algumas considerações importantes ao desenvolver um componente:
+
+**1.** Por convenção, utiliza-se a notação _TitleCase_ (primeira letra maiúscula) para nomear componentes. Assim, tanto o nome do arquivo quanto o nome do componente devem ser escritos como `MeuComponente`, e não como `meuComponente` ou `meu-componente`.
+
+**2.** Componentes são funções JavaScript que podem ser escritas na forma tradicional `function MeuComponente() { /* código */ }` ou utilizando a sintaxe de _arrow function (ou função de seta)_ `MeuComponente = () => { /* código */ }`.
+
+**3.** Componentes podem receber valores através de propriedades, conhecidas como _"props"_. Para acessar o valor de uma propriedade, utiliza-se a sintaxe `{props.nomeDaPropriedade}`. Além de valores simples, é possível passar funções através das _props_, permitindo que sejam executadas dentro do componente.
+
+**4.** _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ utiliza chaves `{}` para inserir expressões dentro do HTML. Por exemplo, a expressão `{texto}` será avaliada, e o valor `Código JSX` será exibido quando o componente for renderizado no navegador.
+
+**5.** Atributos _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ são escritos em _camelCase_ (primeira letra em minúscula). Por exemplo, em HTML, a tag `<img class="img-fluid" />` é representada em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ como `<img className="img-fluid" />`, onde o atributo `class` é substituído por `className`. Outro exemplo é o atributo  `onclick`, que se torna `onClick` em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_.
+
+**6.** Tags HTML sem conteúdo devem ser auto-fechadas, como `<img />`.
+
+**7.** Quando um componente retorna múltiplos elementos sem um elemento pai, é necessário envolvê-los entre "<>" e "</\>", que são conhecidos como _React Fragments_. 
+
+**8.** A sentença `export default MeuComponente;` torna o componente reutilizável e permite que outros componentes ou páginas o utilizem através de `import` como `import MeuComponente from '/components/MeuComponente;'`.
+
+**9.** Após importar um componente através da instrução `import`, você pode incorporá-lo em outra página ou dentro de outro componente utilizando a sintaxe `<MeuComponente />`. 
+
+**10.** Estilos _inline_ escritos em HTML na forma `style="font-weight: bold"` devem ser convertidos em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ para `style={{ fontWeight: 'bold' }}`. Observe que `font-weight` é alterado para `fontWeight`, pois o uso do caractere `-` em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ resulta em um erro de sintaxe.
+
+**11.** Todo componente deve retornar o _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ utilizando a palavra-chave `return`. Ele pode retornar um único elemento, como em `return <h1>Código JSX </h1>`, ou múltiplos elementos, que devem ser encapsulados em um único contêiner, como em `return ('<div align="center"> <h1>Código JSX </h1> </div>')`.
 
 !!! note "NOTA"
-    Observe que as tags HTML de um componente que não possuem conteúdo interno devem ser fechadas corretamente, caso contrário, ocorrerá um erro de sintaxe. Por exemplo, a tag `<img>` do componente acima, não possui uma tag de fechamento `</img>`, portanto, em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_, é obrigatório escrevê-la na forma `<img />`.
+    O código-fonte dos componentes e das páginas da aplicação **OCI PIZZA** estão localizado nos diretórios `frontend/src/componentes` e `frontend/src/pages` do repositório **_["ocipizza-monolito"](https://github.com/daniel-armbrust/ocipizza-monolito)_**. 
 
-### **Dependências Complementares**
+### **Navegação entre Páginas**
 
-O frontend da aplicação **OCI PIZZA** requer a instalação de outros pacotes, que podem ser instalados com o comando abaixo:
+_[React Router](https://reactrouter.com/)_ é uma biblioteca para _[React](https://react.dev)_ que facilita a navegação entre diferentes páginas em uma aplicação. Ela permite gerenciar rotas e o histórico de navegação, atualizando apenas uma parte do layout da aplicação sem a necessidade de recarregar a página.
+
+Para utilizar o _[React Router](https://reactrouter.com/)_, é necessário instalá-lo primeiro, utilizando o seguinte comando:
 
 ```bash linenums="1"
 $ cd frontend/
 $ npm install react-router-dom@latest
 ```
 
-- **react-router-dom**
+Abaixo está uma parte do conteúdo do arquivo `src/index.js`, que contém as definições de rotas para a aplicação OCI PIZZA:
 
-### **Removendo arquivos desnecessários**
+![alt_text](./img/react-router-1.png "React Router #1")
+
+!!! note "NOTA"
+    Ao definir o roteamento que inclui o path _"/"_, que renderiza a página inicial da aplicação `<HomePage />`, o arquivo `src/App.js` deixa de ser utilizado na aplicação **OCI PIZZA**. Em muitas aplicações React, esse arquivo representa o componente principal, frequentemente referido como _"ponto de entrada para a aplicação."_.
+
+### **Interagindo com as APIs do Backend**
 
 ### **npm start**
 
@@ -225,13 +279,3 @@ $ npm start
 Após a conclusão da inicialização, você pode acessar a aplicação pelo endereço: `http://localhost:3000/`
 
 De forma simplificada, as etapas de inicialização de uma aplicação _[React](https://react.dev)_ seguem o seguinte fluxo:
-
-
-### **Criando Componentes**
-
-Antes de criar um componente, vamos criar dois diretórios dentro do diretório _"src/"_ para organizar melhor os componentes e as páginas que farão parte da aplicação.
-
-```bash linenums="1"
-$ mkdir src/componentes
-$ mkdir src/pages
-```

@@ -5,4 +5,4 @@ hide:
 
 # Capítulo 3: Aplicação OCI PIZZA
 
-# 3.1 Arquitetura de Software
+# 3.6 Git no OCI DevOps
