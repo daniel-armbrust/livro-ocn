@@ -123,6 +123,9 @@ Para o frontend da aplicação **OCI PIZZA**, utilizaremos o _[Create React App]
 $ npx create-react-app frontend
 ```
 
+!!! note "NOTA"
+    Para mais informações sobre o comando _[npx](https://www.npmjs.com/package/npx)_, consulte o artigo _["Introducing npx: an npm package runner"](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)_.
+
 Após alguns minutos temos a seguinte estrutura de diretórios que foram criadas pelo _[Create React App](https://create-react-app.dev/)_:
 
 ```bash linenums="1"
@@ -180,6 +183,9 @@ A linha `<div id="root"></div>` contida no arquivo `public/index.html` é import
 
 ![alt_text](./img/react-index-html-1.png "React - index.html #1")
 
+!!! note "NOTA"
+    Em _[React](https://react.dev)_, a renderização refere-se ao processo de criar a representação visual de um componente na interface do usuário.
+
 No caso da aplicação **OCI PIZZA**, o `id=root` foi colocado direto na tag `<body>`.
 
 ![alt_text](./img/react-index-html-2.png "React - index.html #2")
@@ -193,6 +199,19 @@ Por fim, neste arquivo, o _[Bootstrap](https://getbootstrap.com/)_ será inicial
 O arquivo `src/index.js` é o primeiro arquivo JavaScript lido e executado pelo navegador, servindo como o ponto de entrada da aplicação _[React](https://react.dev)_. Nele, além de definir o local onde a aplicação será montada pelo `id=root`, também configuramos o roteamento da aplicação através do _[React Router](https://reactrouter.com/)_.
 
 ![alt_text](./img/react-index-js-1.png "React - index.js")
+
+#### **Removendo Arquivos Desnecessários**
+
+```bash linenums="1"
+$ rm frontend/public/favicon.ico
+$ rm frontend/public/logo*[0-9]*.png
+$ rm frontend/src/App.*
+$ rm frontend/src/reportWebVitals.js
+$ rm frontend/src/setupTests.js
+```
+
+!!! note "NOTA"
+    Ao remover o arquivo `frontend/src/reportWebVitals.js`, é necessário também eliminar qualquer referência a ele no arquivo `frontend/src/index.js`. Caso contrário, a aplicação não será executada corretamente.
 
 ### **Introdução à Criação de Componentes**
 
@@ -229,13 +248,13 @@ Algumas considerações importantes ao desenvolver um componente:
 
 **3.** Componentes podem receber valores através de propriedades, conhecidas como _"props"_. Para acessar o valor de uma propriedade, utiliza-se a sintaxe `{props.nomeDaPropriedade}`. Além de valores simples, é possível passar funções através das _props_, permitindo que sejam executadas dentro do componente.
 
-**4.** _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ utiliza chaves `{}` para inserir expressões dentro do HTML. Por exemplo, a expressão `{texto}` será avaliada, e o valor `Código JSX` será exibido quando o componente for renderizado no navegador.
+**4.** _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ utiliza chaves `{}` para inserir expressões dentro do HTML. Por exemplo, a expressão `{texto}` será avaliada, e a string `Código JSX` será exibida quando o componente for renderizado no navegador.
 
 **5.** Atributos _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ são escritos em _camelCase_ (primeira letra em minúscula). Por exemplo, em HTML, a tag `<img class="img-fluid" />` é representada em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ como `<img className="img-fluid" />`, onde o atributo `class` é substituído por `className`. Outro exemplo é o atributo  `onclick`, que se torna `onClick` em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_.
 
 **6.** Tags HTML sem conteúdo devem ser auto-fechadas, como `<img />`.
 
-**7.** Quando um componente retorna múltiplos elementos sem um elemento pai, é necessário envolvê-los entre "<>" e "</\>", que são conhecidos como _React Fragments_. 
+**7.** Quando um componente retorna múltiplos elementos sem um elemento pai, é necessário envolvê-los entre "<>" e "</\>", que são conhecidos como _React ragments_. 
 
 **8.** A sentença `export default MeuComponente;` torna o componente reutilizável e permite que outros componentes ou páginas o utilizem através de `import` como `import MeuComponente from '/components/MeuComponente;'`.
 
@@ -243,7 +262,11 @@ Algumas considerações importantes ao desenvolver um componente:
 
 **10.** Estilos _inline_ escritos em HTML na forma `style="font-weight: bold"` devem ser convertidos em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ para `style={{ fontWeight: 'bold' }}`. Observe que `font-weight` é alterado para `fontWeight`, pois o uso do caractere `-` em _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ resulta em um erro de sintaxe.
 
-**11.** Todo componente deve retornar o _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ utilizando a palavra-chave `return`. Ele pode retornar um único elemento, como em `return <h1>Código JSX </h1>`, ou múltiplos elementos, que devem ser encapsulados em um único contêiner, como em `return ('<div align="center"> <h1>Código JSX </h1> </div>')`.
+**11.** Estilos CSS de escopo local, que se aplicam exclusivamente ao componente, devem ser nomeados como `MeuComponente.module.css`. Com isso, os estilos ficam restritos ao componente e não afetam outros componentes ou estilos globais.
+
+**12.** Estilos CSS podem ser importados utilizando a seguinte sintaxe: `import styles from ./components/MeuComponente.module.css`.  Para aplicar uma classe de estilo importada, você pode utilizar a seguinte sintaxe: ```<p className={`${styles.minhaClasse}`}></p>```
+
+**13.** Todo componente deve retornar o _[JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))_ utilizando a palavra-chave `return`. Ele pode retornar um único elemento, como em `return <h1>Código JSX </h1>`, ou múltiplos elementos, que devem ser encapsulados em um único contêiner, como em `return ('<div align="center"> <h1>Código JSX </h1> </div>')`.
 
 !!! note "NOTA"
     O código-fonte dos componentes e das páginas da aplicação **OCI PIZZA** estão localizado nos diretórios `frontend/src/componentes` e `frontend/src/pages` do repositório **_["ocipizza-monolito"](https://github.com/daniel-armbrust/ocipizza-monolito)_**. 
@@ -266,6 +289,26 @@ Abaixo está uma parte do conteúdo do arquivo `src/index.js`, que contém as de
 !!! note "NOTA"
     Ao definir o roteamento que inclui o path _"/"_, que renderiza a página inicial da aplicação `<HomePage />`, o arquivo `src/App.js` deixa de ser utilizado na aplicação **OCI PIZZA**. Em muitas aplicações React, esse arquivo representa o componente principal, frequentemente referido como _"ponto de entrada para a aplicação."_.
 
+### **React Hooks**
+
+Os _[React Hooks](https://react.dev/reference/react/hooks)_ introduzem um novo modo no desenvolvimento de componentes no React. Eles são funções especiais que podem ser usadas por um componente para adicionar funcionalidades extras, sem a necessidade de criar classes.
+
+Os hooks mais comuns incluem e os que são utilizados na aplicação **OCI PIZZA** são:
+
+#### **[useState()](https://react.dev/reference/react/hooks)**
+
+É o hook mais popular e é utilizado para gerenciar o _estado_ de um componente. O estado refere-se aos dados que o componente armazena e manipula, os quais podem mudar ao longo do tempo.
+
+Os componentes funcionais eram considerados sem estado até a introdução do hook `useState()`. Basicamente, este hook é utilizado quando se deseja preservar o valor de uma variável entre as renderizações do componente. 
+
+Para esclarecer melhor o conceito de _estado_ em programação, é importante entender o uso de _variáveis locais_ em funções. Uma variável local declarada dentro de uma função só pode ser acessada e utilizada dentro dessa função (possui escopo limitado). Assim que a função conclui sua execução, os dados armazenados nas variáveis locais são removidos da memória. Em outras palavras, a vida útil de uma variável local começa quando a função é chamada e termina quando seu código é completamente executado. Isso significa que, durante a execução da função, suas variáveis locais permanecem _"vivas"_.
+
+Os componentes de uma aplicação dinâmica são renderizados constantemente em resposta as interações do usuário, que podem incluir o incremento de um contador, a obtenção de dados do backend via AJAX ou interações com formulários. Essas renderizações resultam na chamada novamente da função que descreve o componente. Assim, se o estado não for mantido, os valores exibidos na tela que são armazenados em variáveis declaradas dentro da função do componente, serão perdidos entre as renderizações.
+
+O hook `useState()` permite que as variáveis locais declaradas dentro do componente mantenham seus valores mesmo após a conclusão da execução da função. Isso possibilita o conceito de _"manter o estado"_, que significa que os valores armazenados em variáveis locais do componente, persistam entre as renderizações.
+
+### **Formulários**
+
 ### **Interagindo com as APIs do Backend**
 
 ### **npm start**
@@ -279,3 +322,5 @@ $ npm start
 Após a conclusão da inicialização, você pode acessar a aplicação pelo endereço: `http://localhost:3000/`
 
 De forma simplificada, as etapas de inicialização de uma aplicação _[React](https://react.dev)_ seguem o seguinte fluxo:
+
+### **Build de Produção**
