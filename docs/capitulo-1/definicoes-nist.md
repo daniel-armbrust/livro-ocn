@@ -61,7 +61,7 @@ Por exemplo, é responsabilidade do provedor de nuvem esclarecer como é realiza
 
 Um provedor de nuvem, de acordo com a especificação do NIST, deve ser capaz de oferecer serviços em _três modalidades distintas_. Essa especificação não apenas detalha o que cada modalidade oferece ao consumidor, mas também esclarece as responsabilidades tanto do consumidor (você) quanto do provedor de nuvem (Oracle).
 
-![alt_text](./img/iaas-paas-saas-1.png "IaaS, PaaS e SaaS")
+![alt_text](./img/iaas-paas-saas-1.png "IaaS, PaaS e SaaS #1")
 
 !!! note "NOTA"
     Para maiores informações sobre as responsabilidades que envolve o uso da nuvem entre você e a Oracle, consulte [Modelo de Responsabilidade Compartilhada para Resiliência](https://docs.oracle.com/pt-br/iaas/Content/cloud-adoption-framework/oci-shared-responsibility.htm).
@@ -87,6 +87,8 @@ São aplicativos hospedados na nuvem que funcionam sem a necessidade de download
 A Oracle oferece uma ampla gama de soluções empresariais no modelo SaaS, incluindo o [Oracle ERP Cloud](https://www.oracle.com/erp-4/), [Oracle HCM Cloud](https://www.oracle.com/human-capital-management-4/), [Oracle CX Cloud](https://www.oracle.com/cx/platform/) e [Oracle SCM Cloud](https://www.oracle.com/scm-4/), entre outras.
 
 Todas essas soluções são softwares prontos para uso e acessíveis através de um navegador web. Você pode personalizar o software para atender às suas necessidades específicas, sem qualquer interação com a infraestrutura computacional subjacente utilizada pelo software.
+
+![alt_text](./img/iaas-paas-saas-2.png "IaaS, PaaS e SaaS #2")
 
 ## 1.2.3 Modelos de Implantação (Deployment Models) 
 

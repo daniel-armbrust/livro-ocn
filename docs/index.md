@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 26/04/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 13/05/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -53,23 +53,26 @@ Boa leitura!
     - [1.8 Conclusão](./capitulo-1/conclusao.md)
 <br><br>
 
-- [Capítulo 2: OCI Foundations](./capitulo-2/index.md)
-    - [2.1 Introdução ao OCI](./capitulo-2/introducao-ao-oci.md)
-    - [2.2 Criando e Ativando a sua Conta no OCI](./capitulo-2/criando-e-ativando-a-sua-conta-no-oci.md)
-    - [2.3 Modelos de Cobraça](./capitulo-2/modelos-de-cobraca.md)
-    - [2.4 Acessando o OCI](./capitulo-2/acessando-o-oci.md)
-    - [2.5 Gerenciando o OCI através do OCI CLI](./capitulo-2/gerenciando-o-oci-atraves-do-oci-cli.md)
-    - [2.6 IAM, Limites, Cotas e Audit](./capitulo-2/iam-limites-cotas-e-audit.md)
-    - [2.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-2/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
+- [Capítulo 2: Aplicação OCI PIZZA](./capitulo-2/index.md)        
+    - [2.1 Da Necessidade à Definição de Requisitos](./capitulo-2/da-necessidade-a-definicao-de-requisitos.md)
+    - [2.2 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)
+    - [2.3 Entendendo os Contêineres](./capitulo-2/entendendo-os-conteineres.md)     
+    - [2.4 Ambiente de Desenvolvimento](./capitulo-2/ambiente-de-desenvolvimento.md)
+    - 2.5 Os Doze Fatores (The Twelve-Factor App)
 <br><br>
 
-- [Capítulo 3: Aplicação OCI PIZZA](./capitulo-3/index.md)
-    - [3.1 Arquitetura de Software](./capitulo-3/arquitetura-de-software.md)
-    - [3.2 Da Necessidade à Definição de Requisitos](./capitulo-3/da-necessidade-a-definicao-de-requisitos.md)
-    - [3.3 Backend com Python/Flask](./capitulo-3/backend-com-python-flask.md)    
-    - [3.4 Frontend com Javascript/React](./capitulo-3/frontend-com-javascript-react.md)
-    - [3.5 Ambiente de desenvolvimento com Docker Compose](./capitulo-3/ambiente-de-desenvolvimento-com-docker-compose.md)    
-    - [3.6 Git no OCI DevOps](./capitulo-3/git-no-oci-devops.md)
+- [Capítulo 3: OCI Foundations](./capitulo-3/index.md)
+    - [3.1 Introdução ao OCI](./capitulo-3/introducao-ao-oci.md)
+    - [3.2 Criando e Ativando a sua Conta no OCI](./capitulo-3/criando-e-ativando-a-sua-conta-no-oci.md)
+    - [3.3 Modelos de Cobraça](./capitulo-3/modelos-de-cobraca.md)
+    - [3.4 Acessando o OCI](./capitulo-3/acessando-o-oci.md)
+    - [3.5 Gerenciando o OCI através do OCI CLI](./capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md)
+    - [3.6 IAM, Limites, Cotas e Audit](./capitulo-3/iam-limites-cotas-e-audit.md)
+    - [3.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-3/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
+<br><br>
+
+- [Capítulo 5: Oracle NoSQL Database Cloud Service](./capitulo-5/index.md)
+    - [5.1 Persistência dos dados com o Oracle NoSQL](./capitulo-5/nosql.md)
 <br><br>
 
 - [Capítulo 4: Conectividade e Redes](./capitulo-4/index.md)
@@ -82,10 +85,6 @@ Boa leitura!
     - [4.7 Web Application Firewall (WAF)](./capitulo-4/waf.md)
     - [4.8 Email Delivery](./capitulo-4/email-delivery.md)
     - [4.9 Conclusão](./capitulo-4/conclusao.md)
-<br><br>
-
-- [Capítulo 5: Oracle NoSQL Database Cloud Service](./capitulo-5/index.md)
-    - [5.1 Persistência dos dados com o Oracle NoSQL](./capitulo-5/nosql.md)
 <br><br>
 
 - [Capítulo 6: Serviço de Computação](./capitulo-6/index.md)

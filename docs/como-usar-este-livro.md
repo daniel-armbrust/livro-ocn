@@ -9,28 +9,23 @@ A motivação para escrever um livro sobre _[Cloud Native](./capitulo-1/cloud-na
 
 O livro foi escrito em português, pois o objetivo é contribuir, primeiro, com os brasileiros. Optei por não traduzir alguns termos pois eles são usados sem tradução pelos profissionais de TI do Brasil no seu dia a dia.
 
-A _[Oracle Cloud](./capitulo-2/index.md)_ e o conceito de _[Cloud Native](./capitulo-1/cloud-native.md)_ estão em constante evolução, e foi por essa razão que decidi manter o livro aberto e disponível publicamente na Internet, pois isso facilita a atualização do conteúdo.
+A _[Oracle Cloud](./capitulo-3/index.md)_ e o conceito de _[Cloud Native](./capitulo-1/cloud-native.md)_ estão em constante evolução, e foi por essa razão que decidi manter o livro aberto e disponível publicamente na Internet, pois isso facilita a atualização do conteúdo.
 
 A versão aberta, em HTML, está disponível em: **[https://ocn.dev.br/](https://ocn.dev.br/)**
 
 É recomendável que a leitura do livro seja feita de forma sequencial, começando pelo Capítulo 1 e seguindo até o final. Isso se deve ao fato de que não faz sentido tentar provisionar um recurso computacional sem uma rede devidamente configurada, assim como não é eficaz criar um _[Container Instance](./capitulo-7/container-instances.md)_ sem entender o que é um contêiner e como ele funciona.
 
-Vale lembrar que a ordem sugerida para a leitura dos capítulos não é uma exigência, mas sim uma recomendação para que você possa aproveitar melhor o conteúdo apresentado neste livro.
+Vale lembrar que a ordem sugerida para a leitura dos capítulos não é uma exigência, mas sim uma recomendação para que você possa aproveitar melhor o conteúdo aqui escrito.
 
-Além de apresentar alguns dos serviços disponíveis na Oracle Cloud, o livro inclui uma aplicação web simples, desenvolvida em _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_ pelo próprio autor. O objetivo de incluir essa aplicação é fornecer uma demonstração prática de como implantar uma aplicação utilizando os serviços do OCI.
+Além de apresentar alguns dos serviços disponíveis na _[Oracle Cloud](./capitulo-3/index.md)_, o livro inclui uma aplicação web simples, desenvolvida em _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_ pelo próprio autor. O objetivo de incluir essa aplicação é fornecer uma demonstração prática de como implantar uma aplicação utilizando os serviços do OCI.
 
-Este não é um livro sobre Engenharia de Software ou Programação, e não aborda boas práticas para a escrita de aplicações web ou orientações específicas sobre desenvolvimento. Além disso, não são discutidos detalhes avançados sobre arquitetura de sistemas ou a separação de responsabilidades entre serviços. O foco deste livro é fornecer uma visão geral e prática sobre o Oracle Cloud Infrastructure (OCI), sem entrar em aspectos técnicos profundos relacionados ao desenvolvimento de software.
+Este não é um livro sobre Engenharia de Software ou Programação, e também não aborda boas práticas para a escrita de aplicações web ou orientações específicas sobre desenvolvimento. Além disso, não são discutidos detalhes avançados sobre arquitetura de sistemas ou a separação de responsabilidades entre serviços. O foco deste livro é fornecer uma visão geral e prática sobre o _[Oracle Cloud Infrastructure (OCI)](./capitulo-3/index.md)_, sem entrar em aspectos técnicos profundos relacionados ao desenvolvimento de software.
 
-Por fim, o livro conta com três repositórios no _[GitHub](https://github.com/)_:
+Por fim, o livro disponibiliza um repositório no _[GitHub](https://github.com/)_, que inclui o código-fonte da aplicação web, bem como outros códigos e scripts relacionados aos diversos serviços do OCI utilizados pela aplicação. Você pode acessar este repositório através da seguinte URL:
 
-- [https://github.com/daniel-armbrust/ocipizza-iac](https://github.com/daniel-armbrust/ocipizza-iac)
-    - Este repositório contém os códigos de exemplo para a criação da infraestrutura no OCI, utilizados ao longo dos capítulos.
+- [https://github.com/daniel-armbrust/ocn-ocipizza](https://github.com/daniel-armbrust/ocn-ocipizza)
 
-- [https://github.com/daniel-armbrust/ocipizza-monolito](https://github.com/daniel-armbrust/ocipizza-monolito)
-    - Este repositório contém o monolito da aplicação OCI PIZZA, desenvolvida em Python/Flask. O repositório é utilizando tanto no deployment da aplicação em _[Compute Instance](./capitulo-6/index.md)_ e _[Container Instance](./capitulo-7/container-instances.md)_.
-
-- [https://github.com/daniel-armbrust/ocipizza-microsservicos](https://github.com/daniel-armbrust/ocipizza-microsservicos)
-    - Este repositório contém os códigos referentes aos microsserviços da aplicação OCI PIZZA. Os serviços que compõem a aplicação, disponíveis neste repositório, serão implantados utilizando o _[OKE (Oracle Kubernetes Engine)](./capitulo-8/index.md)_.
+A explicação sobre o conteúdo de cada diretório, incluindo detalhes sobre como utilizá-lo, será apresentada ao longo do livro.
 
 ## Pré-requisitos
 

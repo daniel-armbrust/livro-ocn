@@ -3,9 +3,9 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.6 IAM, Limites, Cotas e Audit
+# 3.6 IAM, Limites, Cotas e Audit
 
 O serviço _[Identity and Access Management (IAM)](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm)_ fornece recursos para o **_gerenciamento de identidades_** e o **_controle de acesso_** aos recursos que você cria e gerencia no OCI.
 
@@ -23,7 +23,7 @@ Em resumo, o _[IAM](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstart
 
 Iniciaremos com uma explicação sobre o **_gerenciamento de identidades_**, abordando usuários e grupos. Em seguida, discutiremos o processo de **_autorização ou controle de acesso_** e, por último, exploraremos o que são _[Limites do Serviço](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/servicelimits.htm)_ e _[Cotas de Compartimento](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_.
 
-## 2.6.1 Gerenciamento de Identidades
+## 3.6.1 Gerenciamento de Identidades
 
 Cada ação realizada nos recursos do OCI, que incluem os recursos do seu _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_, deve ser executada por um usuário nomeado e válido, independentemente de ser através do _[Web Console](./acessando-o-oci.md#web-console)_, _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_ ou _[SDK](./acessando-o-oci.md#oci-sdk-oci-software-development-kits)_.
 
@@ -465,7 +465,7 @@ $ oci iam policy create \
 
 O script **_[scripts/capitulo-2/policy.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/policy.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todas as políticas de acesso utilizadas pela aplicação **OCI PIZZA**.
 
-## 2.6.3 Grupos Dinâmicos
+## 3.6.3 Grupos Dinâmicos
 
 Os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ são um tipo especial de grupo projetado para agrupar recursos, em vez de usuários. 
 
@@ -673,7 +673,7 @@ Observe que, para aplicar a _[cota](https://docs.oracle.com/pt-br/iaas/Content/Q
 
 O script **_[scripts/capitulo-2/quotas.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/quotas.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, contém as _[cotas](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_ utilizadas pela aplicação **OCI PIZZA**.
 
-## 2.6.5 Gerenciamento de Regiões
+## 3.6.5 Gerenciamento de Regiões
 
 Um _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_ dentro do modelo de cobrança _[Pay As You Go](./modelos-de-cobraca.md#231-pay-as-you-go-payg-e-upfront-subscription)_ ou _[Free Tier](./modelos-de-cobraca.md#233-free-tier-e-o-always-free)_ é restrito a uma única _[região](./introducao-ao-oci.md#211-região)_. Isso significa que, para utilizar outra _[região](./introducao-ao-oci.md#211-região)_, você precisará solicitar uma inscrição para essa nova _[região](./introducao-ao-oci.md#211-região)_.
 
@@ -713,7 +713,7 @@ $ oci iam region-subscription list \
 +-----------------+----------------+--------+
 ```
 
-## 2.6.6 Serviço Audit
+## 3.6.6 Serviço Audit
 
 O _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_ registra automaticamente todas as chamadas e ações realizadas nas _APIs do OCI_, proporcionando um histórico detalhado das operações executadas em sua conta.
 

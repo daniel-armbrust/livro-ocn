@@ -3,11 +3,11 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.5 Gerenciando o OCI através do OCI CLI
+# 3.5 Gerenciando o OCI através do OCI CLI
 
-## 2.5.1 Oracle Cloud Identifier (OCID)
+## 3.5.1 Oracle Cloud Identifier (OCID)
 
 Antes de explorarmos os detalhes do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_, é importante compreender um elemento essencial ao gerenciar recursos no OCI por meio de código.
 
@@ -56,7 +56,7 @@ Além de sua função de identificação, os _[OCIDs](https://docs.oracle.com/en
 !!! note "NOTA"
     Lembre-se de que todos os valores de _[OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle)_ utilizados nos exemplos do livro são fictícios e não funcionarão para você. Utilize os valores reais do seu Tenancy.
 
-## 2.5.2 Instalação do OCI CLI
+## 3.5.2 Instalação do OCI CLI
 
 Para começar a utilizar o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_, é necessário primeiro instalá-lo de acordo com o seu sistema operacional. No meu caso, o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ será instalado em um **_[Oracle Linux versão 8](https://www.oracle.com/linux/technologies/oracle-linux-downloads.html)_**.
 
@@ -115,7 +115,7 @@ $ oci --latest-version
 3.53.0
 ```
 
-## 2.5.3 APIs do OCI
+## 3.5.3 APIs do OCI
 
 O OCI como todo provedor de computação em Nuvem, disponibilizam seus serviços através de um conjunto de diferentes APIs. 
 
@@ -255,7 +255,7 @@ $ oci os ns get
 !!! note "NOTA"
     Nos exemplos apresentados no livro, o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ sempre utilizará o conjunto de configurações **_DEFAULT_**, conforme indicado por **_[DEFAULT]_** no arquivo **_"~/.oci/config"_**. No entanto, você pode usar o parâmetro global **_[--profile](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-profile)_** para especificar um conjunto diferente de configurações.
     
-## 2.5.4 Trabalhando com o OCI CLI
+## 3.5.4 Trabalhando com o OCI CLI
 
 Após o _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_ estar devidamente instalado e funcionando com as configurações do seu _Tenancy_, é hora de entender em como trabalhar diretamente com o OCI através do OCI CLI.
 
@@ -447,7 +447,7 @@ $ oci network vcn list \
 > --all
 ```
 
-## 2.5.5 Work Request
+## 3.5.5 Work Request
 
 Vimos que a maioria dos recursos possuem um _"ciclo de vida"_, que indica diferentes etapas pelas quais o recurso passa antes de concluir uma ação solicitada pelo usuário.
 
@@ -518,7 +518,7 @@ opaulo-1.aaaaaaaaaaaaaaaabbbbbbbbccc"
 
 Trabalhar com **_Work Request_** pode ser extremamente útil em diversos cenários. Por exemplo, considere a situação em que você precisa disponibilizar uma aplicação web por meio de um _[Load Balancer](https://docs.oracle.com/pt-br/iaas/Content/NetworkLoadBalancer/home.htm)_. No entanto, antes, é necessário que o processo de provisionamento de um _[Compute Instance](https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm)_, que irá hospedar a aplicação, seja concluído.
 
-## 2.5.6 Cloud Shell
+## 3.5.6 Cloud Shell
 
 Uma instalação _"pronta para uso"_ do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_, está disponível por meio do _[Cloud Shell](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cloudshellintro.htm)_, que pode ser acessado pela _Web Console_:
 

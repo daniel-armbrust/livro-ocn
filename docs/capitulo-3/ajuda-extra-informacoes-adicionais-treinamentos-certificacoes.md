@@ -3,9 +3,9 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações
+# 3.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações
 
 Neste capítulo, abordaremos recursos adicionais que podem ser extremamente úteis para aprimorar sua experiência com o OCI. Aqui, você encontrará informações sobre suporte técnico, comunidades online, documentação oficial, cursos de treinamento e certificações que podem ajudá-lo a se aprofundar ainda mais nas funcionalidades e melhores práticas do OCI.
 

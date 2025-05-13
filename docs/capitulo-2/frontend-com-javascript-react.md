@@ -293,9 +293,9 @@ Abaixo está uma parte do conteúdo do arquivo `src/index.js`, que contém as de
 
 Os _[React Hooks](https://react.dev/reference/react/hooks)_ introduzem um novo modo no desenvolvimento de componentes no React. Eles são funções especiais que podem ser usadas por um componente para adicionar funcionalidades extras, sem a necessidade de criar classes.
 
-Os hooks mais comuns incluem e os que são utilizados na aplicação **OCI PIZZA** são:
+No React, qualquer função que comece com "use" é chamada de Hook (como useState, useEffect, useCallback, entre outros). Os Hooks utilizados na aplicação **OCI PIZZA** são:
 
-#### **[useState()](https://react.dev/reference/react/hooks)**
+#### **[useState()](https://react.dev/reference/react/useState)**
 
 É o hook mais popular e é utilizado para gerenciar o _estado_ de um componente. O estado refere-se aos dados que o componente armazena e manipula, os quais podem mudar ao longo do tempo.
 
@@ -303,9 +303,18 @@ Os componentes funcionais eram considerados sem estado até a introdução do ho
 
 Para esclarecer melhor o conceito de _estado_ em programação, é importante entender o uso de _variáveis locais_ em funções. Uma variável local declarada dentro de uma função só pode ser acessada e utilizada dentro dessa função (possui escopo limitado). Assim que a função conclui sua execução, os dados armazenados nas variáveis locais são removidos da memória. Em outras palavras, a vida útil de uma variável local começa quando a função é chamada e termina quando seu código é completamente executado. Isso significa que, durante a execução da função, suas variáveis locais permanecem _"vivas"_.
 
-Os componentes de uma aplicação dinâmica são renderizados constantemente em resposta as interações do usuário, que podem incluir o incremento de um contador, a obtenção de dados do backend via AJAX ou interações com formulários. Essas renderizações resultam na chamada novamente da função que descreve o componente. Assim, se o estado não for mantido, os valores exibidos na tela que são armazenados em variáveis declaradas dentro da função do componente, serão perdidos entre as renderizações.
+Os componentes de uma aplicação dinâmica são renderizados constantemente em resposta as interações do usuário, que podem incluir o incremento de um contador, a obtenção de dados do backend via AJAX ou interações com formulários. Essas renderizações resultam na chamada novamente da função que descreve o componente. Assim, se o estado não for mantido, os valores exibidos na tela que são armazenados em variáveis declaradas dentro da função do componente, serão perdidos entre as renderizações. Ou seja, variáveis ​​locais não são persistidas entre renderizações.
+
+De acordo com a página _[Built-in React Hooks](https://react.dev/reference/react/hooks)_, o estado permite que um componente _"lembre"_ informações, como as entradas do usuário.
 
 O hook `useState()` permite que as variáveis locais declaradas dentro do componente mantenham seus valores mesmo após a conclusão da execução da função. Isso possibilita o conceito de _"manter o estado"_, que significa que os valores armazenados em variáveis locais do componente, persistam entre as renderizações.
+
+O código abaixo exemplifica como utilizar o hook `useState()`:
+
+![alt_text](./img/react-usestate-1.png "React useState() #1")
+
+#### **[useEffect()](https://react.dev/reference/react/useEffect)**
+
 
 ### **Formulários**
 

@@ -3,13 +3,13 @@ hide:
   - toc
 ---
 
-# Capítulo 3: Aplicação OCI PIZZA
+# Capítulo 2: Aplicação OCI PIZZA
 
-# 3.2 Da Necessidade à Definição de Requisitos
+# 2.1 Da Necessidade à Definição de Requisitos
 
-Este capítulo apresenta uma introdução básica à Engenharia de Requisitos. Nele, apresento as etapas iniciais, desde a definição do problema até a formulação dos requisitos, que servirão como guia para o desenvolvimento de uma aplicação web simples.
+Esta sessão apresenta uma introdução básica à Engenharia de Requisitos. Nele, apresento as etapas iniciais, desde a definição do problema até a formulação dos requisitos, que servirão como guia para o desenvolvimento de uma aplicação web simples.
 
-## 3.2.1 Contado do Cliente
+## 2.2.1 Contado do Cliente
 
 Imagine que você é uma empresa ou uma agência de desenvolvimento de software que acaba de receber uma ligação de um potencial cliente, ansioso para discutir suas necessidades e como você pode ajudá-lo a transformar suas ideias em soluções digitais eficazes.
 
@@ -127,7 +127,7 @@ O diálogo a seguir ilustra a interação entre você, o desenvolvedor, e seu cl
     <p style="text-align: right;">De nada, Gabriel! Estamos ansiosos para trabalhar com você. Fique à vontade para entrar em contato se tiver mais perguntas. Até logo!</p>
 </div>
 
-## 3.2.2 Engenharia de Requisitos
+## 2.2.2 Engenharia de Requisitos
 
 Com base neste primeiro contato, podemos iniciar a elaboração de uma descrição concisa das funcionalidades do sistema, alinhadas às necessidades do cliente.
 
@@ -167,8 +167,7 @@ Para se definir requisitos dentro das _"Práticas Ágeis"_, utiliza-se linguagem
 
 ### **[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)**
 
-Após o diálogo com o cliente, identificou-se a necessidade de desenvolver uma aplicação web que apresente a pizzaria e inclua seções para o cardápio, informações 
-de contato e cadastro de usuários para realizar pedidos de pizza.
+Após o diálogo com o cliente, identificou-se a necessidade de desenvolver uma aplicação web que apresente a pizzaria e inclua seções para o cardápio e cadastro de usuários para realizar pedidos de pizza.
 
 Com base na necessidade apresentada, é possível especificar de forma simples as _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ a seguir:
 
@@ -184,15 +183,16 @@ Com base na necessidade apresentada, é possível especificar de forma simples a
 - **Adicionar ao Carrinho**
     - Como um cliente, eu quero adicionar pizzas e bebidas ao meu carrinho, para que eu possa revisar antes de finalizar o meu pedido.
 
+- **Realizar Pedido**
+    - Como cliente, desejo fazer o pedido da pizza informando um endereço para a entrega.
+
 - **Painel Administrativo**
     - Como um funcionário da pizzaria, eu quero que o sistema me permita visualizar e gerenciar os pedidos em andamento, além de gerar relatórios sobre vendas e o desempenho geral da pizzaria
 
 - **Suporte ao Cliente**
     - Como um cliente, eu quero ter acesso a um chat de suporte, para que eu possa esclarecer dúvidas, obter informações sobre o status do meu pedido e resolver quaisquer problemas relacionados à minha experiência de compra.
 
-É importante ressaltar que, no caso desta aplicação, os requisitos são simples. No entanto, documentar os requisitos de uma aplicação maior, com mais funcionalidades a serem desenvolvidas, não é uma tarefa fácil, pois é impossível prever todos os aspectos do sistema desde o início.
+É importante ressaltar que, no caso desta aplicação, os requisitos são simples. No entanto, documentar os requisitos de uma aplicação maior, com mais funcionalidades a serem desenvolvidas, não é uma tarefa fácil, pois é impossível prever todos os aspectos do sistema desde o início. 
 
 !!! note "NOTA"
     O documento _[workflow-funcionament-pizzaria.pdf](./workflow-funcionament-pizzaria.pdf)_, enviado pelo cliente, serviu como base para a elaboração das _[Histórias de Usuários](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio)_ e também proporcionou uma visão geral do funcionamento da pizzaria.
-
-## 3.2.3 Projeto de APIs

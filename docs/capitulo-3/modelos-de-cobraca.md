@@ -3,9 +3,9 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.3 Modelos de Cobraça
+# 3.3 Modelos de Cobraça
 
 Um dos principais benefícios da Computação em Nuvem é a facilidade de provisionar recursos de TI a um custo significativamente mais acessível em comparação ao modelo on-premises.
 
@@ -13,7 +13,7 @@ O OCI oferece uma ampla gama de serviços e recursos computacionais que podem se
 
 Neste capítulo, abordaremos os diferentes modelos de cobrança disponíveis no OCI, detalhando como a tarifação de alguns serviços e recursos computacionais
 
-## 2.3.1 Pay As You Go (PAYG) e Oracle Universal Credits (OUC)
+## 3.3.1 Pay As You Go (PAYG) e Oracle Universal Credits (OUC)
 
 Basicamente há dois _Modelos de Cobrança_ disponíveis:
 
@@ -125,7 +125,7 @@ Por fim, é importante lembrar que a Computação em Nuvem é uma forma de dispo
 
 Por outro lado, ao optar pelo modelo **_[Oracle Universal Credits](https://www.oracle.com/cloud/universal-credits/)_**, você tem a garantia de que os recursos estarão prontos para uso assim que solicitar sua criação. Isso ocorre porque você pagou antecipadamente, o que notifica a Oracle sobre sua intenção de utilizar os recursos definidos no contrato. Em resposta, a Oracle, por meio de seu Gerenciamento de Capacidade, ajusta a região, o _Availability Domain_ e o _Fault Domain_ para atender a essa demanda.
 
-## 2.3.2 OCI Cost Estimator
+## 3.3.2 OCI Cost Estimator
 
 O _[OCI Cost Estimator](https://www.oracle.com/cloud/costestimator.html)_ é uma ferramenta fornecida pelo OCI que permite aos usuários estimar os custos associados ao uso de recursos e serviços na nuvem.
 
@@ -175,7 +175,7 @@ Esses serviços permitem que você explore e utilize o OCI sem custos, enquanto 
 !!! note "NOTA"
     Sempre consulte o link _"[Recursos Always Free](https://docs.oracle.com/pt-br/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)"_ para obter uma lista completa e atualizada dos recursos elegíveis ao  _[Always Free](https://docs.oracle.com/pt-br/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)_.
 
-## 2.3.4 O custo da Transferência de Dados
+## 3.3.4 O custo da Transferência de Dados
 
 Como parte da análise de custos no OCI, é fundamental entender o custo de _Transferência de Dados_, ou _Data Transfer_. Este custo está associado ao tráfego de dados que sai (outbound) do OCI para a Internet ou para outra região.
 
@@ -205,7 +205,7 @@ No entanto, existe uma taxa por horas de uso, que varia de acordo com a largura 
 !!! note "NOTA"
     Em resumo, o serviço _[FastConnect](https://docs.oracle.com/pt-br/iaas/Content/Network/Concepts/fastconnectoverview.htm)_ permite que você conecte seu data center (on-premises) ao OCI por meio de uma conexão privada e dedicada. Além disso, existe uma opção para utilizar o _[FastConnect](https://docs.oracle.com/pt-br/iaas/Content/Network/Concepts/fastconnectoverview.htm)_ para conexões públicas via Internet. Para mais informações, consulte a documentação _["Visão Geral do FastConnect"](https://docs.oracle.com/pt-br/iaas/Content/Network/Concepts/fastconnectoverview.htm)_.
 
-## 2.3.5 Considerações finais
+## 3.3.5 Considerações finais
 
 Para concluir, gostaria de destacar alguns fatores que impactam diretamente os custos ao utilizar o OCI:
 
