@@ -38,8 +38,6 @@ Essas questões são comuns no contexto do desenvolvimento de software, e a melh
 - Escolha a linguagem de programação e o framework que você mais conhece.
 - Defina sua arquitetura de modo que ela resolva o seu problema da forma mais simples possível.
 
-Lembre-se de que não existe _["bala de prata"](https://pt.wikipedia.org/wiki/Bala_de_prata)_ nem uma solução única e definitiva. Diferentes problemas, diferentes soluções.
-
 Falando de _[arquitetura de software](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_, é importante destacar que existem diferentes tipos de arquiteturas e várias definições sobre o que é _[arquitetura de software](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_. Segundo _[Marco Tulio Valente](https://www.linkedin.com/in/mtov/)_, autor do livro _[Engenharia de Software Moderna](https://engsoftmoderna.info/)_, a arquitetura se refere ao _**"projeto em mais alto nível"**_. 
 
 Uma outra definição que eu particularmente gosto vem da _[Wikipédia](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_, que diz: _"A arquitetura de software de um sistema consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares."_
@@ -53,7 +51,7 @@ Assim, de maneira simplificada, inicialmente temos o seguinte desenho de arquite
 
 ### **Arquitetura em Três Camadas**
 
-A arquitetura em camadas pode ser definida como um processo de decomposição de sistemas complexos em camadas com o objetivo de facilitar a compreensão, o desenvolvimento, a manutenção e o mais importante, a separação de responsabilidades.
+A _Arquitetura em Camadas_ pode ser definida como um processo de decomposição de sistemas complexos em camadas com o objetivo de facilitar a compreensão, o desenvolvimento, a manutenção e o mais importante, a separação de responsabilidades.
 
 Quando se discute arquitetura em camadas no contexto de aplicações web, faz-se referência ao modelo conhecido como _["Arquitetura em Três Camadas"](https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas)_. Este modelo funciona muito bem para representar a arquitetura de aplicações web e é comumente utilizado porque reflete a estrutura organizacional de uma empresa, onde as pessoas são agrupadas com base em suas competências.
 
@@ -66,7 +64,7 @@ Para esclarecer o papel de cada camada, o desenho abaixo apresenta as três cama
     - A Camada de Apresentação, ou Inteface com o Usuário, representa a interface gráfica _(GUI - Graphical User Interface)_ com a qual o usuário interage com a aplicação. No mundo web, as interfaces de usuário são desenvolvidas pelos _Desenvolvedores Frontend_, utilizando um conjunto de tecnologias como _HTML_, _CSS_ e _JavaScript_.
 
 - **Camada de Aplicação ou Lógica de Negócios**
-    - A Camada de Aplicação, ou Lógica de Negócio, é responsável por implementar as regras de negócio da aplicação. As regras de negócios que uma aplicação deve implementar são, então, codificadas pelos _Desenvolvedores Backend_ utilizando linguagens de programação de alto nível, como _Python_, _Java_ ou _Go_. 
+    - A Camada de Aplicação, ou Lógica de Negócio, é responsável por implementar as regras de negócio da aplicação. As regras de negócios que uma aplicação deve implementar são, então, codificadas pelos _Desenvolvedores Backend_ utilizando linguagens de programação de alto nível, como _[Python](https://www.python.org/)_, _[Java](https://www.java.com/en/)_ ou _[Go](https://go.dev/)_. 
     
 - **Camada de Persistência ou Banco de Dados**
     - A Camada de Persistência, ou Banco de Dados, é responsável por armazenar de forma persistente os dados da aplicação. Os Administradores de Banco de Dados (DBAs) são os responsáveis por projetar, manter a integridade e a saúde dos Bancos de Dados de acordo com as exigências da aplicação.
@@ -85,32 +83,139 @@ Uma variação do padrão MVC é o _MVT (Model-View-Template)_, utilizado por al
 
 ### **Arquitetura Monolítica**
 
-O termo Sistema, Aplicação ou _Arquitetura Monolítica_, referem-se a uma aplicação que, independentemente da quantidade de funcionalidades implementadas — seja por meio de módulos, classes ou funções — é implantada e executada através de único processo de computador. Em outras palavras, tudo é executado a partir de um único processo.
+A _Arquitetura Monolítica_, referem-se a uma aplicação que, independentemente da quantidade de funcionalidades implementadas - seja por meio de módulos, classes ou funções - é implantada e executada através de único processo de computador. Em outras palavras, tudo é executado a partir de um único processo pelo sistema operacional.
 
 !!! note "NOTA"
     Processo de computador ou de sistema operacional será explorado na seção _["2.3 Entendendo os Contêineres"](./entendendo-os-conteineres.md)_. Por enquanto, é importante entender que um processo é o termo utilizado para se referir a uma instância de um programa em execução, gerenciada por um sistema operacional.
 
 Outra definição de _[Sam Newman](https://www.linkedin.com/in/samnewman/)_, autor do livro _[Migrando Sistemas Monolíticos Para Microsserviços](https://amzn.to/3Z9Dh96)_, afirma que: _**"Quando todas as funcionalidades de um sistema tiverem que ser implantadas em conjunto, considero que esse é um sistema monolítico."**_. Embora seja possível ter várias instâncias desse único processo por questões de escalabilidade ou tolerância a falhas, todo o código da aplicação permanece contido dentro desse único processo.
 
-Um _Sistema Monolítico_ pode ser classificado como um _Sistema Monolítico Modular_. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo e constituem uma única unidade de implantação.
+Um _Sistema Monolítico_ pode ser classificado como um _Sistema Monolítico Modular_. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo, formando uma única unidade de implantação.
 
-A aplicação OCI PIZZA foi inicialmente desenvolvida usando essa característica de ser um _Monolítico Modular_. Nela, há diferentes módulos que foram criados de forma independente, mas operam em conjunto.
+A aplicação OCI PIZZA foi inicialmente desenvolvida usando essa característica de ser um _Monolítico Modular_, onde foram desenvolvidos diferentes módulos que operam em conjunto, cada um com suas responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_.
 
 ![alt_text](./img/ocipizza-modulos-1.png "OCI PIZZA - Módulos #1")
 <br>
 
+![alt_text](./img/ocipizza-modulos-2.png "OCI PIZZA - Módulos #2")
+
 !!! note "NOTA"
     A análise detalhada do código-fonte da aplicação OCI PIZZA será apresentada na seção _["2.4 Ambiente de Desenvolvimento"](./capitulo-2/ambiente-de-desenvolvimento.md)_. 
     
+#### **Vantagens da Arquitetura Monolítica**
 
-#### **Vantagens dos Sistemas Monolíticos**
+**1.** Uma Arquitetura Monolítica é uma abordagem válida e, de fato, é frequentemente a mais recomendada para o início da construção de um software. Ela se destaca como a melhor escolha para a criação rápida de protótipos ou _[provas de conceito (PoC - Proof of Concept)](https://pt.wikipedia.org/wiki/Prova_de_conceito)_.
 
-Sistema monolítico não é código legado ou código velho ou um tipo de arquitetura ultrapassada que deve ser evitada. MVPs usam monolítico.
+**2.** Sistemas monolíticos são mais fáceis de implantar (deploy) porque todo o código está contido em um único repositório, permitindo que a implantação ocorra em um único local.
 
-Os monolitos são implantados somente em um único lugar, por isso é considerado de ser uma vantagem sobre os microsserviços.
+**3.** É mais fácil reutilizar código entre diferentes partes da aplicação. Por exemplo em _[Python](https://www.python.org/)_, uma instrução do tipo `from app.modules.nosql import NoSQL` permite importar a funcionalidade de um módulo para outro. Além disso, a comunicação entre os diferentes módulos da aplicação, que são executados dentro de um mesmo processo, é mais rápida.
 
-#### **Desvantagens dos Sistemas Monolíticos**
+**4.** A estrutura unificada de um monólito facilita o teste das interações entre os componentes, tornando a execução de testes fim a fim mais fácil. Além disso, a monitoração de uma aplicação monolítica é geralmente mais fácil em comparação com uma arquitetura de microsserviços.
 
-Se mudar uma linha de código no monolito, deve-se fazer um deploy por completo (acomplamento de implantação).
+#### **Desvantagens da Arquitetura Monolítica**
 
-Sitemas Monolíticos limitam as opções de usar diferentes tecnologias.
+**1.** Mudanças no código de um monólito exigem a implantação completa de toda a aplicação. Isso significa que, ao realizar uma atualização ou correção, é necessário reimplantar o sistema inteiro, o que pode resultar em períodos de inatividade e maior complexidade na gestão de versões.
+
+**2.** Devido ao fato de todo o código estar contido em um único repositório, alterações em diferentes partes do código por diferentes desenvolvedores, podem resultar em um aumento nos conflitos de _[merge](https://pt.wikipedia.org/wiki/Fus%C3%A3o_(controle_de_vers%C3%A3o))_. Esses conflitos podem atrasar as implantações do sistema.
+
+**3.** Sistemas monolíticos limitam as opções de utilização de diferentes tecnologias. Por exemplo, um monolito escrito em _[Python](https://www.python.org/)_ possui toda a sua base de código nessa linguagem, o que significa que não é possível mesclar funcionalidades em _[Python](https://www.python.org/)_ e _[Java](https://www.java.com/en/)_ dentro da mesma aplicação.
+
+**4.** Dizemos que um monólito está sujeito a uma _Falha Total_. Essa expressão significa que um erro ou falha em qualquer parte do código pode levar à indisponibilidade de toda a aplicação.
+
+### **Arquitetura de Microsserviços**
+
+A _Arquitetura de Microsserviços_ ou, _Arquitetura baseada em Microsserviços_, é um padrão arquitetural que consiste em diversos serviços independentes, desacoplados e distribuídos. Cada serviço é considerado _"micro"_ porque possui uma base de código menor na qual implementa uma única funcionalidade da aplicação (responsabilidade única). Esses diversos e micros serviços, são executados em processos independentes e, juntos, se combinam para formar o sistema como um todo.
+
+<h3 style="text-align: center; font-style: italic;">
+Microsserviços são serviços que podem ser implantados de forma independente e são modelados em torno de um domínio de negócios - Autor: <a href="https://www.linkedin.com/in/samnewman/">Sam Newman</a>
+</h3>
+
+Pelo fato de que cada microsserviço possui sua própria base de código, isso permite a utilização de diferentes tecnologias para seu desenvolvimento e possibilita que sejam implantados de forma independente. Por serem independentes, os microsserviços também podem ter suas próprias bases de dados, o que é considerado uma boa prática ao adotar esse estilo arquitetural.
+
+Outra afirmação que ajuda a descrever os microsserviços é que eles funcionam como componentes completos de uma funcionalidade da aplicação, e que incluem sua própria interface de usuário, lógica de negócios e gerenciamento de dados.
+
+Toda a comunicação entre os serviços ocorre pela rede utilizando algum protocolo, sendo os mais comuns o _[HTTP](https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol)_ e o _[gRPC](https://pt.wikipedia.org/wiki/GRPC)_.
+
+![alt_text](./img/ocipizza-modulos-3.png "OCI PIZZA - Módulos #3")
+<br>
+
+!!! note "NOTA"
+    A aplicação OCI PIZZA é composta por módulos bastante simples, e a separação desses módulos em serviços independentes pode resultar em mais complexidade do que benefícios para a aplicação, conforme discutido na seção _["2.2.1 Overengineering"](#221-overengineering)_. O objetivo aqui é ilustrar parte do conceito por meio de uma aplicação real e de fácil compreensão.
+
+!!! note "NOTA"
+    Assista o video _["Deconstructing the Monolith (Shopify Unite Track 2019)"](https://youtu.be/ISYKx8sa53g?si=GO0k1Sn0MaDNglfV)_, que explica um pouco sobre a transição da _[Shopify](https://www.shopify.com/br)_ de um grande monólito escrito em _[Ruby on Rails](https://pt.wikipedia.org/wiki/Ruby_on_Rails)_ para uma arquitetura de microsserviços, composta por mini-aplicações _[Ruby on Rails](https://pt.wikipedia.org/wiki/Ruby_on_Rails)_ distribuídas.
+
+#### **Vantagens da Arquitetura de Microsserviços**
+
+**1.** Cada microsserviço, por ter uma base de código menor, tende a apresentar poucos ou nenhum conflito de _[merge](https://pt.wikipedia.org/wiki/Fus%C3%A3o_(controle_de_vers%C3%A3o))_ entre os desenvolvedores envolvidos no seu desenvolvimento. Além disso, 
+
+**2.** O desevolvimento e as implantações (deploy) são menores, mais rápidas e independentes. Isso significa que é possível modificar o código de um microsserviço e implantá-lo em produção sem afetar outros microsserviços.
+
+**3.** Microsserviços são independentes em termos de tecnologia. Em uma aplicação, é possível ter microsserviços desenvolvidos em _[Java](https://www.java.com/en/)_, outros em _[Python](https://www.python.org/)_ e ainda outros em _[Go](https://go.dev/)_. Todos eles, independente da linguagem de programação utilizada, todos eles colaboram para compor a aplicação como um todo.
+
+**4.** O impacto nos negócios é menor quando ocorre um problema. Se um microsserviço específico falha, isso é considerado uma _Falha Parcial_, o que significa que apenas uma parte da aplicação é afetada. Dessa forma, a aplicação como um todo não fica indisponível, apenas uma de suas partes.
+
+#### **Desvantagens da Arquitetura de Microsserviços**
+
+**1.** Microsserviços são mais difíceis de testar e monitorar. Os testes integrados e de fim a fim precisam incluir diferentes microsserviços, o que torna o processo mais trabalhoso e complexo. A monitoração também se torna mais complexa devido ao grande número de microsserviços que podem compor uma aplicação.
+
+**2.** A comunicação entre diferentes microsserviços é realizada por meio da rede, o que traz consigo outros problemas, como maior latência e perda de pacotes nas chamadas entre os diversos serviços.
+
+**3.** Em uma Arquitetura de Microsserviços, cada microsserviço pode ter suas próprias dependências, requisitos e ciclos de desenvolvimento. Isso significa que pode ser necessário implementar múltiplas esteiras de CI/CD, uma para cada microsserviço.
+
+**4.** O gerenciamento de vulnerabilidades se torna mais difícil. Quando uma vulnerabilidade de segurança é identificada em uma dependência de um microsserviço, é importante lembrar de atualizar todos os microsserviços que utilizam essa dependência.
+
+### **Arquitetura Monolítica vs. Microsserviços**
+
+Aqui deixo uma conclusão final sobre quando usar uma _[Arquitetura Monolítica](#arquitetura-monolítica)_ e quando optar por uma _[Arquitetura de Microsserviços](#arquitetura-de-microsserviços)_, trazendo um paralelo com a aplicação de exemplo OCI PIZZA, onde a primeira dica é:
+
+<h3 style="text-align: center; font-style: italic;">
+Não existe <a href="https://pt.wikipedia.org/wiki/Bala_de_prata">"bala de prata"</a> nem uma solução única e definitiva. Diferentes problemas exigem diferentes soluções.
+</h3>
+
+Com base nas pesquisas que realizei e nas leituras sobre arquitetura de software, onde diversos especialistas discutem o tema, é que:
+
+<h3 style="text-align: center; font-style: italic;">
+Comece de forma simples, utilizando uma aplicação monolítica. Inicialmente, é mais fácil desenvolver e organizar as funcionalidades da aplicação em módulos simples que possam ser reutilizados dentro de um único processo do sistema operacional, em vez de codificar interações por meio da rede entre os diferentes módulos.
+</h3>
+
+Deve-se considerar que não há um único motivo para migrar da sua arquitetura altual para uma _[Arquitetura de Microsserviços](#arquitetura-de-microsserviços)_. Outra discussão sobre isso, que também considero importante, é que essa transição só começa a fazer sentido quando a base de código cresce a ponto de ser necessário ter mais desenvolvedores trabalhando em diferentes partes do código da aplicação. Com um maior número de desenvolvedores trabalhando na mesma base de código, aumentam as chances de conflitos de _[merge](https://pt.wikipedia.org/wiki/Fus%C3%A3o_(controle_de_vers%C3%A3o))_, o que pode acarretar atrasos na entrega de correções ou novas funcionalidades. Por outro lado, bases de código menores geralmente têm equipes de desenvolvimento menores, o que podem apresentar poucos ou nenhum conflito de _[merge](https://pt.wikipedia.org/wiki/Fus%C3%A3o_(controle_de_vers%C3%A3o))_. Isso permite que novas funcionalidades ou correções sejam implantadas de forma mais rápida e a qualquer momento.
+
+Conforme mencionado na seção sobre as _[Vantagens da Arquitetura Monolítica](#vantagens-da-arquitetura-monolítica)_, utilizar as funcionalidades de um módulo por meio de uma instrução `import`, que é executada dentro de um único processo, é mais fácil, mais rápido e possibilita uma reutilização de código mais eficiente.
+
+![alt_text](./img/arquitetura-monolica-vs-microsservicos-1.png "Arquitetura Monolica vs. Microsservicos #1")
+<br>
+
+Nesse mesmo contexto, ao adotar microsserviços, a abordagem muda. Por exemplo, o código de uma classe _[NoSQL](https://pt.wikipedia.org/wiki/NoSQL)_, responsável por realizar interações com o banco de dados, precisará estar presente e ser replicado em todos os microsserviços que necessitam dessa funcionalidade. Caso haja a necessidade de ajustes nessa classe, será necessário realizar o _redeploy_ de todos os microsserviços que a utilizam. Como alternativa, é possível criar um microsserviço dedicado exclusivamente à interação com o banco de dados. No entanto, em ambos os casos, há um aumento na complexidade do sistema.
+
+E, por fim, como um último ponto de destaque, os microsserviços apresentam desafios relacionados a transações distribuídas e à rede. No que se refere a problemas de rede, podem ocorrer latências variáveis na comunicação entre diferentes microsserviços, o que pode resultar na necessidade de retransmissões e, em casos extremos, na perda de conectividade. Quanto às transações distribuídas, o principal problema é a possibilidade de existir inconsistências nos dados, que podem surgir, por exemplo, quando uma leitura é realizada antes da conclusão de uma transação.
+
+![alt_text](./img/arquitetura-monolica-vs-microsservicos-2.png "Arquitetura Monolica vs. Microsservicos #2")
+
+## 2.2.3 Arquitetura da Aplicação OCI PIZZA
+
+A arquitetura da aplicação OCI PIZZA, assim como qualquer outra arquitetura, pode ser dividida em:
+
+### **Arquitetura da Aplicação**
+
+Refere-se ao funcionamento e às interações, ou fluxo dos dados, que ocorre entre os diferentes módulos dentro da aplicação.
+
+No contexto da aplicação OCI PIZZA, as funcionalidades foram divididas em diversos módulos com o objetivo de organizar e separar as suas responsabilidades, promovendo uma melhor reutilização.
+
+### **Arquitetura da Infraestrutura**
+
+Ao olhar para "fora da aplicação", temos a _Arquitetura da Infraestrutura_. Aqui, definem-se a topologia de rede utilizada, o endereçamento IP e os serviços de rede essenciais para o funcionamento da aplicação. Esses serviços incluem os servidores necessários para executar a aplicação, que podem abranger clusters Kubernetes, servidores responsáveis pelo envio de e-mails, entre outros.
+
+### **Arquitetura de Dados**
+
+Inclui a escolha do banco de dados, seja relacional ou não relacional _([NoSQL](https://pt.wikipedia.org/wiki/NoSQL))_, bem como o design das tabelas e suas relações.
+
+Pelo fato da aplicação ser simples e não possuir muitos relacionamentos entre diferentes tabelas, a aplicação OCI PIZZA utiliza um banco de dados do tipo _[NoSQL](https://pt.wikipedia.org/wiki/NoSQL)_, que é replicado em outra região do OCI para garantir alta disponibilidade.
+
+### TCO
+
+Arquitetura tem haver com otimização de custos, TCO. Quando mais complexa, maior o custo seja ele custo em termos de pagar mais desenvolvedores ou, custo por ter mais recursos de infraestrutura necessários para executar uma aplicação.
+
+## 2.2.4 Nota final sobre Kubernetes e Escalabilidade
+
+- No OKE, como a decomposição será executada.
