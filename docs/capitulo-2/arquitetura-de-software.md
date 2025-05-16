@@ -230,6 +230,9 @@ _[Blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)_ podem se
 
 ![alt_text](./img/ocipizza-blueprints-2.png "OCI PIZZA - Blueprints #2")
 
+!!! note "NOTA"
+    Na seção _[2.4 Ambiente de Desenvolvimento](./ambiente-de-desenvolvimento.md)_, serão explorados mais detalhes sobre o código-fonte da aplicação **OCI PIZZA**.
+
 ### **Arquitetura da Infraestrutura**
 
 Ao olhar para _"fora da aplicação"_, temos a _Arquitetura da Infraestrutura_. Aqui, definem-se a topologia de rede utilizada, o endereçamento IP e o papel de cada serviços de rede necessários para o funcionamento da aplicação. Esses serviços incluem os servidores para executar a aplicação, servidores responsáveis pelo envio de e-mails, entre outros.
@@ -281,4 +284,4 @@ A seguir, apresentamos as tabelas da aplicação, acompanhadas das descrições 
     - Tabela responsável por gerenciar as ações de redefinição de senha dos usuários.
 
 !!! note "NOTA"
-    No capítulo XXX, serão explorados mais detalhes sobre o tipo _[NoSQL](../capitulo-5/index.md)_ de banco de dados.
+    No _[Capítulo 5: Oracle NoSQL Database Cloud Service](../capitulo-5/index.md)_, serão explorados mais detalhes sobre o tipo _[NoSQL](../capitulo-5/index.md)_ de banco de dados.
