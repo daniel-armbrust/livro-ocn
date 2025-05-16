@@ -7,7 +7,7 @@ hide:
 
 # 2.2 Arquitetura de Software
 
-Após a definição dos requisitos da aplicação web OCI PIZZA, o próximo passo é a modelagem e o design da arquitetura da aplicação. Antes de apresentar a arquitetura inicial proposta, faremos uma introdução aos conceitos de arquitetura de software, destacando os tipos mais utilizados atualmente. Também será apresentado um trecho do fluxo de execução que ilustra a ação do usuário ao realizar um pedido de pizza, servindo como base para o diagrama de classes da aplicação. Esses conceitos de arquitetura serão abordados não apenas nesta seção, mas ao longo de todo o livro.
+Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo passo é a modelagem e o design da arquitetura da aplicação. Antes de apresentar a arquitetura inicial proposta, faremos uma introdução aos conceitos de arquitetura de software, destacando os tipos mais utilizados atualmente. Também será apresentado um trecho do fluxo de execução que ilustra a ação do usuário ao realizar um pedido de pizza, servindo como base para o diagrama de classes da aplicação. Esses conceitos de arquitetura serão abordados não apenas nesta seção, mas ao longo de todo o livro.
 
 ## 2.2.1 Overengineering
 
@@ -15,9 +15,9 @@ Decidi abordar o tema do _[Overengineering](https://en.wikipedia.org/wiki/Overen
 
 _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ é um termo utilizado para descrever a prática de criar um produto ou sistema com mais complexidade ou recursos do que o necessário, muitas vezes resultando em desperdício de tempo, dinheiro e recursos. Em termos mais simples, refere-se à introdução de complexidade desnecessária por parte de desenvolvedores ou arquitetos.
 
-Ao longo dos capítulos deste livro, o _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ se tornará mais evidente, especialmente ao discutirmos a transição de uma arquitetura monolítica para uma arquitetura de microsserviços. Em uma aplicação real e simples como a OCI PIZZA, uma arquitetura monolítica atende muito bem.
+Ao longo dos capítulos deste livro, o _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ se tornará mais evidente, especialmente ao discutirmos a transição de uma arquitetura monolítica para uma arquitetura de microsserviços. Em uma aplicação real e simples como a **OCI PIZZA**, uma arquitetura monolítica atende muito bem.
 
-É importante lembrar que o objetivo deste livro é demonstrar aspectos _[Cloud Native](../capitulo-1/cloud-native.md)_ e como utilizar os serviços em nuvem oferecidos pelo OCI. Portanto, em alguns momentos, apresentaremos soluções mais complexas que podem parecer desnecessárias para o problema que a aplicação OCI PIZZA resolve. No entanto, o foco final é apresentar conceitos que podem ser úteis ao lidar com aplicações maiores e com uma base de código mais complexa.
+É importante lembrar que o objetivo deste livro é demonstrar aspectos _[Cloud Native](../capitulo-1/cloud-native.md)_ e como utilizar os serviços em nuvem oferecidos pelo OCI. Portanto, em alguns momentos, apresentaremos soluções mais complexas que podem parecer desnecessárias para o problema que a aplicação **OCI PIZZA** resolve. No entanto, o foco final é apresentar conceitos que podem ser úteis ao lidar com aplicações maiores e com uma base de código mais complexa.
 
 <h3 style="text-align: center; font-style: italic;">
 Keep It Simple, Stupid (KISS)
@@ -92,7 +92,7 @@ Outra definição de _[Sam Newman](https://www.linkedin.com/in/samnewman/)_, aut
 
 Um _Sistema Monolítico_ pode ser classificado como um _Sistema Monolítico Modular_. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo, formando uma única unidade de implantação.
 
-A aplicação OCI PIZZA foi inicialmente desenvolvida usando essa característica de ser um _Monolítico Modular_, onde foram desenvolvidos diferentes módulos que operam em conjunto, cada um com suas responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_.
+A aplicação **OCI PIZZA** foi inicialmente desenvolvida usando essa característica de ser um _Monolítico Modular_, onde foram desenvolvidos diferentes módulos que operam em conjunto, cada um com suas responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_.
 
 ![alt_text](./img/ocipizza-modulos-1.png "OCI PIZZA - Módulos #1")
 <br>
@@ -100,7 +100,7 @@ A aplicação OCI PIZZA foi inicialmente desenvolvida usando essa característic
 ![alt_text](./img/ocipizza-modulos-2.png "OCI PIZZA - Módulos #2")
 
 !!! note "NOTA"
-    A análise detalhada do código-fonte da aplicação OCI PIZZA será apresentada na seção _["2.4 Ambiente de Desenvolvimento"](./capitulo-2/ambiente-de-desenvolvimento.md)_. 
+    A análise detalhada do código-fonte da aplicação **OCI PIZZA** será apresentada na seção _["2.4 Ambiente de Desenvolvimento"](./capitulo-2/ambiente-de-desenvolvimento.md)_. 
     
 #### **Vantagens da Arquitetura Monolítica**
 
@@ -140,7 +140,7 @@ Toda a comunicação entre os serviços ocorre pela rede utilizando algum protoc
 <br>
 
 !!! note "NOTA"
-    A aplicação OCI PIZZA é composta por módulos bastante simples, e a separação desses módulos em serviços independentes pode resultar em mais complexidade do que benefícios para a aplicação, conforme discutido na seção _["2.2.1 Overengineering"](#221-overengineering)_. O objetivo aqui é ilustrar parte do conceito por meio de uma aplicação real e de fácil compreensão.
+    A aplicação **OCI PIZZA** é composta por módulos bastante simples, e a separação desses módulos em serviços independentes pode resultar em mais complexidade do que benefícios para a aplicação, conforme discutido na seção _["2.2.1 Overengineering"](#221-overengineering)_. O objetivo aqui é ilustrar parte do conceito por meio de uma aplicação real e de fácil compreensão.
 
 !!! note "NOTA"
     Assista o video _["Deconstructing the Monolith (Shopify Unite Track 2019)"](https://youtu.be/ISYKx8sa53g?si=GO0k1Sn0MaDNglfV)_, que explica um pouco sobre a transição da _[Shopify](https://www.shopify.com/br)_ de um grande monólito escrito em _[Ruby on Rails](https://pt.wikipedia.org/wiki/Ruby_on_Rails)_ para uma arquitetura de microsserviços, composta por mini-aplicações _[Ruby on Rails](https://pt.wikipedia.org/wiki/Ruby_on_Rails)_ distribuídas.
@@ -167,7 +167,7 @@ Toda a comunicação entre os serviços ocorre pela rede utilizando algum protoc
 
 ### **Arquitetura Monolítica vs. Microsserviços**
 
-Aqui deixo uma conclusão final sobre quando usar uma _[Arquitetura Monolítica](#arquitetura-monolítica)_ e quando optar por uma _[Arquitetura de Microsserviços](#arquitetura-de-microsserviços)_, trazendo um paralelo com a aplicação de exemplo OCI PIZZA, onde a primeira dica é:
+Aqui deixo uma conclusão final sobre quando usar uma _[Arquitetura Monolítica](#arquitetura-monolítica)_ e quando optar por uma _[Arquitetura de Microsserviços](#arquitetura-de-microsserviços)_, trazendo um paralelo com a aplicação de exemplo **OCI PIZZA**, onde a primeira dica é:
 
 <h3 style="text-align: center; font-style: italic;">
 Não existe <a href="https://pt.wikipedia.org/wiki/Bala_de_prata">"bala de prata"</a> nem uma solução única e definitiva. Diferentes problemas exigem diferentes soluções.
@@ -186,36 +186,99 @@ Conforme mencionado na seção sobre as _[Vantagens da Arquitetura Monolítica](
 ![alt_text](./img/arquitetura-monolica-vs-microsservicos-1.png "Arquitetura Monolica vs. Microsservicos #1")
 <br>
 
-Nesse mesmo contexto, ao adotar microsserviços, a abordagem muda. Por exemplo, o código de uma classe _[NoSQL](https://pt.wikipedia.org/wiki/NoSQL)_, responsável por realizar interações com o banco de dados, precisará estar presente e ser replicado em todos os microsserviços que necessitam dessa funcionalidade. Caso haja a necessidade de ajustes nessa classe, será necessário realizar o _redeploy_ de todos os microsserviços que a utilizam. Como alternativa, é possível criar um microsserviço dedicado exclusivamente à interação com o banco de dados. No entanto, em ambos os casos, há um aumento na complexidade do sistema.
+Nesse mesmo contexto, ao adotar microsserviços, a abordagem muda. Por exemplo, o código de uma classe _[NoSQL](../capitulo-5/index.md)_, responsável por realizar interações com o banco de dados, precisará estar presente e ser replicado em todos os microsserviços que necessitam dessa funcionalidade. Caso haja a necessidade de ajustes nessa classe, será necessário realizar o _redeploy_ de todos os microsserviços que a utilizam. Como alternativa, é possível criar um microsserviço dedicado exclusivamente à interação com o banco de dados. No entanto, em ambos os casos, há um aumento na complexidade do sistema.
 
-E, por fim, como um último ponto de destaque, os microsserviços apresentam desafios relacionados a transações distribuídas e à rede. No que se refere a problemas de rede, podem ocorrer latências variáveis na comunicação entre diferentes microsserviços, o que pode resultar na necessidade de retransmissões e, em casos extremos, na perda de conectividade. Quanto às transações distribuídas, o principal problema é a possibilidade de existir inconsistências nos dados, que podem surgir, por exemplo, quando uma leitura é realizada antes da conclusão de uma transação.
+E, por fim, como um último ponto de destaque, os microsserviços apresentam desafios relacionados a transações distribuídas e à rede. No que se refere a problemas de rede, podem ocorrer latências variáveis na comunicação entre diferentes microsserviços, o que pode resultar na necessidade de retransmissões e, em casos extremos, na perda de conectividade e perda de informações. Quanto às transações distribuídas, o principal problema é a possibilidade de existir inconsistências nos dados, que podem surgir, por exemplo, quando uma leitura é realizada antes da conclusão de uma escrita.
 
 ![alt_text](./img/arquitetura-monolica-vs-microsservicos-2.png "Arquitetura Monolica vs. Microsservicos #2")
 
 ## 2.2.3 Arquitetura da Aplicação OCI PIZZA
 
-A arquitetura da aplicação OCI PIZZA, assim como qualquer outra arquitetura, pode ser dividida em:
+A arquitetura da aplicação **OCI PIZZA**, assim como qualquer outra arquitetura, pode ser dividida em:
 
 ### **Arquitetura da Aplicação**
 
 Refere-se ao funcionamento e às interações, ou fluxo dos dados, que ocorre entre os diferentes módulos dentro da aplicação.
 
-No contexto da aplicação OCI PIZZA, as funcionalidades foram divididas em diversos módulos com o objetivo de organizar e separar as suas responsabilidades, promovendo uma melhor reutilização.
+A aplicação é uma aplicação web desenvolvida em _[Python](https://www.python.org/)_ utilizando o microframework _[Flask](https://flask.palletsprojects.com/en/stable/)_. _[Flask](https://flask.palletsprojects.com/en/stable/)_ é considerado _"micro"_ porque sua instalação inclui apenas os componentes essenciais necessários para criar aplicações web. Essa abordagem permite que os desenvolvedores adicionem apenas os componentes necessários para o funcionamento da aplicação.
+
+A seguir, estão algumas das bibliotecas externas ao _[Flask](https://flask.palletsprojects.com/en/stable/)_ que a aplicação **OCI PIZZA** utiliza e que podem ser instaladas por meio do gerenciador de pacotes _[pip](https://pip.pypa.io/en/stable/)_:
+
+- **[Flask-WTF](https://flask-wtf.readthedocs.io/en/1.2.x/)**
+    - _[Flask-WTF](https://flask-wtf.readthedocs.io/en/1.2.x/)_ é uma extensão do Flask que integra o _[WTForms](https://wtforms.readthedocs.io/en/3.2.x/)_ com o objetivo de simplificar a criação e validação de formulários web.
+
+- **[Flask-Login](https://flask-wtf.readthedocs.io/en/1.2.x/)**
+    - _[Flask-Login](https://flask-wtf.readthedocs.io/en/1.2.x/)_ é uma extensão do Flask que simplifica a autenticação de usuários e o gerenciamento de sessões.
+
+- **[Jinja2](https://jinja.palletsprojects.com/en/stable/)**
+    - _[Jinja2](https://jinja.palletsprojects.com/en/stable/)_ é uma biblioteca de template para Python que facilita a geração de HTML dinâmicos.
+
+- **[Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/)**
+    - _[Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/)_ é uma extensão do Flask que simplifica a autenticação baseada em _[JSON Web Tokens (JWT)](https://pt.wikipedia.org/wiki/JSON_Web_Token)_.
+
+- **[borneo](https://pypi.org/project/borneo/)**
+    - Borneo é uma biblioteca que permite a interação com o _[Oracle NoSQL Database](https://docs.oracle.com/en/database/other-databases/nosql-database/index.html)_ usando a linguagem Python.
+
+- **[OCI Python SDK](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm)**
+    - O _[OCI Python SDK]((https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm))_ é uma biblioteca que permite interagir com os serviços da Oracle Cloud Infrastructure (OCI) usando a linguagem Python.
+
+Outra característica interessante do Flask são os _[Blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)_, que permitem organizar e estruturar aplicações em módulos. Na imagem a seguir, apresentamos o código dos _[blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)_ utilizados pela aplicação **OCI PIZZA**:
+
+![alt_text](./img/ocipizza-blueprints-1.png "OCI PIZZA - Blueprints #1")
+
+_[Blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)_ podem ser transformados em serviços independentes ou microsserviços, operando como mini aplicações _[Flask](https://flask.palletsprojects.com/en/stable/)_ que possuem sua própria lógica de negócios, templates HTML para a interface de usuário, API REST e banco de dados. Esta será a abordagem adotada pelo livro para demonstrar uma forma de criar microsserviços.
+
+![alt_text](./img/ocipizza-blueprints-2.png "OCI PIZZA - Blueprints #2")
 
 ### **Arquitetura da Infraestrutura**
 
-Ao olhar para "fora da aplicação", temos a _Arquitetura da Infraestrutura_. Aqui, definem-se a topologia de rede utilizada, o endereçamento IP e os serviços de rede essenciais para o funcionamento da aplicação. Esses serviços incluem os servidores necessários para executar a aplicação, que podem abranger clusters Kubernetes, servidores responsáveis pelo envio de e-mails, entre outros.
+Ao olhar para _"fora da aplicação"_, temos a _Arquitetura da Infraestrutura_. Aqui, definem-se a topologia de rede utilizada, o endereçamento IP e o papel de cada serviços de rede necessários para o funcionamento da aplicação. Esses serviços incluem os servidores para executar a aplicação, servidores responsáveis pelo envio de e-mails, entre outros.
+
+![alt_text](./img/arquitetura-ocipizza-local-1.png "OCI PIZZA - Arquitetura da Infraestrutura #1")
+
+A seguir, apresentamos _Arquitetura da Infraestrutura_ 
+os serviços utilizados pel, acompanhadas das descrições correspondentes para cada uma delas:
+
+- **Aplicação Web**
+    - O papel da _Aplicação Web_ é oferecer uma interface interativa e acessível aos usuários através do navegador. Em outras palavras, ela atua como o ponto de contato online entre o usuário e a pizzaria, permitindo que os clientes realizem consultas, façam pedidos e acompanhem o status das entregas.
+
+- **Banco de Dados NoSQL**
+    - _Banco de Dados NoSQL_ para persistência dos dados da aplicação. O banco de dados utilizado no ambiente de desenvolvimento será o _[Oracle NoSQL Database - Community Edition versão 24.4.11](https://www.oracle.com/database/technologies/nosql-database-server-downloads.html)_.
+
+- **Serviço HTTP**
+    - O _Serviço HTTP_ é um processo simples em _[Python](https://www.python.org/)_ que simula um _[Bucket](https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingbuckets.htm)_ do serviço _[Object Storage](https://docs.oracle.com/pt-br/iaas/Content/Object/Concepts/objectstorageoverview.htm)_ do OCI, sendo utilizado para disponibilizar as imagens do cardápio de pizzas aos usuários.
+
+- **Funções**
+    - O _[Fn Project](https://fnproject.io/)_ é uma plataforma serverless de código aberto projetada para a execução de _Funções como Serviço (FaaS - Functions as a Service)_. Devido ao funcionamento do protocolo HTTP, que opera com um modelo de requisição/resposta, as funções são utilizadas para executar código de forma independente e desacoplada da aplicação web. O OCI utiliza o _[Fn Project](https://fnproject.io/)_ em seu _[Serviço Functions](https://docs.oracle.com/pt-br/iaas/Content/Functions/Concepts/functionsoverview.htm)_, e, por essa razão, o ambiente de desenvolvimento da aplicação também adotará essa plataforma.
+
+- **Serviço SMTP**
+    - O _Serviço SMTP_ é um processo simples em _[Python](https://www.python.org/)_ utilizado para receber os e-mails gerados pela aplicação. Os e-mails, que podem ser enviados para ativar um cadastro de usuário ou para redefinição de senha, são direcionados a este serviço. A ideia de utilizar este serviço é evitar a configuração completa de um servidor SMTP, simulando, de certa forma, o _[Serviço Email Delivery do OCI](https://docs.oracle.com/pt-br/iaas/Content/Email/Concepts/overview.htm)_ 
+
+- **Serviço REDIS**
+    - _[Redis](https://redis.io/open-source/)_ é um banco de dados em memória com estrutura de dados chave-valor que será utilizado pelo Flask para armazenar dados de sessão do usuário. Armazenar as sessões em um serviço externo permite escalar a aplicação horizontalmente, atendendo a um aumento na demanda de acesso sem comprometer a experiência do usuário.
+
+!!! note "NOTA"
+    Note que tudo é executado em contêineres em uma rede de conteineres gerenciada pelo _[Docker](./entendendo-os-conteineres.md)_. A exceção são as _Funções_, que são executadas fora da rede de contêineres, diretamente no _HOST_ que gerencia esses contêineres. Além disso, os serviços auxiliares utilizados pela aplicação simulam os serviços do OCI, facilitando assim a transição da aplicação desenvolvida localmente para a nuvem.
 
 ### **Arquitetura de Dados**
 
-Inclui a escolha do banco de dados, seja relacional ou não relacional _([NoSQL](https://pt.wikipedia.org/wiki/NoSQL))_, bem como o design das tabelas e suas relações.
+Eu chamo de _Arquitetura de Dados_ tudo que se refere ao banco de dados da aplicação, incluindo a escolha do tipo, seja relacional ou não relacional _([NoSQL](../capitulo-5/index.md))_, bem como o design das tabelas e suas relações.
 
-Pelo fato da aplicação ser simples e não possuir muitos relacionamentos entre diferentes tabelas, a aplicação OCI PIZZA utiliza um banco de dados do tipo _[NoSQL](https://pt.wikipedia.org/wiki/NoSQL)_, que é replicado em outra região do OCI para garantir alta disponibilidade.
+A aplicação **OCI PIZZA** é simples, assim como o conjunto de dados que ela manipula. Por essa razão, considero que o tipo de banco de dados mais adequado, dado que não há relacionamentos complexos entre as tabelas, é o _[NoSQL](../capitulo-5/index.md)_. 
 
-### TCO
+A seguir, apresentamos as tabelas da aplicação, acompanhadas das descrições correspondentes para cada uma delas:
 
-Arquitetura tem haver com otimização de custos, TCO. Quando mais complexa, maior o custo seja ele custo em termos de pagar mais desenvolvedores ou, custo por ter mais recursos de infraestrutura necessários para executar uma aplicação.
+- **user**
+    - Tabela responsável por armazenar informações de registro dos usuários, incluindo nome, e-mail, senha, telefone, etc.
 
-## 2.2.4 Nota final sobre Kubernetes e Escalabilidade
+- **user.order**
+    - Tabela associada à tabela `user`, responsável por armazenar as ordens de compra que correspondem aos pedidos de pizza dos usuários.
 
-- No OKE, como a decomposição será executada.
+- **pizza**
+    - Tabela responsável por armazenar o cardápio de pizzas.
+
+- **email_verification**
+    - Tabela responsável por gerenciar as ações de redefinição de senha dos usuários.
+
+!!! note "NOTA"
+    No capítulo XXX, serão explorados mais detalhes sobre o tipo _[NoSQL](../capitulo-5/index.md)_ de banco de dados.
