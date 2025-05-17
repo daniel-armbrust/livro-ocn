@@ -11,13 +11,13 @@ Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo 
 
 ## 2.2.1 Overengineering
 
-Decidi abordar o tema do _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ logo no início dessa seção, pois já adianto que parte de todo o exposto no livro é SIM, _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_.
+Decidi abordar o tema do _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ logo no início, pois já adianto que parte de todo o exposto no livro é SIM, _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_.
 
-_[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ é um termo utilizado para descrever a prática de criar um produto ou sistema com mais complexidade ou recursos do que o necessário, muitas vezes resultando em desperdício de tempo, dinheiro e recursos. Em termos mais simples, refere-se à introdução de complexidade desnecessária por parte de desenvolvedores ou arquitetos.
+_[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ é um termo utilizado para descrever a prática de criar um produto ou sistema com mais complexidade ou recursos do que o necessário, muitas vezes resultando em desperdício de tempo e dinheiro. 
 
-Ao longo dos capítulos deste livro, o _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ se tornará mais evidente, especialmente ao discutirmos a transição de uma arquitetura monolítica para uma arquitetura de microsserviços. Em uma aplicação real e simples como a **OCI PIZZA**, uma arquitetura monolítica atende muito bem.
+Ao longo dos capítulos deste livro, o _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ se tornará mais evidente, especialmente ao abordarmos a transição da _Arquitetura Monolítica_ para uma _Arquitetura de Microsserviços_. Em uma aplicação real e simples como a **OCI PIZZA**, uma _Arquitetura Monolítica_ é, de fato, a melhor escolha.
 
-É importante lembrar que o objetivo deste livro é demonstrar aspectos _[Cloud Native](../capitulo-1/cloud-native.md)_ e como utilizar os serviços em nuvem oferecidos pelo OCI. Portanto, em alguns momentos, apresentaremos soluções mais complexas que podem parecer desnecessárias para o problema que a aplicação **OCI PIZZA** resolve. No entanto, o foco final é apresentar conceitos que podem ser úteis ao lidar com aplicações maiores e com uma base de código mais complexa.
+Por fim, é importante lembrar que o objetivo deste livro é explorar os conceitos sobre _[Cloud Native](../capitulo-1/cloud-native.md)_ em conjunto com uma aplicação real, além de mostrar como utilizar os serviços em nuvem oferecidos pelo OCI.  Assim, em determinados momentos, abordaremos soluções mais complexas que não são necessárias para o problema que a aplicação **OCI PIZZA** pretende resolver, mas que ajudam a esclarecer os conceitos envolvidos.
 
 <h3 style="text-align: center; font-style: italic;">
 Keep It Simple, Stupid (KISS)
