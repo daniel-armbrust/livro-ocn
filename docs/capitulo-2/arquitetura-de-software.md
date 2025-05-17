@@ -17,7 +17,7 @@ _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ é um termo u
 
 Ao longo dos capítulos deste livro, o _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ se tornará mais evidente, especialmente ao abordarmos a transição da _Arquitetura Monolítica_ para uma _Arquitetura de Microsserviços_. Em uma aplicação real e simples como a **OCI PIZZA**, uma _Arquitetura Monolítica_ é, de fato, a melhor escolha.
 
-Por fim, é importante lembrar que o objetivo deste livro é explorar os conceitos sobre _[Cloud Native](../capitulo-1/cloud-native.md)_ em conjunto com uma aplicação real, além de mostrar como utilizar os serviços em nuvem oferecidos pelo OCI.  Assim, em determinados momentos, abordaremos soluções mais complexas que não são necessárias para o problema que a aplicação **OCI PIZZA** pretende resolver, mas que ajudam a esclarecer os conceitos envolvidos.
+Por fim, é importante lembrar que o objetivo deste livro é explorar as práticas e os conceitos relacionados ao termo _[Cloud Native](../capitulo-1/cloud-native.md)_, utilizando uma aplicação real como exemplo, além de demonstrar como utilizar os serviços em nuvem oferecidos pelo OCI. Assim, em determinados momentos, abordaremos soluções mais complexas e que não são necessárias para o problema que a aplicação **OCI PIZZA** busca resolver, mas que ajudam a ilustrar algumas práticas na implementação de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ no OCI.
 
 <h3 style="text-align: center; font-style: italic;">
 Keep It Simple, Stupid (KISS)
