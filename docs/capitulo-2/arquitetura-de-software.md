@@ -7,7 +7,7 @@ hide:
 
 # 2.2 Arquitetura de Software
 
-Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo passo é a modelagem e o design da arquitetura da aplicação. Antes de apresentar a arquitetura inicial proposta, faremos uma introdução aos conceitos de arquitetura de software, destacando os tipos mais utilizados atualmente. Também será apresentado um trecho do fluxo de execução que ilustra a ação do usuário ao realizar um pedido de pizza, servindo como base para o diagrama de classes da aplicação. Esses conceitos de arquitetura serão abordados não apenas nesta seção, mas ao longo de todo o livro.
+Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo passo é o desenvolvimento, seguido pela modelagem e design da arquitetura da aplicação. Este livro não entra nos detalhes de como desenvolver uma aplicação web, nem aborda aspectos de programação com _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_. Em vez disso, serão apresentados conceitos sobre arquitetura de software, juntamente com uma explicação de como a arquitetura da aplicação **OCI PIZZA** foi elaborada, considerando seu funcionamento.
 
 ## 2.2.1 Overengineering
 
@@ -75,7 +75,7 @@ Por fim, é possível representar o papel de cada camada dentro desse modelo arq
 <br>
 
 !!! note "NOTA"
-    O termo _Desenvolvedor Full Stack_ refere-se a um profissional de tecnologia com habilidades de programação que abrange todas as camadas de desenvolvimento, tanto no Frontend quanto no Backend. A linguagem de programação mais destacada nesse contexto é o _JavaScript_, que pode ser executado no navegador e, por meio de implementações como o _[Node.js](https://nodejs.org/en)_, também no servidor, onde residem as regras de negócio. Bibliotecas JavaScript, como _[Sequelize](https://sequelize.org/)_ e _[TypeORM](https://typeorm.io/)_, permitem que os desenvolvedores interajam com bancos de dados, facilitando desde a criação de tabelas até a execução de instruções SQL, sem a necessidade de conhecimentos avançados em tecnologias de banco de dados. Assim, dependendo do tamanho da aplicação, um _Desenvolvedor Full Stack_ pode atuar em todas as camadas do projeto.
+    O termo _Desenvolvedor Full Stack_ refere-se a um profissional de tecnologia com habilidades de programação que abrange todas as camadas de desenvolvimento, tanto no Frontend quanto no Backend. A linguagem de programação mais destacada nesse contexto é o _[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)_, que pode ser executado no navegador e, por meio de implementações como o _[Node.js](https://nodejs.org/en)_, também no servidor, onde residem as regras de negócio. Bibliotecas JavaScript, como _[Sequelize](https://sequelize.org/)_ e _[TypeORM](https://typeorm.io/)_, permitem que os desenvolvedores interajam com bancos de dados, facilitando desde a criação de tabelas até a execução de instruções SQL, sem a necessidade de conhecimentos avançados em tecnologias de banco de dados. Assim, dependendo do tamanho da aplicação, um _Desenvolvedor Full Stack_ pode atuar em todas as camadas do projeto.
 
 Outro termo utilizado por alguns frameworks de desenvolvimento que possui o mesmo significado da _[Arquitetura em Três Camadas](https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas)_ é a  _[Arquitetura MVC (Model-View-Controller)](https://pt.wikipedia.org/wiki/MVC)_ ou _[Arquitetura Modelo-Visão-Controle](https://pt.wikipedia.org/wiki/MVC)_. Na sigla MVC, a letra M de _Model_, corresponde à _Camada de Persistência_, a letra V de _View_ refere-se à _Camada de Apresentação_, e a letra C de _Controller_ refere-se à _Camada de Aplicação_.
 
@@ -198,9 +198,36 @@ A arquitetura da aplicação **OCI PIZZA**, assim como qualquer outra arquitetur
 
 ### **Arquitetura da Aplicação**
 
-Refere-se ao funcionamento e às interações, ou fluxo dos dados, que ocorre entre os diferentes módulos dentro da aplicação.
+Também conhecido como _Arquitetura Lógica_, refere-se à estrutura e organização dos componentes de software, definindo como eles interagem e se comunicam para atender aos requisitos funcionais e não funcionais da aplicação.
 
-A aplicação é uma aplicação web desenvolvida em _[Python](https://www.python.org/)_ utilizando o microframework _[Flask](https://flask.palletsprojects.com/en/stable/)_. _[Flask](https://flask.palletsprojects.com/en/stable/)_ é considerado _"micro"_ porque sua instalação inclui apenas os componentes essenciais necessários para criar aplicações web. Essa abordagem permite que os desenvolvedores adicionem apenas os componentes necessários para o funcionamento da aplicação.
+A aplicação é uma aplicação web desenvolvida em _[Python](https://www.python.org/)_ utilizando o microframework _[Flask](https://flask.palletsprojects.com/en/stable/)_. O _[Flask](https://flask.palletsprojects.com/en/stable/)_ é considerado "micro" porque sua instalação padrão inclui apenas os componentes essenciais necessários para a criação de aplicações web.
+
+#### **Módulos**
+
+A seguir, estão os módulos da aplicação **OCI PIZZA**, acompanhados de uma breve descrição:
+
+- **main**
+    - Módulo encarregado de exibir a página principal da aplicação.
+
+- **user**
+    - Módulo encarregado das funcionalidades relacionadas aos usuários, incluindo registro, login, logout e outras operações.
+
+- **pizza**
+    - Módulo que implementa a lógica para manipulação e gerenciamento das informações associadas à Pizza.
+
+- **admin**
+    - Módulo encarregado de gerenciar as funcionalidades do painel administrativo.
+
+- **order**
+    - Módulo encarregado de gerenciar as funcionalidades relacionadas ao pedido de compra.
+
+- **location**
+    - Módulo que fornece APIs REST para recuperar o endereço do usuário com base no _[Código de Endereçamento Postal (CEP)](https://pt.wikipedia.org/wiki/C%C3%B3digo_de_Endere%C3%A7amento_Postal)_. zipcode
+
+- **modules**
+    - Módulo que oferece funcionalidades genéricas utilizadas por todos os outros módulos, como o arquivo `nosql.py`, que contém a classe responsável pelas interações com o banco de dados _[NoSQL](../capitulo-5/index.md)_.
+
+#### **Bibliotecas e Dependências**
 
 A seguir, estão algumas das bibliotecas externas ao _[Flask](https://flask.palletsprojects.com/en/stable/)_ que a aplicação **OCI PIZZA** utiliza e que podem ser instaladas por meio do gerenciador de pacotes _[pip](https://pip.pypa.io/en/stable/)_:
 
@@ -222,6 +249,8 @@ A seguir, estão algumas das bibliotecas externas ao _[Flask](https://flask.pall
 - **[OCI Python SDK](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm)**
     - O _[OCI Python SDK]((https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm))_ é uma biblioteca que permite interagir com os serviços da Oracle Cloud Infrastructure (OCI) usando a linguagem Python.
 
+#### **Flask Blueprints**
+
 Outra característica interessante do Flask são os _[Blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)_, que permitem organizar e estruturar aplicações em módulos. Na imagem a seguir, apresentamos o código dos _[blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)_ utilizados pela aplicação **OCI PIZZA**:
 
 ![alt_text](./img/ocipizza-blueprints-1.png "OCI PIZZA - Blueprints #1")
@@ -231,16 +260,13 @@ _[Blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)_ podem se
 ![alt_text](./img/ocipizza-blueprints-2.png "OCI PIZZA - Blueprints #2")
 
 !!! note "NOTA"
-    Na seção _[2.4 Ambiente de Desenvolvimento](./ambiente-de-desenvolvimento.md)_, serão explorados mais detalhes sobre o código-fonte da aplicação **OCI PIZZA**.
+    Na seção _["2.4 Ambiente de Desenvolvimento"](./ambiente-de-desenvolvimento.md)_, serão explorados mais detalhes sobre o código-fonte da aplicação **OCI PIZZA**.
 
 ### **Arquitetura da Infraestrutura**
 
-Ao olhar para _"fora da aplicação"_, temos a _Arquitetura da Infraestrutura_. Aqui, definem-se a topologia de rede utilizada, o endereçamento IP e o papel de cada serviços de rede necessários para o funcionamento da aplicação. Esses serviços incluem os servidores para executar a aplicação, servidores responsáveis pelo envio de e-mails, entre outros.
+Ao olhar para _"fora da aplicação"_, temos a _Arquitetura da Infraestrutura_, também conhecida como _Arquitetura Física_. Aqui, definem-se a topologia de rede utilizada, o endereçamento IP e demais serviços necessários para o funcionamento da aplicação. Esses serviços incluem os servidores para executar a aplicação, servidores responsáveis pelo envio de e-mails, entre outros.
 
 ![alt_text](./img/arquitetura-ocipizza-local-1.png "OCI PIZZA - Arquitetura da Infraestrutura #1")
-
-A seguir, apresentamos _Arquitetura da Infraestrutura_ 
-os serviços utilizados pel, acompanhadas das descrições correspondentes para cada uma delas:
 
 - **Aplicação Web**
     - O papel da _Aplicação Web_ é oferecer uma interface interativa e acessível aos usuários através do navegador. Em outras palavras, ela atua como o ponto de contato online entre o usuário e a pizzaria, permitindo que os clientes realizem consultas, façam pedidos e acompanhem o status das entregas.
@@ -269,13 +295,13 @@ Eu chamo de _Arquitetura de Dados_ tudo que se refere ao banco de dados da aplic
 
 A aplicação **OCI PIZZA** é simples, assim como o conjunto de dados que ela manipula. Por essa razão, considero que o tipo de banco de dados mais adequado, dado que não há relacionamentos complexos entre as tabelas, é o _[NoSQL](../capitulo-5/index.md)_. 
 
-A seguir, apresentamos as tabelas da aplicação, acompanhadas das descrições correspondentes para cada uma delas:
+A seguir, apresentamos as tabelas da aplicação, acompanhadas das descrições correspondentes de cada uma delas:
 
 - **user**
     - Tabela responsável por armazenar informações de registro dos usuários, incluindo nome, e-mail, senha, telefone, etc.
 
 - **user.order**
-    - Tabela associada à tabela `user`, responsável por armazenar as ordens de compra que correspondem aos pedidos de pizza dos usuários.
+    - Tabela relacionada à tabela `user`, responsável por armazenar as ordens de compra que correspondem aos pedidos de pizza dos usuários.
 
 - **pizza**
     - Tabela responsável por armazenar o cardápio de pizzas.
@@ -284,4 +310,6 @@ A seguir, apresentamos as tabelas da aplicação, acompanhadas das descrições 
     - Tabela responsável por gerenciar as ações de redefinição de senha dos usuários.
 
 !!! note "NOTA"
-    No _[Capítulo 5: Oracle NoSQL Database Cloud Service](../capitulo-5/index.md)_, serão explorados mais detalhes sobre o tipo _[NoSQL](../capitulo-5/index.md)_ de banco de dados.
+    No _["Capítulo 5: Oracle NoSQL Database Cloud Service"](../capitulo-5/index.md)_, serão explorados mais detalhes sobre o tipo _[NoSQL](../capitulo-5/index.md)_ de banco de dados.
+
+## 2.2.4 Considerações sobre Escalabilidade

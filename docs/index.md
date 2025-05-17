@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 15/05/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 17/05/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -113,7 +113,7 @@ Boa leitura!
 - [Capítulo 10: Monitoração e Observabilidade](./capitulo-10/index.md)
 <br><br>
 
-- [Capítulo 11: Ferramental de IA](./capitulo-11/index.md)
+- [Capítulo 11: Ferramental de IA](./capitulo-11/index.md)    
 <br><br>
 
 - [Apêndice A: OCI HOWTOs](./apendice-a/index.md)
