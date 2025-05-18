@@ -192,6 +192,8 @@ E, por fim, como um último ponto de destaque, os microsserviços apresentam des
 
 ![alt_text](./img/arquitetura-monolica-vs-microsservicos-2.png "Arquitetura Monolica vs. Microsservicos #2")
 
+### **Nota sobre Escalabilidade**
+
 ## 2.2.3 Arquitetura da Aplicação OCI PIZZA
 
 A arquitetura da aplicação **OCI PIZZA**, assim como qualquer outra arquitetura, pode ser dividida em:
@@ -311,5 +313,3 @@ A seguir, apresentamos as tabelas da aplicação, acompanhadas das descrições 
 
 !!! note "NOTA"
     No _["Capítulo 5: Oracle NoSQL Database Cloud Service"](../capitulo-5/index.md)_, serão explorados mais detalhes sobre o tipo _[NoSQL](../capitulo-5/index.md)_ de banco de dados.
-
-## 2.2.4 Considerações sobre Escalabilidade

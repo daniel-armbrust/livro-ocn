@@ -3,17 +3,11 @@ hide:
   - toc
 ---
 
-# Capítulo 3: Aplicação OCI PIZZA
+# Capítulo 2: Aplicação OCI PIZZA
 
-O protocolo HTTP é um protocolo de requisição/resposta.
+# 2.3 APIs REST
 
-# 3.3 Projeto de APIs
-
-## 3.3.1 Introdução as APIs
-
-## 3.3.2 Definindo os Endpoints da API
-
-### **Pizza**
+**Pizza**
 
 | Método | Endpoint               | Descrição                                 | Requer Autenticação |
 |--------|------------------------|-------------------------------------------|---------------------|
@@ -23,7 +17,7 @@ O protocolo HTTP é um protocolo de requisição/resposta.
 | PUT    | /api/pizzas/{pizza_id} | Atualiza informações de uma pizza         | Admin               |
 | DELETE | /api/pizzas/{pizza_id} | Remove uma pizza                          | Admin               |
 
-### **Order**
+**Order**
 
 | Método | Endpoint                               | Descrição                                                        | Requer Autenticação |
 |--------|----------------------------------------|------------------------------------------------------------------|---------------------|
@@ -35,7 +29,7 @@ O protocolo HTTP é um protocolo de requisição/resposta.
 | PUT    | /api/orders/users/{user_id}            | Atualiza as informações de um pedido de um usuário específico    | Sim                 |
 | DELETE | /api/orders/{order_id}                 | Remove um pedido                                                 | Admin               |
 
-### **User**
+**User**
 
 | Método | Endpoint                               | Descrição                                        | Requer Autenticação |
 |--------|----------------------------------------|--------------------------------------------------|---------------------|
@@ -45,14 +39,14 @@ O protocolo HTTP é um protocolo de requisição/resposta.
 | PUT    | /api/users/{user_id}                   | Atualiza as informações de um usuário específico | Sim                 |
 | DELETE | /api/users/{user_id}                   | Remove um usuário                                | Admin               |
 
-### **Authentication**
+**Authentication**
 
 | Método | Endpoint          | Descrição                               | Requer Autenticação | 
 |--------|-------------------|-----------------------------------------|---------------------|
 | POST   | /api/users/login  | Autentica um usuário e faz login        | Não                 |
 | POST   | /api/users/logout | Faz logout do usuário autenticado       | Não                 |
 
-### **Location**
+**Location**
 
 | Método | Endpoint                     | Descrição                                          | Requer Autenticação | 
 |--------|------------------------------|----------------------------------------------------|---------------------|
@@ -62,4 +56,3 @@ O protocolo HTTP é um protocolo de requisição/resposta.
 | PUT    | /api/locations/{location_id} | Atualiza as informações de um Estado e Cidade      | Admin               |
 | DELETE | /api/locations/{location_id} | Remove um Estado e Cidade                          | Admin               |
 
-## 3.3.2 Estrutura dos Dados do Payload

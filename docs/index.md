@@ -56,9 +56,10 @@ Boa leitura!
 - [Capítulo 2: Aplicação OCI PIZZA](./capitulo-2/index.md)        
     - [2.1 Da Necessidade à Definição de Requisitos](./capitulo-2/da-necessidade-a-definicao-de-requisitos.md)
     - [2.2 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)
-    - [2.3 Entendendo os Contêineres](./capitulo-2/entendendo-os-conteineres.md)     
-    - [2.4 Ambiente de Desenvolvimento](./capitulo-2/ambiente-de-desenvolvimento.md)
-    - [2.5 Os Doze Fatores (The Twelve-Factor App)](./capitulo-2/os-doze-fatores.md)
+    - [2.3 APIs REST](./capitulo-2/apis-rest.md)     
+    - [2.4 Entendendo os Contêineres](./capitulo-2/entendendo-os-conteineres.md)     
+    - [2.5 Ambiente de Desenvolvimento](./capitulo-2/ambiente-de-desenvolvimento.md)
+    - [2.6 Os Doze Fatores (The Twelve-Factor App)](./capitulo-2/os-doze-fatores.md)
 <br><br>
 
 - [Capítulo 3: OCI Foundations](./capitulo-3/index.md)
