@@ -7,6 +7,18 @@ hide:
 
 # 2.3 APIs REST
 
+Uma API define um contrato entre um cliente e um servidor. A API especifica os tipos de requisições que são possíveis.
+
+O estilo predominante são as APIs HTTP classificadas como RESTful.
+
+HTTP CRUD APIs aplicam verbos HTTP em recursos identificados por URIs.
+
+Payloads são formatados através de JSON ou XML.
+
+Verbos
+  - PATCH: atualiza propriedades individuais de um recurso.
+  - PUT: substituí o recurso por completo com novos valores.
+
 **Pizza**
 
 | Método | Endpoint               | Descrição                                 | Requer Autenticação |

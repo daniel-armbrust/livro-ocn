@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 17/05/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 21/05/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -61,7 +61,7 @@ Boa leitura!
     - [2.5 Ambiente de Desenvolvimento](./capitulo-2/ambiente-de-desenvolvimento.md)
     - [2.6 Os Doze Fatores (The Twelve-Factor App)](./capitulo-2/os-doze-fatores.md)
 <br><br>
-
+ 
 - [Capítulo 3: OCI Foundations](./capitulo-3/index.md)
     - [3.1 Introdução ao OCI](./capitulo-3/introducao-ao-oci.md)
     - [3.2 Criando e Ativando a sua Conta no OCI](./capitulo-3/criando-e-ativando-a-sua-conta-no-oci.md)
@@ -72,20 +72,20 @@ Boa leitura!
     - [3.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-3/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
 <br><br>
 
-- [Capítulo 5: Oracle NoSQL Database Cloud Service](./capitulo-5/index.md)
-    - [5.1 Persistência dos dados com o Oracle NoSQL](./capitulo-5/nosql.md)
+- [Capítulo 4: Oracle NoSQL Database Cloud Service](./capitulo-4/index.md)
+    - [4.1 Persistência dos dados com o Oracle NoSQL](./capitulo-4/nosql.md)
 <br><br>
 
-- [Capítulo 4: Conectividade e Redes](./capitulo-4/index.md)
-    - [4.1 O Serviço de Redes do OCI](./capitulo-4/servico-de-redes.md)
-    - [4.2 Conectividade entre Regiões](./capitulo-4/conectividade-entre-regioes.md)
-    - [4.3 Reserva de Endereço IP Público](./capitulo-4/reserva-ip-publico.md)
-    - [4.4 DNS Público](./capitulo-4/dns-publico.md)
-    - [4.5 Let's Encrypt e o Serviço de Certificados do OCI](./capitulo-4/lets-encrypt.md)
-    - [4.6 Load Balancer](./capitulo-4/load-balancer.md)
-    - [4.7 Web Application Firewall (WAF)](./capitulo-4/waf.md)
-    - [4.8 Email Delivery](./capitulo-4/email-delivery.md)
-    - [4.9 Conclusão](./capitulo-4/conclusao.md)
+- [Capítulo 5: Conectividade e Redes](./capitulo-5/index.md)
+    - [5.1 O Serviço de Redes do OCI](./capitulo-5/servico-de-redes.md)
+    - [5.2 Conectividade entre Regiões](./capitulo-5/conectividade-entre-regioes.md)
+    - [5.3 Reserva de Endereço IP Público](./capitulo-5/reserva-ip-publico.md)
+    - [5.4 DNS Público](./capitulo-5/dns-publico.md)
+    - [5.5 Let's Encrypt e o Serviço de Certificados do OCI](./capitulo-5/lets-encrypt.md)
+    - [5.6 Load Balancer](./capitulo-5/load-balancer.md)
+    - [5.7 Web Application Firewall (WAF)](./capitulo-5/waf.md)
+    - [5.8 Email Delivery](./capitulo-5/email-delivery.md)
+    - [5.9 Conclusão](./capitulo-5/conclusao.md)
 <br><br>
 
 - [Capítulo 6: Serviço de Computação](./capitulo-6/index.md)
