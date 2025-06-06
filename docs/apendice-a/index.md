@@ -7,3 +7,4 @@
 - [A.5 OCI CLI HOWTO](./oci-cli-howto.md)
 - [A.6 Federação com Microsoft Active Directory (AD)](./federacao-com-microsoft-active-directory.md)
 - [A.7 Perguntas e Respostas sobre OCI](./perguntas-e-respostas-sobre-oci.md)
+- [A.8 WireGuard: Análise de Tráfego](./wireGuard-análise-de-trafego.md)
