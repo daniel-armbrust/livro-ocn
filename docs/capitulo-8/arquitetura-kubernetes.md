@@ -200,6 +200,41 @@ Alguns exemplos de _[Addons](https://kubernetes.io/docs/concepts/cluster-adminis
 - [NVIDIA GPU Plugin](https://github.com/NVIDIA/k8s-device-plugin)
     - É um _[addon](https://kubernetes.io/docs/concepts/cluster-administration/addons/)_ que permite expor um número de _GPUs NVIDIA_ para utilização em cada _Worker Node_.
 
-## 8.3.3 Conclusão
+## 8.3.3 Como o Kubernetes Funciona do Início ao Fim (resumo)
+
+1. Você configura um cluster Kubernetes – ele é composto de Master Nodes e Worker Nodes.
+
+2. Você define sua aplicação usando arquivos YAML – normalmente com Deployment, Service, ConfigMap, etc.
+
+3. Você aplica o YAML usando o comando `kubectl apply -f`. A solicitação vai para o API Server nos Master Nodes.
+
+4. O Kubernetes verifica a solicitação para decidir o que fazer: <br>
+    a. Criar um novo objeto como um Pod ou Deployment? <br>
+    b. Atualizar ou excluir um objeto existente? <br>
+    c. Acionar um controlador para executar alguma ação? etc.
+
+5. O API Server armazena a especificação do objeto no etcd, o banco de dados do cluster.
+
+6. O controlador apropriado vê a nova especificação – como um controlador ReplicaSet monitorando novos Deployments.
+
+7. O controlador cria os recursos necessários – por exemplo, dizendo ao scheduler para posicionar novos Pods.
+
+8. O scheduler escolhe um nó adequado para cada Pod – com base na disponibilidade de recursos e regras de agendamento.
+
+9. A especificação do Pod é enviada para o Kubelet do nó – ele solicita ao runtime do contêiner que inicie o contêiner.
+
+10. O runtime do contêiner faz o pull da imagem, cria o contêiner e o executa dentro do Pod.
+
+11. O plugin CNI atribui uma identidade de rede – o Pod recebe um endereço IP e se junta à rede do cluster.
+
+12. O kube-proxy configura regras de roteamento – permitindo que os Services encaminhem tráfego para Pods saudáveis.
+
+13. O Kubelet relata o status dos Pods de volta ao API Server – usado para rastrear prontidão e saúde.
+
+14. Se um Pod falhar ou for excluído, o controlador percebe e o recria – mantendo o sistema sincronizado.
+
+15. Esse loop inteiro continua funcionando – o Kubernetes observa constantemente e reconcilia para corresponder ao estado desejado.
+
+## 8.3.4 Conclusão
 
 Neste capítulo, foi apresentada uma visão geral do funcionamento e da arquitetura de um cluster Kubernetes. Foram explorados os diversos componentes de software que o compõem, destacando suas funções e a maneira como interagem entre si para formar o ecossistema do Kubernetes. Compreender a totalidade do sistema é fundamental não apenas para entender como o Kubernetes opera, mas também para auxiliar na identificação e resolução de problemas que possam surgir.
