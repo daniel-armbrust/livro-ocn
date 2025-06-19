@@ -5,7 +5,9 @@ hide:
 
 # Capítulo 6: Aplicação OCI PIZZA
 
-**_"O modo como você se organiza acaba direcionando a arquitetura de seus sistemas, para o bem ou para o mal." - Autor: [Sam Newman](https://www.linkedin.com/in/samnewman/)_**
+<h3 style="text-align: center; font-style: italic;">
+"O modo como você se organiza acaba direcionando a arquitetura de seus sistemas, para o bem ou para o mal." - Autor: <a href="https://www.linkedin.com/in/samnewman/" target="_blank">Sam Newman</a>
+</h3>
 
 Este capítulo aborda o processo de desenvolvimento de uma aplicação web simples chamada **OCI PIZZA**, que servirá como exemplo ao longo do livro. De certa forma, é a própria aplicação que orienta a configuração da nuvem. Isso significa que, com base nas necessidades específicas da aplicação e nas necessidades de negócio, é possível determinar quais serviços de nuvem são os mais adequados a serem utilizados.
 

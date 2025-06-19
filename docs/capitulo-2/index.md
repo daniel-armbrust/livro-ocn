@@ -5,7 +5,9 @@ hide:
 
 # Capítulo 2: OCI Foundations
 
-**_"A verdadeira disrupção não acontece em seu data center, mas sim na nuvem." - Autor: Anônimo_**
+<h3 style="text-align: center; font-style: italic;">
+"A verdadeira disrupção não acontece no seu data center, mas sim na nuvem." - Autor: Anônimo"
+</h3>
 
 Este capítulo apresenta uma visão abrangente dos Fundamentos do OCI, abordando desde a criação e ativação da sua nova conta até aspectos relacionados à cobrança dos serviços, controle de acesso e o uso do _[OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)_. Como este livro é orientado a código, o _[OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)_ será a principal ferramenta utilizada para gerenciar seus recursos no OCI.
 

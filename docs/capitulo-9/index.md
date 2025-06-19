@@ -5,7 +5,9 @@ hide:
 
 # Capítulo 9: Oracle Kubernetes Engine (OKE)
 
-**_"Acho que a razão pela qual a nuvem era tão importante, por volta de 2013, era porque todas as empresas eram empresas de internet." - Autor: [Tim Hockin](https://www.linkedin.com/in/thockin/) - Principal SW Engineer, Kubernetes, GKE e Google Cloud._**
+<h3 style="text-align: center; font-style: italic;">
+"Acho que a razão pela qual a nuvem era tão importante, por volta de 2013, era porque todas as empresas eram empresas de internet." - Autor: <a href="https://www.linkedin.com/in/thockin/" target="_blank">Tim Hockin</a>
+</h3>
 
 A Computação em Nuvem, a adoção de práticas DevOps e o uso de contêineres revolucionaram a forma como o software é desenvolvido e disponibilizado, com o Kubernetes servindo como o sistema operacional que sustenta essa transformação.
 
