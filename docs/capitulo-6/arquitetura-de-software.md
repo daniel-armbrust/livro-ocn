@@ -40,9 +40,17 @@ Essas questões são comuns no contexto do desenvolvimento de software, e a melh
 
 Falando de _[arquitetura de software](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_, é importante destacar que existem diferentes tipos de arquiteturas e várias definições sobre o que é _[arquitetura de software](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_. Segundo _[Marco Tulio Valente](https://www.linkedin.com/in/mtov/)_, autor do livro _[Engenharia de Software Moderna](https://engsoftmoderna.info/)_, a arquitetura se refere ao _**"projeto em mais alto nível"**_. 
 
-Uma outra definição que eu particularmente gosto vem da _[Wikipédia](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_, que diz: _"A arquitetura de software de um sistema consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares."_
+Uma outra definição que eu particularmente gosto vem da _[Wikipédia](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_, que diz: 
 
-Portanto, pode-se afirmar que a definição de uma arquitetura começa com um _"projeto em mais alto nível"_, elaborado a partir dos requisitos ou das _[Histórias de Usuário](./da-necessidade-a-definicao-de-requisitos.md#histórias-de-usuários)_. Essas histórias se transformam em funcionalidades ou componentes de software que se comunicam entre si, colaborando para resolver um problema do mundo real.
+<h3 style="text-align: center; font-style: italic;">
+A arquitetura de software de um sistema consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares.
+</h3>
+
+Portanto, é possível afirmar que:
+
+<h3 style="text-align: center; font-style: italic;">
+A definição de uma arquitetura começa com um "projeto em mais alto nível", elaborado a partir dos requisitos ou das Histórias de Usuário. Essas histórias se transformam em funcionalidades ou componentes de software que se comunicam entre si, colaborando para resolver um problema do mundo real.
+</h3>
 
 Assim, de maneira simplificada, inicialmente temos o seguinte desenho de arquitetura da aplicação que será desenvolvida:
 
@@ -88,11 +96,15 @@ A _Arquitetura Monolítica_, referem-se a uma aplicação que, independentemente
 !!! note "NOTA"
     Processo de computador ou de sistema operacional será explorado na seção _["2.3 Entendendo os Contêineres"](./entendendo-os-conteineres.md)_. Por enquanto, é importante entender que um processo é o termo utilizado para se referir a uma instância de um programa em execução, gerenciada por um sistema operacional.
 
-Outra definição de _[Sam Newman](https://www.linkedin.com/in/samnewman/)_, autor do livro _[Migrando Sistemas Monolíticos Para Microsserviços](https://amzn.to/3Z9Dh96)_, afirma que: _**"Quando todas as funcionalidades de um sistema tiverem que ser implantadas em conjunto, considero que esse é um sistema monolítico."**_. Embora seja possível ter várias instâncias desse único processo por questões de escalabilidade ou tolerância a falhas, todo o código da aplicação permanece contido dentro desse único processo.
+Outra definição de _[Sam Newman](https://www.linkedin.com/in/samnewman/)_, autor do livro _[Migrando Sistemas Monolíticos Para Microsserviços](https://amzn.to/3Z9Dh96)_, afirma que: 
 
-Um _Sistema Monolítico_ pode ser classificado como um _Sistema Monolítico Modular_. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo, formando uma única unidade de implantação.
+<h3 style="text-align: center; font-style: italic;">
+Quando todas as funcionalidades de um sistema tiverem que ser implantadas em conjunto, considero que esse é um sistema monolítico. Embora seja possível ter várias instâncias desse único processo por questões de escalabilidade ou tolerância a falhas, todo o código da aplicação permanece contido dentro desse único processo.
+</h3>
 
-A aplicação **OCI PIZZA** foi inicialmente desenvolvida usando essa característica de ser um _Monolítico Modular_, onde foram desenvolvidos diferentes módulos que operam em conjunto, cada um com suas responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_.
+Um _Sistema Monolítico_ pode ser classificado como um **_Sistema Monolítico Modular_**. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo, formando uma única unidade de implantação.
+
+A aplicação **OCI PIZZA** foi inicialmente desenvolvida usando essa característica de ser um **_Monolítico Modular_**, onde foram desenvolvidos diferentes módulos que operam em conjunto, cada um com suas responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_.
 
 ![alt_text](./img/ocipizza-modulos-1.png "OCI PIZZA - Módulos #1")
 <br>
