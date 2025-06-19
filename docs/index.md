@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 06/06/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 19/06/2026         | 1.0.0b   |
 
 ## Sumário
 
@@ -52,71 +52,73 @@ Boa leitura!
     - [1.7 Cloud Native](./capitulo-1/cloud-native.md)
     - [1.8 Conclusão](./capitulo-1/conclusao.md)
 <br><br>
-
-- [Capítulo 2: Aplicação OCI PIZZA](./capitulo-2/index.md)        
-    - [2.1 Da Necessidade à Definição de Requisitos](./capitulo-2/da-necessidade-a-definicao-de-requisitos.md)
-    - [2.2 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)
-    - [2.3 APIs REST](./capitulo-2/apis-rest.md)     
-    - [2.4 Entendendo os Contêineres](./capitulo-2/entendendo-os-conteineres.md)     
-    - [2.5 Ambiente de Desenvolvimento](./capitulo-2/ambiente-de-desenvolvimento.md)
-    - [2.6 Os Doze Fatores (The Twelve-Factor App)](./capitulo-2/os-doze-fatores.md)
-<br><br>
  
-- [Capítulo 3: OCI Foundations](./capitulo-3/index.md)
-    - [3.1 Introdução ao OCI](./capitulo-3/introducao-ao-oci.md)
-    - [3.2 Criando e Ativando a sua Conta no OCI](./capitulo-3/criando-e-ativando-a-sua-conta-no-oci.md)
-    - [3.3 Modelos de Cobraça](./capitulo-3/modelos-de-cobraca.md)
-    - [3.4 Acessando o OCI](./capitulo-3/acessando-o-oci.md)
-    - [3.5 Gerenciando o OCI através do OCI CLI](./capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md)
-    - [3.6 IAM, Limites, Cotas e Audit](./capitulo-3/iam-limites-cotas-e-audit.md)
-    - [3.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-3/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
+- [Capítulo 2: OCI Foundations](./capitulo-2/index.md)
+    - [2.1 Introdução ao OCI](./capitulo-2/introducao-ao-oci.md)
+    - [2.2 Criando e Ativando a sua Conta no OCI](./capitulo-2/criando-e-ativando-a-sua-conta-no-oci.md)
+    - [2.3 Modelos de Cobraça](./capitulo-2/modelos-de-cobraca.md)
+    - [2.4 Acessando o OCI](./capitulo-2/acessando-o-oci.md)
+    - [2.5 Gerenciando o OCI através do OCI CLI](./capitulo-2/gerenciando-o-oci-atraves-do-oci-cli.md)
+    - [2.6 IAM, Limites, Cotas e Audit](./capitulo-2/iam-limites-cotas-e-audit.md)
+    - [2.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-2/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
+<br><br>
+
+- [Capítulo 3: Object Storage](./capitulo-3/index.md)
 <br><br>
 
 - [Capítulo 4: Oracle NoSQL Database Cloud Service](./capitulo-4/index.md)
-    - [4.1 Persistência dos dados com o Oracle NoSQL](./capitulo-4/nosql.md)
+    - [4.1 Persistência de dados com o Oracle NoSQL](./capitulo-4/nosql.md)
 <br><br>
 
-- [Capítulo 5: Conectividade e Redes](./capitulo-5/index.md)
-    - [5.1 O Serviço de Redes do OCI](./capitulo-5/servico-de-redes.md)
-    - [5.2 Conectividade entre Regiões](./capitulo-5/conectividade-entre-regioes.md)
-    - [5.3 Reserva de Endereço IP Público](./capitulo-5/reserva-ip-publico.md)
-    - [5.4 DNS Público](./capitulo-5/dns-publico.md)
-    - [5.5 Let's Encrypt e o Serviço de Certificados do OCI](./capitulo-5/lets-encrypt.md)
-    - [5.6 Load Balancer](./capitulo-5/load-balancer.md)
-    - [5.7 Web Application Firewall (WAF)](./capitulo-5/waf.md)
-    - [5.8 Email Delivery](./capitulo-5/email-delivery.md)
-    - [5.9 Conclusão](./capitulo-5/conclusao.md)
+- [Capítulo 5: Inteligência Artificial (IA)](./capitulo-5/index.md)
+    - [5.1 Introdução à Inteligência Artificial](./capitulo-5/introducao-a-inteligencia-artificial.md)
+    - [5.2 Chatbot com OCI Language](./capitulo-5/chatbot-com-oci-language.md)
 <br><br>
 
-- [Capítulo 6: Serviço de Computação](./capitulo-6/index.md)
+- [Capítulo 6: Aplicação OCI PIZZA](./capitulo-6/index.md)        
+    - [6.1 Da Necessidade à Definição de Requisitos](./capitulo-6/da-necessidade-a-definicao-de-requisitos.md)
+    - [6.2 Arquitetura de Software](./capitulo-6/arquitetura-de-software.md)
+    - [6.3 APIs REST](./capitulo-6/apis-rest.md)     
+    - [6.4 Entendendo os Contêineres](./capitulo-6/entendendo-os-conteineres.md)     
+    - [6.5 Ambiente de Desenvolvimento](./capitulo-6/ambiente-de-desenvolvimento.md)
+    - [6.6 Os Doze Fatores (The Twelve-Factor App)](./capitulo-6/os-doze-fatores.md)
 <br><br>
 
-- [Capítulo 7: Desenvolvimento Moderno](./capitulo-7/index.md)
-    - [7.1 Entendendo os Contêineres](./capitulo-7/containers.md)
-    - [7.2 Introdução ao GraalVM](./capitulo-7/graalvm.md)
-    - [7.3 Container Instances](./capitulo-7/container-instances.md)
-    - [7.4 Functions](./capitulo-7/functions.md)
-    - [7.5 Os Doze Fatores (The Twelve-Factor App)](./capitulo-7/os-doze-fatores.md)
+- [Capítulo 7: Conectividade e Redes](./capitulo-7/index.md)
+    - [7.1 O Serviço de Redes do OCI](./capitulo-7/servico-de-redes.md)
+    - [7.2 Conectividade entre Regiões](./capitulo-7/conectividade-entre-regioes.md)
+    - [7.3 Reserva de Endereço IP Público](./capitulo-7/reserva-ip-publico.md)
+    - [7.4 DNS Público](./capitulo-7/dns-publico.md)
+    - [7.5 Let's Encrypt e o Serviço de Certificados do OCI](./capitulo-7/lets-encrypt.md)
+    - [7.6 Load Balancer](./capitulo-7/load-balancer.md)
+    - [7.7 Web Application Firewall (WAF)](./capitulo-7/waf.md)
+    - [7.8 Email Delivery](./capitulo-7/email-delivery.md)
+    - [7.9 Conclusão](./capitulo-7/conclusao.md)
 <br><br>
 
-- [Capítulo 8: Oracle Kubernetes Engine (OKE)](./capitulo-8/index.md)
-    - [8.1 Um pouco de História](./capitulo-8/historia-do-kubernetes.md)
-    - [8.2 Introdução ao Kubernetes](./capitulo-8/introducao-ao-kubernetes.md)
-    - [8.3 Arquitetura do Kubernetes](./capitulo-8/arquitetura-kubernetes.md)
-    - [8.4 Funcionamento e Provisionamento do OKE](./capitulo-8/funcionamento-provisionamento-oke.md)
-    - [8.5 Objetos Kubernetes](./capitulo-8/objetos-kubernetes.md)
+- [Capítulo 8: CaaS e FaaS](./capitulo-8/index.md)
+    - [8.1 Entendendo os Contêineres](./capitulo-8/containers.md)
+    - [8.2 Introdução ao GraalVM](./capitulo-8/graalvm.md)
+    - [8.3 Container Instances](./capitulo-8/container-instances.md)
+    - [8.4 Functions](./capitulo-8/functions.md)
+    - [8.5 Os Doze Fatores (The Twelve-Factor App)](./capitulo-8/os-doze-fatores.md)
 <br><br>
 
-- [Capítulo 9: Serviço DevOps](./capitulo-9/index.md)
-    - [9.1 Do GitHub para o OCI DevOps](./capitulo-9/github-ocidevops.md)
+- [Capítulo 9: Oracle Kubernetes Engine (OKE)](./capitulo-9/index.md)
+    - [9.1 Um pouco de História](./capitulo-9/historia-do-kubernetes.md)
+    - [9.2 Introdução ao Kubernetes](./capitulo-9/introducao-ao-kubernetes.md)
+    - [9.3 Arquitetura do Kubernetes](./capitulo-9/arquitetura-kubernetes.md)
+    - [9.4 Funcionamento e Provisionamento do OKE](./capitulo-9/funcionamento-provisionamento-oke.md)
+    - [9.5 Objetos Kubernetes](./capitulo-9/objetos-kubernetes.md)
 <br><br>
 
-- [Capítulo 10: Monitoração e Observabilidade](./capitulo-10/index.md)
+- [Capítulo 10: Serviço de Computação](./capitulo-10/index.md)
 <br><br>
 
-- [Capítulo 11: Ferramental de Inteligência Artificial](./capitulo-11/index.md)
-    - 11.1 Introução à Inteligência Artificial
-    - 11.2 Vibe Code
+- [Capítulo 11: Serviço de DevOps](./capitulo-11/index.md)
+<br><br>
+
+- [Capítulo 12: Monitoração e Observabilidade](./capitulo-12/index.md)
 <br><br>
 
 - [Apêndice A: OCI HOWTOs](./apendice-a/index.md)

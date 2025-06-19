@@ -64,16 +64,17 @@ nav:
   - Sobre o Autor: ./sobre-o-autor.md
   - Como usar este Livro: ./como-usar-este-livro.md
   - Capítulo 1 - Introdução a Computação em Nuvem: ./capitulo-1/index.md
-  - Capítulo 2 - Aplicação OCI PIZZA: ./capitulo-2/index.md
-  - Capítulo 3 - OCI Foundations: ./capitulo-3/index.md  
-  - Capítulo 4 - Conectividade e Redes: ./capitulo-4/index.md
-  - Capítulo 5 - Oracle NoSQL Database Cloud Service: ./capitulo-5/index.md
-  - Capítulo 6 - Serviço de Computação: ./capitulo-6/index.md
-  - Capítulo 7 - Desenvolvimento Moderno: ./capitulo-7/index.md
-  - Capítulo 8 - Oracle Kubernetes Engine (OKE): ./capitulo-8/index.md
-  - Capítulo 9 - Serviço DevOps: ./capitulo-9/index.md
-  - Capítulo 10 - Monitoração e Observabilidade: ./capitulo-10/index.md
-  - Capítulo 11 - Ferramental de IA: ./capitulo-11/index.md
+  - Capítulo 2 - OCI Foundations: ./capitulo-2/index.md  
+  - Capítulo 3 - Object Storage: ./capitulo-3/index.md  
+  - Capítulo 4 - Oracle NoSQL Database Cloud Service: ./capitulo-4/index.md
+  - Capítulo 5 - Inteligência Artificial (IA): ./capitulo-5/index.md  
+  - Capítulo 6 - Aplicação OCI PIZZA: ./capitulo-6/index.md
+  - Capítulo 7 - Conectividade e Redes: ./capitulo-7/index.md
+  - Capítulo 8 - CaaS e FaaS: ./capitulo-8/index.md
+  - Capítulo 9 - Oracle Kubernetes Engine (OKE): ./capitulo-9/index.md  
+  - Capítulo 10 - Serviço de Computação: ./capitulo-10/index.md 
+  - Capítulo 11 - Serviço de DevOps: ./capitulo-11/index.md
+  - Capítulo 12 - Monitoração e Observabilidade: ./capitulo-12/index.md  
   - Apêndice A - OCI HOWTOs: ./apendice-a/index.md
   - Bibliografia: ./bibliografia.md
   - ChangeLog: ./changelog.md

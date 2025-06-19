@@ -1,7 +1,14 @@
-# Capítulo 7: Desenvolvimento Moderno
+---
+hide:
+  - toc
+---
 
-# 7.5 Conclusão
+# Capítulo 7: Conectividade e Redes
 
-Neste capítulo, abordamos a importância dos contêineres, o processo de construção de uma imagem de contêiner e como enviá-la para o serviço _OCIR_. 
+# 7.9 Conclusão
 
-Também exploramos as funcionalidades e características do _OCI Functions_, uma plataforma _serverless_ no qual é possibilida a execução de código em contêineres. Além das funcionalidades e características, foi exporado algumas particularidades que devem ser consideradas ao projetar funções, como o tempo de _"cold start"_, o tempo máximo de vida do contêiner e a alocação de memória. Todos esses detalhes devem ser levados conta ao se projetar funções, visto que uma função é destinada para execução de uma única tarefa.
+Neste capítulo, foram apresentados os comandos e a sequência lógica para criar redes nas regiões de _São Paulo (sa-saopaulo-1)_ e _Vinhedo (sa-vinhedo-1)_, com uma topologia simples para a aplicação _OCI Pizza_. 
+
+Também foram discutidos os comandos para criar um _Load Balancer_ para gerenciar tráfego HTTP e HTTPS, com a adição dos contêineres da aplicação ao _Backend Set_. Além disso, foram abordados os conceitos básicos de envio de e-mails e a configuração do serviço _Email Delivery_.
+
+Happy OCI Networking!
