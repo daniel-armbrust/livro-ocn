@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Apêndice A: OCI HOWTOs
 
-# A.6 Federação com Microsoft Active Directory (AD)
+# A.7 Federação com Microsoft Active Directory (AD)

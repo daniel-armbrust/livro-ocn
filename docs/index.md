@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 19/06/2026         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 16/08/2025         | 1.0.0b   |
 
 ## Sumário
 
@@ -85,15 +85,16 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 7: Conectividade e Redes](./capitulo-7/index.md)
-    - [7.1 O Serviço de Redes do OCI](./capitulo-7/servico-de-redes.md)
-    - [7.2 Conectividade entre Regiões](./capitulo-7/conectividade-entre-regioes.md)
-    - [7.3 Reserva de Endereço IP Público](./capitulo-7/reserva-ip-publico.md)
-    - [7.4 DNS Público](./capitulo-7/dns-publico.md)
-    - [7.5 Let's Encrypt e o Serviço de Certificados do OCI](./capitulo-7/lets-encrypt.md)
-    - [7.6 Load Balancer](./capitulo-7/load-balancer.md)
-    - [7.7 Web Application Firewall (WAF)](./capitulo-7/waf.md)
-    - [7.8 Email Delivery](./capitulo-7/email-delivery.md)
-    - [7.9 Conclusão](./capitulo-7/conclusao.md)
+    - [7.1 Fundamentos de Redes de Computadores](./capitulo-7/fundamentos-de-redes-de-computadores.md)
+    - [7.2 O Serviço de Redes do OCI](./capitulo-7/servico-de-redes.md)
+    - [7.3 Conectividade entre Regiões](./capitulo-7/conectividade-entre-regioes.md)
+    - [7.4 Reserva de Endereço IP Público](./capitulo-7/reserva-ip-publico.md)
+    - [7.5 DNS Público](./capitulo-7/dns-publico.md)
+    - [7.6 Let's Encrypt e o Serviço de Certificados do OCI](./capitulo-7/lets-encrypt.md)
+    - [7.7 Load Balancer](./capitulo-7/load-balancer.md)
+    - [7.8 Web Application Firewall (WAF)](./capitulo-7/waf.md)
+    - [7.9 Email Delivery](./capitulo-7/email-delivery.md)
+    - [7.10 Conclusão](./capitulo-7/conclusao.md)
 <br><br>
 
 - [Capítulo 8: CaaS e FaaS](./capitulo-8/index.md)
@@ -122,13 +123,15 @@ Boa leitura!
 <br><br>
 
 - [Apêndice A: OCI HOWTOs](./apendice-a/index.md)
-    - [A.1 Roteamento de Trânsito com pfSense](./apendice-a/transit-routing-pfsense.md)
+    - [A.1 OCI CLI HOWTO](./apendice-a/oci-cli-howto.md)
     - [A.2 Ansible Básico](./apendice-a/ansible-basico.md)
-    - [A.3 Kubernetes the Hard Way](./apendice-a/kubernetes-hard-way.md)
-    - [A.4 kubectl HOWTO](./apendice-a/kubectl-howto.md)
-    - [A.5 OCI CLI HOWTO](./apendice-a/oci-cli-howto.md)
-    - [A.6 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
-    - [A.7 Perguntas e Respostas sobre OCI](./apendice-a/perguntas-e-respostas-sobre-oci.md)
+    - [A.3 Roteamento Avançado com pfSense](./apendice-a/roteamento-avancado-com-pfsense.md)    
+    - [A.4 Kubernetes the Hard Way](./apendice-a/kubernetes-hard-way.md)
+    - [A.5 kubectl HOWTO](./apendice-a/kubectl-howto.md)
+    - [A.6 Continuous Delivery com Argo CD](./apendice-a/continuous-delivery-com-argo-cd.md)   
+    - [A.7 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
+    - [A.8 Monitorando o OCI através do Zabbix](./apendice-a/monitorando-o-oci-atraves-do-zabbix.md)
+    - [A.9 Perguntas e Respostas sobre OCI](./apendice-a/perguntas-e-respostas-sobre-oci.md)
 <br><br>
 
 - [Bibliografia](./bibliografia.md)

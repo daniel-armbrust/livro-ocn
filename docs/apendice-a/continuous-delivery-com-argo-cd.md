@@ -5,4 +5,4 @@ hide:
 
 # Apêndice A: OCI HOWTOs
 
-# A.4 Kubernetes the Hard Way
+# A.6 Continuous Delivery com Argo CD

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Apêndice A: OCI HOWTOs
 
-# A.4 kubectl HOWTO
+# A.5 kubectl HOWTO

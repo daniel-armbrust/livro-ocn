@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # Paint.NET PDN Image Files
-*.pdn
+#*.pdn
 
 # C extensions
 *.so

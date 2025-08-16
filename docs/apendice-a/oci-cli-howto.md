@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Apêndice A: OCI HOWTOs
 
-# A.5 OCI CLI HOWTO
+# A.1 OCI CLI HOWTO

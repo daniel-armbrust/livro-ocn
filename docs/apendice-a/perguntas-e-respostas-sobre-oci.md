@@ -1,6 +1,11 @@
+---
+hide:
+  - toc
+---
+
 # Apêndice A: OCI HOWTOs
 
-# A.7 Perguntas e Respostas sobre OCI
+# A.8 Perguntas e Respostas sobre OCI
 
 ## A.7.1 OCI Core Architecture & Networking
 
