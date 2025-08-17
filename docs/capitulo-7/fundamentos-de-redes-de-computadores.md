@@ -9,7 +9,10 @@ hide:
 
 ## 7.1.x Endereçamento IPv6
 
-### **Visão Geral**
+O surgimento do IPv6 se deu pelo fato da falta de endereços IPv4. Hoje, todo novo host que _"nasce"_ na internet, _"nasce"_ com IPv6 e não mais com IPv4 (pelo menos é o que se espera). Na verdade, nasce com IPv4 também porém, muitos provedores utilizam técnicas de NAT como CGNAT para permitir que esses novos hosts se comuniquem também com IPv4.
+
+!!! note "NOTA"
+    Aqui, utilizaremos os termos "host" ou "nó" (node) para especificar qualquer elemento de rede que possua um endereço IP e seja capaz de se comunicar na rede. O termo "interface de rede" ou "VNIC" é usado para o mesmo propósito, mas uma interface de rede pode ter múltiplos endereços associados a ela.
 
 O IPv6 foi desenvolvido com base no IPv4, mas eles são incompatíveis entre si. Isso significa que uma máquina que opera exclusivamente com IPv4 não consegue se comunicar com uma máquina que utiliza apenas IPv6.
 
@@ -54,3 +57,28 @@ A representação de prefixos de rede, por meio da notação _[CIDR](https://pt.
 ![alt_text](./img/endereco-ipv6-6.png "Endereço IPv6 #6")
 
 ### **Tipos de Endereços**
+
+No IPv6, existem _três tipos de endereços_ utilizados para diferentes formas de comunicação entre os dispositivos da rede. São eles:
+
+#### **Unicast**
+
+Endereço utilizado para identificar de forma única uma interface de rede. Isso significa que um pacote de dados enviado para um endereço do tipo _[unicast (RFC 4291)](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5)_ será entregue a uma única interface de rede.
+
+Diferentemente do IPv4, devido à abundância de endereços disponíveis no IPv6, cada host na Internet pode ter seu próprio endereço público e exclusivo. Assim, por exemplo, em uma rede com dez hosts, cada um deles poderá se comunicar diretamente na Internet com seu próprio IP público, sem a necessidade de utilizar técnicas de _[NAT (Network Address Translation)](https://pt.wikipedia.org/wiki/Network_address_translation)_ para permitir essa comunicação. O IPv6 restabelece o modelo de comunicação _Fim-a-Fim_, que é o princípio original da Internet.
+
+![alt_text](./img/ipv6-comunicacao-fim-a-fim-1.png "IPv6 - Comunicação Fim-a-Fim")
+
+!!! note "NOTA"
+    É importante reforçar: **NÃO SE USA [NAT](https://pt.wikipedia.org/wiki/Network_address_translation) NO IPv6!** Embora existam alguns tipos de NAT no IPv6, como NAT64, NAT46 e NAT66, seu uso é destinado a outros fins e não para compartilhar um IP público entre várias máquinas na rede local para acessar a Internet. No IPv6, cada host, ou mais precisamente, cada interface de rede, recebe seu próprio IP público diretamente do provedor de acesso para se conectar à Internet.
+
+#### **Multicast**
+
+Endereços do tipo _[multicast (RFC 4291)](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.7)_ são utilizados para comunicação com um grupo de hosts (multicast group) ou um grupo de interfaces de rede. Esses endereços estão contidos no prefixo `FF00::/8`, o que significa que todos os endereços que começam com `FF` são sempre do tipo multicast.
+
+A _[RFC 4291](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.7)_, seção _["2.7. Multicast Addresses"](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.7)_, afirma que um endereço multicast serve como um **_identificador_** para um **_grupo de interfaces de rede_**, geralmente localizadas em diferentes nós.
+
+#### **Anycast**
+
+### **Endereços do tipo Unicast**
+
+Dentro da categoria de endereços Unicast, temos:
