@@ -64,3 +64,17 @@ hide:
 - [Jamal, Tooba (December 5, 2022). What is an API and How Does it Work? APIs for Beginners.](https://www.freecodecamp.org/news/how-apis-work/)
 
 - [Robinson, Ian; Webber, Jim; Parastatidis, Savas (2010). REST in Practice: Hypermedia and Systems Architecture (English Edition). O'Reilly Media](https://amzn.to/43DR3SM)
+
+- [NICbrvideos. Os endereços IP não são todos iguais - parte 1](https://youtu.be/jnuHODaLcO8)
+
+- [NICbrvideos.  Os endereços IP não são todos iguais - parte 2](https://youtu.be/63M61wttuMk)
+
+- [NICbrvideos. Como fazer um bom plano de endereçamento IP - parte 1](https://youtu.be/h74MVDgfYV8)
+
+- [NICbrvideos. Como fazer um bom plano de endereçamento IP - parte 2](https://youtu.be/8GjMjZFUMSk)
+
+- [NICbrvideos. IPv6 no Café da Manhã - 01 de 03 - Planejamento e Endereçamento de Redes IPv6](https://youtu.be/rWVm9JCR4Fc)
+
+- [NICbrvideos. IPv6 no Café da Manhã - 02 de 03 - Planejamento e Endereçamento de Redes IPv6](https://youtu.be/COblHE5hpfg)
+
+- [NICbrvideos. IPv6 no Café da Manhã - 03 de 03 - Planejamento e Endereçamento IPv6](https://youtu.be/lRty4OlZWjA)
