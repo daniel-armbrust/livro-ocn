@@ -78,3 +78,5 @@ hide:
 - [NICbrvideos. IPv6 no Café da Manhã - 02 de 03 - Planejamento e Endereçamento de Redes IPv6](https://youtu.be/COblHE5hpfg)
 
 - [NICbrvideos. IPv6 no Café da Manhã - 03 de 03 - Planejamento e Endereçamento IPv6](https://youtu.be/lRty4OlZWjA)
+
+- [NIC.BR - Endereçamento](https://ipv6.nic.br/post/enderecamento/)
