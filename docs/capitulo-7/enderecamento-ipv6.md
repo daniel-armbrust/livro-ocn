@@ -9,8 +9,6 @@ hide:
 
 ## 7.2.1 Introdução ao IPv6
 
-#TODO: Vantagens do IPv6 = https://www.rfc-editor.org/rfc/rfc1883
-
 O IPv6 foi desenvolvido principalmente para suprir a falta de endereços do tipo IPv4. Hoje, todo novo host que _"nasce"_ na internet, _"nasce"_ com IPv6 e não mais com IPv4. Na verdade, nasce com IPv4 também porém, muitos provedores utilizam técnicas de NAT como CGNAT para permitir que esses novos hosts se comuniquem também com IPv4.
 
 !!! note "NOTA"
@@ -56,6 +54,10 @@ Além disso, grupos de zeros podem ser eliminados completamente. Por exemplo, o 
 A representação de **_prefixos de rede_**, por meio da notação _[CIDR](https://pt.wikipedia.org/wiki/Roteamento_Interdom%C3%ADnio_Sem_Classes)_, utilizada no IPv4, é aplicada da mesma forma no IPv6 para identificar a parte do endereço que representa a rede e a parte que representam os hosts:
 
 ![alt_text](./img/endereco-ipv6-6.png "Endereço IPv6 #6")
+
+Por fim, é importante ressaltar que a _[RFC 4291](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.1)_ recomenda que os prefixos que identificam a rede não devem ultrapassar `/64`. Isso significa que, em um espaço de 128 bits, recomenda-se reservar **64 bits** para a parte que **identifica a rede** e os **64 bits** restantes para a identificação das **interfaces de rede**. Essa divisão é essencial para o funcionamento da **auto-configuração** do IPv6, a qual será detalhada mais adiante.
+
+![alt_text](./img/endereco-ipv6-7.png "Endereço IPv6 #7")
 
 ## 7.2.2 Tipos de Endereços
 
@@ -110,7 +112,7 @@ Outro aspecto importante relacionado aos endereços em uma rede IPv6 é que, em 
 
 A imagem abaixo apresenta o resultado do comando `ipconfig`, demonstrando a presença de múltiplos endereços IPv6 em uma interface de rede de um sistema operacional Windows:
 
-![alt_text](./img/endereco-ipv6-7.png "Endereço IPv6 #7")
+![alt_text](./img/endereco-ipv6-8.png "Endereço IPv6 #8")
 
 A seguir, veremos os tipos de endereços _[Unicast](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5)_ do IPv6, classificados de acordo com seu escopo de utilização.
 
@@ -125,11 +127,31 @@ Diferentemente do IPv4, o IPv6 oferece uma abundância de endereços disponívei
 !!! note "NOTA"
     É importante reforçar: **NÃO SE USA [NAT](https://pt.wikipedia.org/wiki/Network_address_translation) NO IPv6!** Embora existam alguns tipos de NAT no IPv6, como NAT64, NAT46 e NAT66, seu uso é destinado a outros fins e não para compartilhar um IP público entre várias máquinas na rede local para acessar a Internet. No IPv6, cada host, ou mais precisamente, cada interface de rede, recebe seu próprio IP público diretamente do provedor de acesso para se conectar à Internet.
 
+#### **Formato dos Endereços GUA**
+
+De acordo com a _[RFC 4291](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ possuem o seguinte formato:
+
+![alt_text](./img/ipv6-gua-1.png "Endereço IPv6 GUA")
+
+- **Bits Fixos**
+    - O três primeiros bits `001` do endereço são fixos e representam o bloco `2000::/3`. Dessa forma, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ variam de `2000::` até `3xxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx`, onde a letra `x` pode assumir valores hexadecimais de `0` a `F`.
+
+- **Global Routing Prefix**
+    - Prefixo de roteamento global, utilizado para identificar o tamanho do bloco atribuído a uma rede.
+
+- **Subnet ID**
+    - Identificação da sub-rede, utilizada para identificar um enlace em uma rede.
+
+- **Interface ID**
+    - Identifica de maneira única uma interface de rede dentro da sub-rede. Como mencionado anteriormente, é recomendado utilizar **64 bits** para a parte que identifica as interfaces de rede.
+
 #### **Políticas de Alocação e Designação**
 
 A gestão e alocação dos blocos IPv6 em nível mundial é feita pela _[IANA (Internet Assigned Numbers Authority)](https://www.iana.org/)_. Esta por sua vez, aloca um bloco um bloco `/12` para cada _[RIR (Registros Regionais de Internet)](https://pt.wikipedia.org/wiki/Registro_Regional_da_Internet)_, como a _[ARIN (American Registry for Internet Numbers)](https://www.arin.net/)_, _[APNIC (Asia-Pacific Network Information Centre)](https://www.apnic.net/)_, _[LACNIC (Latin America and Caribbean Network Information Centre)](https://www.lacnic.net)_, entre outros.
 
 Na América Latina, que fica sob a gestão do _[LACNIC](https://www.lacnic.net)_, o bloco `2800::/12`, alocado pela _[IANA](https://www.iana.org/)_, é dividido e distribuído entre os países da região. No Brasil, o _[NIC.br](https://www.nic.br/)_ é responsável pelo gerenciamento do bloco `2804::/16`. A partir desse bloco, o _[NIC.br](https://www.nic.br/)_ aloca blocos para provedores de acesso à Internet _[(ISP - Internet Service Provider)](https://pt.wikipedia.org/wiki/Fornecedor_de_acesso_%C3%A0_internet)_, empresas e organizações, instituições de ensino e pesquisa, além de entidades governamentais.
+
+![alt_text](./img/ipv6-nicbr-1.png "IPv6 - Políticas de Alocação e Designação")
 
 !!! note "NOTA"
     O _[NIC.br](https://www.nic.br/)_ também gerencia blocos menores, como `2001:1280::/25` e `2001:1280::/25`, que são provenientes de alocações antigas. Para mais informações, consulte a página _[Endereçamento](https://ipv6.nic.br/post/enderecamento/)_ do _[NIC.br](https://www.nic.br/)_.
@@ -144,22 +166,20 @@ A partir do bloco `2804::/16`, o _[NIC.br](https://www.nic.br/)_ segue suas pró
 
 **4.** Bloco `/48` para usuários corporativos. Empresas maiores podem receber mais de um bloco `/48`.
 
-![alt_text](./img/ipv6-nicbr-1.png "IPv6 - Políticas de Alocação e Designação")
+Para se ter uma ideia, a partir de um bloco `/32`, temos **32 bits** disponíveis para criar sub-redes (`64 - 32 = 32 bits`). Isso permite a criação de até **quatro bilhões de sub-redes** diferentes (`2^32 = 4.294.967.296`). 
 
-#### **Formato dos Endereços GUA**
+Em um bloco `/48`, há **16 bits** para a criação de sub-redes (`64 - 48 = 16 bits`), o que representa um total de **65.536 sub-redes** possíveis (`2^16 = 65,536`).
 
-De acordo com a _[RFC 4291](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ possuem o seguinte formato:
+Já em um bloco `/56`, temos **8 bits** para criar sub-redes (`64 - 56 = 8 bits`), resultando em um total de **256 sub-redes** disponíveis (`2^8 = 256`).
 
-![alt_text](./img/ipv6-gua-1.png "Endereço IPv6 GUA")
+Observe que a alocação e a subdivisão para a criação das sub-redes ocorrem nos primeiros 64 bits de um endereço IPv6. Os 64 bits restantes são utilizados para identificar as interfaces de rede, permitindo endereçar aproximadamente **dezoito quatrilhões de interfaces de rede** dentro de uma sub-rede (`2 ^ 64 = 18.446.744.073.709.551,616`).
 
-- **Bits Fixos**
-    - O três primeiros bits `001` do endereço são fixos e representam o bloco `2000::/3`. Assim, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ variam de `2000::` até `3fff:ffff:ffff:ffff:ffff:ffff:ffff:ffff`, sendo que a letra `f` pode variar de `0` à `F` em hexadecimal.
+!!! note "NOTA"
+    É bastante provável que o seu provedor de acesso forneça um bloco `/56` para que você possa acessar a Internet. Como você verá, o _[OCI](https://www.oracle.com/cloud/)_ também disponibiliza um bloco `/56` nas VCNs com sub-redes públicas configuradas para IPv6.
 
-- **Global Routing Prefix**
-    - Prefixo de roteamento global, utilizado para identificar o tamanho do bloco atribuído a uma rede.
+### **[ULA (Unique Local Addresses)](https://www.rfc-editor.org/rfc/rfc4193)**
 
-- **Subnet ID**
-    - Identificação da sub-rede, utilizada para identificar um enlace em uma rede.
+## 7.2.x IPv6 no OCI
 
-- **Interface ID**
-    - Identifica de forma única uma interface de rede dentro da sub-rede.
+!!! note "NOTA"
+    Embora se afirme que todo host recebe um endereço IPv6 público para se comunicar com a Internet, no _[OCI](https://www.oracle.com/cloud/)_ não é possível ter endereços públicos em uma sub-rede privada. Para que um host se comunique com a Internet no _[OCI](https://www.oracle.com/cloud/)_, é necessário que ele possua um endereço IP público e seja criado em uma sub-rede pública.
