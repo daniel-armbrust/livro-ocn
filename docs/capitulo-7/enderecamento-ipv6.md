@@ -134,7 +134,7 @@ De acordo com a _[RFC 4291](https://www.rfc-editor.org/rfc/rfc4291.html#section-
 ![alt_text](./img/ipv6-gua-1.png "Endereço IPv6 GUA")
 
 - **Bits Fixos**
-    - O três primeiros bits `001` do endereço são fixos e representam o bloco `2000::/3`. Dessa forma, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ variam de `2000::` até `3xxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx`, onde a letra `x` pode assumir valores hexadecimais de `0` a `F`.
+    - O três primeiros bits `001` do endereço são fixos e representam o bloco `2000::/3`. Assim, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ estão contidos na faixa que vai de `2000:0:0:0:0:0:0` até `3fff:ffff:ffff:ffff:ffff:ffff:ffff:ffff`.
 
 - **Global Routing Prefix**
     - Prefixo de roteamento global, utilizado para identificar o tamanho do bloco atribuído a uma rede.
@@ -178,6 +178,23 @@ Observe que a alocação e a subdivisão para a criação das sub-redes ocorrem 
     É bastante provável que o seu provedor de acesso forneça um bloco `/56` para que você possa acessar a Internet. Como você verá, o _[OCI](https://www.oracle.com/cloud/)_ também disponibiliza um bloco `/56` nas VCNs com sub-redes públicas configuradas para IPv6.
 
 ### **[ULA (Unique Local Addresses)](https://www.rfc-editor.org/rfc/rfc4193)**
+
+Endereços do tipo _[ULA (Unique Local Addresses)](https://www.rfc-editor.org/rfc/rfc4193)_ estão contidos no bloco `FC00::/7` e são **_equivalentes aos endereços privados do IPv4_**.
+
+A utilização desses endereços segue os mesmos critérios dos endereços privados do IPv4 _([RFC 1918](https://www.rfc-editor.org/rfc/rfc1918))_. Esses endereços são utilizados exclusivamente para comunicação interna dentro das redes de uma organização e não devem aparecer ou ser roteados na Internet. Provedores de acesso à Internet bloqueiam esse tipo de endereço da mesma forma que ocorre com os endereços privados do IPv4.
+
+Como sabemos, a funcionalidade do _[NAT (Network Address Translation)](https://pt.wikipedia.org/wiki/Network_address_translation)_ para acesso à Internet a partir de uma rede interna IPv4 não se aplica a redes IPv6. Em uma interface de rede IPv6, é possível ter simultaneamente um endereço do tipo _[GUA (Global Unicast Addresses)](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ e um endereço do tipo _[ULA (Unique Local Addresses)](https://www.rfc-editor.org/rfc/rfc4193)_. O sistema operacional geralmente escolhe automaticamente o endereço apropriado com base no tipo de comunicação que está sendo realizada.
+
+Em resumo, o _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ é preferencial para comunicação com a Internet, enquanto o _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ é preferencial para comunicação interna.
+
+!!! note "NOTA"
+    Consulte a _[RFC 6724 - Default Address Selection for Internet Protocol Version 6 (IPv6)](https://www.rfc-editor.org/rfc/rfc6724)_ para obter mais informações sobre a utilização dos algoritmos de seleção de endereços, que são definidos com base no tipo de comunicação que o host irá realizar.
+
+#### **Formato dos Endereços ULA**
+
+De acordo com a _[RFC 4193](https://www.rfc-editor.org/rfc/rfc4193)_, os endereços do tipo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ possuem o seguinte formato:
+
+![alt_text](./img/ipv6-ula-1.png "Endereço IPv6 ULA")
 
 ## 7.2.x IPv6 no OCI
 
