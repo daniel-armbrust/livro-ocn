@@ -181,7 +181,7 @@ Observe que a alocação e a subdivisão para a criação das sub-redes ocorrem 
 
 Endereços do tipo _[ULA (Unique Local Addresses)](https://www.rfc-editor.org/rfc/rfc4193)_ estão contidos no bloco `FC00::/7` e são **_equivalentes aos endereços privados do IPv4_**.
 
-A utilização desses endereços segue os mesmos critérios dos endereços privados do IPv4 _([RFC 1918](https://www.rfc-editor.org/rfc/rfc1918))_. Esses endereços são utilizados exclusivamente para comunicação interna dentro das redes de uma organização e não devem aparecer ou ser roteados na Internet. Provedores de acesso à Internet bloqueiam esse tipo de endereço da mesma forma que ocorre com os endereços privados do IPv4.
+A utilização desses endereços segue os mesmos critérios dos endereços privados do IPv4 _([RFC 1918](https://www.rfc-editor.org/rfc/rfc1918))_. Esses endereços são utilizados exclusivamente para comunicação interna de um site e não devem aparecer ou ser roteados na Internet. Provedores de acesso à Internet bloqueiam esse tipo de endereço da mesma forma que ocorre com os endereços privados do IPv4.
 
 Como sabemos, a funcionalidade do _[NAT (Network Address Translation)](https://pt.wikipedia.org/wiki/Network_address_translation)_ para acesso à Internet a partir de uma rede interna IPv4 não se aplica a redes IPv6. Em uma interface de rede IPv6, é possível ter simultaneamente um endereço do tipo _[GUA (Global Unicast Addresses)](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ e um endereço do tipo _[ULA (Unique Local Addresses)](https://www.rfc-editor.org/rfc/rfc4193)_. O sistema operacional geralmente escolhe automaticamente o endereço apropriado com base no tipo de comunicação que está sendo realizada.
 
@@ -194,7 +194,36 @@ Em resumo, o _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ 
 
 De acordo com a _[RFC 4193](https://www.rfc-editor.org/rfc/rfc4193)_, os endereços do tipo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ possuem o seguinte formato:
 
-![alt_text](./img/ipv6-ula-1.png "Endereço IPv6 ULA")
+![alt_text](./img/ipv6-ula-1.png "Endereço IPv6 ULA #1")
+
+- **Bits Fixos**
+    - Os sete primeiros bits `1111110` do endereço são fixos e representam o prefixo `FC00::/7`, que identifica endereços do tipo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_. O bloco `FC00::/7` foi dividido em dois blocos `/8`: `FC00::/8` e `FD00::/8`.
+
+- **L Flag**
+    - A L Flag (ou Local Flag) é utilizada para identificar se o bloco de endereços é **global** ou **local**. Um valor de `0` indica que o bloco é destinado ao uso global, enquanto um valor `1` indica que o bloco é para uso local. 
+
+- **Global ID**
+    - Os `40 bits` são utilizados para identificar o prefixo que deve ser exclusivo de um site dentro de uma organização. Você verá que, recomenda-se que esses bits sejam gerados por meio de algoritmos específicos que produzem valores pseudo-aleatórios.
+    
+- **Subnet ID**
+    - Os `16 bits` são utilizados para identificar uma sub-rede dentro de um site e podem ser escolhidos livremente.
+
+- **Interface ID**
+    - Os `64 bits` são utilizados para identificar as interfaces de rede dentro de uma sub-rede. É recomendado utilizar todo o espaço de `64 bits`, nem menos nem mais, para endereçar as interfaces de rede.
+
+#### **L Flag**
+
+Para criar redes IPv6 usando prefixos privados de sua escolha, é necessário que o bit **L Flag** tenha o valor `1`. A especificação dos endereços _[ULA (Unique Local Address)](https://www.rfc-editor.org/rfc/rfc4193)_ estabelece que, quando esse bit está definido como `0`, o endereço representa um prefixo global. Por outro lado, um valor de `1` indica que o prefixo é destinado ao uso privado.
+
+A utilização do valor do bit em `0`, que define um prefixo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ global `FC00::/8`, não foi amplamente aceita, pois a intenção é que esses prefixos sejam administrados e alocados às organizações a patir de autoridades de Internet. Em outras palavras, neste caso, para utilizar um prefixo para endereços privados em sua rede, é necessário solicitá-los a uma autoridade de Internet, em vez de usar um prefixo qualquer de sua escolha. A autoridade de Internet se encarregaria de garantir que as organizações utilizem blocos de endereços únicos e exclusivos.
+
+Para definir prefixos de uso local ou privado, é necessário que o bit **L Flag** esteja configurado com o valor `1`, formando assim o prefixo `FD00::/8`. Por fim, os prefixos _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ de uso privado estão contidos na faixa que vai de `FD00:0:0:0:0:0:0` até `FDff:ffff:ffff:ffff:ffff:ffff:ffff:ffff`, que pode ser representada de forma abreviada como `FD00::/8`. 
+
+![alt_text](./img/ipv6-ula-2.png "Endereço IPv6 ULA #2")
+
+Esse é o prefixo que você deve utilizar para as redes privadas da sua organização (`FD00::/8`).
+
+#### **Global ID**
 
 ## 7.2.x IPv6 no OCI
 
