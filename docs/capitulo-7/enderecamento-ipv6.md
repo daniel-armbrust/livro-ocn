@@ -108,7 +108,7 @@ usados para comunicação na Internet (roteáveis).
 
 Embora existam endereços do tipo privado e público, a proposta é sempre utilizar os endereços IP públicos, independentemente de o host precisar ou não se comunicar com a Internet. Isso pode parecer estranho à primeira vista, pois estamos acostumados com o mundo IPv4, onde toda a rede interna é uma rede privada que deve ser endereçada com IPs privados _([RFC 1918](https://www.rfc-editor.org/rfc/rfc1918))_ e, para acessar a Internet, a rede interna precisa compartilhar o único IP público fornecido pelo provedor de acesso por meio de técnicas de _[NAT (Network Address Translation)](https://pt.wikipedia.org/wiki/Network_address_translation)_.
 
-Outro aspecto importante relacionado aos endereços em uma rede IPv6 é que, em uma única interface de rede, é possível associar mais de um endereço IP. Dessa forma, uma única interface de rede pode ter, simultaneamente, um endereço do tipo público e um endereço do tipo privado, ou até mesmo vários endereços.
+Outro aspecto importante relacionado aos endereços em uma rede IPv6 é que, em uma única interface de rede, é possível associar mais de um endereço IP. O protocolo IPv6 foi projetado para suportar múltiplos endereços de diferentes tipos em uma interface de rede. Assim, uma única interface pode ter, simultaneamente, um endereço público, um endereço privado ou até mesmo vários endereços.
 
 A imagem abaixo apresenta o resultado do comando `ipconfig`, demonstrando a presença de múltiplos endereços IPv6 em uma interface de rede de um sistema operacional Windows:
 
@@ -225,7 +225,7 @@ Esse é o prefixo que você deve utilizar para suas redes privadas IPv6: `FD00::
 
 #### **Global ID**
 
-A porção do endereço **Global ID**, composta por `40 bits`, é utilizada para identificar um prefixo de uso privado e exclusivo de uma organização. Como mencionado anteriormente, os valores para a porção **Global ID** foram projetados para serem administrados por autoridades da Internet. Nesse contexto, a autoridade da Internet é responsável por garantir a exclusividade dos prefixos privados para as organizações. Ao solicitar um prefixo, a autoridade da Internet gera um identificador único e global que pode ser utilizado nas suas redes privadas, garantindo que não haja conflitos de endereços privados entre as organizações em todo o mundo.
+A porção do endereço **Global ID**, composta por `40 bits`, é utilizada para identificar o prefixo de uso privado e exclusivo de uma organização. Como mencionado anteriormente, os valores para a porção **Global ID** foram projetados para serem administrados por autoridades da Internet. Nesse contexto, a autoridade da Internet é responsável por garantir a exclusividade dos prefixos privados para as organizações. Ao solicitar um prefixo, a autoridade da Internet gera um identificador único e global que pode ser utilizado nas suas redes privadas, garantindo que não haja conflitos de endereços privados entre as organizações em todo o mundo.
 
 A ideia inicial parecia boa, pois, ao utilizar prefixos únicos, as organizações poderiam evitar problemas de endereçamento ao integrar redes, como endereços de VPN que se sobrepõem, entre outros. No entanto, o processo de solicitação de prefixos privados se torna burocrático e por isso não foi amplamente aceito.
 
@@ -234,11 +234,11 @@ Neste caso, a recomendação e a proposta aceita é que a geração da porção 
 !!! note "NOTA"
     Consulte a seção _[3.2.2. Sample Code for Pseudo-Random Global ID Algorithm](https://www.rfc-editor.org/rfc/rfc4193#section-3.2.2)_ da _[RFC 4193](https://www.rfc-editor.org/rfc/rfc4193)_ para obter mais detalhes sobre o algoritmo proposto para a geração de prefixos pseudo-aleatórios.
 
-Um site que eu particularmente gosto para gerar prefixos pseudo-aleatórios é o _[www.unique-local-ipv6.com](https://www.unique-local-ipv6.com)_. Ele apresenta como resultado um prefixo `/48`, além da sub-rede inicial (`0000`) e da sub-rede final (`ffff`).
+Um site que eu particularmente gosto para gerar prefixos pseudo-aleatórios é o _[rovaughn.com/ipv6-subnet-generator](https://rovaughn.com/ipv6-subnet-generator/)_. Ele fornece como resultado os valores para **Global ID** e **Subnet ID**:
 
 ![alt_text](./img/ipv6-ula-3.png "Endereço IPv6 ULA #3")
 
-Apenas para complementar a explicação, é possível utilizar a linha de comando para gerar prefixos:
+Apenas para complementar a explicação, também é possível utilizar a linha de comando para gerar prefixos:
 
 ```bash linenums="1"
 $ printf "fd%x:%x:%x::/48\n" "$(( $RANDOM/256 ))" "$RANDOM" "$RANDOM"
@@ -252,10 +252,57 @@ fd7e:1237:76e2::/48
 ```
 
 !!! note "NOTA"
-    Embora os valores aleatórios gerados pelo exemplo de linha de comando acima sejam fáceis de reproduzir, é importante mencionar que esse método não está em conformidade com as recomendações do algoritmo proposto pela _[RFC 4193](https://www.rfc-editor.org/rfc/rfc4193#section-3.2.2)_. Há uma implementação disponível no _[GitHub](https://github.com/adeverteuil/bash-ula-generator)_ chamada _[Bash ULA Generator](https://github.com/adeverteuil/bash-ula-generator)_, que pode ser utilizada para gerar prefixos a partir da linha de comando. Na dúvida, utilize o site _[www.unique-local-ipv6.com](https://www.unique-local-ipv6.com)_.
+    Embora os valores aleatórios gerados pelo exemplo de linha de comando acima sejam fáceis de reproduzir, é importante mencionar que esse método não está em conformidade com as recomendações do algoritmo proposto pela _[RFC 4193](https://www.rfc-editor.org/rfc/rfc4193#section-3.2.2)_.
 
 #### **Subnet ID**
 
+**Subnet ID**, composto por `16 bits`, é a parte que identifica as sub-redes dentro do prefixo. Para se ter uma ideia, com `16 bits`, é possível ter até `65.536` sub-redes.
+
+![alt_text](./img/ipv6-ula-4.png "Endereço IPv6 ULA #4")
+
+Existem alguns métodos para calcular sub-redes IPv6, visto que há um grande número de bits disponíveis para essa finalidade. É possível iniciar a criação das sub-redes a partir dos bits mais à direita, à esquerda ou até mesmo do meio do endereço. 
+
+Abaixo, serão apresentados alguns exemplos de sub-redes criadas a partir do prefixo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ `fde3:50e0:8c08::/48`:
+
+![alt_text](./img/ipv6-ula-5.png "Endereço IPv6 ULA #5")
+
+![alt_text](./img/ipv6-ula-6.png "Endereço IPv6 ULA #6")
+
+![alt_text](./img/ipv6-ula-7.png "Endereço IPv6 ULA #7")
+
+Para simplificar a criação de sub-redes IPv6, existe o script _[ipv6gen](https://code.google.com/archive/p/ipv6gen/)_. Esse script permite especificar a alocação das sub-redes utilizando os bits mais à direita (`-r`),  à esquerda (`-l`) ou a partir do meio do endereço (`-m`). Abaixo um exemplo de criação utilizando os bits mais à direita:
+
+```bash linenums="1"
+$ ./ipv6gen.pl -r fde3:50e0:8c08::/48 64 | head -5
+FDE3:50E0:8C08:0000::/64
+FDE3:50E0:8C08:0001::/64
+FDE3:50E0:8C08:0002::/64
+FDE3:50E0:8C08:0003::/64
+FDE3:50E0:8C08:0004::/64
+```
+
+!!! note "NOTA"
+    O script _[ipv6gen](https://code.google.com/archive/p/ipv6gen/)_ pode ser baixado diretamente do site _[https://code.google.com/archive/p/ipv6gen/](https://code.google.com/archive/p/ipv6gen/)_.
+
+#### **Interface ID**
+
+**Interface ID** é a parte do endereço que identifica individualmente cada interface de rede dentro de uma sub-rede. Como já mencionado, recomenda-se que essa porção tenha `64 bits`. Com `64 bits`, é possível ter até `18 quintilhões` de interfaces de rede em uma única sub-rede.
+
+![alt_text](./img/ipv6-ula-8.png "Endereço IPv6 ULA #8")
+
+Dessa forma, um endereço completo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ apresenta o seguinte formato:
+
+![alt_text](./img/ipv6-ula-9.png "Endereço IPv6 ULA #9")
+
+### **[Link-Local IPv6 Unicast Addresses](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)**
+
+Endereços do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_, estão contidos no bloco `FE80::/10`. Esses endereços são utilizados para **_auto-configuração_** e são **_equivalentes aos endereços APIPA do IPv4_** (`169.254.0.0/16`).
+
+O termo **_auto-configuração_** refere-se à capacidade de um host de se autoatribuir um endereço IPv6, sem a necessidade de um servidor DHCP na rede. Esse endereço é configurado assim que a interface de rede se torna ativa no sistema operacional, o que significa que sempre haverá um endereço _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ em um host IPv6 (e em alguns casos, pode haver mais de um).
+
+!!! note "NOTA"
+    Conforme mencionado anteriormente, uma interface de rede IPv6 pode ter múltiplos endereços. Cada interface terá, no mínimo, um endereço do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ (`FE80::/10`) e, dependendo da configuração da rede, pode ter adicionalmente um endereço _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ ou _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_.
+    
 ## 7.2.x IPv6 no OCI
 
 !!! note "NOTA"
