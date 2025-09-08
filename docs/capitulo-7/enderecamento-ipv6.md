@@ -333,13 +333,20 @@ Para entender como essa geração é realizada, vamos usar como exemplo o endere
 
 A partir do endereço _[MAC](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_, o protocolo IPv6 utiliza um método chamado _[64-bit Extended Unique Identifier ou EUI-64](https://www.geeksforgeeks.org/computer-networks/ipv6-eui-64-extended-unique-identifier/)_ para gerar endereços _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ únicos em uma rede, evitando ambiguidade. Para isso, o protocolo IPv6 aproveita a estrutura dos endereços _[MAC](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_ na criação de um endereço de rede exclusivo. De forma simplificada, o processo segue os seguintes passos:
 
-**1. O sétimo bit do primeiro byte é invertido. Se estiver definido como zero, ele se torna um; se estiver definido como um, ele se torna zero.**
+**1. O sétimo bit do primeiro byte é invertido. Se estiver definido como zero, ele se torna um; se estiver definido como um, ele se torna zero:**
 
 ![alt_text](./img/mac-address-2.png "MAC Address #2")
 
-**2. O valor `FFFE` é inserido no meio do endereço.**
+**2. O valor `FFFE` é inserido no meio do endereço:**
 
 ![alt_text](./img/mac-address-3.png "MAC Address #3")
+
+**3. A partir do resultado, o prefixo `FE80:0000:0000:0000:/64` é gerado, podendo ser abreviado como `FE80::/64`. A parte que identifica a interface de rede é derivada do endereço MAC da própria interface, com a inserção do valor `FFFE`, resultando em `0000:17FF:FE01:EDFF`:**
+
+![alt_text](./img/ipv6-ula-10.png "Endereço IPv6 ULA #10")
+
+!!! note "NOTA"
+    Após o valor `FE80`, todos os zeros são omitidos até `17FF`. Assim, o endereço que será exibido pelo sistema operacional será `FE80::17FF:FE01:EDFF`. Para fins didáticos, alguns zeros antes de `17FF` foram incluídos na imagem acima.
 
 #### **Autoconfiguração**
 
