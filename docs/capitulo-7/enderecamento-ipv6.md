@@ -134,7 +134,7 @@ De acordo com a _[RFC 4291](https://www.rfc-editor.org/rfc/rfc4291.html#section-
 ![alt_text](./img/ipv6-gua-1.png "Endereço IPv6 GUA")
 
 - **Bits Fixos**
-    - O três primeiros bits `001` do endereço são fixos e representam o bloco `2000::/3`. Assim, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ estão contidos na faixa que vai de `2000:0:0:0:0:0:0` até `3fff:ffff:ffff:ffff:ffff:ffff:ffff:ffff`.
+    - O três primeiros bits `001` do endereço são fixos e representa o prefixo `2000::/3`. Assim, os endereços do tipo _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_ estão contidos na faixa que vai de `2000:0:0:0:0:0:0` até `3fff:ffff:ffff:ffff:ffff:ffff:ffff:ffff`.
 
 - **Global Routing Prefix**
     - Prefixo de roteamento global, utilizado para identificar o tamanho do bloco atribuído a uma rede.
@@ -197,7 +197,7 @@ De acordo com a _[RFC 4193](https://www.rfc-editor.org/rfc/rfc4193)_, os endere�
 ![alt_text](./img/ipv6-ula-1.png "Endereço IPv6 ULA #1")
 
 - **Bits Fixos**
-    - Os sete primeiros bits `1111110` do endereço são fixos e representam o prefixo `FC00::/7`, que identifica endereços do tipo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_. Este prefixo por sua vez foi dividido em dois `/8`: `FC00::/8` e `FD00::/8`.
+    - Os sete primeiros bits `1111110` do endereço são fixos e representa o prefixo `FC00::/7`, que identifica endereços do tipo _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_. Este prefixo por sua vez foi dividido em dois `/8`: `FC00::/8` e `FD00::/8`.
 
 - **L Flag**
     - A L Flag (ou Local Flag) é utilizada para identificar se o prefixo de endereços é **global** ou **local**. Um valor de `0` indica que o prefixo é destinado ao uso global, enquanto um valor `1` indica que o prefixo é para uso local. 
@@ -296,9 +296,54 @@ Dessa forma, um endereço completo _[ULA](https://www.rfc-editor.org/rfc/rfc4193
 
 ### **[Link-Local IPv6 Unicast Addresses](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)**
 
-Endereços do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_, estão contidos no bloco `FE80::/10`. Esses endereços são utilizados para **_auto-configuração_** e são **_equivalentes aos endereços APIPA do IPv4_** (`169.254.0.0/16`).
+Endereços do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_, estão contidos no bloco `FE80::/10` e são **_equivalentes aos endereços APIPA (Automatic Private IP Address) do IPv4_** (`169.254.0.0/16`).
 
-O termo **_auto-configuração_** refere-se à capacidade de um host de se autoatribuir um endereço IPv6, sem a necessidade de um servidor DHCP na rede. Esse endereço é configurado assim que a interface de rede se torna ativa no sistema operacional, o que significa que sempre haverá um endereço _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ em um host IPv6 (e em alguns casos, pode haver mais de um).
+Diferentemente dos endereços do tipo _[APIPA](https://www.rfc-editor.org/rfc/rfc3927)_ do IPv4, que são gerados automaticamente por um host quando ele não consegue obter um endereço IP de um servidor DHCP, os endereços _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ do IPv6 são sempre gerados automaticamente para cada interface de rede que suporta IPv6. Esses endereços são obrigatórios e sempre estão presentes.
+
+Os endereços do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ são válidos apenas dentro da rede local (escopo local), ou seja, são restritos a um único link e não devem ser propagados para fora dessa rede. Eles desempenham um papel importante na rede IPv6, sendo fundamentais principalmente para operações de _autoconfiguração de endereço_ e _descoberta de vizinhança_, que serão exploradas mais adiante. Se esses endereços não estiverem disponíveis ou se o tráfego entre os hosts da rede local que utilizam esses endereços não for permitido, a rede IPv6 não funcionará corretamente.
+
+#### **Formato dos Endereços Link-Local**
+
+![alt_text](./img/ipv6-link-local-1.png "Endereço IPv6 Link-Local #1")
+
+- **Bits Fixos**
+    - Os dez primeiros bits `1111111010` do endereço são fixos e representa o prefixo `FE80::/10`, que identifica endereços do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_. 
+
+- **54 Bits**
+    - Os próximos `54 bits` do endereço têm um valor fixo de zero, formando o prefixo completo `fe80:0000:0000:0000::/64`.
+
+- **Interface ID**
+    - Os `64 bits` restantes são utilizados para identificar as interfaces de rede e são gerados automaticamente pelo host com base no _[MAC Address](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_ da interface correspondente.
+
+#### **Geração de Endereços Link-Local**
+
+Endereços _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ são gerados automaticamente pelo sistema operacional do host quando uma interface de rede que suporte o protocolo IPv6 é ativada.
+
+A parte que identifica a **Interface ID** do endereço, é gerada com base no _[MAC Address](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_ da interface de rede através do método mais comum denominado EUI-64.
+
+Para entender como essa geração é realizada, vamos usar como exemplo o endereço _[MAC Address](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_ `02:00:17:01:ed:ff` de uma interface de rede qualquer. É importante notar que o endereço _[MAC Address](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_ é composto por duas partes:
+
+![alt_text](./img/mac-address-1.png "MAC Address #1")
+
+- **OUI (Organizationally Unique Identifier)**
+    - Os primeiros `24 bits` ou `3 bytes` identificam o fabricante do dispositivo de rede. Essa numeração é gerenciada pelo _[IEEE (Institute of Electrical and Electronics Engineers)](https://pt.wikipedia.org/wiki/Instituto_de_Engenheiros_Eletricistas_e_Eletr%C3%B4nicos)_, que atribui essa parte da numeração às empresas que fabricam dispositivos de rede.
+
+- **ID do Dispositivo**
+    - Os últimos `24 bits` ou `3 bytes` são gerenciados e definidos pelo fabricante, que é responsável pelo controle da numeração de cada dispositivo que produz.
+
+A partir do endereço _[MAC](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_, o protocolo IPv6 utiliza um método chamado _[64-bit Extended Unique Identifier ou EUI-64](https://www.geeksforgeeks.org/computer-networks/ipv6-eui-64-extended-unique-identifier/)_ para gerar endereços _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ únicos em uma rede, evitando ambiguidade. Para isso, o protocolo IPv6 aproveita a estrutura dos endereços _[MAC](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_ na criação de um endereço de rede exclusivo. De forma simplificada, o processo segue os seguintes passos:
+
+**1. O sétimo bit do primeiro byte é invertido. Se estiver definido como zero, ele se torna um; se estiver definido como um, ele se torna zero.**
+
+![alt_text](./img/mac-address-2.png "MAC Address #2")
+
+**2. O valor `FFFE` é inserido no meio do endereço.**
+
+![alt_text](./img/mac-address-3.png "MAC Address #3")
+
+#### **Autoconfiguração**
+
+Esses endereços são utilizados para **_autoconfiguração_**  e o termo refere-se à capacidade de um host de se autoatribuir um endereço de rede, sem a necessidade de um servidor DHCP na rede. Esse endereço é configurado assim que a interface de rede se torna ativa no sistema operacional, o que significa que sempre haverá um endereço do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ em um host IPv6 (e em alguns casos, pode haver mais de um).
 
 !!! note "NOTA"
     Conforme mencionado anteriormente, uma interface de rede IPv6 pode ter múltiplos endereços. Cada interface terá, no mínimo, um endereço do tipo _[Link-Local](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.6)_ (`FE80::/10`) e, dependendo da configuração da rede, pode ter adicionalmente um endereço _[ULA](https://www.rfc-editor.org/rfc/rfc4193)_ ou _[GUA](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.4)_.

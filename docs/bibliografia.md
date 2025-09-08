@@ -63,7 +63,7 @@ hide:
 
 - [Jamal, Tooba (December 5, 2022). What is an API and How Does it Work? APIs for Beginners.](https://www.freecodecamp.org/news/how-apis-work/)
 
-- [Robinson, Ian; Webber, Jim; Parastatidis, Savas (2010). REST in Practice: Hypermedia and Systems Architecture (English Edition). O'Reilly Media](https://amzn.to/43DR3SM)
+- [Robinson, Ian; Webber, Jim; Parastatidis, Savas (2010). REST in Practice: Hypermedia and Systems Architecture (English Edition). O'Reilly Media.](https://amzn.to/43DR3SM)
 
 - [NICbrvideos. Os endereços IP não são todos iguais - parte 1](https://youtu.be/jnuHODaLcO8)
 
@@ -80,3 +80,5 @@ hide:
 - [NICbrvideos. IPv6 no Café da Manhã - 03 de 03 - Planejamento e Endereçamento IPv6](https://youtu.be/lRty4OlZWjA)
 
 - [NIC.BR - Endereçamento](https://ipv6.nic.br/post/enderecamento/)
+
+- [Brito Bucke Henrique Samuel (2013). IPv6 - O Novo Protocolo da Internet. Novatec.](https://novatec.com.br/livros/ipv6/)
