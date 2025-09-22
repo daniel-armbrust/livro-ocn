@@ -82,7 +82,7 @@ A _[RFC 4291](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.7)_, na seç
 
 ![alt_text](./img/ipv6-multicast-1.png "IPv6 Multicast")
 
-Diferentemente do IPv4, no IPv6 **_não existe endereço de broadcast_** e dessa forma, o protocolo _[ARP (Address Resolution Protocol)](https://pt.wikipedia.org/wiki/Address_Resolution_Protocol)_, que faz uso de endereços broascast, também deixa de existir. Mais adiante, você verá que essas funcionalidades são substituídas pelo protocolo _[NDP (Neighbor Discovery Protocol)](https://pt.wikipedia.org/wiki/Neighbor_Discovery_Protocol)_, que utiliza endereços do tipo multicast para realizar a descoberta dos demais hosts da rede (vizinhos).
+Diferentemente do IPv4, no IPv6 **_não existe endereço de broadcast_** e dessa forma, o protocolo _[ARP (Address Resolution Protocol)](https://www.rfc-editor.org/rfc/rfc826)_, que faz uso de endereços broascast, também deixa de existir. Mais adiante, você verá que essas funcionalidades são substituídas pelo protocolo _[NDP (Neighbor Discovery Protocol)](https://pt.wikipedia.org/wiki/Neighbor_Discovery_Protocol)_, que utiliza endereços do tipo multicast para realizar a descoberta dos demais hosts da rede (vizinhos).
 
 !!! note "NOTA"
     A comunicação do tipo _[Multicast](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.7)_ é **_essencial para o funcionamento do IPv6_**. Para que a rede IPv6 opere corretamente, é necessário que esse tipo de comunicação funcione. Por exemplo, se, por algum motivo, o firewall de um host na rede for configurado para bloquear as comunicações do tipo _[Multicast](https://www.rfc-editor.org/rfc/rfc4291.html#section-2.7)_, isso impedirá o seu funcionamento em uma rede IPv6.
@@ -368,6 +368,60 @@ A partir do endereço _[MAC](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_, 
     Na imagem acima, os zeros da parte que identifica o prefixo da rede foram omitidos para economizar espaço. No sistema operacional, o endereço exibido seria `FE80::17FF:FE01:EDFF`. 
 
 ## 7.2.5 Neighbor Discovery Protocol (NDP)
+
+No IPv4, utiliza-se o protocolo _[ARP](https://www.rfc-editor.org/rfc/rfc826)_ e endereços do tipo **broadcast** para encontrar quais dispositivos estão conectados em um link de dados. Já no IPv6, essas funções foram substituídas pelo protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_, que opera sobre o protocolo _[ICMPv6](https://www.rfc-editor.org/rfc/rfc4443)_. Em vez de endereços broadcast, o IPv6 utiliza endereços do tipo **multicast** para realizar essas operações.
+
+!!! note "NOTA"
+    O protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ está especificado pela _[RFC 4861](https://www.rfc-editor.org/rfc/rfc4861)_, e o protocolo _[ICMPv6](https://www.rfc-editor.org/rfc/rfc4443)_ está especificado pela _[RFC 4443](https://www.rfc-editor.org/rfc/rfc4443)_.
+
+_[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ é um protocolo que utiliza um conjunto de mensagens e processos para viabilizar a comunicação entre dispositivos conectados na mesma rede, permitindo a _"descoberta da vizinhança"_. Para isso, ele trabalha com cinco diferentes tipos de mensagens:
+
+- [Router Solicitation (RS)](https://www.rfc-editor.org/rfc/rfc4861#section-4.1)
+    - Quando um host se torna ativo na rede, ele envia mensagens do tipo _[RS](https://www.rfc-editor.org/rfc/rfc4861#section-4.1)_ para descobrir os roteadores IPv6 disponíveis.
+
+- [Router Advertisement (RA)](https://www.rfc-editor.org/rfc/rfc4861#section-4.2)
+    - O roteador, por sua vez, envia mensagens do tipo _[RA](https://www.rfc-editor.org/rfc/rfc4861#section-4.2)_, não apenas em resposta a solicitações, mas também de forma periódica para anunciar sua presença na rede. Essas mensagens contêm informações importantes, como o prefixo de rede que um host pode utilizar, detalhes sobre o MTU (Maximum Transmission Unit), informações de roteamento e orientações sobre se o host deve ou não prosseguir com o processo de autoconfiguração de seu endereço IP.
+    
+- [Neighbor Solicitation (NS)](https://www.rfc-editor.org/rfc/rfc4861#section-4.3)
+    - Os hosts enviam mensagens do tipo _[NS](https://www.rfc-editor.org/rfc/rfc4861#section-4.3)_ para solicitar o endereço da camada de enlace de um host de destino (MAC Address). Essa mensagem inclui o endereço da camada de enlace do host que a gerou.
+
+- [Neighbor Advertisement (NA)](https://www.rfc-editor.org/rfc/rfc4861#section-4.4)
+    - Um host responde com mengens do tipo _[NA](https://www.rfc-editor.org/rfc/rfc4861#section-4.4)_, que contêm seu endereço da camada de enlace, em resposta a solicitações do tipo _[NS](https://www.rfc-editor.org/rfc/rfc4861#section-4.3)_.
+
+Assim como a tabela _[ARP](https://www.rfc-editor.org/rfc/rfc826)_ mantida pelo sistema operacional, o protocolo _[NDP](https://www.rfc-editor.org/rfc/rfc4861)_ também possui a sua própria tabela, cuja função também é associar endereços da camada de enlace aos seus respectivos endereços da camada de rede (IPv6). No sistema operacional Linux, essa tabela pode ser consultada utilizando o seguinte comando:
+
+```bash linenums="1"
+$ ip -6 neigh show
+2803:1111:abcf:1277:84e7:6c6c:1234:1234 dev enp1s0 lladdr 12:34:56:78:9a:bc STALE
+fe80::2412:acff:fe1a:8001 dev enp2s0 lladdr 98:76:54:32:10:fe STALE
+fe80::9b73:2b13:61d7:22a4 dev enp1s0 lladdr ab:cd:ef:12:34:56 STALE
+fe80::ead8:19ff:fe45:9b67 dev enp1s0 FAILED
+fe80::200:5eff:fe00:101 dev enp2s0 lladdr 01:23:45:67:89:ab router DELAY
+fe80::fa54:b8ff:fe20:d69 dev enp1s0 lladdr 12:34:56:78:9a:bc REACHABLE
+fe80::29b6:6794:2e86:2882 dev enp1s0 lladdr 56:71:56:71:33:56 PROBE
+```
+
+Cada linha exibe o endereço de rede (IPv6), a interface de rede pela qual o endereço pode ser alcançado, o endereço da camada de enlace (MAC Address) e seu status, que pode apresentar um dos seguintes valores:
+
+- **REACHABLE** 
+    - O endereço está acessível e é possível se comunicar com ele.
+
+- **STALE** 
+    - O endereço foi acessado anteriormente, mas não recentemente.
+
+- **DELAY** 
+    - O endereço foi utilizado recentemente, mas o sistema está aguardando um intervalo antes de enviar novos pacotes para evitar congestionamento.
+
+- **PROBE** 
+    - O sistema está verificando se o endereço ainda está ativo, geralmente após ter estado em STALE.
+
+- **FAILED** 
+    - O endereço não está acessível.
+
+- **PERMANENT** 
+    - A entrada é estática e não será verificada ou removida automaticamente pelo sistema.
+
+### **Autoconfiguração**
     
 ## 7.2.5 IPv6 no OCI
 
