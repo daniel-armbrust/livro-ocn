@@ -369,26 +369,29 @@ A partir do endereço _[MAC](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_, 
 
 ## 7.2.5 Neighbor Discovery Protocol (NDP)
 
-No IPv4, utiliza-se o protocolo _[ARP](https://www.rfc-editor.org/rfc/rfc826)_ e endereços do tipo **broadcast** para encontrar quais dispositivos estão conectados em um link de dados. Já no IPv6, essas funções foram substituídas pelo protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_, que opera sobre o protocolo _[ICMPv6](https://www.rfc-editor.org/rfc/rfc4443)_. Em vez de endereços broadcast, o IPv6 utiliza endereços do tipo **multicast** para realizar essas operações.
+No IPv4, utiliza-se o protocolo _[ARP](https://www.rfc-editor.org/rfc/rfc826)_ e endereços do tipo **broadcast** para localizar e possibilitar a troca de dados entre dispositivos conectados ao mesmo link de dados. Já no IPv6, essas funções foram substituídas pelo protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ que opera sobre o protocolo _[ICMPv6](https://www.rfc-editor.org/rfc/rfc4443)_. Em vez de endereços broadcast, o IPv6 utiliza endereços do tipo **multicast** para realizar essas operações.
 
 !!! note "NOTA"
-    O protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ está especificado pela _[RFC 4861](https://www.rfc-editor.org/rfc/rfc4861)_, e o protocolo _[ICMPv6](https://www.rfc-editor.org/rfc/rfc4443)_ está especificado pela _[RFC 4443](https://www.rfc-editor.org/rfc/rfc4443)_.
+    O protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ está especificado na _[RFC 4861](https://www.rfc-editor.org/rfc/rfc4861)_ e o protocolo _[ICMPv6](https://www.rfc-editor.org/rfc/rfc4443)_ está especificado na _[RFC 4443](https://www.rfc-editor.org/rfc/rfc4443)_.
 
-_[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ é um protocolo que utiliza um conjunto de mensagens e processos para viabilizar a comunicação entre dispositivos conectados na mesma rede, permitindo a _"descoberta da vizinhança"_. Para isso, ele trabalha com cinco diferentes tipos de mensagens:
+De maneira análoga ao _[ARP](https://www.rfc-editor.org/rfc/rfc826)_, o protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ utiliza um conjunto de mensagens e processos para facilitar a comunicação entre dispositivos conectados no mesmo link de dados, permitindo a _"descoberta da vizinhança"_. Para isso, ele trabalha com cinco diferentes tipos de mensagens:
 
 - [Router Solicitation (RS)](https://www.rfc-editor.org/rfc/rfc4861#section-4.1)
     - Quando um host se torna ativo na rede, ele envia mensagens do tipo _[RS](https://www.rfc-editor.org/rfc/rfc4861#section-4.1)_ para descobrir os roteadores IPv6 disponíveis.
 
 - [Router Advertisement (RA)](https://www.rfc-editor.org/rfc/rfc4861#section-4.2)
-    - O roteador, por sua vez, envia mensagens do tipo _[RA](https://www.rfc-editor.org/rfc/rfc4861#section-4.2)_, não apenas em resposta a solicitações, mas também de forma periódica para anunciar sua presença na rede. Essas mensagens contêm informações importantes, como o prefixo de rede que um host pode utilizar, detalhes sobre o MTU (Maximum Transmission Unit), informações de roteamento e orientações sobre se o host deve ou não prosseguir com o processo de autoconfiguração de seu endereço IP.
+    - O roteador, por sua vez, envia mensagens do tipo _[RA](https://www.rfc-editor.org/rfc/rfc4861#section-4.2)_, não apenas em resposta a solicitações do tipo _[RS](https://www.rfc-editor.org/rfc/rfc4861#section-4.1)_, mas também de forma periódica para anunciar sua presença na rede. Essas mensagens contêm informações importantes sobre qual prefixo de rede que um host pode utilizar, informações de roteamento, _[MTU (Maximum Transmission Unit)](https://pt.wikipedia.org/wiki/Unidade_m%C3%A1xima_de_transmiss%C3%A3o)_ e se o host deve ou não prosseguir com o processo de autoconfiguração de seu endereço IP. 
     
 - [Neighbor Solicitation (NS)](https://www.rfc-editor.org/rfc/rfc4861#section-4.3)
-    - Os hosts enviam mensagens do tipo _[NS](https://www.rfc-editor.org/rfc/rfc4861#section-4.3)_ para solicitar o endereço da camada de enlace de um host de destino (MAC Address). Essa mensagem inclui o endereço da camada de enlace do host que a gerou.
+    - Os hosts enviam mensagens do tipo _[NS](https://www.rfc-editor.org/rfc/rfc4861#section-4.3)_ para solicitar o endereço da camada de enlace de um host de destino _[(MAC Address)](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_.
 
 - [Neighbor Advertisement (NA)](https://www.rfc-editor.org/rfc/rfc4861#section-4.4)
     - Um host responde com mengens do tipo _[NA](https://www.rfc-editor.org/rfc/rfc4861#section-4.4)_, que contêm seu endereço da camada de enlace, em resposta a solicitações do tipo _[NS](https://www.rfc-editor.org/rfc/rfc4861#section-4.3)_.
 
-Assim como a tabela _[ARP](https://www.rfc-editor.org/rfc/rfc826)_ mantida pelo sistema operacional, o protocolo _[NDP](https://www.rfc-editor.org/rfc/rfc4861)_ também possui a sua própria tabela, cuja função também é associar endereços da camada de enlace aos seus respectivos endereços da camada de rede (IPv6). No sistema operacional Linux, essa tabela pode ser consultada utilizando o seguinte comando:
+- [Redirect](https://www.rfc-editor.org/rfc/rfc4861#section-4.5)
+    - Utilizado para informar aos hosts da rede sobre a existência de um roteador alternativo que é mais preferencial ou mais próximo do host.
+
+Assim como a tabela _[ARP](https://www.rfc-editor.org/rfc/rfc826)_ que é mantida pelo sistema operacional, o protocolo _[NDP](https://www.rfc-editor.org/rfc/rfc4861)_ também possui a sua própria tabela, cuja função também é associar endereços da camada de enlace aos seus respectivos endereços da camada de rede. No sistema operacional Linux, essa tabela pode ser consultada utilizando o seguinte comando:
 
 ```bash linenums="1"
 $ ip -6 neigh show
@@ -401,10 +404,10 @@ fe80::fa54:b8ff:fe20:d69 dev enp1s0 lladdr 12:34:56:78:9a:bc REACHABLE
 fe80::29b6:6794:2e86:2882 dev enp1s0 lladdr 56:71:56:71:33:56 PROBE
 ```
 
-Cada linha exibe o endereço de rede (IPv6), a interface de rede pela qual o endereço pode ser alcançado, o endereço da camada de enlace (MAC Address) e seu status, que pode apresentar um dos seguintes valores:
+Cada linha exibe o endereço de rede (IPv6), a interface de rede pela qual o endereço pode ser alcançado, o endereço da camada de enlace _[(MAC Address)](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_e seu status, que pode apresentar um dos seguintes valores:
 
 - **REACHABLE** 
-    - O endereço está acessível e é possível se comunicar com ele.
+    - O endereço está acessível e é possível comunicar-se com ele.
 
 - **STALE** 
     - O endereço foi acessado anteriormente, mas não recentemente.
@@ -421,9 +424,22 @@ Cada linha exibe o endereço de rede (IPv6), a interface de rede pela qual o end
 - **PERMANENT** 
     - A entrada é estática e não será verificada ou removida automaticamente pelo sistema.
 
+Para o sistema operacional Windows, o comando equivalente é apresentado a seguir:
+
+```bash linenums="1"
+C:\>netsh interface ipv6 show neighbors
+```
+
 ### **Autoconfiguração**
-    
-## 7.2.5 IPv6 no OCI
+
+**_Autoconfiguração_** é o termo que descreve a capacidade de um host de atribuir a si mesmo um endereço de rede, sem depender da presença de um servidor _[DHCP](https://pt.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol)_ ativo na rede. Esse método, que é extremamente útil e presente no IPv6, é conhecido como _[SLAAC (Stateless Address Autoconfiguration)](https://www.rfc-editor.org/rfc/rfc4862)_, ou simplesmente **autoconfiguração stateless**. Assim como no IPv4, hosts IPv6 também podem contar com um servidor _[DHCPv6](https://pt.wikipedia.org/wiki/DHCPv6)_ ativo na rede, e esse modo de configuração é denominado **autoconfiguração stateful**.
 
 !!! note "NOTA"
-    Embora se afirme que todo host recebe um endereço IPv6 público para se comunicar com a Internet, no _[OCI](https://www.oracle.com/cloud/)_ não é possível ter endereços públicos em uma sub-rede privada. Para que um host se comunique com a Internet no _[OCI](https://www.oracle.com/cloud/)_, é necessário que ele possua um endereço IP público e seja criado em uma sub-rede pública.
+    O processo de autoconfiguração stateless é especificado na _[RFC 4862](https://www.rfc-editor.org/rfc/rfc4862)_. Por outro lado, o _[DHCPv6](https://pt.wikipedia.org/wiki/DHCPv6)_ está especificado na _[RFC 8415](https://www.rfc-editor.org/rfc/rfc8415)_.
+
+Por fim, é importante mencionar que a configuração de endereços IPv6, independentemente de ser stateless, stateful ou manual, é validada por mais um processo do protocolo _[NDP](https://www.rfc-editor.org/rfc/rfc4861)_, denominado _[Duplicate Address Detection](https://www.rfc-editor.org/rfc/rfc4862#section-5.4)_. Esse processo tem a função de identificar endereços duplicados entre os dispositivos que compartilham o mesmo link de dados.
+
+!!! note "NOTA"
+    Para mais detalhes sobre a funcionalidade que detecta endereços duplicados, consulte a seção _[5.4. Duplicate Address Detection](https://www.rfc-editor.org/rfc/rfc4862#section-5.4)_ da _[RFC 4862](https://www.rfc-editor.org/rfc/rfc4862)_.
+    
+## 7.2.5 IPv6 no OCI
