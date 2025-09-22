@@ -367,7 +367,7 @@ A partir do endereço _[MAC](https://pt.wikipedia.org/wiki/Endere%C3%A7o_MAC)_, 
 !!! note "NOTA"
     Na imagem acima, os zeros da parte que identifica o prefixo da rede foram omitidos para economizar espaço. No sistema operacional, o endereço exibido seria `FE80::17FF:FE01:EDFF`. 
 
-## 7.2.5 Neighbor Discovery Protocol (NDP)
+## 7.2.4 Neighbor Discovery Protocol (NDP)
 
 No IPv4, utiliza-se o protocolo _[ARP](https://www.rfc-editor.org/rfc/rfc826)_ e endereços do tipo **broadcast** para localizar e possibilitar a troca de dados entre dispositivos conectados ao mesmo link de dados. Já no IPv6, essas funções foram substituídas pelo protocolo _[Neighbor Discovery Protocol (NDP)](https://www.rfc-editor.org/rfc/rfc4861)_ que opera sobre o protocolo _[ICMPv6](https://www.rfc-editor.org/rfc/rfc4443)_. Em vez de endereços broadcast, o IPv6 utiliza endereços do tipo **multicast** para realizar essas operações.
 
