@@ -25,7 +25,7 @@ Quando surgia qualquer tipo de problema, seja no software ou na infraestrutura d
 
 Tanto o software quanto a infraestrutura de TI são _"entidades vivas"_ que exigem cuidados constantes. Isso inclui a correção de funcionalidades, a resolução de bugs, a mitigação de problemas de segurança, a redução de custos e o aprimoramento do desempenho. Não se trata de algo que você controí ou programa uma única vez e abandona.
 
-Diante dessas dificuldades enfrentadas pelas equipes de TI frustrados com os atritos constantes das áreas, surge o conceito de _[DevOps](https://engsoftmoderna.info/cap10.html)_, que visa proporcionar um fluxo de trabalho mais integrado e eficiente entre as equipes de desenvolvimento e operações.
+Diante dessas dificuldades enfrentadas pelas equipes de TI frustrados com os atritos constantes das áreas, surge o conceito de <a href="https://engsoftmoderna.info/cap10.html" target="_blank">DevOps</a>, que visa proporcionar um fluxo de trabalho mais integrado e eficiente entre as equipes de desenvolvimento e operações.
 
 O termo DevOps combina as palavras _"Desenvolvimento"_ e _"Operações"_ e representa uma disrupção na cultura tradicional de implantação de sistemas onde o objetivo é aprimorar a comunicação e a colaboração entre _desenvolvedores (devs)_ e _profissionais de operações (sysadmins)_.
 
@@ -51,53 +51,53 @@ As etapas do DevOps formam um ciclo contínuo. Após completar todas as fases, o
 
 A seguir, apresentamos uma breve descrição das etapas do DevOps, acompanhada de algumas das ferramentas mais utilizadas atualmente em cada fase:
 
-### Planejar
+### **Planejar**
 
 Nesta etapa, ocorre todo o planejamento, bem como a definição dos requisitos e objetivos do projeto. Em outras palavras, é o momento em que as equipes se alinham sobre o que precisa ser feito e quem será responsável por cada tarefa.
 
-Ferramentas de gerenciamento de projetos, como _[Jira](https://en.wikipedia.org/wiki/Integrated_development_environment)_ e _[Trello](https://trello.com/)_, são amplamente utilizadas nesta etapa.
+Ferramentas de gerenciamento de projetos, como <a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank">Jira</a> e <a href="https://trello.com/" target="_blank">Trello</a>, são amplamente utilizadas nesta etapa.
 
 ![alt_text](./img/jira-trello-logo-1.png "Jira e Trello")
 
-### Codificar
+### **Codificar**
 
 A fase de _"Codificar"_ no contexto do DevOps refere-se ao processo de desenvolvimento de software, no qual os desenvolvedores escrevem o código-fonte com base nos requisitos e especificações estabelecidos durante a fase de planejamento.
 
-Ferramentas de desenvolvimento, como _[IDEs (Ambientes de Desenvolvimento Integrados)](https://en.wikipedia.org/wiki/Integrated_development_environment)_ como _[VSCode](https://code.visualstudio.com/)_ e _[Eclipse](https://eclipseide.org/)_, são amplamente utilizadas nesta etapa.
+Ferramentas de desenvolvimento, como <a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank">IDEs (Ambientes de Desenvolvimento Integrados)</a> como <a href="https://code.visualstudio.com/" target="_blank">VSCode</a> e <a href="https://eclipseide.org/" target="_blank">Eclipse</a>, são amplamente utilizadas nesta etapa.
 
 ![alt_text](./img/vscode-eclipse-logo-1.png "VSCode e Eclipse")
 
-### Build + Integrar
+### **Build + Integrar**
 
 Aqui duas ações principais entram em cena: a _Build (ou compilação do código-fonte)_ e a _Integração_.
 
-A ação de _Build_ tem como objetivo gerar os chamados  _[artefatos](https://en.wikipedia.org/wiki/Artifact_(software_development))_, que consistem em versões executáveis do sistema, prontas para serem implantadas (deploy) nos ambientes de desenvolvimento, homologação e produção.
+A ação de _Build_ tem como objetivo gerar os chamados <a href="https://en.wikipedia.org/wiki/Artifact_(software_development)" target="_blank">artefatos</a>, que consistem em versões executáveis do sistema, prontas para serem implantadas (deploy) nos ambientes de desenvolvimento, homologação e produção.
 
-A ação de Integrar está diretamente ligada à _[Integração Contínua (Continuous Integration ou CI)](https://en.wikipedia.org/wiki/Continuous_integration)_. Essa prática de desenvolvimento sugere que o código em desenvolvimento seja integrado ao código existente por meio de pequenos _[commits](https://en.wikipedia.org/wiki/Commit_(version_control))_, realizados de forma frequente e em intervalos curtos. Essa abordagem minimiza a acumulação de alterações e novas funcionalidades, evitando que se tornem difíceis de mesclar posteriormente.
+A ação de Integrar está diretamente ligada à <a href="https://en.wikipedia.org/wiki/Continuous_integration" target="_blank">Integração Contínua (Continuous Integration ou CI)</a>. Essa prática de desenvolvimento sugere que o código em desenvolvimento seja integrado ao código existente por meio de pequenos <a href="https://en.wikipedia.org/wiki/Commit_(version_control)" target="_blank">commits</a>, realizados de forma frequente e em intervalos curtos. Essa abordagem minimiza a acumulação de alterações e novas funcionalidades, evitando que se tornem difíceis de mesclar posteriormente.
 
-Podemos destacar algumas ferramentas de build, como o _[docker build](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)_, que é utilizado para construir imagens de contêineres, _[Maven](https://maven.apache.org/what-is-maven.html)_ projetos Java e o _[Make](https://www.gnu.org/software/make/)_, que é comum em projetos de código aberto em C/C++.
+Podemos destacar algumas ferramentas de build, como o `docker build`, que é utilizado para construir imagens de contêineres, <a href="https://maven.apache.org/what-is-maven.html" target="_blank">Maven</a> projetos Java e o <a href="https://www.gnu.org/software/make/" target="_blank">Make</a>, que é comum em projetos de código aberto em C/C++.
 
-Como ferramentas de _Integração Contínua_, podemos destacar o _[OCI DevOps](https://www.oracle.com/cloud/cloud-native/devops-service/)_, além de _[Jenkins](https://www.jenkins.io/)_ e _[Travis CI](https://www.travis-ci.com/)_.
+Como ferramentas de _Integração Contínua_, podemos destacar o <a href="https://docs.oracle.com/pt-br/iaas/Content/devops/using/home.htm" target="_blank">OCI DevOps</a>, além do <a href="https://www.jenkins.io/" target="_blank">Jenkins</a> e <a href="https://www.travis-ci.com/" target="_blank">Travis CI</a>.
 
 ![alt_text](./img/jenkins-travisci-logo-1.png "Jenkins e Travis CI")
 
-### Testar
+### **Testar**
 
 Além de assegurar que o sistema compila sem erros após cada novo commit, é fundamental verificar se ele mantém o comportamento esperado, ou seja, se continua funcionando corretamente.
 
-Os responsáveis por garantir o funcionamento adequado do sistema são os _[Testes Automatizados](https://en.wikipedia.org/wiki/Test_automation)_, que são implementados nesta etapa do processo.
+Os responsáveis por garantir o funcionamento adequado do sistema são os <a href="https://en.wikipedia.org/wiki/Test_automation" target="_blank">Testes Automatizados</a>, que são implementados nesta etapa do processo.
 
-Ferramentas como _[PyTest](https://docs.pytest.org/en/stable/)_, _[Gattling](https://gatling.io/)_, _[Selenium](https://www.selenium.dev/)_ ou _[JUnit](https://junit.org)_, são alguns exemplos que podem ser utilizadas nessa etapa.
+Ferramentas como <a href="https://docs.pytest.org/en/stable/" target="_blank">PyTest</a>, <a href="https://gatling.io/" target="_blank">Gattling</a>, <a href="https://www.selenium.dev/" target="_blank">Selenium</a> ou <a href="https://junit.org" target="_blank">JUnit</a>, são alguns exemplos que podem ser utilizadas nessa etapa.
 
 ![alt_text](./img/pytest-gattling-selenium-logo-1.png "PyTest, Gattling e Selenium")
 
-### Liberar (Release)
+### **Liberar (Release)**
 
-A fase de liberação, ou _[Release](https://en.wikipedia.org/wiki/Software_release_life_cycle)_, refere-se à versão do software que foi aprovada e está pronta para implantação. O objetivo dessa etapa é que, após a compilação do software e a conclusão dos testes, tenhamos uma nova versão pronta para o deploy.
+A fase de liberação, ou <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle" target="_blank">release</a>, refere-se à versão do software que foi aprovada e está pronta para implantação. O objetivo dessa etapa é que, após a compilação do software e a conclusão dos testes, tenhamos uma nova versão pronta para o deploy.
 
 A versão do software passa por diferentes estágios, incluindo _pre-alpha, alpha, beta e release candidate_, até que a _versão final_ (gold) seja liberada ao público.
 
-Além desses estágios, existe uma prática recomendada para o versionamento de software conhecida como _"[Versionamento Semântico](https://semver.org/lang/pt-BR/)"_ que utiliza números no formato MAJOR.MINOR.PATCH:
+Além desses estágios, existe uma prática recomendada para o versionamento de software conhecida como <a href="https://semver.org/lang/pt-BR/" target="_blank"><i>"Versionamento Semântico"</i></a> que utiliza números no formato: **MAJOR.MINOR.PATCH**
 
 ![alt_text](./img/semver-major-minor-patch-1.png "Versionamento Semântico")
 
@@ -123,9 +123,9 @@ Rótulos adicionais podem ser utilizados para fornecer informações mais espec�
 
 Esses rótulos ajudam a comunicar o estado e a estabilidade da versão do software.
 
-### Implantar (deploy)
+### **Implantar (deploy)**
 
-Na etapa de _Implantação_, existem duas práticas principais: _[Deployment Contínuo (Continuous Deployment ou CD)](https://en.wikipedia.org/wiki/Continuous_deployment)_ e _[Entrega Contínua (Continuous Delivery ou CD)](https://en.wikipedia.org/wiki/Continuous_delivery)_.
+Na etapa de _Implantação_, existem duas práticas principais: <a href="https://en.wikipedia.org/wiki/Continuous_deployment" target="_blank">Deployment Contínuo (Continuous Deployment ou CD)</a> e <a href="https://en.wikipedia.org/wiki/Continuous_delivery" target="_blank">Entrega Contínua (Continuous Delivery ou CD)</a>.
 
 A Entrega Contínua é uma prática que garante que o software esteja sempre em um estado que pode ser implantado em produção a qualquer momento. 
 
@@ -133,20 +133,20 @@ Por outro lado, o Deployment Contínuo avança um passo além, permitindo que ca
 
 Ambas as práticas visam minimizar o tempo entre a conclusão do desenvolvimento e a disponibilização do software para os usuários, de forma automatizada e sem intervenção manual a qualquer hora. O processo deve ser simples como apertar um botão.
 
-Ferramentas de Deployment Contínuo como _[OCI DevOps](https://www.oracle.com/cloud/cloud-native/devops-service/)_, _[Argo CD](https://argo-cd.readthedocs.io/en/stable/)_ ou _[CircleCI](https://circleci.com/)_ são alguns exemplos que podem ser utilizadas nessa etapa.
+Ferramentas de Deployment Contínuo como <a href="https://docs.oracle.com/pt-br/iaas/Content/devops/using/home.htm" target="_blank">OCI DevOps</a>, <a href="https://argo-cd.readthedocs.io/en/stable/" target="_blank">Argo CD</a> ou <a href="https://circleci.com/" target="_blank">CircleCI</a> são alguns exemplos que podem ser utilizadas nessa etapa.
 
 ![alt_text](./img/argocd-circleci-logo-1.png "Argo CD e CircleCI")
 
-### Operar
+### **Operar**
 
 A etapa de Operar no contexto de DevOps refere-se à fase em que o software é colocado em produção e monitorado para garantir seu desempenho, disponibilidade e segurança.
 
-### Monitoramento
+### **Monitoramento**
 
 Por fim, a etapa final, Monitoramento, envolve a coleta, análise e interpretação de dados relacionados ao desempenho do software, à infraestrutura e à experiência do usuário.
 
 Uma monitoração eficaz inclui a utilização de métricas de desempenho, logs e traces, que são essenciais para identificar problemas, otimizar o funcionamento do sistema e garantir uma experiência satisfatória para os usuários.
 
-Ferramentas de observabilidade, como _[Oracle Application Performance Monitoring (APM)](https://www.oracle.com/manageability/application-performance-monitoring/)_, _[Prometheus](https://prometheus.io/)_ e _[Grafana](https://grafana.com/)_, são exemplos.
+Ferramentas de observabilidade, como <a href="https://docs.oracle.com/pt-br/iaas/application-performance-monitoring/home.htm" target="_blank">Oracle Application Performance Monitoring (APM)</a>, <a href="https://prometheus.io/" target="_blank">Prometheus</a> e <a href="https://grafana.com/" target="_blank">Grafana</a>, são exemplos.
 
 ![alt_text](./img/prometheus-grafana-logo-1.png "Prometheus e Grafana")

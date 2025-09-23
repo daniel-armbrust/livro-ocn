@@ -19,6 +19,8 @@ hide:
 
 - [Redação Oracle (2021). Por que a nuvem é uma opção de tecnologia sustentável?](https://blogs.oracle.com/oracle-brasil/post/nuvem-cloud-tecnologia-sustentavel)
 
+- <a href="https://www.pearson.com/en-us/subject-catalog/p/cloud-computing-concepts-technology-and-architecture-second-edition/P200000009788/9780138052188" target="_blank">Cloud Computing: Concepts, Technology & Architecture. Prentice Hall, 2013</a>
+
 ## Oracle Cloud
 
 - [Oracle Cloud Infrastructure Documentation.](https://docs.oracle.com/en-us/iaas/Content/home.htm)

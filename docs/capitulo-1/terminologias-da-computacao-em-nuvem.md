@@ -7,8 +7,6 @@ hide:
 
 # 1.4 Terminologias da Computação em Nuvem
 
-A seguir, são apresentados alguns termos comuns relacionados aos benefícios e funcionalidades da Computação em Nuvem:
-
 ## 1.4.1 Alta disponibilidade (High Availability - HA)
 
 Ambientes computacionais configurados para estarem sempre disponíveis (24 horas por dia, 7 dias por semana, 365 dias por ano). Esses ambientes contam com hardware redundante e uma arquitetura de software projetada para alta disponibilidade, eliminando pontos únicos de falha. Em caso de qualquer falha, componentes de backup são acionados de forma transparente, garantindo que não haja impacto para o usuário final.
@@ -18,7 +16,7 @@ Ambientes computacionais configurados para estarem sempre disponíveis (24 horas
 Descreve como um provedor de Computação em Nuvem assegura um nível mínimo de indisponibilidade para os serviços oferecidos aos seus consumidores.
 
 !!! note "NOTA"
-    Consulte [Objetivos de Nível de Serviço para Serviços de Nuvem Pública Oracle PaaS e IaaS](https://docs.oracle.com/pt-br/iaas/Content/General/Reference/servicelevelobjectives.htm) para obter mais informações sobre os tempos de SLA dos serviços disponíveis no OCI.
+    Consulte <a href="https://docs.oracle.com/pt-br/iaas/Content/General/Reference/servicelevelobjectives.htm" target="_blank"><i>"Objetivos de Nível de Serviço para Serviços de Nuvem Pública Oracle PaaS e IaaS"</i></a> para obter mais informações sobre os tempos de SLA dos serviços disponíveis no OCI.
 
 ## 1.4.3 Escalabilidade (Scalability)
 

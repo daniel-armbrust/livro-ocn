@@ -441,5 +441,3 @@ Por fim, é importante mencionar que a configuração de endereços IPv6, indepe
 
 !!! note "NOTA"
     Para mais detalhes sobre a funcionalidade que detecta endereços duplicados, consulte a seção _[5.4. Duplicate Address Detection](https://www.rfc-editor.org/rfc/rfc4862#section-5.4)_ da _[RFC 4862](https://www.rfc-editor.org/rfc/rfc4862)_.
-    
-## 7.2.5 IPv6 no OCI

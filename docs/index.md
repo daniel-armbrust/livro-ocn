@@ -33,7 +33,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 22/09/2025         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 23/09/2025         | 1.0.0b   |
 
 ## Sumário
 
@@ -43,14 +43,13 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 1: Introdução a Computação em Nuvem](./capitulo-1/index.md)
-    - [1.1 Um pouco de História](./capitulo-1/historia-computacao-em-nuvem.md)
-    - [1.2 Definições do NIST](./capitulo-1/definicoes-nist.md)
-    - [1.3 Outras definições sobre Computação em Nuvem](./capitulo-1/outras-definicoes.md)
-    - [1.4 Terminologias da Computação em Nuvem](./capitulo-1/terminologias.md)
-    - [1.5 Vantagens e Desvantagens da Computação em Nuvem](./capitulo-1/vantagens-desvantagens.md)
+    - [1.1 Um pouco de História](./capitulo-1/um-pouco-de-historia.md)
+    - [1.2 Definições do NIST](./capitulo-1/definicoes-do-nist.md)
+    - [1.3 Outras definições sobre Computação em Nuvem](./capitulo-1/outras-definicoes-sobre-computacao-em-nuvem.md)
+    - [1.4 Terminologias da Computação em Nuvem](./capitulo-1/terminologias-da-computacao-em-nuvem.md)
+    - [1.5 Vantagens e Desvantagens da Computação em Nuvem](./capitulo-1/vantagens-e-desvantagens-da-computacao-em-nuvem.md)
     - [1.6 DevOps](./capitulo-1/devops.md)
     - [1.7 Cloud Native](./capitulo-1/cloud-native.md)
-    - [1.8 Conclusão](./capitulo-1/conclusao.md)
 <br><br>
  
 - [Capítulo 2: OCI Foundations](./capitulo-2/index.md)
