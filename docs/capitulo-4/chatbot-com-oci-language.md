@@ -3,6 +3,10 @@ hide:
   - toc
 ---
 
+<h3 style="text-align: center; font-style: italic;">
+"O ser humano não será substituído pela inteligência artificial; no entanto, o ser humano que utiliza a IA terá uma vantagem sobre aquele que não a utiliza." - Autor: Anônimo
+</h3>
+
 # Capítulo 5: Inteligência Artificial (IA)
 
 # 5.1 Introdução à Inteligência Artificial

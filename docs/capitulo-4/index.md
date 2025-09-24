@@ -3,4 +3,4 @@ hide:
   - toc
 ---
 
-# Capítulo 4: Oracle NoSQL Database Cloud Service
+# Capítulo 4: Serviços Auxiliares e Persistência de Dados

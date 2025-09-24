@@ -3,15 +3,15 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.1 Introdução ao OCI
+# 3.1 Introdução ao OCI
 
 A _[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/)_ é a plataforma de computação em nuvem da Oracle, projetada para atender a diversas necessidades pessoais e empresariais. Ela oferece uma ampla gama de serviços, incluindo computação, armazenamento, rede, banco de dados, inteligência artificial e muito mais. Isso permite que você ou sua empresa implementem soluções em nuvem flexíveis e escaláveis em um ambiente seguro e de alto desempenho.
 
 Antes de começar a utilizar o _[OCI](https://www.oracle.com/cloud/)_, é fundamental compreender alguns conceitos básicos que ajudarão no planejamento da sua arquitetura computacional na nuvem.
 
-## 2.1.1 Região
+## 3.1.1 Região
 
 Uma _[região](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/regions.htm)_ é uma área geográfica que abriga **_um ou mais data centers_**, os quais podem ser utilizados para construir sua infraestrutura de TI. As regiões podem ser separadas por grandes distâncias, abrangendo países ou até mesmo continentes.
 
@@ -52,7 +52,7 @@ Por fim, algumas regiões oferecem conectividade direta com outros provedores de
 
 ![alt_text](./img/oci-regions-3.png "Microsoft Azure e Google Cloud")
 
-## 2.1.2 Availability Domains (AD)
+## 3.1.2 Availability Domains (AD)
 
 Um _[Availability Domains (AD)](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/regions.htm)_ ou _[Domínio de Disponibilidade](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/regions.htm)_, é basicamente um **_data center_** que reside dentro de uma região. 
 
@@ -90,7 +90,7 @@ Alguns exemplos referentes à localidade dos recursos incluem:
 !!! note "NOTA"
     Para uma lista completa sobre os tipos de recursos com base em sua disponibilidade, consulte _["Resource Availability"](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm#Resource)_.
 
-## 2.1.3 Fault Domains (FD)
+## 3.1.3 Fault Domains (FD)
 
 Um _[Fault Domain](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/regions.htm#fault)_ é um agrupamento de hardware e infraestrutura dentro de um _Availability Domain_. Cada _Availability Domain_ possui **_três Fault Domains_**, que também podem ser utilizados para distribuir os recursos computacionais que você cria no OCI em diferentes conjuntos isolados de hardware.
 
@@ -104,7 +104,7 @@ Ao criar um recurso de computação _[(Compute Instance)](https://docs.oracle.co
 !!! note "NOTA"
     Um _[Fault Domain](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/regions.htm#fault)_ pode ser entendido como um data center lógico dentro de um data center físico ou, mais especificamente, dentro de um _[Availability Domain](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/regions.htm)_.
 
-## 2.1.4 Níveis de Proteção
+## 3.1.4 Níveis de Proteção
 
 Em resumo, os níveis de proteção contra falhas que o OCI disponibiliza são:
 
@@ -117,7 +117,7 @@ Em resumo, os níveis de proteção contra falhas que o OCI disponibiliza são:
 - **Fault Domains**
     - Proporciona proteção e disponibilidade dentro de um Availability Domain, isolando os recursos em diferentes conjuntos de hardware.
 
-## 2.1.5 OCI Status
+## 3.1.5 OCI Status
 
 _[OCI Status](https://ocistatus.oraclecloud.com)_ ou _[OCI Service Health Dashboard](https://ocistatus.oraclecloud.com)_ é um painel de acesso público que fornece o _"status atual"_ de todos os serviços do OCI por região. Além da monitoração em tempo real, é possível consultar o histórico de incidentes que já ocorreram na infraestrutura do OCI.
 

@@ -21,7 +21,7 @@ Sob as seguintes condições:
 **Aviso**: Não há garantias. A licença é fornecida "no estado em que se encontra", sem garantias de qualquer tipo, expressas ou implícitas, incluindo, mas não se limitando a garantias de comercialização, adequação a um propósito específico ou não violação.
 
 Para mais informações, visite:
-[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a>
 
 - Título da obra: OCN - OCI Cloud Native - Um guia prático para a construção de aplicações nativas da nuvem na Oracle Cloud Infrastructure (OCI).
 - Autor: <a href="mailto:darmbrust@gmail.com">Daniel Armbrust (darmbrust@gmail.com)</a>

@@ -3,6 +3,6 @@ hide:
   - toc
 ---
 
-# Capítulo 6: Aplicação OCI PIZZA
+# Capítulo 8: CaaS e FaaS
 
-# 6.6 Os Doze Fatores (The Twelve-Factor App)
+# 8.1 Os Doze Fatores (The Twelve-Factor App)

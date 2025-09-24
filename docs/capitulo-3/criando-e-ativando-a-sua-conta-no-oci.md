@@ -3,11 +3,11 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.2 Criando e Ativando a sua Conta no OCI
+# 3.2 Criando e Ativando a sua Conta no OCI
 
-## 2.2.1 Criando a sua Conta no OCI
+## 3.2.1 Criando a sua Conta no OCI
 
 Todo o processo de criação de uma nova conta no OCI deve ser realizado por meio do link _[https://signup.oraclecloud.com/](https://signup.oraclecloud.com/)_.
 

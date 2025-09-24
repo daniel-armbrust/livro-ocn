@@ -3,13 +3,13 @@ hide:
   - toc
 ---
 
-# Capítulo 6: Aplicação OCI PIZZA
+# Capítulo 2: Aplicação OCI PIZZA
 
-# 6.2 Arquitetura de Software
+# 2.2 Arquitetura de Software
 
-Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo passo é o desenvolvimento, seguido pela modelagem e design da arquitetura da aplicação. Este livro não entra nos detalhes de como desenvolver uma aplicação web, nem aborda aspectos de programação com _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_. Em vez disso, serão apresentados conceitos sobre arquitetura de software, juntamente com uma explicação de como a arquitetura da aplicação **OCI PIZZA** foi elaborada, considerando seu funcionamento.
+Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo passo é o desenvolvimento, seguido pela modelagem e design da arquitetura da aplicação. Este livro não entra nos detalhes de como desenvolver uma aplicação web, nem aborda aspectos de programação. Em vez disso, serão apresentados conceitos sobre arquitetura de software, juntamente com uma explicação de como a arquitetura da aplicação **OCI PIZZA** foi elaborada, considerando seu funcionamento.
 
-## 6.2.1 Overengineering
+## 2.2.1 Overengineering
 
 Decidi abordar o tema do _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ logo no início, pois já adianto que parte de todo o exposto no livro é SIM, _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_.
 
@@ -23,7 +23,7 @@ Por fim, é importante lembrar que o objetivo deste livro é explorar as prátic
 Keep It Simple, Stupid (KISS)
 </h3>
 
-## 6.2.2 Introdução a Arquitetura de Software
+## 2.2.2 Introdução a Arquitetura de Software
 
 Após a definição dos requisitos, chega o momento de escolher a linguagem de programação, o framework e, o mais importante, definir de forma macro a arquitetura que será adotada inicialmente pela aplicação web para resolver o problema proposto.
 
@@ -204,7 +204,7 @@ E, por fim, como um último ponto de destaque, os microsserviços apresentam des
 
 ![alt_text](./img/arquitetura-monolica-vs-microsservicos-2.png "Arquitetura Monolica vs. Microsservicos #2")
 
-## 6.2.3 Arquitetura da Aplicação OCI PIZZA
+## 2.2.3 Arquitetura da Aplicação OCI PIZZA
 
 A arquitetura da aplicação **OCI PIZZA**, assim como qualquer outra arquitetura, pode ser dividida em:
 
@@ -330,7 +330,7 @@ A seguir, apresentamos as tabelas da aplicação, acompanhadas das descrições 
 !!! note "NOTA"
     No _["Capítulo 5: Oracle NoSQL Database Cloud Service"](../capitulo-5/index.md)_, serão explorados mais detalhes sobre o tipo _[NoSQL](../capitulo-5/index.md)_ de banco de dados.
 
-## 6.2.4 Considerações sobre Escalabilidade e Gerenciamento de Sessões
+## 2.2.4 Considerações sobre Escalabilidade e Gerenciamento de Sessões
 
 Arquiteturas construídas na nuvem conseguem tirar proveito de um recurso chamado _[Load Balancer](../capitulo-5/load-balancer.md)_, que tem como objetivo distribuir o tráfego de rede destinado a um website entre múltiplos servidores de aplicação, aumentando assim o poder de processamento e garantindo maior disponibilidade e desempenho.
 

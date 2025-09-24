@@ -3,11 +3,11 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.4 Acessando o OCI
+# 3.4 Acessando o OCI
 
-## 2.4.1 Formas de Acesso ao OCI
+## 3.4.1 Formas de Acesso ao OCI
 
 Todo provedor de Computação em Nuvem, incluindo o OCI, disponibiliza seus serviços por meio de **_APIs REST_**. Isso significa que, para criar um recurso - seja uma máquina virtual, um banco de dados ou uma rede - você deve utilizar uma ou mais dessas APIs.
 

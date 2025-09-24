@@ -3,9 +3,9 @@ hide:
   - toc
 ---
 
-# Capítulo 2: OCI Foundations
+# Capítulo 3: OCI Foundations
 
-# 2.6 IAM, Limites, Cotas e Audit
+# 3.6 IAM, Limites, Cotas e Audit
 
 O serviço _[Identity and Access Management (IAM)](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm)_ fornece recursos para o **_gerenciamento de identidades_** e o **_controle de acesso_** aos recursos que você cria e gerencia no OCI.
 
@@ -23,7 +23,7 @@ Em resumo, o _[IAM](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstart
 
 Iniciaremos com uma explicação sobre o **_gerenciamento de identidades_**, abordando usuários e grupos. Em seguida, discutiremos o processo de **_autorização ou controle de acesso_** e, por último, exploraremos o que são _[Limites do Serviço](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/servicelimits.htm)_ e _[Cotas de Compartimento](https://docs.oracle.com/pt-br/iaas/Content/Quotas/Concepts/resourcequotas.htm)_.
 
-## 2.6.1 Gerenciamento de Identidades
+## 3.6.1 Gerenciamento de Identidades
 
 Cada ação realizada nos recursos do OCI, que incluem os recursos do seu _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_, deve ser executada por um usuário nomeado e válido, independentemente de ser através do _[Web Console](./acessando-o-oci.md#web-console)_, _[OCI CLI](./acessando-o-oci.md#oci-cli-oci-command-line-interface)_ ou _[SDK](./acessando-o-oci.md#oci-sdk-oci-software-development-kits)_.
 
@@ -177,7 +177,7 @@ $ oci iam group list-users \
 
 O script **_[scripts/capitulo-2/group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todos os comandos necessários para a criação dos Grupos de Usuários utilizados pela aplicação **OCI PIZZA**.
 
-## 2.6.2 Controle de Acesso
+## 3.6.2 Controle de Acesso
 
 Toda interação com as APIs do OCI exige uma **_autorização_** explícita. Isso significa que, por exemplo, para que um usuário possa criar uma _[VCN](https://docs.oracle.com/pt-br/iaas/Content/Network/Tasks/Overview_of_VCNs_and_Subnets.htm)_, após se autenticar com sucesso, ele deve ter as permissões adequadas para realizar essa ação.
 
@@ -465,7 +465,7 @@ $ oci iam policy create \
 
 O script **_[scripts/capitulo-2/policy.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/policy.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui todas as políticas de acesso utilizadas pela aplicação **OCI PIZZA**.
 
-## 2.6.3 Grupos Dinâmicos
+## 3.6.3 Grupos Dinâmicos
 
 Os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ são um tipo especial de grupo projetado para agrupar recursos, em vez de usuários. 
 
@@ -534,7 +534,7 @@ $ oci iam dynamic-group create \
 
 O script **_[scripts/capitulo-2/dynamic-group.sh](https://github.com/daniel-armbrust/ocipizza-iac/blob/main/scripts/capitulo-2/dynamic-group.sh)_** contido no repositório **_["ocipizza-iac"](https://github.com/daniel-armbrust/ocipizza-iac)_**, inclui os _[Grupos Dinâmicos](https://docs.oracle.com/pt-br/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)_ utilizadas pela aplicação **OCI PIZZA**.
 
-## 2.6.4 Limites e Cotas
+## 3.6.4 Limites e Cotas
 
 ### **[Limites](https://docs.oracle.com/pt-br/iaas/Content/General/Concepts/servicelimits.htm)**
 
@@ -713,7 +713,7 @@ $ oci iam region-subscription list \
 +-----------------+----------------+--------+
 ```
 
-## 2.6.6 Serviço Audit
+## 3.6.6 Serviço Audit
 
 O _[Serviço Audit](https://docs.oracle.com/pt-br/iaas/Content/Audit/Concepts/auditoverview.htm)_ registra automaticamente todas as chamadas e ações realizadas nas _APIs do OCI_, proporcionando um histórico detalhado das operações executadas em sua conta.
 
