@@ -11,13 +11,13 @@ Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo 
 
 ## 2.2.1 Overengineering
 
-Decidi abordar o tema do _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ logo no início, pois já adianto que parte de todo o exposto no livro é SIM, _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_.
+Decidi abordar o tema do <a href="https://en.wikipedia.org/wiki/Overengineering" target="_blank">Overengineering</a> logo no início desta seção, pois é importante esclarecer que parte do que será apresentado ao longo do livro é, de fato, um exemplo de <a href="https://en.wikipedia.org/wiki/Overengineering" target="_blank">Overengineering</a>.
 
-_[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ é um termo utilizado para descrever a prática de criar um produto ou sistema com mais complexidade ou recursos do que o necessário, muitas vezes resultando em desperdício de tempo e dinheiro. 
+<a href="https://en.wikipedia.org/wiki/Overengineering" target="_blank">Overengineering</a> é um termo utilizado para descrever a prática de criar um produto ou sistema com mais complexidade ou recursos do que o necessário, muitas vezes resultando em desperdício de tempo e dinheiro. 
 
-Ao longo dos capítulos deste livro, o _[Overengineering](https://en.wikipedia.org/wiki/Overengineering)_ se tornará mais evidente, especialmente ao abordarmos a transição da _Arquitetura Monolítica_ para uma _Arquitetura de Microsserviços_. Em uma aplicação real e simples como a **OCI PIZZA**, uma _Arquitetura Monolítica_ é, de fato, a melhor escolha.
+Ao longo dos capítulos deste livro, o <a href="https://en.wikipedia.org/wiki/Overengineering" target="_blank">Overengineering</a> se tornará mais evidente, especialmente ao abordarmos a transição da _Arquitetura Monolítica_ para uma _Arquitetura de Microsserviços_. Em uma aplicação real e simples como a **OCI PIZZA**, uma _Arquitetura Monolítica_ é, de fato, a melhor escolha.
 
-Por fim, é importante lembrar que o objetivo deste livro é explorar as práticas e os conceitos relacionados ao termo _[Cloud Native](../capitulo-1/cloud-native.md)_, utilizando uma aplicação real como exemplo, além de demonstrar como utilizar os serviços em nuvem oferecidos pelo OCI. Assim, em determinados momentos, abordaremos soluções mais complexas e que não são necessárias para o problema que a aplicação **OCI PIZZA** busca resolver, mas que ajudam a ilustrar algumas práticas na implementação de aplicações _[Cloud Native](../capitulo-1/cloud-native.md)_ no OCI.
+Por fim, é importante lembrar que o objetivo deste livro é explorar as práticas e os conceitos relacionados ao termo <a href="https://ocn.dev.br/capitulo-1/cloud-native/">Cloud Native</a>, utilizando uma aplicação real como exemplo, além de demonstrar como utilizar os serviços em nuvem oferecidos pelo <a href="https://ocn.dev.br/capitulo-3/">OCI</a>. Assim, em determinados momentos, abordaremos soluções mais complexas e que não são necessárias para o problema que a aplicação **OCI PIZZA** busca resolver, mas que ajudam a ilustrar algumas práticas na implementação de aplicações <a href="https://ocn.dev.br/capitulo-1/cloud-native/">Cloud Native</a> no <a href="https://ocn.dev.br/capitulo-3/">OCI</a>.
 
 <h3 style="text-align: center; font-style: italic;">
 Keep It Simple, Stupid (KISS)
@@ -38,12 +38,12 @@ Essas questões são comuns no contexto do desenvolvimento de software, e a melh
 - Escolha a linguagem de programação e o framework que você mais conhece.
 - Defina sua arquitetura de modo que ela resolva o seu problema da forma mais simples possível.
 
-Falando de _[arquitetura de software](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_, é importante destacar que existem diferentes tipos de arquiteturas e várias definições sobre o que é _[arquitetura de software](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_. Segundo _[Marco Tulio Valente](https://www.linkedin.com/in/mtov/)_, autor do livro _[Engenharia de Software Moderna](https://engsoftmoderna.info/)_, a arquitetura se refere ao _**"projeto em mais alto nível"**_. 
+Falando de <a href="https://pt.wikipedia.org/wiki/Arquitetura_de_software" target="_blank">arquitetura de software</a>, é importante destacar que existem diferentes tipos de arquiteturas e várias definições sobre o que é <a href="https://pt.wikipedia.org/wiki/Arquitetura_de_software" target="_blank">arquitetura de software</a>. Segundo <a href="https://www.linkedin.com/in/mtov/" target="_blank">Marco Tulio Valente</a>, autor do livro <a href="https://engsoftmoderna.info/" target="_blank">Engenharia de Software Moderna</a>, a arquitetura se refere ao _**"projeto em mais alto nível"**_. 
 
-Uma outra definição que eu particularmente gosto vem da _[Wikipédia](https://pt.wikipedia.org/wiki/Arquitetura_de_software)_, que diz: 
+Uma outra definição que eu particularmente gosto vem da <a href="https://pt.wikipedia.org/wiki/Arquitetura_de_software" target="_blank">Wikipédia</a>, que diz: 
 
 <h3 style="text-align: center; font-style: italic;">
-A arquitetura de software de um sistema consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares.
+A arquitetura de um sistema consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares.
 </h3>
 
 Portanto, é possível afirmar que:
@@ -52,16 +52,17 @@ Portanto, é possível afirmar que:
 A definição de uma arquitetura começa com um "projeto em mais alto nível", elaborado a partir dos requisitos ou das Histórias de Usuário. Essas histórias se transformam em funcionalidades ou componentes de software que se comunicam entre si, colaborando para resolver um problema do mundo real.
 </h3>
 
-Assim, de maneira simplificada, inicialmente temos o seguinte desenho de arquitetura da aplicação que será desenvolvida:
+De maneira simplificada, inicialmente temos o seguinte desenho de arquitetura da aplicação que será desenvolvida:
 
 ![alt_text](./img/arquitetura-1.png "Arquitetura #1")
-<br>
+
+Alguns tipos mais comuns de arquitetura de software incluem:
 
 ### **Arquitetura em Três Camadas**
 
-A _Arquitetura em Camadas_ pode ser definida como um processo de decomposição de sistemas complexos em camadas com o objetivo de facilitar a compreensão, o desenvolvimento, a manutenção e o mais importante, a separação de responsabilidades.
+A <a href="https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas" target="_blank">Arquitetura em Camadas</a> pode ser definida como um processo de decomposição de um sistema complexo em camadas, visando facilitar a compreensão, o desenvolvimento e a manutenção, além de promover a separação de responsabilidades.
 
-Quando se discute arquitetura em camadas no contexto de aplicações web, faz-se referência ao modelo conhecido como _["Arquitetura em Três Camadas"](https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas)_. Este modelo funciona muito bem para representar a arquitetura de aplicações web e é comumente utilizado porque reflete a estrutura organizacional de uma empresa, onde as pessoas são agrupadas com base em suas competências.
+Quando se discute arquitetura em camadas no contexto de aplicações web, faz-se referência ao modelo conhecido como <a href="https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas" target="_blank">"Arquitetura em Três Camadas"</a>. Este modelo funciona muito bem para representar a arquitetura de aplicações web e é comumente utilizado porque reflete a estrutura organizacional de uma empresa, onde as pessoas são agrupadas com base em suas competências.
 
 Para esclarecer o papel de cada camada, o desenho abaixo apresenta as três camadas desse estilo arquitetural, juntamente com algumas tecnologias associadas e as competências das equipes envolvidas no desenvolvimento e suporte de uma aplicação:
 
@@ -72,90 +73,87 @@ Para esclarecer o papel de cada camada, o desenho abaixo apresenta as três cama
     - A Camada de Apresentação, ou Inteface com o Usuário, representa a interface gráfica _(GUI - Graphical User Interface)_ com a qual o usuário interage com a aplicação. No mundo web, as interfaces de usuário são desenvolvidas pelos _Desenvolvedores Frontend_, utilizando um conjunto de tecnologias como _HTML_, _CSS_ e _JavaScript_.
 
 - **Camada de Aplicação ou Lógica de Negócios**
-    - A Camada de Aplicação, ou Lógica de Negócio, é responsável por implementar as regras de negócio da aplicação. As regras de negócios que uma aplicação deve implementar são, então, codificadas pelos _Desenvolvedores Backend_ utilizando linguagens de programação de alto nível, como _[Python](https://www.python.org/)_, _[Java](https://www.java.com/en/)_ ou _[Go](https://go.dev/)_. 
+    - A Camada de Aplicação, ou Lógica de Negócio, é responsável por implementar as regras de negócio da aplicação. As regras de negócios que uma aplicação deve implementar são, então, codificadas pelos _Desenvolvedores Backend_ utilizando linguagens de programação de alto nível, como <a href="https://www.python.org/" target="_blank">Python</a>, <a href="https://www.java.com/" target="_blank">Java</a> ou <a href="https://go.dev/" target="_blank">Go</a>. 
     
 - **Camada de Persistência ou Banco de Dados**
     - A Camada de Persistência, ou Banco de Dados, é responsável por armazenar de forma persistente os dados da aplicação. Os Administradores de Banco de Dados (DBAs) são os responsáveis por projetar, manter a integridade e a saúde dos Bancos de Dados de acordo com as exigências da aplicação.
 
-Por fim, é possível representar o papel de cada camada dentro desse modelo arquitetural:
+Por fim, é possível representar as três camadas dentro desse modelo arquitetural:
 
 ![alt_text](./img/arquitetura-em-tres-camadas-2.png "Arquitetura em Três Camadas #2")
 <br>
 
 !!! note "NOTA"
-    O termo _Desenvolvedor Full Stack_ refere-se a um profissional de tecnologia com habilidades de programação que abrange todas as camadas de desenvolvimento, tanto no Frontend quanto no Backend. A linguagem de programação mais destacada nesse contexto é o _[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)_, que pode ser executado no navegador e, por meio de implementações como o _[Node.js](https://nodejs.org/en)_, também no servidor, onde residem as regras de negócio. Bibliotecas JavaScript, como _[Sequelize](https://sequelize.org/)_ e _[TypeORM](https://typeorm.io/)_, permitem que os desenvolvedores interajam com bancos de dados, facilitando desde a criação de tabelas até a execução de instruções SQL, sem a necessidade de conhecimentos avançados em tecnologias de banco de dados. Assim, dependendo do tamanho da aplicação, um _Desenvolvedor Full Stack_ pode atuar em todas as camadas do projeto.
+    O termo **Desenvolvedor Full Stack** refere-se a um profissional de tecnologia que possui habilidades de programação abrangendo todas as camadas de desenvolvimento, incluindo Frontend, Backend e Persistência de Dados. A linguagem de programação que mais se destaca nesse contexto é o <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a>, que pode ser executado no navegador e, por meio de implementações como o <a href="https://nodejs.org/en" target="_blank">Node.js</a>, também do lado do servidor. Bibliotecas <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a>, como <a href="https://sequelize.org/" target="_blank">Sequelize</a> e <a href="https://typeorm.io/" target="_blank">TypeORM</a>, permitem que os desenvolvedores interajam com bancos de dados, facilitando desde a criação de tabelas até a execução de instruções SQL, sem a necessidade de conhecimentos avançados em tecnologias de banco de dados. Assim, dependendo do tamanho da aplicação, um **Desenvolvedor Full Stack** pode atuar em todas as camadas do projeto.
 
-Outro termo utilizado por alguns frameworks de desenvolvimento que possui o mesmo significado da _[Arquitetura em Três Camadas](https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas)_ é a  _[Arquitetura MVC (Model-View-Controller)](https://pt.wikipedia.org/wiki/MVC)_ ou _[Arquitetura Modelo-Visão-Controle](https://pt.wikipedia.org/wiki/MVC)_. Na sigla MVC, a letra M de _Model_, corresponde à _Camada de Persistência_, a letra V de _View_ refere-se à _Camada de Apresentação_, e a letra C de _Controller_ refere-se à _Camada de Aplicação_.
+Outro termo utilizado por alguns frameworks de desenvolvimento que possui o mesmo significado da <a href="https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas" target="_blank">Arquitetura em Três Camadas</a> é a  <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">Arquitetura MVC (Model-View-Controller)</a> ou <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">Arquitetura Modelo-Visão-Controle</a>. Na sigla <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">MVC</a>, a letra **M** de **Model**, corresponde à **Camada de Persistência**, a letra **V** de **View** refere-se à **Camada de Apresentação**, e a letra **C** de **Controller** refere-se à **Camada de Aplicação**.
 
-Uma variação do padrão MVC é o _MVT (Model-View-Template)_, utilizado por alguns frameworks, como o _[Flask](https://flask.palletsprojects.com/en/stable/)_. Nesse modelo, a lógica de apresentação e controle é integrada na View, que utiliza Templates para renderizar a interface do usuário. A camada Model mantém sua função original.
+Uma variação do padrão <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">MVC</a> é o **MVT (Model-View-Template)**, utilizado por alguns frameworks, como o <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a>. Nesse modelo, a lógica de apresentação e controle é integrada na **View**, que utiliza **Templates** para renderizar a interface do usuário. A camada **Model** mantém sua função original, correspondendo à **Camada de Persistência** de dados.
 
 ### **Arquitetura Monolítica**
 
-A _Arquitetura Monolítica_, referem-se a uma aplicação que, independentemente da quantidade de funcionalidades implementadas - seja por meio de módulos, classes ou funções - é implantada e executada através de único processo de computador. Em outras palavras, tudo é executado a partir de um único processo pelo sistema operacional.
+<a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Arquitetura Monolítica</a>, ou <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Sistema Monolítico</a>, refere-se a uma aplicação que, independentemente da quantidade de funcionalidades implementadas - seja por meio de módulos, classes ou funções - <b>é implantada e executada como um único processo</b> de computador.
 
 !!! note "NOTA"
-    Processo de computador ou de sistema operacional será explorado na seção _["2.3 Entendendo os Contêineres"](./entendendo-os-conteineres.md)_. Por enquanto, é importante entender que um processo é o termo utilizado para se referir a uma instância de um programa em execução, gerenciada por um sistema operacional.
+    Processo de computador ou de sistema operacional será explorado na seção <a href="https://ocn.dev.br/capitulo-6/entendendo-os-conteineres/">"6.1 Entendendo os Contêineres"</a> do <a href="https://ocn.dev.br/capitulo-6/">capítulo 6</a>. Por enquanto, é importante entender que um processo é o termo utilizado para se referir a uma instância de um programa em execução, gerenciada pelo sistema operacional.
 
-Outra definição de _[Sam Newman](https://www.linkedin.com/in/samnewman/)_, autor do livro _[Migrando Sistemas Monolíticos Para Microsserviços](https://amzn.to/3Z9Dh96)_, afirma que: 
+Outra definição de <a href="https://www.linkedin.com/in/samnewman/" target="_blank">Sam Newman</a>, autor do livro <a href="https://novatec.com.br/livros/migrando-monoliticos-para-microsservicos/"><i>"Migrando Sistemas Monolíticos Para Microsserviços"</i></a>, afirma que: 
 
 <h3 style="text-align: center; font-style: italic;">
 Quando todas as funcionalidades de um sistema tiverem que ser implantadas em conjunto, considero que esse é um sistema monolítico. Embora seja possível ter várias instâncias desse único processo por questões de escalabilidade ou tolerância a falhas, todo o código da aplicação permanece contido dentro desse único processo.
 </h3>
 
-Um _Sistema Monolítico_ pode ser classificado como um **_Sistema Monolítico Modular_**. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo, formando uma única unidade de implantação.
+Um **Sistema Monolítico** pode ser classificado como um **Sistema Monolítico Modular**. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo.
 
-A aplicação **OCI PIZZA** foi inicialmente desenvolvida usando essa característica de ser um **_Monolítico Modular_**, onde foram desenvolvidos diferentes módulos que operam em conjunto, cada um com suas responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo _[Python/Flask](https://flask.palletsprojects.com/en/stable/)_.
+A aplicação **OCI PIZZA** foi desenvolvida utilizando a característica de ser um **Monolítico Modular**, na qual diferentes módulos operam em conjunto, cada um com responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Python/Flask</a>.
 
 ![alt_text](./img/ocipizza-modulos-1.png "OCI PIZZA - Módulos #1")
 <br>
 
 ![alt_text](./img/ocipizza-modulos-2.png "OCI PIZZA - Módulos #2")
-
-!!! note "NOTA"
-    A análise detalhada do código-fonte da aplicação **OCI PIZZA** será apresentada na seção _["2.4 Ambiente de Desenvolvimento"](./capitulo-2/ambiente-de-desenvolvimento.md)_. 
     
 #### **Vantagens da Arquitetura Monolítica**
 
-**1.** Uma Arquitetura Monolítica é uma abordagem válida e, de fato, é frequentemente a mais recomendada para o início da construção de um software. Ela se destaca como a melhor escolha para a criação rápida de protótipos ou _[provas de conceito (PoC - Proof of Concept)](https://pt.wikipedia.org/wiki/Prova_de_conceito)_.
+**1.** Uma Arquitetura Monolítica é uma abordagem válida e, de fato, é frequentemente a mais recomendada para o início da construção de um software. Ela se destaca como a melhor escolha para a criação rápida de protótipos ou <a href="https://pt.wikipedia.org/wiki/Prova_de_conceito" target="_blank">provas de conceito (PoC - Proof of Concept)</a>.
 
-**2.** Sistemas monolíticos são mais fáceis de implantar (deploy) porque todo o código está contido em um único repositório, permitindo que a implantação ocorra em um único local.
+**2.** Sistemas Monolíticos são mais fáceis de implantar (deploy) porque todo o código está contido em um único repositório, o que permite que a implantação e a execução ocorram a partir de um único local.
 
-**3.** É mais fácil reutilizar código entre diferentes partes da aplicação. Por exemplo em _[Python](https://www.python.org/)_, uma instrução do tipo `from app.modules.nosql import NoSQL` permite importar a funcionalidade de um módulo para outro. Além disso, a comunicação entre os diferentes módulos da aplicação, que são executados dentro de um mesmo processo, é mais rápida.
+**3.** É mais fácil reutilizar código entre diferentes partes da aplicação. Por exemplo em <a href="https://www.python.org/" target="_blank">Python</a>, uma instrução do tipo `from app.modules.nosql import NoSQL` permite importar a funcionalidade de um módulo para outro. Além disso, a comunicação entre os diferentes módulos da aplicação, que são executados dentro de um mesmo processo, é mais rápida.
 
-**4.** A estrutura unificada de um monólito facilita o teste das interações entre os componentes, tornando a execução de testes fim a fim mais fácil. Além disso, a monitoração de uma aplicação monolítica é geralmente mais fácil em comparação com uma arquitetura de microsserviços.
+**4.** A estrutura unificada de um monólito facilita o teste das interações entre os componentes, tornando a execução de testes fim a fim mais fácil. Além disso, por operar como um único processo, a monitoração de uma aplicação monolítica é geralmente mais fácil de implementar.
 
 #### **Desvantagens da Arquitetura Monolítica**
 
 **1.** Mudanças no código de um monólito exigem a implantação completa de toda a aplicação. Isso significa que, ao realizar uma atualização ou correção, é necessário reimplantar o sistema inteiro, o que pode resultar em períodos de inatividade e maior complexidade na gestão de versões.
 
-**2.** Devido ao fato de todo o código estar contido em um único repositório, alterações em diferentes partes do código por diferentes desenvolvedores, podem resultar em um aumento nos conflitos de _[merge](https://pt.wikipedia.org/wiki/Fus%C3%A3o_(controle_de_vers%C3%A3o))_. Esses conflitos podem atrasar as implantações do sistema.
+**2.** Devido ao fato de todo o código estar contido em um único repositório, alterações em diferentes partes do código por diferentes desenvolvedores, podem resultar em um aumento nos conflitos de <a href="https://pt.wikipedia.org/wiki/Fus%C3%A3o_(controle_de_vers%C3%A3o)" target="_blank">merge</a>. Esses conflitos podem atrasar as implantações do sistema.
 
-**3.** Sistemas monolíticos limitam as opções de utilização de diferentes tecnologias. Por exemplo, um monolito escrito em _[Python](https://www.python.org/)_ possui toda a sua base de código nessa linguagem, o que significa que não é possível mesclar funcionalidades em _[Python](https://www.python.org/)_ e _[Java](https://www.java.com/en/)_ dentro da mesma aplicação.
+**3.** Sistemas monolíticos limitam as opções de utilização de diferentes tecnologias. Por exemplo, um monolito escrito em <a href="https://www.python.org/" target="_blank">Python</a> possui toda a sua base de código nessa linguagem, o que significa que não é possível mesclar funcionalidades em <a href="https://www.python.org/" target="_blank">Python</a> e <a href="https://www.java.com/" target="_blank">Java</a> dentro da mesma aplicação.
 
-**4.** Dizemos que um monólito está sujeito a uma _Falha Total_. Essa expressão significa que um erro ou falha em qualquer parte do código pode levar à indisponibilidade de toda a aplicação.
+**4.** Dizemos que um monólito está sujeito a uma **"Falha Total"**. Essa expressão significa que um erro ou falha em qualquer parte do código pode levar à indisponibilidade total da aplicação.
 
 ### **Arquitetura de Microsserviços**
 
-A _Arquitetura de Microsserviços_ ou, _Arquitetura baseada em Microsserviços_, é um padrão arquitetural que consiste em diversos serviços independentes, desacoplados e distribuídos. Cada serviço é considerado _"micro"_ porque possui uma base de código menor na qual implementa uma única funcionalidade da aplicação (responsabilidade única). Esses diversos e micros serviços, são executados em processos independentes e, juntos, se combinam para formar o sistema como um todo.
+<a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">Arquitetura de Microsserviços</a> ou, <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">Arquitetura baseada em Microsserviços</a>, é um padrão arquitetural que consiste em diversos serviços independentes, desacoplados e distribuídos. Cada serviço é considerado _"micro"_ porque possui uma base de código menor na qual implementa uma única funcionalidade da aplicação (responsabilidade única). Esses diversos e _"micros serviços"_, são executados em **processos independentes** e, juntos, se combinam para formar o sistema como um todo.
 
 <h3 style="text-align: center; font-style: italic;">
-Microsserviços são serviços que podem ser implantados de forma independente e são modelados em torno de um domínio de negócios - Autor: <a href="https://www.linkedin.com/in/samnewman/">Sam Newman</a>
+Microsserviços são serviços que podem ser implantados de forma independente e são modelados em torno de um domínio de negócios - Autor: <a href="https://www.linkedin.com/in/samnewman/" target="_blank">Sam Newman</a>
 </h3>
 
-Pelo fato de que cada microsserviço possui sua própria base de código, isso permite a utilização de diferentes tecnologias para seu desenvolvimento e possibilita que sejam implantados de forma independente. Por serem independentes, os microsserviços também podem ter suas próprias bases de dados, o que é considerado uma boa prática ao adotar esse estilo arquitetural.
+Pelo fato de que cada <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">microsserviço</a> possui a sua própria base de código, isso permite a utilização de diferentes tecnologias para seu desenvolvimento e possibilita que sejam **implantados de forma independente**. Por serem independentes, os <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">microsserviços</a> também podem ter suas próprias bases de dados independentes, o que é considerado uma boa prática ao adotar esse estilo arquitetural.
 
-Outra afirmação que ajuda a descrever os microsserviços é que eles funcionam como componentes completos de uma funcionalidade da aplicação, e que incluem sua própria interface de usuário, lógica de negócios e gerenciamento de dados.
+Outra afirmação que ajuda a descrever os <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">microsserviços</a> é que eles funcionam como componentes completos de uma funcionalidade da aplicação, e que incluem sua própria interface de usuário, lógica de negócios e gerenciamento de dados.
 
-Toda a comunicação entre os serviços ocorre pela rede utilizando algum protocolo, sendo os mais comuns o _[HTTP](https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol)_ e o _[gRPC](https://pt.wikipedia.org/wiki/GRPC)_.
+Toda a comunicação entre os serviços ocorre pela rede utilizando algum protocolo, sendo os mais comuns o <a href="https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">HTTP</a> e o <a href="https://pt.wikipedia.org/wiki/GRPC" target="_blank">gRPC</a>.
 
 ![alt_text](./img/ocipizza-modulos-3.png "OCI PIZZA - Módulos #3")
 <br>
 
 !!! note "NOTA"
-    A aplicação **OCI PIZZA** é composta por módulos bastante simples, e a separação desses módulos em serviços independentes pode resultar em mais complexidade do que benefícios para a aplicação, conforme discutido na seção _["2.2.1 Overengineering"](#221-overengineering)_. O objetivo aqui é ilustrar parte do conceito por meio de uma aplicação real e de fácil compreensão.
+    A aplicação **OCI PIZZA** é composta por módulos bastante simples, e a separação desses módulos em serviços independentes pode resultar em mais complexidade do que benefícios para a aplicação. Lembre-se que o objetivo aqui é apresentar parte dos conceitos sobre <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">Arquitetura de Microsserviços</a> por meio de uma aplicação real e de fácil compreensão.
 
 !!! note "NOTA"
-    Assista o video _["Deconstructing the Monolith (Shopify Unite Track 2019)"](https://youtu.be/ISYKx8sa53g?si=GO0k1Sn0MaDNglfV)_, que explica um pouco sobre a transição da _[Shopify](https://www.shopify.com/br)_ de um grande monólito escrito em _[Ruby on Rails](https://pt.wikipedia.org/wiki/Ruby_on_Rails)_ para uma arquitetura de microsserviços, composta por mini-aplicações _[Ruby on Rails](https://pt.wikipedia.org/wiki/Ruby_on_Rails)_ distribuídas.
+    Assista o video <a href="https://youtu.be/ISYKx8sa53g?si=GO0k1Sn0MaDNglfV" target="_blank"><i>"Deconstructing the Monolith (Shopify Unite Track 2019)"</i></a>, que explica um pouco sobre a transição da <a href="https://www.shopify.com/br" target="_blank">Shopify</a> de um grande monólito escrito em <a href="https://pt.wikipedia.org/wiki/Ruby_on_Rails" target="_blank">Ruby on Rails</a> para uma arquitetura de <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">Arquitetura de Microsserviços</a>, composta por _"mini-aplicações"_ <a href="https://pt.wikipedia.org/wiki/Ruby_on_Rails" target="_blank">Rails</a> distribuídas.
 
 #### **Vantagens da Arquitetura de Microsserviços**
 

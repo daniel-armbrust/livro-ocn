@@ -15,7 +15,7 @@ O diálogo a seguir ilustra a interação entre **Você**, o desenvolvedor, e se
 
 <div class="caixa-de-dialogo">
     <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Fulano (cliente)</p>
-    <p>Olá! Eu sou o Fulano, proprietário da "OCI PIZZA". Estou interessado em criar um site para o meu negócio. Você pode me ajudar?</p>
+    <p>Olá! Eu sou o Fulano, proprietário da <b>"OCI PIZZA"</b>. Estou interessado em criar um site para o meu negócio. Você pode me ajudar?</p>
 </div>
 
 <div class="caixa-de-dialogo">
@@ -47,7 +47,7 @@ O diálogo a seguir ilustra a interação entre **Você**, o desenvolvedor, e se
 
 <div class="caixa-de-dialogo">
     <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Fulano (cliente)</p>
-    <p>Sim, tenho algumas fotos que tirei. Posso enviá-las para vocês.</p>
+    <p>Sim, tenho algumas fotos que tirei. Posso enviá-las para você.</p>
 </div>
 
 <div class="caixa-de-dialogo">
@@ -67,7 +67,7 @@ O diálogo a seguir ilustra a interação entre **Você**, o desenvolvedor, e se
 
 <div class="caixa-de-dialogo">
     <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Fulano (cliente)</p>
-    <p>Eu gostaria de oferecer ambos, se possível. Quero que os clientes possam escolher entre retirar na loja ou receber em casa.</p>
+    <p>Eu gostaria de oferecer ambos. Quero que os clientes possam escolher entre retirar na loja ou receber em casa.</p>
 </div>
 
 <div class="caixa-de-dialogo">
@@ -97,7 +97,7 @@ O diálogo a seguir ilustra a interação entre **Você**, o desenvolvedor, e se
 
 <div class="caixa-de-dialogo">
     <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Fulano (cliente)</p>
-    <p>Eu pensei em algo como "ocipizza.com.br".</p>
+    <p>Eu pensei em algo como <b>"ocipizza.com.br"</b>.</p>
 </div>
 
 <div class="caixa-de-dialogo">
@@ -117,7 +117,7 @@ O diálogo a seguir ilustra a interação entre **Você**, o desenvolvedor, e se
 
 <div class="caixa-de-dialogo">
     <p style="font-size: 15pt; font-weight: bold; color: #004A7F;">Fulano (cliente)</p>
-    <p>Não, isso é tudo por enquanto. Obrigado pela ajuda!</p>
+    <p>Não, isso é tudo por enquanto. Agradeço pela sua atenção!</p>
 </div>
 
 <div class="caixa-de-dialogo">
@@ -127,41 +127,43 @@ O diálogo a seguir ilustra a interação entre **Você**, o desenvolvedor, e se
 
 ## 2.1.2 Engenharia de Requisitos
 
-Com base neste primeiro contato, podemos iniciar a elaboração de uma descrição concisa das funcionalidades do sistema, alinhadas às necessidades do cliente.
+Com base neste primeiro contato, podemos iniciar a elaboração de uma descrição das funcionalidades do sistema, alinhadas às necessidades do cliente.
 
 Definir _"o que um sistema deve fazer"_, ou seja, suas funcionalidades, refere-se ao que chamamos de **_Requisitos Funcionais_** ou **_Requisitos do Usuário_**. 
 
 Além dos requisitos funcionais, há uma outra categoria de requisitos chamada **_Requisitos Não-Funcionais_** ou **_Requisitos de Sistema_**. Esses requisitos tratam de aspectos como desempenho, usabilidade, segurança e escalabilidade, entre outros, e são especificados de maneira quantitativa, utilizando métricas para garantir sua mensuração e avaliação.
 
-A definição e especificação de requisitos são etapas fundamentais no processo de desenvolvimento de software, pois estabelecem as diretrizes necessárias para a construção e entrega do produto. Basicamente, quando o assunto é desenvolvimento de software, duas abordagens principais que podem ser adotadas, abrangendo desde a definição dos requisitos até os processos de desenvolvimento, documentação e entrega:
+A definição e a especificação dos requisitos são etapas fundamentais no processo de desenvolvimento de software, abrangendo desde a identificação dos requisitos até os processos relacionados às metodologias de desenvolvimento, documentação e entrega. Nesse contexto, duas abordagens principais se destacam:
 
 - <a href="https://pt.wikipedia.org/wiki/Modelo_em_cascata" target="_blank"><b>Processos Waterfall (Modelo em cascata)</b></a>
-    - Primeiro a ser proposto e inspirado nos processos das engenharias tradicionais, esse modelo coleta todas as informações necessárias para o desenvolvimento no início do projeto. Após a criação de uma documentação detalhada, o desenvolvimento avança de forma linear e sequencial, seguindo etapas que se sucedem em cascata, sem realizar interações ou coletar feedback do cliente ao longo do processo.
+    - Primeiro a ser proposto e inspirado nos processos das engenharias tradicionais.
+    - Esse modelo coleta todas as informações necessárias para o desenvolvimento no início do projeto. Após a elaboração de uma documentação detalhada, o desenvolvimento inicia-se e avança de forma linear e sequencial, seguindo etapas que se sucedem em cascata, sem realizar interações ou coletar feedback do cliente ao longo do processo.
 
 - <a href="https://pt.wikipedia.org/wiki/Desenvolvimento_%C3%A1gil_de_software" target="_blank"><b>Práticas Ágeis</b></a>
-    - Modo alternativo ao _Waterfall_ para o desenvolvimento de software que prioriza a construção incremental de sistemas, mantendo uma interação contínua com o cliente. Práticas ágeis focam na coleta constante de feedback, possibilitando entregas regulares e frequentes de pequenas funcionalidades.
+    - Modo alternativo ao _Waterfall_ para o desenvolvimento de software que prioriza a construção incremental de sistemas, mantendo uma interação contínua com o cliente.
+    - Práticas ágeis focam na coleta constante de feedback, possibilitando entregas regulares e frequentes de pequenas funcionalidades.
 
 Processos no estilo <a href="https://pt.wikipedia.org/wiki/Modelo_em_cascata" target="_blank"><i>Waterfall</i></a> exigem um levantamento detalhado dos requisitos, seguido pela elaboração de uma documentação completa antes da implementação do que foi especificado. O sistema é disponibilizado ao cliente para validação somente após a conclusão de todo o desenvolvimento.
 
-O principal problema do modelo <a href="https://pt.wikipedia.org/wiki/Modelo_em_cascata" target="_blank"><i>Waterfall</i></a> é que a documentação se torna um requisito obrigatório, muitas vezes mais valorizado do que o próprio software funcionando conforme as expectativas do cliente. A espera pela conclusão de toda a documentação antes de iniciar o desenvolvimento pode resultar em um produto que não atende mais às necessidades do cliente, que podem ter mudado desde o início do projeto.
+O principal problema do modelo <a href="https://pt.wikipedia.org/wiki/Modelo_em_cascata" target="_blank"><i>Waterfall</i></a> é que a documentação se torna um requisito obrigatório, muitas vezes mais valorizado do que o próprio software. A espera pela conclusão de toda a documentação antes de iniciar o desenvolvimento pode resultar em um produto que não atende mais às necessidades do cliente, que podem ter mudado desde o início do projeto.
 
-Em fevereiro de 2001, na cidade de Snowbird, no estado de Utah, nos Estados Unidos, um grupo de dezessete Engenheiros de Software propôs um modo alternativo para construção de software, que prioriza a proximidade com o cliente e não documentações extensas antes de todo o desenvolvimento, promovendo interações curtas e constantes ao longo do processo de desenvolvimento. Essa nova forma de trabalho resultou no que é conhecido como <a href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank"><i>"Manifesto do Desenvolvimento Ágil de Software"</i></a>, que prioriza certos princípios e valores em relação a outros, conforme destacado na imagem abaixo:
+Em fevereiro de 2001, na cidade de Snowbird, no estado de Utah, nos Estados Unidos, um grupo de dezessete Engenheiros de Software propôs um modo alternativo para construção de software, que prioriza a proximidade com o cliente e não documentações extensas antes de todo o desenvolvimento, promovendo interações curtas e constantes ao longo do processo de desenvolvimento. Essa nova forma de trabalho resultou no que é conhecido como <a href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank"><i>"Manifesto do Desenvolvimento Ágil de Software"</i></a>, que prioriza certos princípios e valores em relação a outros, conforme destacados na imagem abaixo:
 
 ![alt_text](./img/manifesto-agil-1.png "Manifesto Ágil")
 
 !!! note "NOTA"
-    A versão em português do Brasil do <a href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank"><i>"Manifesto do Desenvolvimento Ágil de Software"</i></a> está disponível neste <a href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank"><i>link</i></a>.
+    A versão em português do Brasil do <a href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank"><i>"Manifesto do Desenvolvimento Ágil de Software"</i></a> está disponível para consulta através do <a href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank"><i>link</i></a>.
 
-De certa forma, _"Práticas Ágeis"_ ou _"ser ágil"_ estão mais relacionadas a um estilo de _"fazer acontecer"_ do que à implementação de uma ferramenta, processo ou qualquer forma de controle. A agilidade está mais relacionada às ações necessárias para alcançar um objetivo acordado, com expectativas alinhadas, especialmente quando não se tem clareza sobre como atingi-lo. Esse processo, de certa forma, segue um ciclo que se repete da seguinte maneira:
+De certa forma, _"Práticas Ágeis"_ ou _"ser ágil"_ estão mais relacionadas a um estilo de _"fazer acontecer"_ do que à implementação de ferramentas, processos ou qualquer forma de controle. A agilidade está mais relacionada às ações necessárias para alcançar um objetivo acordado, com expectativas alinhadas, especialmente em situações onde não há clareza sobre como atingi-lo. Esse processo, de certa forma, segue um ciclo que se repete da seguinte maneira:
 
-1. Avançar um passo de cada vez.
-2. Avaliar os resultados de cada passo.
-3. Ajustar o caminho caso os resultados não estejam de acordo com o esperado.
-4. Repetir o ciclo.
+1. **Avançar um passo de cada vez.**
+2. **Avaliar os resultados de cada passo.**
+3. **Ajustar o caminho caso os resultados não estejam de acordo com o esperado.**
+4. **Repetir o ciclo.**
 
 Além disso, as _"Práticas Ágeis"_ introduziram novas abordagens para a criação de software, incluindo o <a href="https://pt.wikipedia.org/wiki/Test-driven_development" target="_blank"><i>desenvolvimento guiado por testes (test-driven development)</i></a>, que consiste em escrever os testes antes do código, e a <a href="https://pt.wikipedia.org/wiki/Integra%C3%A7%C3%A3o_cont%C3%ADnua" target="_blank"><i>integração contínua (continuous integration)</i></a>, que recomenda que os desenvolvedores integrem o código produzido o quanto antes no repositório principal do projeto, se possível todo dia.
 
-Para se definir requisitos dentro das _"Práticas Ágeis"_, utiliza-se linguagem natural, empregando o que chamamos de <a href="https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio" target="_blank"><i>Histórias de Usuários (User Stories)</i></a>, que será explorado a seguir.
+Para o desenvolvimento da aplicação **OCI PIZZA**, serão adotadas as _"Práticas Ágeis"_. Na definição dos requisitos dentro dessa abordagem, utiliza-se a linguagem natural, empregando o que chamamos de <a href="https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio" target="_blank"><i>Histórias de Usuários (User Stories)</i></a>, que será explorado a seguir.
 
 ### <a href="https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio" target="_blank"><b>Histórias de Usuários</b></a>
 
@@ -190,7 +192,7 @@ Com base na necessidade apresentada, é possível especificar de forma simples a
 - **Suporte ao Cliente**
     - Como um cliente, eu quero ter acesso a um chat de suporte, para que eu possa esclarecer dúvidas, obter informações sobre o status do meu pedido e resolver quaisquer problemas relacionados à minha experiência de compra.
 
-É importante ressaltar que, no caso desta aplicação, os requisitos são simples. No entanto, documentar os requisitos de uma aplicação maior, com mais funcionalidades a serem desenvolvidas, não é uma tarefa fácil, pois é impossível prever todos os aspectos do sistema desde o início. 
+É importante mencionar que, no caso desta aplicação, os requisitos são simples. Documentar os requisitos de uma aplicação maior, com mais funcionalidades a serem desenvolvidas, não é uma tarefa fácil, pois é impossível prever todos os aspectos do sistema desde o início.
 
 !!! note "NOTA"
     O documento _[workflow-funcionament-pizzaria.pdf](./workflow-funcionament-pizzaria.pdf)_, enviado pelo cliente, serviu como base para a elaboração das <a href="https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio" target="_blank"><i>Histórias de Usuários</i></a> e também proporcionou uma visão geral do funcionamento da pizzaria.

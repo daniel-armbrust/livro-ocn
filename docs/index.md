@@ -51,7 +51,7 @@ Boa leitura!
 - [Capítulo 2: Aplicação OCI PIZZA](./capitulo-2/index.md)        
     - [2.1 Da Necessidade à Definição de Requisitos](./capitulo-2/da-necessidade-a-definicao-dos-requisitos.md)
     - [2.2 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)
-    - [2.3 APIs REST](./capitulo-2/apis-rest.md)
+    - [2.3 Projeto de APIs REST](./capitulo-2/projeto-de-apis-rest.md)
 <br><br>
 
 - [Capítulo 3: OCI Foundations](./capitulo-3/index.md)
