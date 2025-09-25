@@ -23,17 +23,17 @@ Portanto, é possível afirmar que:
 A definição de uma arquitetura começa com um "projeto em mais alto nível", elaborado a partir dos requisitos ou das Histórias de Usuário. Essas histórias se transformam em funcionalidades ou componentes de software que se comunicam entre si, colaborando para resolver um problema do mundo real.
 </h3>
 
-De maneira simplificada, inicialmente temos o seguinte desenho de arquitetura da aplicação que será desenvolvida:
+De maneira simplificada, inicialmente temos o seguinte desenho de arquitetura da aplicação de exemplo **OCI PIZZA**:
 
 ![alt_text](./img/arquitetura-1.png "Arquitetura #1")
 
-Alguns tipos mais comuns de arquitetura de software incluem:
+Alguns tipos mais comuns de <a href="https://pt.wikipedia.org/wiki/Arquitetura_de_software" target="_blank">Arquitetura de Software</a> incluem:
 
 ### **Arquitetura em Três Camadas**
 
 A <a href="https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas" target="_blank">Arquitetura em Camadas</a> pode ser definida como um processo de decomposição de um sistema complexo em camadas, visando facilitar a compreensão, o desenvolvimento e a manutenção, além de promover a separação de responsabilidades.
 
-Quando se discute arquitetura em camadas no contexto de aplicações web, faz-se referência ao modelo conhecido como <a href="https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas" target="_blank">"Arquitetura em Três Camadas"</a>. Este modelo funciona muito bem para representar a arquitetura de aplicações web e é comumente utilizado porque reflete a estrutura organizacional de uma empresa, onde as pessoas são agrupadas com base em suas competências.
+Quando se discute arquitetura em camadas no contexto de aplicações web, faz-se referência ao modelo conhecido como <a href="https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas" target="_blank"><i>"Arquitetura em Três Camadas"</i></a>. Este modelo funciona muito bem para representar a arquitetura de aplicações web e é comumente utilizado porque reflete a estrutura organizacional de uma empresa, onde as pessoas são agrupadas com base em suas competências.
 
 Para esclarecer o papel de cada camada, o desenho abaixo apresenta as três camadas desse estilo arquitetural, juntamente com algumas tecnologias associadas e as competências das equipes envolvidas no desenvolvimento e suporte de uma aplicação:
 
@@ -47,7 +47,7 @@ Para esclarecer o papel de cada camada, o desenho abaixo apresenta as três cama
     - A Camada de Aplicação, ou Lógica de Negócio, é responsável por implementar as regras de negócio da aplicação. As regras de negócios que uma aplicação deve implementar são, então, codificadas pelos _Desenvolvedores Backend_ utilizando linguagens de programação de alto nível, como <a href="https://www.python.org/" target="_blank">Python</a>, <a href="https://www.java.com/" target="_blank">Java</a> ou <a href="https://go.dev/" target="_blank">Go</a>. 
     
 - **Camada de Persistência ou Banco de Dados**
-    - A Camada de Persistência, ou Banco de Dados, é responsável por armazenar de forma persistente os dados da aplicação. Os Administradores de Banco de Dados (DBAs) são os responsáveis por projetar, manter a integridade e a saúde dos Bancos de Dados de acordo com as exigências da aplicação.
+    - A Camada de Persistência, ou Banco de Dados, é responsável por armazenar de forma persistente os dados da aplicação. Os _Administradores de Banco de Dados (DBAs)_ são os responsáveis por projetar, manter a integridade e a saúde dos Bancos de Dados de acordo com as exigências da aplicação.
 
 Por fim, é possível representar as três camadas dentro desse modelo arquitetural:
 
@@ -59,14 +59,14 @@ Por fim, é possível representar as três camadas dentro desse modelo arquitetu
 
 Outro termo utilizado por alguns frameworks de desenvolvimento que possui o mesmo significado da <a href="https://pt.wikipedia.org/wiki/Modelo_em_tr%C3%AAs_camadas" target="_blank">Arquitetura em Três Camadas</a> é a  <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">Arquitetura MVC (Model-View-Controller)</a> ou <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">Arquitetura Modelo-Visão-Controle</a>. Na sigla <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">MVC</a>, a letra **M** de **Model**, corresponde à **Camada de Persistência**, a letra **V** de **View** refere-se à **Camada de Apresentação**, e a letra **C** de **Controller** refere-se à **Camada de Aplicação**.
 
-Uma variação do padrão <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">MVC</a> é o **MVT (Model-View-Template)**, utilizado por alguns frameworks, como o <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a>. Nesse modelo, a lógica de apresentação e controle é integrada na **View**, que utiliza **Templates** para renderizar a interface do usuário. A camada **Model** mantém sua função original, correspondendo à **Camada de Persistência** de dados.
+Uma variação do padrão <a href="https://pt.wikipedia.org/wiki/MVC" target="_blank">MVC</a> é o **MVT (Model-View-Template)**, utilizado por alguns frameworks, como o <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a>. Nesse modelo, a lógica de apresentação e controle é integrada na **View**, que utiliza **Templates** para renderizar a interface do usuário. A camada **Model** mantém sua função original que corresponde à **Camada de Persistência** de dados.
 
 ### **Arquitetura Monolítica**
 
 <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Arquitetura Monolítica</a>, ou <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Sistema Monolítico</a>, refere-se a uma aplicação que, independentemente da quantidade de funcionalidades implementadas - seja por meio de módulos, classes ou funções - <b>é implantada e executada como um único processo</b> de computador.
 
 !!! note "NOTA"
-    Processo de computador ou de sistema operacional será explorado na seção <a href="https://ocn.dev.br/capitulo-6/entendendo-os-conteineres/">"6.1 Entendendo os Contêineres"</a> do <a href="https://ocn.dev.br/capitulo-6/">capítulo 6</a>. Por enquanto, é importante entender que um processo é o termo utilizado para se referir a uma instância de um programa em execução, gerenciada pelo sistema operacional.
+    Processo de computador ou de sistema operacional será explorado na seção <a href="https://ocn.dev.br/capitulo-6/entendendo-os-conteineres/"><i>"6.1 Entendendo os Contêineres"</i></a> do <a href="https://ocn.dev.br/capitulo-6/">Capítulo 6</a>. Por enquanto, é importante entender que um processo é o termo utilizado para se referir a uma instância de um programa em execução, gerenciada pelo sistema operacional.
 
 Outra definição de <a href="https://www.linkedin.com/in/samnewman/" target="_blank">Sam Newman</a>, autor do livro <a href="https://novatec.com.br/livros/migrando-monoliticos-para-microsservicos/"><i>"Migrando Sistemas Monolíticos Para Microsserviços"</i></a>, afirma que: 
 
@@ -74,9 +74,9 @@ Outra definição de <a href="https://www.linkedin.com/in/samnewman/" target="_b
 Quando todas as funcionalidades de um sistema tiverem que ser implantadas em conjunto, considero que esse é um sistema monolítico. Embora seja possível ter várias instâncias desse único processo por questões de escalabilidade ou tolerância a falhas, todo o código da aplicação permanece contido dentro desse único processo.
 </h3>
 
-Um **Sistema Monolítico** pode ser classificado como um **Sistema Monolítico Modular**. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um único processo.
+Um **Sistema Monolítico** pode ser classificado como um **Sistema Monolítico Modular**. Essa característica permite que a lógica da aplicação seja separada em diferentes módulos, possibilitando o trabalho em cada um deles de forma independente. No entanto, a essência monolítica é mantida, uma vez que todas as funcionalidades ainda são executadas sob um <b>único processo</b>.
 
-A aplicação **OCI PIZZA** foi desenvolvida utilizando a característica de ser um **Monolítico Modular**, na qual diferentes módulos operam em conjunto, cada um com responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um único processo <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Python/Flask</a>.
+A aplicação **OCI PIZZA** foi desenvolvida utilizando a característica de ser um **Monolítico Modular**, na qual diferentes módulos operam em conjunto, cada um com responsabilidades bem definidas. A troca de informações entre os módulos internos da aplicação ocorre dentro de um <b>único processo</b> <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Python/Flask</a>.
 
 ![alt_text](./img/ocipizza-modulos-1.png "OCI PIZZA - Módulos #1")
 <br>
@@ -85,9 +85,9 @@ A aplicação **OCI PIZZA** foi desenvolvida utilizando a característica de ser
     
 #### **Vantagens da Arquitetura Monolítica**
 
-**1.** Uma Arquitetura Monolítica é uma abordagem válida e, de fato, é frequentemente a mais recomendada para o início da construção de um software. Ela se destaca como a melhor escolha para a criação rápida de protótipos ou <a href="https://pt.wikipedia.org/wiki/Prova_de_conceito" target="_blank">provas de conceito (PoC - Proof of Concept)</a>.
+**1.** Uma <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Arquitetura Monolítica</a> é uma abordagem válida e, de fato, é frequentemente a mais recomendada para o início da construção de um software. Ela se destaca como a melhor escolha para a criação rápida de protótipos ou <a href="https://pt.wikipedia.org/wiki/Prova_de_conceito" target="_blank">provas de conceito (PoC - Proof of Concept)</a>.
 
-**2.** Sistemas Monolíticos são mais fáceis de implantar (deploy) porque todo o código está contido em um único repositório, o que permite que a implantação e a execução ocorram a partir de um único local.
+**2.** <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Sistemas Monolíticos</a> são mais fáceis de implantar (deploy) porque todo o código está contido em um único repositório, o que permite que a implantação e a execução ocorram a partir de um único local.
 
 **3.** É mais fácil reutilizar código entre diferentes partes da aplicação. Por exemplo em <a href="https://www.python.org/" target="_blank">Python</a>, uma instrução do tipo `from app.modules.nosql import NoSQL` permite importar a funcionalidade de um módulo para outro. Além disso, a comunicação entre os diferentes módulos da aplicação, que são executados dentro de um mesmo processo, é mais rápida.
 
@@ -99,7 +99,7 @@ A aplicação **OCI PIZZA** foi desenvolvida utilizando a característica de ser
 
 **2.** Devido ao fato de todo o código estar contido em um único repositório, alterações em diferentes partes do código por diferentes desenvolvedores, podem resultar em um aumento nos conflitos de <a href="https://pt.wikipedia.org/wiki/Fus%C3%A3o_(controle_de_vers%C3%A3o)" target="_blank">merge</a>. Esses conflitos podem atrasar as implantações do sistema.
 
-**3.** Sistemas monolíticos limitam as opções de utilização de diferentes tecnologias. Por exemplo, um monolito escrito em <a href="https://www.python.org/" target="_blank">Python</a> possui toda a sua base de código nessa linguagem, o que significa que não é possível mesclar funcionalidades em <a href="https://www.python.org/" target="_blank">Python</a> e <a href="https://www.java.com/" target="_blank">Java</a> dentro da mesma aplicação.
+**3.** <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Sistemas Monolíticos</a> limitam as opções de utilização de diferentes tecnologias. Por exemplo, um monolito escrito em <a href="https://www.python.org/" target="_blank">Python</a> possui toda a sua base de código nessa linguagem, o que significa que não é possível mesclar funcionalidades em <a href="https://www.python.org/" target="_blank">Python</a> e <a href="https://www.java.com/" target="_blank">Java</a> dentro da mesma aplicação.
 
 **4.** Dizemos que um monólito está sujeito a uma **"Falha Total"**. Essa expressão significa que um erro ou falha em qualquer parte do código pode levar à indisponibilidade total da aplicação.
 
@@ -146,9 +146,9 @@ Toda a comunicação entre os serviços ocorre pela rede utilizando algum protoc
 
 **4.** O gerenciamento de vulnerabilidades se torna mais difícil. Quando uma vulnerabilidade de segurança é identificada em uma dependência de um <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">microsserviço</a>, é importante lembrar de atualizar todos os <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">microsserviços</a> que utilizam essa dependência.
 
-### **Arquitetura Monolítica vs. Microsserviços**
+## 2.2.2 Arquitetura Monolítica vs. Microsserviços
 
-Aqui deixo uma conclusão final sobre quando usar uma <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Arquitetura Monolítica</a> e quando optar por uma <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">Arquitetura de Microsserviços</a>, trazendo um paralelo com a aplicação de exemplo **OCI PIZZA**, onde a primeira dica é:
+Nesta seção, apresento uma conclusão sobre quando utilizar uma <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Arquitetura Monolítica</a> e quando optar por uma <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">Arquitetura de Microsserviços</a>, trazendo um paralelo com a aplicação de exemplo **OCI PIZZA**, onde a primeira dica é:
 
 <h3 style="text-align: center; font-style: italic;">
 Não existe <a href="https://pt.wikipedia.org/wiki/Bala_de_prata" target="_blank">"bala de prata"</a> nem uma solução única e definitiva. Diferentes problemas exigem diferentes soluções.
