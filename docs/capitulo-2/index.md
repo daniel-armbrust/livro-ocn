@@ -15,4 +15,5 @@ Sob a perspectiva da aplicação, este capítulo abordará conceitos que vão de
 
 - [2.1 Da Necessidade à Definição dos Requisitos](./da-necessidade-a-definicao-dos-requisitos.md)
 - [2.2 Arquitetura de Software](./arquitetura-de-software.md)
-- [2.3 Projeto de APIs REST](./projeto-de-apis-rest.md)     
+- [2.3 Arquitetura da Aplicação OCI PIZZA](./arquitetura-da-aplicacao-oci-pizza.md)
+- [2.4 Projeto de APIs REST](./projeto-de-apis-rest.md)     
