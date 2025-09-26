@@ -70,10 +70,10 @@ A ideia ao se utiliar a Computação em Nuvem é sempre dimensionar para baixo, 
 !!! note "NOTA"
     São utilizados CPU e memória como exemplos para facilitar a compreensão, mas essa lógica se aplica igualmente a todos os outros serviços disponíveis na nuvem.
 
-No OCI, há ferramentas como o <a href="https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm" target="_blank">Cost Analysis</a> que tornam a gestão e o monitoramento dos seus custos mais simples e eficazes.
+No <a href="https://ocn.dev.br/capitulo-3/">OCI</a>, há ferramentas como o <a href="https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm" target="_blank">Cost Analysis</a> que tornam a gestão e o monitoramento dos seus custos mais simples e eficazes.
 
 !!! note "NOTA"
-    Uma excelente ferramenta é <a href="https://github.com/dbarj/oci360" target="_blank"><i>OCI360 - Oracle Cloud Infrastructure 360º View</i></a>, que permite visualizar os recursos ativos do seu ambiente no OCI de forma abrangente e intuitiva.
+    Uma excelente ferramenta é <a href="https://github.com/dbarj/oci360" target="_blank"><i>OCI360 - Oracle Cloud Infrastructure 360º View</i></a>, que permite visualizar os recursos ativos do seu ambiente no <a href="https://ocn.dev.br/capitulo-3/">OCI</a> de forma abrangente e intuitiva.
 
 ### **Complexidade**
 
@@ -90,7 +90,7 @@ A boa notícia é que a nuvem oferece diversas maneiras de criar e atualizar sua
 
 Um aspecto que considero importante e que merece atenção é a interação com o <a href="https://www.oracle.com/br/support/" target="_blank"><i>Suporte</i></a>.
 
-Quando há suspeitas de problemas na infraestrutura na nuvem, os administradores geralmente recorrem ao suporte em busca de assistência para resolvê-los. No entanto, é importante destacar que o suporte pode não tem conhecimento sobre o seu ambiente e não sabe sobre problema que você está enfrentando ao utilizar o OCI.
+Quando há suspeitas de problemas na infraestrutura na nuvem, os administradores geralmente recorrem ao suporte em busca de assistência para resolvê-los. No entanto, é importante destacar que o suporte pode não tem conhecimento sobre o seu ambiente e não sabe sobre problema que você está enfrentando ao utilizar o <a href="https://ocn.dev.br/capitulo-3/">OCI</a>.
 
 É essencial manter uma comunicação clara e precisa ao explicar em detalhes o problema. Essa comunicação deve ser elaborada de forma detalhada e, se necessário, incluir um diagrama de arquitetura para facilitar a compreensão.
 

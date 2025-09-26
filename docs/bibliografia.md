@@ -29,11 +29,13 @@ hide:
 
 ## Desenvolvimento de Software
 
-- [Akita, Fábio (2019). Esqueça Metodologias "Ágeis" | [Rated R].](https://youtu.be/xjjX3R2WuoM?si=RQLtwG56GarHvnZH)
-
 - [Tulio Valente, Marco (2022). Engenharia de Software Moderna.](https://engsoftmoderna.info/)
 
+- [Grinberg, Miguel (2018). Flask Web Development, 2nd Edition. O'Reilly.](https://www.oreilly.com/library/view/flask-web-development/9781491991725/)
+
 - [Adedeji, Olatunde (2023). Full-Stack Flask and React: Learn, code, and deploy powerful web applications with Flask 2 and React 18. Packt Publishing.](https://www.oreilly.com/library/view/full-stack-flask-and/9781803248448/)
+
+- [Akita, Fábio (2019). Esqueça Metodologias "Ágeis" | [Rated R].](https://youtu.be/xjjX3R2WuoM?si=RQLtwG56GarHvnZH)
 
 ## Microsserviços
 
@@ -43,13 +45,13 @@ hide:
 
 - [Davis, Cornelia (2019). Cloud Native Patterns: Designing change-tolerant software. Manning.](https://www.manning.com/books/cloud-native-patterns)
 
-- [Gorton, Ian (2022). Foundations of Scalable Systems: Designing Distributed Architectures. O'Reilly Media.](https://www.oreilly.com/library/view/foundations-of-scalable/9781098106058/)
+- [Gorton, Ian (2022). Foundations of Scalable Systems: Designing Distributed Architectures. O'Reilly.](https://www.oreilly.com/library/view/foundations-of-scalable/9781098106058/)
 
 ## APIs REST
 
 - [Jamal, Tooba (December 5, 2022). What is an API and How Does it Work? APIs for Beginners.](https://www.freecodecamp.org/news/how-apis-work/)
 
-- [Robinson, Ian; Webber, Jim; Parastatidis, Savas (2010). REST in Practice: Hypermedia and Systems Architecture (English Edition). O'Reilly Media.](https://www.oreilly.com/library/view/rest-in-practice/9781449383312/)
+- [Robinson, Ian; Webber, Jim; Parastatidis, Savas (2010). REST in Practice: Hypermedia and Systems Architecture (English Edition). O'Reilly.](https://www.oreilly.com/library/view/rest-in-practice/9781449383312/)
 
 ## Redes de Computadores
 
@@ -57,7 +59,7 @@ hide:
 
 - [Vieira, Eduardo (2003). Os bastidores da internet no Brasil. Editora Manole.](https://amzn.to/4aLTfuO)
 
-- [Dent, Kyle D. (2003). Postfix: The Definitive Guide. O'Reilly Media, Inc.](https://www.oreilly.com/library/view/postfix-the-definitive/0596002122/)
+- [Dent, Kyle D. (2003). Postfix: The Definitive Guide. O'Reilly.](https://www.oreilly.com/library/view/postfix-the-definitive/0596002122/)
 
 ## IPv6
 

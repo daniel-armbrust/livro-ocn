@@ -41,7 +41,7 @@ Empresas ou indivíduos pagam para acessar um _pool virtual de recursos comparti
 
 Os diferentes recursos, tanto físicos quanto virtuais, são dinamicamente atribuídos e reatribuídos conforme a demanda do cliente. Geralmente, o cliente não tem controle ou conhecimento sobre a localização exata dos recursos fornecidos pelo provedor de nuvem. 
 
-Por exemplo, no OCI ao escolher a região _"Brazil East (São Paulo)"_, o usuário é informado de que seus recursos serão criados no Brasil, especificamente em alguma das cidades da grande _São Paulo_. No entanto, não é possível identificar em qual datacenter esses recursos estarão alocados.
+Por exemplo, no <a href="https://ocn.dev.br/capitulo-3/">OCI</a> ao escolher a região _"Brazil East (São Paulo)"_, o usuário é informado de que seus recursos serão criados no Brasil, especificamente em alguma das cidades da grande _São Paulo_. No entanto, não é possível identificar em qual datacenter esses recursos estarão alocados.
 
 ![alt_text](./img/multi-tenant-1.png "Multi-tenant")
 
@@ -70,7 +70,7 @@ Um provedor de nuvem, de acordo com a especificação do NIST, deve ser capaz de
 
 É a capacidade que um provedor de serviços em nuvem tem de oferecer uma infraestrutura de processamento (compute), armazenamento (storage) e rede (network). Dessa forma, o cliente não precisa se preocupar em gerenciar a virtualização, a infraestrutura física (como cabeamento, ar condicionado, energia elétrica, entre outros) ou os dispositivos de rede (switches e roteadores).
 
-No contexto do serviço de <a href="https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm" target="_blank">Compute</a> no OCI, classificado como IaaS, ao criar uma instância, o sistema operacional é pré-instalado. A partir daí, o cliente tem a liberdade de instalar o que desejar; no entanto, a administração total do sistema operacional, incluindo atualizações de software, segurança e gerenciamento de usuários, é de responsabilidade do cliente, e não do provedor de nuvem.
+No contexto do serviço de <a href="https://docs.oracle.com/pt-br/iaas/Content/Compute/Concepts/computeoverview.htm" target="_blank">Compute</a> no <a href="https://ocn.dev.br/capitulo-3/">OCI</a>, classificado como IaaS, ao criar uma instância, o sistema operacional é pré-instalado. A partir daí, o cliente tem a liberdade de instalar o que desejar; no entanto, a administração total do sistema operacional, incluindo atualizações de software, segurança e gerenciamento de usuários, é de responsabilidade do cliente, e não do provedor de nuvem.
 
 ### **PaaS - Platform as a Service (Plataforma como Serviço)**
 
@@ -78,7 +78,7 @@ O provedor de nuvem oferece uma plataforma que permite aos usuários executar, d
 
 O modelo também abstrai os detalhes da infraestrutura subjacente, como rede, virtualização e sistema operacional. Isso significa que o cliente não tem acesso direto ao sistema operacional ou ao hardware, e não precisa se preocupar com atualizações de software, por exemplo. Como resultado, esse modelo se torna mais fácil de operar e mais econômico em comparação ao IaaS.
 
-Um exemplo de serviço de plataforma é o <a href="https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Functions/home.htm" target="_blank">OCI Functions</a>, que será abordado posteriormente. Ao utilizar o <a href="https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Functions/home.htm" target="_blank">Functions</a>, você é responsável apenas pelo _código da sua função_, enquanto a criação da infraestrutura computacional necessária para executá-la fica a cargo do OCI. Isso inclui a configuração da rede, a criação das máquinas virtuais para rodar o código, o download do contêiner, entre outros.
+Um exemplo de serviço de plataforma é o <a href="https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Functions/home.htm" target="_blank">OCI Functions</a>, que será abordado posteriormente. Ao utilizar o <a href="https://docs.public.oneportal.content.oci.oraclecloud.com/pt-br/iaas/Content/Functions/home.htm" target="_blank">Functions</a>, você é responsável apenas pelo _código da sua função_, enquanto a criação da infraestrutura computacional necessária para executá-la fica a cargo do <a href="https://ocn.dev.br/capitulo-3/">OCI</a>. Isso inclui a configuração da rede, a criação das máquinas virtuais para rodar o código, o download do contêiner, entre outros.
 
 ### **SaaS - Software as a Service (Software como Serviço)**
 

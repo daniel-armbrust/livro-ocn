@@ -13,15 +13,21 @@ Decidi abordar o tema do <a href="https://en.wikipedia.org/wiki/Overengineering"
 
 <a href="https://en.wikipedia.org/wiki/Overengineering" target="_blank">Overengineering</a> é um termo utilizado para descrever a prática de criar um produto ou sistema com mais complexidade ou recursos do que o necessário, muitas vezes resultando em desperdício de tempo e dinheiro. 
 
-Ao longo dos capítulos deste livro, o <a href="https://en.wikipedia.org/wiki/Overengineering" target="_blank">Overengineering</a> se tornará mais evidente, especialmente ao abordarmos a transição da _Arquitetura Monolítica_ para uma _Arquitetura de Microsserviços_. Em uma aplicação real e simples como a **OCI PIZZA**, uma _Arquitetura Monolítica_ é, de fato, a melhor escolha.
+Ao longo dos capítulos deste livro, o <a href="https://en.wikipedia.org/wiki/Overengineering" target="_blank">Overengineering</a> se tornará mais evidente, especialmente ao abordarmos a transição da <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Arquitetura Monolítica</a> para uma <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">Arquitetura de Microsserviços</a>. Em uma aplicação real e simples como a **OCI PIZZA**, uma <a href="https://pt.wikipedia.org/wiki/Aplica%C3%A7%C3%A3o_monol%C3%ADtica" target="_blank">Arquitetura Monolítica</a> é, de fato, a melhor escolha.
 
 Por fim, é importante lembrar que o objetivo deste livro é explorar as práticas e os conceitos relacionados ao termo <a href="https://ocn.dev.br/capitulo-1/cloud-native/">Cloud Native</a>, utilizando uma aplicação real como exemplo, além de demonstrar como utilizar os serviços em nuvem oferecidos pelo <a href="https://ocn.dev.br/capitulo-3/">OCI</a>. Assim, em determinados momentos, abordaremos soluções mais complexas e que não são necessárias para o problema que a aplicação **OCI PIZZA** busca resolver, mas que ajudam a ilustrar algumas práticas na implementação de aplicações <a href="https://ocn.dev.br/capitulo-1/cloud-native/">Cloud Native</a> no <a href="https://ocn.dev.br/capitulo-3/">OCI</a>.
+
+A dica que fica é: para uma aplicação do mundo real, é importante mantê-la o mais simples possível.
 
 <h3 style="text-align: center; font-style: italic;">
 Keep It Simple, Stupid (KISS)
 </h3>
 
-## 2.3.2 Visão Geral
+## 2.3.2 Código-Fonte da Aplicação OCI PIZZA
+
+Nesta seção, serão apresentados detalhes sobre o código-fonte da aplicação **OCI PIZZA**, sua estrutura, a arquitetura utilizada no <a href="https://ocn.dev.br/capitulo-3/">OCI</a> e informações sobre desenvolvimento de software com a linguagem de programação <a href="https://www.python.org/" target="_blank">Python</a>, utilizando o microframework <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a>.  
+
+### **Antes do Desenvolvimento**
 
 Após a definição dos requisitos, chega o momento de escolher a linguagem de programação, o framework e, o mais importante, definir de forma macro a arquitetura que será adotada inicialmente pela aplicação web para resolver o problema proposto.
 
@@ -36,10 +42,88 @@ Essas questões são comuns no contexto do desenvolvimento de software, e a melh
 - Escolha a linguagem de programação e o framework que você mais conhece.
 - Defina sua arquitetura de modo que ela resolva o seu problema da forma mais simples possível.
 
+Para o desenvolvimento da aplicação **OCI PIZZA**, optou-se pela linguagem de programação <a href="https://www.python.org/" target="_blank">Python</a> e pelo microframework <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> para a construção de aplicações web.
+
+### **Download do Código-Fonte**
+
+Todo o código-fonte dos exemplos apresentados neste livro, que incluem a aplicação **OCI PIZZA**, estão disponíveis em um único repositório no <a href="https://pt.wikipedia.org/wiki/GitHub" target="_blank">GitHub</a> chamado <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank"><b><i>"ocn-ocipizza"</i></b></a>.
+
+Para baixar o código-fonte ou _"clonar o repositório"_, conforme a terminologia do <a href="https://git-scm.com/" target="_blank">Git</a>, em sua máquina local, utilize o seguinte comando:
+
+```bash linenums="1"
+$ git clone https://github.com/daniel-armbrust/ocn-ocipizza
+```
+
+!!! note "NOTA"
+    Visite a página <a href="https://git-scm.com/downloads" target="_blank"><i>https://git-scm.com/downloads</i></a> para informações detalhadas sobre instalação e dowload do <a href="https://git-scm.com/downloads" target="_blank">Git</a>.
+
+Após a execução do comando, será criado um diretório local chamado <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank"><b><i>"ocn-ocipizza"</i></b></a>, com a seguinte estrutura:
+
+```bash linenums="1"
+$ tree -A -L 2 -d ocn-ocipizza/
+ocn-ocipizza/
+├── apendice-a
+│   └── roteamento-avancado
+├── bucket
+│   └── img
+├── functions
+│   ├── fn-password-recovery-email
+│   └── fn-user-register-email
+├── ia
+│   └── chatbot-ocilang
+├── nosql
+│   ├── data
+│   └── ddl
+├── scripts
+│   └── capitulo-2
+├── smtp
+└── webapp
+    └── ocipizza
+```
+
+- **apendice-a**
+    - Diretório que inclui diversos HOWTOs sobre temas variados do <a href="https://ocn.dev.br/capitulo-3/">OCI</a>. Esses HOWTOs são documentos que tratam de assuntos específicos e oferecem instruções sobre como realizar tarefas específicas.
+
+- **functions**
+    - Código-fonte das funções auxiliares utilizadas pela aplicação web **OCI PIZZA**. Essas funções são implantadas e executadas a partir do serviço <a href="https://docs.oracle.com/pt-br/iaas/Content/Functions/home.htm" target="_blank">OCI Functions</a>. 
+
+- **scripts**
+    - Diretório que contém os scripts [OCI CLI](../capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md) de cada capítulo, utilizados para criar recursos no <a href="https://ocn.dev.br/capitulo-3/">OCI</a>. 
+
+- **webapp**
+    - Diretório que contém o código-fonte da aplicação web **OCI PIZZA**.
+
+## 2.3.3 Introdução ao Microframework Flask
+
+A aplicação é uma aplicação web desenvolvida em _[Python](https://www.python.org/)_ utilizando o microframework _[Flask](https://flask.palletsprojects.com/en/stable/)_. O _[Flask](https://flask.palletsprojects.com/en/stable/)_ é considerado "micro" porque sua instalação padrão inclui apenas os componentes essenciais necessários para a criação de aplicações web.
 
 Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo passo é o desenvolvimento, seguido pela modelagem e design da arquitetura da aplicação.
 
 A arquitetura da aplicação **OCI PIZZA**, assim como também qualquer outra arquitetura, pode ser dividida em:
+
+```bash linenums="1"
+$ tree -A -d ocn-ocipizza/webapp/
+ocn-ocipizza/webapp/
+└── ocipizza
+    └── app
+        ├── location
+        ├── main
+        │   └── templates
+        ├── modules
+        ├── order
+        │   └── templates
+        ├── pizza
+        │   └── templates
+        ├── static
+        │   ├── css
+        │   ├── img
+        │   └── js
+        ├── templates
+        └── user
+            └── templates
+
+17 directories
+```
 
 ### **Arquitetura da Aplicação**
 

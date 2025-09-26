@@ -174,3 +174,21 @@ Ao adotar <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_bl
 E, por fim, como um último ponto de destaque, os <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">microsserviços</a> apresentam desafios relacionados a transações distribuídas e à rede. No que se refere a problemas de rede, podem ocorrer latências variáveis na comunicação entre diferentes <a href="https://pt.wikipedia.org/wiki/Microsservi%C3%A7o" target="_blank">microsserviços</a>, o que pode resultar na necessidade de retransmissões e, em casos extremos, na perda de conectividade e perda de informações. Quanto às transações distribuídas, o principal problema é a possibilidade de existir inconsistências nos dados, que podem surgir, por exemplo, quando uma leitura é realizada antes da conclusão de uma escrita.
 
 ![alt_text](./img/arquitetura-monolica-vs-microsservicos-2.png "Arquitetura Monolica vs. Microsservicos #2")
+
+## 2.2.3 Outras definições sobre Arquitetura
+
+### **Arquitetura da Aplicação**
+
+Também conhecido como **Arquitetura Lógica**, refere-se à estrutura e organização dos componentes de software, definindo como eles interagem e se comunicam para atender aos requisitos funcionais e não funcionais da aplicação.
+
+### **Arquitetura da Infraestrutura**
+
+Ao considerar a "infraestrutura externa à aplicação", encontramos a **Arquitetura da Infraestrutura**, também conhecida como **Arquitetura Física**. 
+
+Parte da **Arquitetura Física** inclui a topologia de rede utilizada, o endereçamento IP e outros serviços auxiliares essenciais para o funcionamento da aplicação. Esses serviços abrangem servidores destinados à execução da aplicação, servidores responsáveis pelo envio de e-mails, entre outros.
+
+### **Arquitetura de Dados**
+
+Eu chamo de _Arquitetura de Dados_ tudo que se refere ao banco de dados da aplicação, incluindo a escolha do tipo, seja relacional ou não relacional _([NoSQL](../capitulo-5/index.md))_, bem como o design das tabelas e suas relações.
+
+A aplicação **OCI PIZZA** é simples, assim como o conjunto de dados que ela manipula. Por essa razão, considero que o tipo de banco de dados mais adequado, dado que não há relacionamentos complexos entre as tabelas, é o _[NoSQL](../capitulo-5/index.md)_.
