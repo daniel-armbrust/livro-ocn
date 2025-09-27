@@ -29,7 +29,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 26/09/2025         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 27/09/2025         | 1.0.0b   |
 
 ## Sumário
 

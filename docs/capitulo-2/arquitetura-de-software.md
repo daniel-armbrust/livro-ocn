@@ -23,10 +23,6 @@ Portanto, é possível afirmar que:
 A definição de uma arquitetura começa com um "projeto em mais alto nível", elaborado a partir dos requisitos ou das Histórias de Usuário. Essas histórias se transformam em funcionalidades ou componentes de software que se comunicam entre si, colaborando para resolver um problema do mundo real.
 </h3>
 
-De maneira simplificada, inicialmente temos o seguinte desenho de arquitetura da aplicação de exemplo **OCI PIZZA**:
-
-![alt_text](./img/arquitetura-1.png "Arquitetura #1")
-
 Alguns tipos mais comuns de <a href="https://pt.wikipedia.org/wiki/Arquitetura_de_software" target="_blank">Arquitetura de Software</a> incluem:
 
 ### **Arquitetura em Três Camadas**

@@ -25,7 +25,7 @@ Keep It Simple, Stupid (KISS)
 
 ## 2.3.2 Código-Fonte da Aplicação OCI PIZZA
 
-Nesta seção, serão apresentados detalhes sobre o código-fonte da aplicação **OCI PIZZA**, sua estrutura, a arquitetura utilizada no <a href="https://ocn.dev.br/capitulo-3/">OCI</a> e informações sobre desenvolvimento de software com a linguagem de programação <a href="https://www.python.org/" target="_blank">Python</a>, utilizando o microframework <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a>.  
+Nesta seção, serão apresentados detalhes sobre o código-fonte da aplicação **OCI PIZZA**, sua estrutura, a arquitetura utilizada no <a href="https://ocn.dev.br/capitulo-3/">OCI</a> e informações sobre desenvolvimento de software com a linguagem de programação <a href="https://www.python.org/" target="_blank">Python</a>, utilizando o microframework <a href="https://flask.palletsprojects.com" target="_blank">Flask</a>.  
 
 ### **Antes do Desenvolvimento**
 
@@ -42,7 +42,7 @@ Essas questões são comuns no contexto do desenvolvimento de software, e a melh
 - Escolha a linguagem de programação e o framework que você mais conhece.
 - Defina sua arquitetura de modo que ela resolva o seu problema da forma mais simples possível.
 
-Para o desenvolvimento da aplicação **OCI PIZZA**, optou-se pela linguagem de programação <a href="https://www.python.org/" target="_blank">Python</a> e pelo microframework <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> para a construção de aplicações web.
+Para o desenvolvimento da aplicação **OCI PIZZA**, optou-se pela linguagem de programação <a href="https://www.python.org/" target="_blank">Python</a> e pelo microframework <a href="https://flask.palletsprojects.com" target="_blank">Flask</a>Flask</a> para a construção de aplicações web.
 
 ### **Download do Código-Fonte**
 
@@ -57,7 +57,7 @@ $ git clone https://github.com/daniel-armbrust/ocn-ocipizza
 !!! note "NOTA"
     Visite a página <a href="https://git-scm.com/downloads" target="_blank"><i>https://git-scm.com/downloads</i></a> para informações detalhadas sobre instalação e dowload do <a href="https://git-scm.com/downloads" target="_blank">Git</a>.
 
-Após a execução do comando, será criado um diretório local chamado <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank"><b><i>"ocn-ocipizza"</i></b></a>, com a seguinte estrutura:
+Após a execução do comando, será criado um diretório chamado <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank"><b><i>"ocn-ocipizza"</i></b></a>, com a seguinte estrutura:
 
 ```bash linenums="1"
 $ tree -A -L 2 -d ocn-ocipizza/
@@ -88,16 +88,82 @@ ocn-ocipizza/
     - Código-fonte das funções auxiliares utilizadas pela aplicação web **OCI PIZZA**. Essas funções são implantadas e executadas a partir do serviço <a href="https://docs.oracle.com/pt-br/iaas/Content/Functions/home.htm" target="_blank">OCI Functions</a>. 
 
 - **scripts**
-    - Diretório que contém os scripts [OCI CLI](../capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md) de cada capítulo, utilizados para criar recursos no <a href="https://ocn.dev.br/capitulo-3/">OCI</a>. 
+    - Diretório que contém os scripts [OCI CLI](../capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md) de cada capítulo do livro, utilizados para criar recursos no <a href="https://ocn.dev.br/capitulo-3/">OCI</a>. 
 
 - **webapp**
     - Diretório que contém o código-fonte da aplicação web **OCI PIZZA**.
 
 ## 2.3.3 Introdução ao Microframework Flask
 
-A aplicação é uma aplicação web desenvolvida em _[Python](https://www.python.org/)_ utilizando o microframework _[Flask](https://flask.palletsprojects.com/en/stable/)_. O _[Flask](https://flask.palletsprojects.com/en/stable/)_ é considerado "micro" porque sua instalação padrão inclui apenas os componentes essenciais necessários para a criação de aplicações web.
+<a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é um framework desenvolvido em a <a href="https://www.python.org/" target="_blank">Python</a> utilizado para o desenvolvimento de aplicações web. É considerado <i>"microframework"</i> devido ao seu tamanho reduzido, pois sua instalação padrão inclui apenas alguns componentes essenciais para a criação de aplicações web.
+
+<a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> pode ser estendido por meio de componentes adicionais instalados separadamente, que acrescentam funcionalidades extras à sua aplicação. Por exemplo, a aplicação **OCI PIZZA** utiliza alguns componentes instalados à parte, como o <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>, que permite a utilização de templates HTML.
+
+!!! note "NOTA"
+    Este livro abordará apenas o básico sobre o framework <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> referente ao seu uso no desenvolvimento da aplicação **OCI PIZZA**. Para obter mais informações, consulte a documentação disponível em sua página oficial: <a href="https://flask.palletsprojects.com" target="_blank">https://flask.palletsprojects.com</a>
+
+### **Instalação do Flask**
+
+A forma mais comum de instalar o <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é por meio de um <a href="https://docs.python.org/3/library/venv.html" target="_blank"><i>ambiente virtual Python (venv)</i></a>. Um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a> é, basicamente, uma cópia isolada do interpretador <a href="https://www.python.org/" target="_blank">Python</a> que opera de maneira independente no sistema operacional. A principal vantagem de utilizar um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a> é a possibilidade de agrupar sua aplicação e suas dependências em um único local, sem interferir na instalação do <a href="https://www.python.org/" target="_blank">Python</a> no sistema operacional.
+
+Para criar e ativar um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a>, utilize os comandos a seguir:
+
+```bash linenums="1"
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $
+```
+
+Após criar o <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a>, você pode utilizar o comando `pip` para instalar o <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> e outras bibliotecas, conforme demonstrado nos comandos a seguir:
+
+```bash linenums="1"
+(venv) $ pip install Flask
+(venv) $ pip install Jinja2
+```
+
+!!! note "NOTA"
+    O comando `pip` é o gerenciador de pacotes do <a href="https://www.python.org/" target="_blank">Python</a>, utilizado para instalar e gerenciar bibliotecas e dependências. Para mais informações, consulte o link: <a href="https://pypi.org/project/pip/" target="_blank">https://pypi.org/project/pip/</a>
+
+Todas as bibliotecas ou pacotes instalados, juntamente com suas versões, podem ser visualizados utilizando o comando `pip freeze`:
+
+```bash linenums="1"
+(venv) $ pip freeze
+blinker==1.8.2
+click==8.1.8
+flask==3.0.3
+importlib-metadata==8.5.0
+itsdangerous==2.2.0
+jinja2==3.1.6
+MarkupSafe==2.1.5
+werkzeug==3.0.6
+zipp==3.20.2
+```
+
+!!! note "NOTA"
+    Observe que outras bibliotecas foram instaladas como parte da instalação do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> e do <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>. Isso ocorre porque esses pacotes dependem de outras bibliotecas para funcionar. O comando `pip` gerencia essas dependências automaticamente para você.
+
+A finalidade do `pip freeze` não é apenas visualizar as bibliotecas e suas dependências instaladas no <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a>, mas também servir como um guia para a instalação das dependências do projeto.
+
+Para aplicações escritas em <a href="https://www.python.org/" target="_blank">Python</a>, cria-se o arquivo `requirements.txt`, que conterá todas as dependências do projeto. Utilize o comando abaixo para gerar o arquivo `requirements.txt`: 
+
+```bash linenums="1"
+(venv) $ pip freeze > requirements.txt
+```
+
+Esse arquivo é útil caso você precise instalar seu projeto e suas dependências em outra máquina ou até mesmo na nuvem, utilizando o seguinte comando:
+
+```bash linenums="1"
+(venv) $ pip install -r requirements.txt
+```
+
+!!! note "NOTA"
+    Ao versionar um projeto de software, nunca incluímos as bibliotecas instaladas. Em <a href="https://www.python.org/" target="_blank">Python</a>, a prática recomendada é manter as dependências do projeto listadas no arquivo `requirements.txt`, a partir do qual as dependências são instaladas. 
+
+### **Componentes Lógicos**
 
 Após a definição dos requisitos da aplicação web **OCI PIZZA**, o próximo passo é o desenvolvimento, seguido pela modelagem e design da arquitetura da aplicação.
+
+Também conhecido como _Arquitetura Lógica_, refere-se à estrutura e organização dos componentes de software, definindo como eles interagem e se comunicam para atender aos requisitos funcionais e não funcionais da aplicação.
 
 A arquitetura da aplicação **OCI PIZZA**, assim como também qualquer outra arquitetura, pode ser dividida em:
 
@@ -124,10 +190,6 @@ ocn-ocipizza/webapp/
 
 17 directories
 ```
-
-### **Arquitetura da Aplicação**
-
-Também conhecido como _Arquitetura Lógica_, refere-se à estrutura e organização dos componentes de software, definindo como eles interagem e se comunicam para atender aos requisitos funcionais e não funcionais da aplicação.
 
 A aplicação é uma aplicação web desenvolvida em _[Python](https://www.python.org/)_ utilizando o microframework _[Flask](https://flask.palletsprojects.com/en/stable/)_. O _[Flask](https://flask.palletsprojects.com/en/stable/)_ é considerado "micro" porque sua instalação padrão inclui apenas os componentes essenciais necessários para a criação de aplicações web.
 
