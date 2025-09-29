@@ -5,9 +5,9 @@ hide:
 
 # Capítulo 2: Aplicação OCI PIZZA
 
-# 2.1 Da Necessidade à Definição dos Requisitos
+# 2.2 Da Necessidade à Definição dos Requisitos
 
-## 2.1.1 Contado com o Cliente
+## 2.2.1 Contado do Cliente
 
 Imagine que você é uma empresa ou uma agência de desenvolvimento de software que acaba de receber uma ligação de um potencial cliente, ansioso para discutir suas necessidades e como você pode ajudá-lo a transformar suas ideias em soluções digitais eficazes.
 
@@ -125,7 +125,7 @@ O diálogo a seguir ilustra a interação entre **Você**, o desenvolvedor, e se
     <p style="text-align: right;">De nada, Fulano! Estamos ansiosos para trabalhar com você. Fique à vontade para entrar em contato se tiver mais perguntas. Até logo!</p>
 </div>
 
-## 2.1.2 Engenharia de Requisitos
+## 2.2.2 Engenharia de Requisitos
 
 Com base neste primeiro contato, podemos iniciar a elaboração de uma descrição das funcionalidades do sistema, alinhadas às necessidades do cliente.
 

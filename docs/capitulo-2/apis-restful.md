@@ -3,11 +3,11 @@ hide:
   - toc
 ---
 
-# Capítulo 6: Aplicação OCI PIZZA
+# Capítulo 2: Aplicação OCI PIZZA
 
-# 6.3 Desenvolvimento de APIs
+# 2.4 APIs RESTful
 
-## 6.3.1 O que é uma API?
+## 2.4.1 O que é uma API?
 
 A _[API (Application Programming Interface)](https://pt.wikipedia.org/wiki/Interface_de_programa%C3%A7%C3%A3o_de_aplica%C3%A7%C3%B5es)_, ou _[Interface de Programação de Aplicativos](https://pt.wikipedia.org/wiki/Interface_de_programa%C3%A7%C3%A3o_de_aplica%C3%A7%C3%B5es)_, é um _conjunto de regras_ e _protocolos_ que possibilita a comunicação e a troca de dados entre diferentes aplicações, mesmo quando desenvolvidas usando diferentes tecnologias. 
 
@@ -32,7 +32,7 @@ Por fim, as APIs facilitam a integração entre diferentes sistemas e, no caso d
 
 ![alt_text](./img/apis-1.png "APIs #1")
 
-## 6.3.2 Recursos e Representações 
+## 2.4.2 Recursos e Representações 
 
 Recursos são os elementos fundamentais dos sistemas web, a ponto de as aplicações web serem frequentemente classificadas como _"aplicações orientadas a recursos"[^1]_. Um recurso pode ser qualquer item disponibilizado por um servidor web, como um documento HTML, um documento PDF, um vídeo, um processo de negócio, um dispositivo, entre outros.
 
@@ -88,7 +88,7 @@ $ curl http://api.ocipizza.com.br/locations/zipcodes/0395381
 
 [^1]: [Robinson, Ian; Webber, Jim; Parastatidis, Savas, *REST in Practice*, Chapter 1. The Web As a Platform for Building Distributed Systems. O'Reilly Media](https://amzn.to/43DR3SM)
 
-## 6.3.3 REST
+## 2.4.3 REST
 
 Agora que entendemos o que é uma API, bem como os conceitos sobre _recursos_ e _representações_, podemos avançar para compreender o que é _[REST](https://pt.wikipedia.org/wiki/REST)_.
 
@@ -130,7 +130,7 @@ As seis características são:
 - **6. Code on demand (código sob demanda)**
     - Essa é uma restrição opcional que permite ao servidor enviar trechos de código para o cliente executar. Essa ideia se torna mais clara quando consideramos o funcionamento dos _[Applets Java](https://en.wikipedia.org/wiki/Java_applet)_, onde um código ou uma pequena aplicação desenvolvida em Java, chamada de _[Applet](https://en.wikipedia.org/wiki/Java_applet)_, é transmitida do servidor para o cliente executar. 
 
-## 6.3.4 APIs da aplicação OCI PIZZA
+## 2.4.4 APIs da aplicação OCI PIZZA
 
 Toda a lógica da aplicação foi organizada em diferentes módulos, cada um responsável por uma funcionalidade específica. Por exemplo, o módulo `pizza` não apenas exibe o cardápio de pizzas, mas também permite a manipulação de suas informações.
 

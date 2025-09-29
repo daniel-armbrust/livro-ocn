@@ -63,7 +63,7 @@ nav:
   - Prefácio: ./prefacio.md
   - Sobre o Autor: ./sobre-o-autor.md
   - Como usar este Livro: ./como-usar-este-livro.md
-  - Capítulo 1 - Introdução a Computação em Nuvem: ./capitulo-1/index.md
+  - Capítulo 1 - Introdução à Computação em Nuvem: ./capitulo-1/index.md
   - Capítulo 2 - Aplicação OCI PIZZA: ./capitulo-2/index.md  
   - Capítulo 3 - OCI Foundations: ./capitulo-3/index.md  
   - Capítulo 4 - Serviços Auxiliares e Persistência de Dados: ./capitulo-4/index.md

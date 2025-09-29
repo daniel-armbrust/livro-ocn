@@ -29,7 +29,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 27/09/2025         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 29/09/2025         | 1.0.0b   |
 
 ## Sumário
 
@@ -38,7 +38,7 @@ Boa leitura!
 - [Como usar este Livro](./como-usar-este-livro.md)
 <br><br>
 
-- [Capítulo 1: Introdução a Computação em Nuvem](./capitulo-1/index.md)
+- [Capítulo 1: Introdução à Computação em Nuvem](./capitulo-1/index.md)
     - [1.1 Um pouco de História](./capitulo-1/um-pouco-de-historia.md)
     - [1.2 Definições do NIST](./capitulo-1/definicoes-do-nist.md)
     - [1.3 Outras definições sobre Computação em Nuvem](./capitulo-1/outras-definicoes-sobre-computacao-em-nuvem.md)
@@ -48,11 +48,12 @@ Boa leitura!
     - [1.7 Cloud Native](./capitulo-1/cloud-native.md)
 <br><br>
 
-- [Capítulo 2: Aplicação OCI PIZZA](./capitulo-2/index.md)        
-    - [2.1 Da Necessidade à Definição de Requisitos](./capitulo-2/da-necessidade-a-definicao-dos-requisitos.md)
-    - [2.2 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)
-    - [2.3 Arquitetura da Aplicação OCI PIZZA](./capitulo-2/arquitetura-da-aplicacao-oci-pizza.md)
-    - [2.3 Projeto de APIs REST](./capitulo-2/projeto-de-apis-rest.md)
+- [Capítulo 2: Aplicação OCI PIZZA](./capitulo-2/index.md)  
+    - [2.1 Overengineering](./capitulo-2/overengineering.md)
+    - [2.2 Da Necessidade à Definição de Requisitos](./capitulo-2/da-necessidade-a-definicao-dos-requisitos.md)
+    - [2.3 Desenvolvimento Web com Python/Flask](./capitulo-2/desenvolvimento-web-com-python-flask.md)
+    - [2.4 APIs RESTful](./capitulo-2/apis-restful.md)
+    - [2.5 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)    
 <br><br>
 
 - [Capítulo 3: OCI Foundations](./capitulo-3/index.md)
@@ -107,7 +108,7 @@ Boa leitura!
     - [8.5 Objetos Kubernetes](./capitulo-8/objetos-kubernetes.md)
 <br><br>
 
-- [Capítulo 9: Serviço DevOps](./capitulo-9/index.md)
+- [Capítulo 9: CI/CD com OCI DevOps](./capitulo-9/index.md)
 <br><br>
 
 - [Capítulo 10: Monitoração e Observabilidade](./capitulo-10/index.md)

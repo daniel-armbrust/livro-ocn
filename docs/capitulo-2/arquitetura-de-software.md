@@ -5,9 +5,9 @@ hide:
 
 # Capítulo 2: Aplicação OCI PIZZA
 
-# 2.2 Arquitetura de Software
+# 2.5 Arquitetura de Software
 
-## 2.2.1 Introdução a Arquitetura de Software
+## 2.5.1 Introdução a Arquitetura de Software
 
 Ao abordar <a href="https://pt.wikipedia.org/wiki/Arquitetura_de_software" target="_blank">Arquitetura de Software</a>, é importante ressaltar que existem diferentes tipos de arquiteturas e algumas definições sobre o que ela representa no contexto do desenvolvimento de software. Segundo <a href="https://www.linkedin.com/in/mtov/" target="_blank">Marco Tulio Valente</a>, autor do livro <a href="https://engsoftmoderna.info/" target="_blank"><i>"Engenharia de Software Moderna"</i></a>, a arquitetura se refere ao _**"projeto em mais alto nível"**_. 
 
@@ -171,7 +171,7 @@ E, por fim, como um último ponto de destaque, os <a href="https://pt.wikipedia.
 
 ![alt_text](./img/arquitetura-monolica-vs-microsservicos-2.png "Arquitetura Monolica vs. Microsservicos #2")
 
-## 2.2.3 Outras definições sobre Arquitetura
+## 2.5.3 Outras definições sobre Arquitetura
 
 ### **Arquitetura da Aplicação**
 
