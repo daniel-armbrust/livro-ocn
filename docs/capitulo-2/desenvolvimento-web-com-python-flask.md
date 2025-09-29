@@ -87,7 +87,7 @@ def hello_world():
 
 Observe que, ao utilizar o <a href="https://pt.wikipedia.org/wiki/Framework_para_aplica%C3%A7%C3%B5es_web" target="_blank">framework</a>, não foi necessário programar os detalhes relacionados ao <a href="https://pt.wikipedia.org/wiki/Soquete_de_rede" target="_blank">socket de rede</a> (`import socket`). O <a href="https://pt.wikipedia.org/wiki/Framework_para_aplica%C3%A7%C3%B5es_web" target="_blank">framework</a> abstrai todas essas complexidades, disponibilizando um decorador `@app.route('/')` que é aplicado sobre funções <a href="https://www.python.org/" target="_blank">Python</a>, com o objetivo de retornar um conteúdo <a href="https://pt.wikipedia.org/wiki/HTML" target="_blank">HTML</a> neste caso.
 
-Ambos os códigos produzem como resultado o HTML `<p>Hello World!</p>`:
+Ambos os códigos produzem como resultado o <a href="https://pt.wikipedia.org/wiki/HTML" target="_blank">HTML</a> `<p>Hello World!</p>`:
 
 ```bash linenums="1"
 $ curl http://localhost:5000
@@ -116,16 +116,16 @@ Abaixo estão alguns outros exemplos de <a href="https://pt.wikipedia.org/wiki/F
 
 ## 2.3.2 Introdução ao Microframework Flask
 
-<a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é um framework desenvolvido em a <a href="https://www.python.org/" target="_blank">Python</a> utilizado para o desenvolvimento de aplicações web. É considerado <i>"microframework"</i> devido ao seu tamanho reduzido, pois sua instalação padrão inclui apenas alguns componentes essenciais para a criação de aplicações web.
+<a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é um framework desenvolvido em <a href="https://www.python.org/" target="_blank">Python</a> utilizado para o desenvolvimento de aplicações web. É considerado um <i>"microframework"</i> devido ao seu tamanho reduzido, pois sua instalação padrão inclui apenas alguns componentes essenciais para a criação de aplicações web.
 
-<a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> pode ser estendido por meio de componentes adicionais instalados separadamente, que acrescentam funcionalidades extras à sua aplicação. Por exemplo, a aplicação **OCI PIZZA** utiliza alguns componentes instalados à parte, como o <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>, que permite a utilização de templates HTML.
+<a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> pode ser estendido por meio de componentes adicionais instalados separadamente, que acrescentam funcionalidades extras à sua aplicação. Por exemplo, a aplicação **OCI PIZZA** utiliza alguns componentes instalados à parte, como o <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>, que permite a utilização de templates <a href="https://pt.wikipedia.org/wiki/HTML" target="_blank">HTML</a>.
 
 !!! note "NOTA"
     Este livro abordará apenas o básico sobre o framework <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> referente ao seu uso no desenvolvimento da aplicação **OCI PIZZA**. Para obter mais informações, consulte a documentação disponível em sua página oficial: <a href="https://flask.palletsprojects.com" target="_blank">https://flask.palletsprojects.com</a>
 
 ### **Instalação do Flask**
 
-A forma mais comum de instalar o <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é por meio de um <a href="https://docs.python.org/3/library/venv.html" target="_blank"><i>ambiente virtual Python (venv)</i></a>. Um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a> é, basicamente, uma cópia isolada do interpretador <a href="https://www.python.org/" target="_blank">Python</a> que opera de maneira independente no sistema operacional. A principal vantagem de utilizar um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a> é a possibilidade de agrupar sua aplicação e suas dependências em um único local, sem interferir na instalação do <a href="https://www.python.org/" target="_blank">Python</a> no sistema operacional.
+A forma mais comum de instalar o <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é por meio de um <a href="https://docs.python.org/3/library/venv.html" target="_blank"><i>ambiente virtual Python (venv)</i></a>. Um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a> é, basicamente, uma cópia isolada do interpretador <a href="https://www.python.org/" target="_blank">Python</a> que opera de maneira independente no sistema operacional. A principal vantagem de utilizar um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a> é a possibilidade de agrupar sua aplicação e suas dependências em um único local, sem interferir na instalação global do <a href="https://www.python.org/" target="_blank">Python</a> no sistema operacional.
 
 Para criar e ativar um <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a>, utilize os comandos a seguir:
 
@@ -161,7 +161,7 @@ zipp==3.20.2
 ```
 
 !!! note "NOTA"
-    Observe que outras bibliotecas foram instaladas como parte da instalação do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> e do <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>. Isso ocorre porque esses pacotes dependem de outras bibliotecas para funcionar. O comando `pip` gerencia essas dependências automaticamente para você.
+    Observe que outras bibliotecas foram instaladas como parte da instalação do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> e do <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>. Isso ocorre porque esses pacotes dependem de outros pacotes para funcionar. O comando `pip` gerencia essas dependências automaticamente para você.
 
 A finalidade do `pip freeze` não é apenas visualizar as bibliotecas e suas dependências instaladas no <a href="https://docs.python.org/3/library/venv.html" target="_blank">ambiente virtual</a>, mas também servir como um guia para a instalação das dependências do projeto.
 
@@ -226,9 +226,9 @@ Algumas observações importantes sobre este trecho de código são:
 
 **1.** `from flask import Flask` é uma instrução em <a href="https://www.python.org/" target="_blank">Python</a> que importa a classe <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> do módulo flask.
 
-**2.** A instrução `app = Flask(__name__)` cria uma instância da classe <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> e a atribui à variável `app`. A partir de agora, todas as funcionalidades do Flask estarão disponíveis através dessa variável.
+**2.** A instrução `app = Flask(__name__)` cria uma instância da classe <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> e a atribui à variável `app`. A partir de agora, todas as funcionalidades do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> estarão disponíveis através dessa variável.
 
-**3.** A instrução `@app.route('/')` define uma rota web. Isso significa que, após a aplicação ser iniciada, toda requisição para a raiz (`/`) executará a função `def hello_world()`, e o conteúdo retornado por essa função será enviado ao cliente que fez a solicitação.
+**3.** A instrução `@app.route('/')` define uma rota web. Isso significa que, após a aplicação ser iniciada, toda requisição para a raiz (`/`) acionará a função `def hello_world()`, e o resultado da execução será retornado ao cliente através da instrução `return`.
 
 !!! note "NOTA"
     Consulte a página de <a href="https://flask.palletsprojects.com/en/stable/tutorial/" target="_blank">Tutoriais</a> do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a>, disponível em <a href="https://flask.palletsprojects.com/en/stable/tutorial/" target="_blank">https://flask.palletsprojects.com/en/stable/tutorial</a>, para obter mais exemplos de códigos em <a href="https://flask.palletsprojects.com" target="_blank">Flask</a>.
@@ -237,7 +237,7 @@ Algumas observações importantes sobre este trecho de código são:
 
 Antes de executar a aplicação, o conteúdo do _Hello World_ apresentado na seção anterior deve ser salvo em um arquivo. Normalmente, para aplicações <a href="https://flask.palletsprojects.com" target="_blank">Flask</a>, utiliza-se o nome `app.py` ou `wsgi.py`, que se refere ao arquivo principal da aplicação web.
 
-Para este exemplo de Hello World, será utilizado o arquivo `wsgi.py`:
+Para este exemplo de _Hello World_, será utilizado o arquivo `wsgi.py`:
 
 ```bash linenums="1"
 (venv) $ cat wsgi.py
@@ -270,7 +270,7 @@ Press CTRL+C to quit
 !!! note "NOTA"
     Este comando inicia um servidor simples que deve ser utilizado apenas durante o desenvolvimento da aplicação (`--debug`).  Para executar a aplicação em produção, é recomendável utilizar um servidor WSGI dedicado, como o <a href="https://gunicorn.org/" target="_blank">gunicorn</a>. Para mais informações, consulte a seção <a href="https://flask.palletsprojects.com/en/stable/deploying/" target="_blank"><i>"Deploying to Production"</i></a> no seguinte link: <a href="https://flask.palletsprojects.com/en/stable/deploying/" target="_blank">https://flask.palletsprojects.com/en/stable/deploying/</a>.
 
-A partir de outro terminal, é possível testar o acesso utilizando o comando `curl`:
+A partir de outro terminal, é possível testar a aplicação utilizando o comando `curl`:
 
 ```bash linenums="1"
 $ curl http://localhost:5000
@@ -287,3 +287,4 @@ $ curl http://localhost:5000
 
 #### Enpoint de Monitoração
 
+TODO: Importante em ambientes CLOUD.
