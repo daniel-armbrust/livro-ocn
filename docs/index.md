@@ -29,7 +29,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 29/09/2025         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 30/09/2025         | 1.0.0b   |
 
 ## Sumário
 
@@ -53,7 +53,7 @@ Boa leitura!
     - [2.2 Da Necessidade à Definição de Requisitos](./capitulo-2/da-necessidade-a-definicao-dos-requisitos.md)
     - [2.3 Desenvolvimento Web com Python/Flask](./capitulo-2/desenvolvimento-web-com-python-flask.md)
     - [2.4 APIs RESTful](./capitulo-2/apis-restful.md)
-    - [2.5 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)    
+    - [2.5 Arquitetura de Software](./capitulo-2/arquitetura-de-software.md)
 <br><br>
 
 - [Capítulo 3: OCI Foundations](./capitulo-3/index.md)
@@ -67,9 +67,9 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 4: Serviços Auxiliares e Persistência de Dados](./capitulo-4/index.md)
-    - [4.1 Registro de Logs com OCI Logging](./capitulo-4/registro-de-logs-com-oci-logging.md)
-    - [4.2 Object Storage](./capitulo-4/object-storage.md)
-    - [4.3 Persistência de dados com o Oracle NoSQL](./capitulo-4/persistencia-de-dados-com-o-oracle-nosql.md)
+    - [4.1 Object Storage](./capitulo-4/object-storage.md)
+    - [4.2 Persistência de dados com o Oracle NoSQL](./capitulo-4/persistencia-de-dados-com-o-oracle-nosql.md)
+    - [4.3 Registro de Logs com OCI Logging](./capitulo-4/registro-de-logs-com-oci-logging.md)   
     - [4.4 Chatbot com OCI Language](./capitulo-4/chatbot-com-oci-language.md)
     - [4.5 Email Delivery](./capitulo-4/email-delivery.md)
 <br><br>
@@ -127,6 +127,7 @@ Boa leitura!
     - [A.7 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
     - [A.8 Monitorando o OCI através do Zabbix](./apendice-a/monitorando-o-oci-atraves-do-zabbix.md)
     - [A.9 Perguntas e Respostas sobre OCI](./apendice-a/perguntas-e-respostas-sobre-oci.md)
+    - [A.10 Desktop Oracle Linux para Desenvolvimento](./apendice-a/desktop-oracle-linux-para-desenvolvimento.md)
 <br><br>
 
 - [Bibliografia](./bibliografia.md)

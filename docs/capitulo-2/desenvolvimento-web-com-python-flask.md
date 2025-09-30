@@ -116,9 +116,11 @@ Abaixo estão alguns outros exemplos de <a href="https://pt.wikipedia.org/wiki/F
 
 ## 2.3.2 Introdução ao Microframework Flask
 
-<a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é um framework desenvolvido em <a href="https://www.python.org/" target="_blank">Python</a> utilizado para o desenvolvimento de aplicações web. É considerado um <i>"microframework"</i> devido ao seu tamanho reduzido, pois sua instalação padrão inclui apenas alguns componentes essenciais para a criação de aplicações web.
+<a href="https://flask.palletsprojects.com" target="_blank">Flask</a> é um [framework](#o-que-é-framework) desenvolvido em <a href="https://www.python.org/" target="_blank">Python</a> por <a href="https://at.linkedin.com/in/arminronacher" target="_blank">Armin Ronacher</a>, projetado para simplificar o desenvolvimento de aplicações web. É considerado um <i>"microframework"</i> devido ao seu tamanho reduzido, pois sua instalação padrão inclui apenas alguns componentes essenciais para a criação de aplicações web.
 
-<a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> pode ser estendido por meio de componentes adicionais instalados separadamente, que acrescentam funcionalidades extras à sua aplicação. Por exemplo, a aplicação **OCI PIZZA** utiliza alguns componentes instalados à parte, como o <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>, que permite a utilização de templates <a href="https://pt.wikipedia.org/wiki/HTML" target="_blank">HTML</a>.
+<a href="https://flask.palletsprojects.com/en/stable/" target="_blank">Flask</a> pode ser ampliado por meio de <a href="https://flask.palletsprojects.com/en/stable/extensions/" target="_blank">componentes adicionais</a> ou <a href="https://flask.palletsprojects.com/en/stable/extensions/" target="_blank">extensões</a>, que podem ser instalados separadamente. Essas <a href="https://flask.palletsprojects.com/en/stable/extensions/" target="_blank">extensões</a> oferecem funcionalidades extras à sua aplicação, como suporte a bancos de dados, autenticação de usuários, gerenciamento de formulários, etc.
+
+Por exemplo, a aplicação **OCI PIZZA** utiliza alguns componentes instalados à parte, como o <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>, que permite a utilização de templates <a href="https://pt.wikipedia.org/wiki/HTML" target="_blank">HTML</a>.
 
 !!! note "NOTA"
     Este livro abordará apenas o básico sobre o framework <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> referente ao seu uso no desenvolvimento da aplicação **OCI PIZZA**. Para obter mais informações, consulte a documentação disponível em sua página oficial: <a href="https://flask.palletsprojects.com" target="_blank">https://flask.palletsprojects.com</a>
@@ -185,19 +187,19 @@ Esse arquivo é útil caso você precise instalar seu projeto e suas dependênci
 A seguir, estão algumas das bibliotecas externas ao <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que a aplicação **OCI PIZZA** utiliza:
 
 - **<a href="https://flask-wtf.readthedocs.io/en/1.2.x/" target="_blank">Flask-WTF</a>**
-    - <a href="https://flask-wtf.readthedocs.io/en/1.2.x/" target="_blank">Flask-WTF</a> é uma extensão do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que integra o <a href="https://wtforms.readthedocs.io/en/3.2.x/" target="_blank">WTForms</a> com o objetivo de simplificar a criação e validação de formulários HTML.
+    - <a href="https://flask-wtf.readthedocs.io/en/1.2.x/" target="_blank">Flask-WTF</a> é uma <a href="https://flask.palletsprojects.com/en/stable/extensions/" target="_blank">extensão</a> do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que integra o <a href="https://wtforms.readthedocs.io/en/3.2.x/" target="_blank">WTForms</a> com o objetivo de simplificar a criação e validação de formulários HTML.
 
 - **<a href="https://pypi.org/project/Flask-Login/" target="_blank">Flask-Login</a>**
-    - <a href="https://pypi.org/project/Flask-Login/" target="_blank">Flask-Login</a> é uma extensão do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que simplifica a autenticação de usuários e o gerenciamento de sessões.
+    - <a href="https://pypi.org/project/Flask-Login/" target="_blank">Flask-Login</a> é uma <a href="https://flask.palletsprojects.com/en/stable/extensions/" target="_blank">extensão</a> do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que simplifica a autenticação de usuários e o gerenciamento de sessões.
 
 - **<a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a>**
     - <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a> é uma biblioteca de template para <a href="https://www.python.org/" target="_blank">Python</a> que facilita a geração de HTML dinâmicos.
 
 - **<a href="https://jinja.palletsprojects.com/" target="_blank">Flask-JWT-Extended</a>**
-    - <a href="https://flask-jwt-extended.readthedocs.io/en/stable/" target="_blank">Flask-JWT-Extended</a> é uma extensão do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que simplifica a autenticação baseada em <a href="https://pt.wikipedia.org/wiki/JSON_Web_Token" target="_blank">JSON Web Tokens (JWT)</a>.
+    - <a href="https://flask-jwt-extended.readthedocs.io/en/stable/" target="_blank">Flask-JWT-Extended</a> é uma <a href="https://flask.palletsprojects.com/en/stable/extensions/" target="_blank">extensão</a> do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que simplifica a autenticação baseada em <a href="https://pt.wikipedia.org/wiki/JSON_Web_Token" target="_blank">JSON Web Tokens (JWT)</a>.
 
 - **<a href="https://flask-session.readthedocs.io/en/latest/" target="_blank">Flask-Session</a>**
-    - <a href="(https://flask-session.readthedocs.io/en/latest/" target="_blank">Flask-Session</a> é uma extensão do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que permite o gerenciamento de sessões do lado do servidor _(server-side sessions)_, oferecendo suporte a diferentes backends de armazenamento, como o <a href="https://redis.io/open-source/" target="_blank">Redis</a>.
+    - <a href="(https://flask-session.readthedocs.io/en/latest/" target="_blank">Flask-Session</a> é uma <a href="https://flask.palletsprojects.com/en/stable/extensions/" target="_blank">extensão</a> do <a href="https://flask.palletsprojects.com" target="_blank">Flask</a> que permite o gerenciamento de sessões do lado do servidor _(server-side sessions)_, oferecendo suporte a diferentes backends de armazenamento, como o <a href="https://redis.io/open-source/" target="_blank">Redis</a>.
 
 - **<a href="https://gunicorn.org/" target="_blank">gunicorn</a>**
     - <a href="https://gunicorn.org/" target="_blank">Gunicorn</a> é um servidor _HTTP Python WSGI_ que permite a execução de aplicações web de forma eficiente e escalável. Ele é usado em aplicações web desenvolvidas em _Python/Flask_ pois dá suporte a gerenciar múltiplos processos para lidar com diversas requisições simultâneas.
@@ -235,9 +237,9 @@ Algumas observações importantes sobre este trecho de código são:
 
 ### **Execução do Flask**
 
-Antes de executar a aplicação, o conteúdo do _Hello World_ apresentado na seção anterior deve ser salvo em um arquivo. Normalmente, para aplicações <a href="https://flask.palletsprojects.com" target="_blank">Flask</a>, utiliza-se o nome `app.py` ou `wsgi.py`, que se refere ao arquivo principal da aplicação web.
+Para aplicações <a href="https://flask.palletsprojects.com" target="_blank">Flask</a>, é comum utilizar os nomes de arquivos `app.py` ou `wsgi.py` como os principais _"pontos de entrada"_ da aplicação web.
 
-Para este exemplo de _Hello World_, será utilizado o arquivo `wsgi.py`:
+Para o exemplo _Hello World_, será utilizado o arquivo `wsgi.py`:
 
 ```bash linenums="1"
 (venv) $ cat wsgi.py
@@ -270,7 +272,7 @@ Press CTRL+C to quit
 !!! note "NOTA"
     Este comando inicia um servidor simples que deve ser utilizado apenas durante o desenvolvimento da aplicação (`--debug`).  Para executar a aplicação em produção, é recomendável utilizar um servidor WSGI dedicado, como o <a href="https://gunicorn.org/" target="_blank">gunicorn</a>. Para mais informações, consulte a seção <a href="https://flask.palletsprojects.com/en/stable/deploying/" target="_blank"><i>"Deploying to Production"</i></a> no seguinte link: <a href="https://flask.palletsprojects.com/en/stable/deploying/" target="_blank">https://flask.palletsprojects.com/en/stable/deploying/</a>.
 
-A partir de outro terminal, é possível testar a aplicação utilizando o comando `curl`:
+A partir de outro terminal, é possível testar o _Hello World_ utilizando o comando `curl`:
 
 ```bash linenums="1"
 $ curl http://localhost:5000
@@ -281,10 +283,12 @@ $ curl http://localhost:5000
 
 ## 2.3.4 Componentes Lógicos da Aplicação OCI PIZZA
 
+### **Templates**
+
 ### Flask Blueprints
 
 ### Organização do Código
 
 #### Enpoint de Monitoração
 
-TODO: Importante em ambientes CLOUD.
+- Importante em ambientes CLOUD.

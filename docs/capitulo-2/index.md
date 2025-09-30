@@ -6,10 +6,6 @@ hide:
 # Capítulo 2: Aplicação OCI PIZZA
 
 <h3 style="text-align: center; font-style: italic;">
-"O modo como você se organiza acaba direcionando a arquitetura de seus sistemas, para o bem ou para o mal." - Autor: <a href="https://www.linkedin.com/in/samnewman/" target="_blank">Sam Newman</a>
-</h3>
-
-<h3 style="text-align: center; font-style: italic;">
 "Um computador é uma máquina de propósito geral. Ou seja, ele precisa ser instruído para realizar tarefas úteis." - Autor: <a href="https://www.linkedin.com/in/flaviogomeslisboa/" target="_blank">Flávio Lisboa</a>
 </h3>
 

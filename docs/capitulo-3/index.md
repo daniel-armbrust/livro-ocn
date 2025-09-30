@@ -9,7 +9,9 @@ hide:
 "A verdadeira disrupção não acontece no seu data center, mas sim na nuvem." - Autor: Anônimo"
 </h3>
 
-Este capítulo apresenta uma visão abrangente dos Fundamentos do OCI, abordando desde a criação e ativação da sua nova conta até aspectos relacionados à cobrança dos serviços, controle de acesso e o uso do _[OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)_. Como este livro é orientado a código, o _[OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)_ será a principal ferramenta utilizada para gerenciar seus recursos no OCI.
+Este capítulo apresenta uma visão abrangente dos Fundamentos do <a href="https://www.oracle.com/cloud/" target="blank">OCI</a>, abordando desde a criação e ativação da sua nova conta até aspectos relacionados à cobrança dos serviços, controle de acesso e o uso do [OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md). 
+
+Como este livro é orientado a código, o [OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md) será a principal ferramenta utilizada para criar e gerenciar seus recursos no <a href="https://www.oracle.com/cloud/" target="blank">OCI</a>.
 
 - [3.1 Introdução ao OCI](./introducao-ao-oci.md)
 - [3.2 Criando e Ativando a sua Conta no OCI](./criando-e-ativando-a-sua-conta-no-oci.md)
