@@ -9,14 +9,14 @@ hide:
 
 ## 3.2.1 Criando a sua Conta no OCI
 
-Todo o processo de criação de uma nova conta no OCI deve ser realizado por meio do link _[https://signup.oraclecloud.com/](https://signup.oraclecloud.com/)_.
+Todo o processo de criação de uma nova conta no <a href="https://www.oracle.com/cloud/" target="blank">OCI</a> deve ser realizado por meio do link: <a href="https://signup.oraclecloud.com/" target="blank"><i>https://signup.oraclecloud.com/</i></a>
 
-Após acessar o link, um formulário será exibido solicitando algumas informações iniciais, como _Nome_, _Sobrenome_, _País_ e, o mais importante, o _endereço de e-mail do Administrador da conta_.
+Após acessar o <a href="https://signup.oraclecloud.com/" target="blank">link</a>, um formulário será exibido solicitando algumas informações iniciais, como _Nome_, _Sobrenome_, _País_ e, o mais importante, o _endereço de e-mail do Administrador da conta_.
 
 ![alt_text](./img/signup-oraclecloud-1.png "Criação de Conta no OCI #1")
 <br>
 
-Após inserir essas informações iniciais, o OCI enviará um e-mail para o endereço fornecido. O e-mail recebido contém um botão **_"Verify email"_** que deve ser clicado para confirmar que o e-mail é válido e pode ser utilizado para criar a conta.
+Após inserir essas informações iniciais, o <a href="https://www.oracle.com/cloud/" target="blank">OCI</a> enviará um e-mail para o endereço fornecido. O e-mail recebido contém um botão **_"Verify email"_** que deve ser clicado para confirmar que o e-mail é válido e pode ser utilizado para criar a conta.
 
 ![alt_text](./img/signup-oraclecloud-2.png "Criação de Conta no OCI #2")
 <br>
@@ -34,26 +34,26 @@ Essa opção geralmente se refere à categoria do usuário que está criando a c
 
 ### **Nome da Conta (Cloud Account Name)**
 
-**_Cloud Account Name_** ou, também conhecido como **_Tenancy_**, é o nome que identificará sua conta no OCI. Ele deve ser um nome único, só conter letras e números e é recomendável escolher um nome que represente sua organização ou o propósito da conta.
+**_Cloud Account Name_** ou, também conhecido como **_Tenancy_**, é o nome que identificará sua conta no <a href="https://www.oracle.com/cloud/" target="blank">OCI</a>. Ele deve ser um nome único, só conter letras e números e é recomendável escolher um nome que represente sua organização ou o propósito da conta.
 
-Assim que você completar o cadastro de uma nova conta, o OCI utiliza o _Cloud Account Name_ para criar um _Tenancy_ para você. O conceito de _Tenancy_, ou _multi-locatário_, refere-se a uma partição segura e isolada criada para você no OCI, onde é possível criar, organizar e administrar seus recursos de nuvem.
+Assim que você completar o cadastro de uma nova conta, o <a href="https://www.oracle.com/cloud/" target="blank">OCI</a> utiliza o **_Cloud Account Name_** para criar um **_Tenancy_** para você. O conceito de **_Tenancy_**, ou **_multi-locatário_**, refere-se a uma partição segura e isolada criada para você no <a href="https://www.oracle.com/cloud/" target="blank">OCI</a>, onde é possível criar, organizar e administrar seus recursos de nuvem.
 
-Um provedor de Computação em Nuvem, como o OCI, disponibiliza um conjunto de recursos computacionais que podem ser utilizados por diversos clientes com contas ativas. Um _Tenancy_ representa um subconjunto ou _"uma fatia"_ desse conjunto maior de recursos, sendo isolado e seguro em relação aos demais _Tenancies_ existentes, garantindo que os dados e as operações de cada cliente permaneçam protegidos e separados.
+Um provedor de Computação em Nuvem, como o <a href="https://www.oracle.com/cloud/" target="blank">OCI</a>, disponibiliza um conjunto de recursos computacionais que podem ser utilizados por diversos clientes com contas ativas. Um **_Tenancy_** representa um subconjunto ou _"uma fatia"_ desse conjunto maior de recursos, sendo isolado e seguro em relação aos demais _Tenancies_ existentes, garantindo que os dados e as operações de cada cliente permaneçam protegidos e separados.
 
 ![alt_text](./img/tenancy-1.png "Tenancy")
 
 !!! note "NOTA"
-    O **_Nome da Conta (Cloud Account Name)_** ou nome do **_Tenancy_** não deve ser um nome de usuário ou qualquer outra string aleatória. É recomendado que o nome do _Tenancy_ seja o nome da sua empresa. No caso deste livro, estamos utilizando o nome **_ocipizza_**, que indica o nome do projeto da aplicação _OCI Pizza_.
+    O **_Nome da Conta (Cloud Account Name)_** ou nome do **_Tenancy_** não deve ser um nome de usuário ou qualquer outra string aleatória. É recomendado que o nome do _Tenancy_ seja o nome da sua empresa. No caso deste livro, estamos utilizando o nome **_ocipizza_**, que indica o nome do projeto da aplicação **OCI Pizza**.
 
-Assim que o nome da conta for inserido, é hora de escolher a _[Home Region](https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home)_, que indica em qual região do OCI sua conta e os recursos do _[Serviço IAM](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm#overview)_ serão criados (como usuários, grupos de usuários, políticas de acesso, compartimentos, etc.). Os recursos IAM são globais, o que significa que um usuário criado na região _Brazil East (São Paulo)_ não precisa ser recriado na região _Brazil Southeast (Vinhedo)_. No entanto, é necessário selecionar uma região para ser a _[Home Region](https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home)_, para que os recursos IAM sejam criados nessa região.
+Assim que o nome da conta for inserido, é hora de escolher a <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home" target="blank">Home Region</a>, que indica em qual região do <a href="https://www.oracle.com/cloud/" target="blank">OCI</a> sua conta e os recursos do <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm#overview" target="blank">Serviço IAM</a> serão criados (como usuários, grupos de usuários, políticas de acesso, compartimentos, etc.). Os recursos <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm#overview" target="blank">IAM</a> são globais, o que significa que um usuário criado na região _Brazil East (São Paulo)_ não precisa ser recriado na região _Brazil Southeast (Vinhedo)_. No entanto, é necessário selecionar uma região para ser a <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home" target="blank">Home Region</a>, para que os recursos <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm#overview" target="blank">IAM</a> sejam criados nessa região.
 
 ![alt_text](./img/signup-oraclecloud-5.png "Criação de Conta no OCI #5")
 <br>
 
 !!! note "NOTA"
-    Qualquer recurso criado ou modificado pelo _[Serviço IAM](https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm#overview)_ não é atualizado de forma imediata em todas as regiões nas quais você se inscreveu. A criação ou atualização de um recurso do IAM pode levar vários minutos para que as alterações na _[Home Region](https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home)_ se tornem disponíveis em todas as outras regiões.
+    Qualquer recurso criado ou modificado pelo <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/getstarted/identity-domains.htm#overview" target="blank">Serviço IAM</a> não é atualizado de forma imediata em todas as regiões nas quais você se inscreveu. A criação ou atualização de um recurso do IAM pode levar vários minutos para que as alterações na <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home" target="blank">Home Region</a> se tornem disponíveis em todas as outras regiões.
 
-Por fim, deve-se completar o cadastro após a seleção da _[Home Region](https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home)_.
+Por fim, deve-se completar o cadastro após a seleção da <a href="https://docs.oracle.com/pt-br/iaas/Content/Identity/regions/managingregions.htm#Home" target="blank">Home Region</a>.
 
 ![alt_text](./img/signup-oraclecloud-6.png "Criação de Conta no OCI #6")
 <br>
@@ -61,7 +61,7 @@ Por fim, deve-se completar o cadastro após a seleção da _[Home Region](https:
 ![alt_text](./img/signup-oraclecloud-7.png "Criação de Conta no OCI #7")
 <br>
 
-Como último passo, é necessário adicionar um Número de Cartão de Crédito válido. Neste momento, não haverá nenhuma cobrança, apenas um débito e estorno no valor de **_US$1_** como forma de validar o cartão de crédito.
+Como último passo, é necessário adicionar um _Número de Cartão de Crédito_ válido. Neste momento, não haverá nenhuma cobrança, apenas um débito e estorno no valor de **_US$1_** como forma de validar o cartão.
 
 ![alt_text](./img/signup-oraclecloud-8.png "Criação de Conta no OCI #8")
 <br>
@@ -73,6 +73,6 @@ Como último passo, é necessário adicionar um Número de Cartão de Crédito v
 <br>
 
 !!! note "NOTA"
-    Como meio de pagamento, o OCI aceita apenas cartões de crédito. Cartões de débito, cartões virtuais ou cartões pré-pagos não são aceitos. Além disso, um cartão de crédito cadastrado será verificado periodicamente pela Oracle para confirmar a veracidade das informações.
+    Como meio de pagamento, o <a href="https://www.oracle.com/cloud/" target="blank">OCI</a> aceita apenas _Cartões de Crédito_. _Cartões de Débito_, _Cartões Virtuais_ ou _Cartões Pré-pagos_ não são aceitos. Além disso, um _Cartão de Crédito_ cadastrado será verificado periodicamente pela Oracle para confirmar a veracidade das informações.
 
 Cadastro concluído! Agora, basta aguardar um e-mail de confirmação que indicará que sua conta foi criada com sucesso.
