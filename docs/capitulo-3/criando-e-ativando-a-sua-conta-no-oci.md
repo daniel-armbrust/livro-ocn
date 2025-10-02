@@ -9,7 +9,9 @@ hide:
 
 ## 3.2.1 Criando a sua Conta no OCI
 
-Todo o processo de criação de uma nova conta no <a href="https://www.oracle.com/cloud/" target="blank">OCI</a> deve ser realizado por meio do link: <a href="https://signup.oraclecloud.com/" target="blank"><i>https://signup.oraclecloud.com/</i></a>
+Todo o processo de criação de uma nova conta no <a href="https://www.oracle.com/cloud/" target="blank">OCI</a> deve ser realizado por meio do link: 
+
+- <a href="https://signup.oraclecloud.com/" target="blank">https://signup.oraclecloud.com</a>
 
 Após acessar o <a href="https://signup.oraclecloud.com/" target="blank">link</a>, um formulário será exibido solicitando algumas informações iniciais, como _Nome_, _Sobrenome_, _País_ e, o mais importante, o _endereço de e-mail do Administrador da conta_.
 

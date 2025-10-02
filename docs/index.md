@@ -63,7 +63,8 @@ Boa leitura!
     - [3.4 Acessando o OCI](./capitulo-3/acessando-o-oci.md)
     - [3.5 Gerenciando o OCI através do OCI CLI](./capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md)
     - [3.6 IAM, Limites, Cotas e Audit](./capitulo-3/iam-limites-cotas-e-audit.md)
-    - [3.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-3/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
+    - [3.7 Cotas, Políticas IAM e Compartimentos da Aplicação OCI PIZZA](./capitulo-3/cotas-politicas-iam-e-compartimentos-da-aplicacao-oci-pizza.md)
+    - [3.8 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./capitulo-3/ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
 <br><br>
 
 - [Capítulo 4: Serviços Auxiliares e Persistência de Dados](./capitulo-4/index.md)
@@ -71,16 +72,18 @@ Boa leitura!
     - [4.2 Persistência de dados com o Oracle NoSQL](./capitulo-4/persistencia-de-dados-com-o-oracle-nosql.md)
     - [4.3 Registro de Logs com OCI Logging](./capitulo-4/registro-de-logs-com-oci-logging.md)   
     - [4.4 Chatbot com OCI Language](./capitulo-4/chatbot-com-oci-language.md)
-    - [4.5 Email Delivery](./capitulo-4/email-delivery.md)
 <br><br>
 
 - [Capítulo 5: Conectividade e Redes](./capitulo-5/index.md)
     - [5.1 Introdução as Redes de Computadores](./capitulo-5/introducao-as-redes-de-computadores.md)
     - [5.2 Endereçamento IPv6](./capitulo-5/enderecamento-ipv6.md)
     - [5.3 Topologia de Rede da Aplicação OCI Pizza](/capitulo-5/topologia-de-rede-da-aplicacao-oci-pizza.md)
-    - [5.3 O Serviço de Redes do OCI](./capitulo-5/o-servico-de-redes-do-oci.md)
-    - [5.4 Roteamento e Conectividade entre Regiões](./capitulo-5/roteamento-e-conectividade-entre-regioes.md)
-    - [5.5 Acesso Privado via VPN Site-To-Site](./capitulo-5/acesso-privado-via-vpn-site-to-site.md)
+    - [5.4 O Serviço de Redes do OCI](./capitulo-5/o-servico-de-redes-do-oci.md)
+    - [5.5 Reserva de Endereço IP Público](./capitulo-5/reserva-de-endereco-ip-publico.md)
+    - [5.6 DNS Público](./capitulo-5/dns-publico.md)
+    - [5.7 Roteamento e Conectividade entre Regiões](./capitulo-5/roteamento-e-conectividade-entre-regioes.md)
+    - [5.8 Email Delivery](./capitulo-5/email-delivery.md)
+    - [5.9 Acesso Privado via VPN Site-To-Site](./capitulo-5/acesso-privado-via-vpn-site-to-site.md)
 <br><br>
 
 - [Capítulo 6: Contêineres, Docker e Funções](./capitulo-6/index.md)
@@ -92,9 +95,7 @@ Boa leitura!
 <br><br>
 
 - [Capítulo 7: Publicando a Aplicação na Web](./capitulo-6/index.md)
-    - [7.1 Container Instances](./capitulo-7/container-instances.md)
-    - [7.2 Reserva de Endereço IP Público](./capitulo-7/reserva-de-endereco-ip-publico.md)
-    - [5.6 DNS Público](./capitulo-7/dns-publico.md)
+    - [7.1 Container Instances](./capitulo-7/container-instances.md)    
     - [5.7 Let's Encrypt e o Serviço de Certificados](./capitulo-7/lets-encrypt-e-o-servico-de-certificados.md)
     - [7.8 Load Balancer](./capitulo-7/load-balancer.md)
     - [7.9 Web Application Firewall (WAF)](./capitulo-7/web-application-firewall.md)

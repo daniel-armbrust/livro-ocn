@@ -5,9 +5,9 @@ hide:
 
 # Capítulo 3: OCI Foundations
 
-# 3.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações
+# 3.8 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações
 
-Neste capítulo, abordaremos recursos adicionais que podem ser extremamente úteis para aprimorar sua experiência com o OCI. Aqui, você encontrará informações sobre suporte técnico, comunidades online, documentação oficial, cursos de treinamento e certificações que podem ajudá-lo a se aprofundar ainda mais nas funcionalidades e melhores práticas do OCI.
+Nesta seção, abordaremos recursos adicionais que podem ser extremamente úteis para aprimorar sua experiência com o OCI. Aqui, você encontrará informações sobre suporte técnico, comunidades online, documentação oficial, cursos de treinamento e certificações que podem ajudá-lo a se aprofundar ainda mais nas funcionalidades e melhores práticas do OCI.
 
 ### **[GUOCB - Grupo de Usuários Oracle Cloud Brasil](https://t.me/GUOCB)**
 

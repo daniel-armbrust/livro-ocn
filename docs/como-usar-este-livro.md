@@ -5,6 +5,8 @@ hide:
 
 # Como usar este Livro
 
+- todo: eu sou meio fanático por links pois é uma maneira de trazer a definição rápida de um termo quando estamos aprendendo algo.
+
 A motivação para escrever um livro sobre _[Cloud Native](./capitulo-1/cloud-native.md)_ na _[Oracle Cloud (OCI)](./capitulo-2/index.md)_ surgiu principalmente da minha falta de entendimento sobre o tema. Posso afirmar que o processo de escrita, combinado com minha experiência cotidiana, me ajudaram a compreender um pouco mais sobre o assunto.
 
 O livro foi escrito em português, pois o objetivo é contribuir, primeiro, com os brasileiros. Optei por não traduzir alguns termos pois eles são usados sem tradução pelos profissionais de TI do Brasil no seu dia a dia.
@@ -71,4 +73,4 @@ A descrição sucinta do que cada capítulo abrange pode ser consultada a seguir
 
 Para críticas, sugestões ou reportar qualquer erro, seja um link "quebrado" ou mesmo um simples erro ortográfico, entre em contato comigo pelo e-mail: <a href="darmbrust@gmail.com">darmbrust@gmail.com</a>
 
-Direitos autorais reservados. Versão para uso pessoal. 
+Direitos autorais reservados. Versão para uso pessoal.

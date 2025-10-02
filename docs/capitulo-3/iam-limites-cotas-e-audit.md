@@ -299,6 +299,8 @@ O script **_[scripts/capitulo-2/compartment.sh](https://github.com/daniel-armbru
 !!! note "NOTA"
     A Oracle recomenda a criação e configuração de um _[compartimentos](#compartimentos)_ **_sandbox_** para proporcionar aos usuários um espaço dedicado para testar recursos. No _[compartimento](#compartimentos)_ _sandbox_, você pode conceder permissões aos usuários para criar e gerenciar recursos, enquanto mantém permissões mais restritivas nos demais _[compartimentos](#compartimentos)_.
 
+- TODO: os exemplos do livro utilizam o compartimento de produção apenas.
+
 ### **[Políticas de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)**
 
 Uma _[Política de Acesso](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_, _[Política](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_ ou _[Policy](https://docs.oracle.com/pt-br/iaas/Content/Identity/policieshow/Policy_Basics.htm)_, é um documento que contém uma ou mais declarações destinadas a conceder acesso e autorizar, um grupo de usuários, em gerenciar determinado serviço ou recurso do OCI. A Policy permite especificar permissões em nível de _[compartimento](#compartimentos)_ ou para todo o _[Tenancy](../capitulo-1/definicoes-nist.md#resource-pooling-agrupamento-de-recursos)_.

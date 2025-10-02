@@ -19,4 +19,5 @@ Como este livro é orientado a código, o [OCI CLI](./gerenciando-o-oci-atraves-
 - [3.4 Acessando o OCI](./acessando-o-oci.md)
 - [3.5 Gerenciando o OCI através do OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md)
 - [3.6 IAM, Limites, Cotas e Audit](./iam-limites-cotas-e-audit.md)
-- [3.7 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)
+- [3.7 Cotas, Políticas IAM e Compartimentos da Aplicação OCI PIZZA](./cotas-politicas-iam-e-compartimentos-da-aplicacao-oci-pizza.md)
+- [3.8 Ajuda Extra, Informações Adicionais, Treinamentos e Certificações](./ajuda-extra-informacoes-adicionais-treinamentos-certificacoes.md)

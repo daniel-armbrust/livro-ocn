@@ -295,11 +295,11 @@ Os **_parâmetros globais_** como o própio nome diz, são globais pois podem se
 
 Para os exemplos apresentados no livro, os **_parâmetros globais_** mais utilizados são:
 
-#### [--region](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-region)
+- [--region](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-region)
 
 Permite especificar a região do OCI onde ocorrerá a interação com um determinado recurso.
 
-#### [--query](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-query)
+- [--query](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.53.0/oci_cli_docs/oci.html#cmdoption-query)
 
 Parâmetro utilizado para filtrar a resposta _JSON_ recebida do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_. A filtragem é especialmente útil ao lidar com grandes volumes de informações vindas através do _[OCI CLI](https://docs.oracle.com/pt-br/iaas/Content/API/Concepts/cliconcepts.htm)_. 
 
