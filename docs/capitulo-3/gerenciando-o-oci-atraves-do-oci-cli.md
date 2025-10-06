@@ -245,7 +245,7 @@ OCI_API_KEY
 ```bash linenums="1"
 $ oci os ns get
 {
-  "data": "grxmw2a9myyj"
+  "data": "WYYdXX82dnaS"
 }
 ```
 
