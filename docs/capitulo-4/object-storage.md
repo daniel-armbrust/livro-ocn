@@ -212,7 +212,7 @@ Todo <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingob
     - Nome do <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingbuckets.htm" target="_blank">bucket</a> onde o <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingobjects.htm" target="_blank">objeto</a> reside.
 
 - **NOME-DO-OBJETO**
-    - Nome do <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingobjects.htm" target="_blank">objeto</a>.
+    - Nome do <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingobjects.htm" target="_blank">objeto</a> dentro do <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingbuckets.htm" target="_blank">bucket</a>.
 
 No caso da aplicação **OCI PIZZA**, o <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingbuckets.htm" target="_blank">bucket</a> **pizza** é público, permitindo o acesso direto aos seus <a href="https://docs.oracle.com/pt-br/iaas/Content/Object/Tasks/managingobjects.htm" target="_blank">objetos</a> por meio de suas URLs, sem a necessidade de autenticação ou autorização.
 
