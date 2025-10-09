@@ -23,7 +23,7 @@ hide:
 
 ## Oracle Cloud
 
-- [Oracle Cloud Infrastructure Documentation.](https://docs.oracle.com/en-us/iaas/Content/home.htm)
+- [Oracle Cloud Infrastructure Documentation.](https://docs.oracle.com/pt-br/iaas/Content/GSG/Concepts/baremetalintro.htm)
 
 - [Tomasz Jakóbczyk, Michal (2020). Practical Oracle Cloud Infrastructure: Infrastructure as a Service, Autonomous Database, Managed Kubernetes, and Serverless. Apress.](https://link.springer.com/book/10.1007/978-1-4842-5506-3)
 
@@ -118,3 +118,11 @@ hide:
 - [10 Years of Kubernetes (2024). Kubernetes Blog.](https://kubernetes.io/blog/2024/06/06/10-years-of-kubernetes/)
 
 - [Madapparambath, Gineesh; McKendrick, Russ (2024). The Kubernetes Bible - Second Edition. Packt Publishing.](https://www.packtpub.com/en-us/product/the-kubernetes-bible-9781835468241)
+
+## NoSQL
+ 	
+[Sadalage, Pramod J.; Fowler, Martin (2013). NoSQL Essencial. Novatec.](https://novatec.com.br/livros/nosql-essencial/)
+
+[Oracle NoSQL Database Release 25.1](https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/index.html)
+
+[Oracle NoSQL Database Cloud Service](https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/)
