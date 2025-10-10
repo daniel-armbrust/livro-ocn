@@ -160,8 +160,9 @@ A capacidade da tabela (`capacityMode`) pode ser definida como `ON_DEMAND` ou `P
 
 Por outro lado, o valor `PROVISIONED`, utilizado pela aplicação **OCI PIZZA**, exige especificar os valores para `maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`. Quando a capacidade máxima é atingida para qualquer um desses parâmetros, o serviço retorna um erro que requer a intervenção do administrador para ajuste da nova capacidade.
 
-Permitir que o serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> escale automaticamente a tabela quando necessário (`ON_DEMAND`) é financeiramente mais caro do que realizar ajustes manuais conforme necessário (`PROVISIONED`).
-
+!!! note "NOTA"
+    Permitir que o serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> escale automaticamente a tabela quando forem necessários mais armazenamento e throughput é financeiramente mais caro do que especificar esses valores antecipadamente (`PROVISIONED`).
+    
 Por exemplo, para ajustar o parâmetro `maxReadUnits` para o valor `15`, utilize o seguinte comando:
 
 ```bash linenums="1"
@@ -179,6 +180,8 @@ dUnits\": 15,\"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
     Independentemente de o ajuste de limites ser feito apenas em um dos parâmetros, todos eles devem estar incluídos no comando de atualização da tabela (`maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`).
 
 ### **Child Tables**
+
+Child tables não tem limites definidos. Ele herda da tabela superior da hierarquia.
 
 ### **<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>**
 
