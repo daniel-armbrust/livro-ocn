@@ -81,9 +81,9 @@ O serviço também oferece outros recursos adicionais, incluindo:
 !!! note "NOTA"
     Para mais informações sobre o serviço, consulte o link <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank"><i>"Oracle NoSQL Database Cloud Service"</i></a>.
 
-### **Utilização do Serviço** 
+### **Armazenamento, Unidades de Escrita e Leitura** 
 
-Para utilizar o serviço, você precisa criar tabelas que representam o seu modelo de dados (esquema) e especificar a quantidade total de armazenamento, além de duas propriedades que controlam as capacidades de leitura e escrita do cluster. São elas:
+Para utilizar o serviço, você precisa criar tabelas que representam o seu modelo de dados (esquema) e especificar a quantidade total de armazenamento, além de duas propriedades que controlam as capacidades de leitura e escrita da tabela (throughput). São elas:
 
 - **Unidades de Escrita ou Gravação (WU - Write Unit)**
     - Uma unidade de escrita corresponde a um throughput de até 1 kilobyte (KB) de dados por segundo para operações como inserção, atualização ou exclusão de um registro. Atualizações de índices também consomem unidades de escrita.
@@ -106,8 +106,81 @@ Ao lidar com dados distribuídos, como nos bancos de dados <a href="https://docs
     - Os dados retornados a partir de uma operação de leitura, são os mais recentes gravados.
     - Neste caso, uma operação de leitura é executada em vários nós do cluster para comparar a consistência dos dados entre eles.
 
-Por meio das APIs do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, você pode especificar o tipo de leitura que deseja executar, seja ela Eventual ou Absoluta.
+Por meio das APIs do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, é possível especificar o tipo de leitura desejada, seja ela Eventual ou Absoluta.
 
-### **Global Active Tables**
+## 4.2.4 Tabelas da Aplicação OCI PIZZA
 
+A aplicação **OCI PIZZA** utiliza quatro tabelas do serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, cujos dados são replicados entre as regiões **sa-saopaulo-1** e **sa-vinhedo-1** através da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>. 
+
+Abaixo, segue uma descrição de cada uma delas:
+
+- **pizza**
+    - Tabela que armazena informações sobre o cardápio de pizzas, incluindo o nome da pizza, uma descrição e o nome do arquivo correspondente à imagem da pizza.
+    - O nome do arquivo da imagem corresponde ao arquivo que foi transferido para o [Object Storage](./object-storage.md).
+
+- **user**
+    - Tabela que armazena os usuários da aplicação, incluindo nome, e-mail, senha, telefone e o status de confirmação do cadastro, indicando se o usuário validou seu registro.
+    - Cada novo usuário recebe um e-mail com um link para confirmar seu cadastro após a inscrição.
+
+- **user.order**
+    - A tabela **user.order** é do tipo **Child** e estabelece um relacionamento com a tabela **user**. Ela é utilizada para registrar os pedidos de pizzas realizados pelos usuários (ordens de compra).
+    - O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> utiliza a notação de ponto entre os nomes das tabelas para representar relacionamentos entre elas.
+
+- **email_verification**
+    - Tabela de dados temporários utilizada para confirmar o cadastro de novos usuários e para o processo de redefinição de senha.
+    - Cada novo usuário recebe um e-mail com um link que contém um token temporário, utilizado para ativar o cadastro. O processo de redefinição de senha segue a mesma lógica.
+    - Essa tabela também utiliza a funcionalidade que remove automaticamente registros com mais de um dia de idade (`TTL 1 DAYS`). Assim, qualquer registro que ultrapassar um dia, será automaticamente excluído pelo serviço.
+
+Para criar a tabela `pizza` na região **sa-saopaulo-1**, no [compartimento](../capitulo-3/iam-limites-cotas-e-audit.md#compartimentos) `cmp-appl` do ambiente de produção, utilize o seguinte comando:
+
+```bash linenums="1"
+$ oci nosql table create \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --name "pizza" \
+> --table-limits "{\"capacityMode\": \"PROVISIONED\", \"maxReadUnits\": 5, \"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
+> --wait-for-state "SUCCEEDED" \
+> --ddl-statement "
+     CREATE TABLE IF NOT EXISTS pizza (
+        id INTEGER,
+        name STRING,
+        description STRING,
+        image STRING,
+        price NUMBER,
+        json_replica JSON,
+     PRIMARY KEY(id))"
+```
+
+!!! note "NOTA"
+    Os scripts para a criação das tabelas de ambas as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md) estão localizados no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**. Os arquivos estão nomeados como <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/nosql-tables-saopaulo.sh" target="_blank">"nosql-tables-saopaulo.sh"</a> e <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/nosql-tables-vinhedo.sh" target="_blank">"nosql-tables-vinhedo.sh"</a>.
+
+O parâmetro `--table-limits` especifica o throughput máximo de escrita  (`maxReadUnits`), o throughput máximo de leitura (`maxWriteUnits`), a capacidade de armazenamento máxima em gigabytes (`maxStorageInGBs`) e o modo de capacidade da tabela (`capacityMode`).
+
+A capacidade da tabela (`capacityMode`) pode ser definida como `ON_DEMAND` ou `PROVISIONED`. Se o valor `ON_DEMAND` for especificado, o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> irá escalar automaticamente o armazenamento (`maxStorageInGBs`) e o throughput (unidades de escrita e leitura) conforme a demanda de utilização aumenta. 
+
+Por outro lado, o valor `PROVISIONED`, utilizado pela aplicação **OCI PIZZA**, exige especificar os valores para `maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`. Quando a capacidade máxima é atingida para qualquer um desses parâmetros, o serviço retorna um erro que requer a intervenção do administrador para ajuste da nova capacidade.
+
+Permitir que o serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> escale automaticamente a tabela quando necessário (`ON_DEMAND`) é financeiramente mais caro do que realizar ajustes manuais conforme necessário (`PROVISIONED`).
+
+Por exemplo, para ajustar o parâmetro `maxReadUnits` para o valor `15`, utilize o seguinte comando:
+
+```bash linenums="1"
+$ oci nosql table update \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --table-name-or-id "pizza" \
+> --table-limits "{\"capacityMode\": \"PROVISIONED\", \"maxRea
+dUnits\": 15,\"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
+> --wait-for-state "SUCCEEDED" \
+> --force
+```
+
+!!! note "NOTA"
+    Independentemente de o ajuste de limites ser feito apenas em um dos parâmetros, todos eles devem estar incluídos no comando de atualização da tabela (`maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`).
+
+### **Child Tables**
+
+### **<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>**
+
+<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a> permite a criação de tabelas que podem ser replicadas em diversas [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md), garantindo que qualquer atualização realizada em uma tabela em uma [região](../capitulo-3/introducao-ao-oci.md#311-região) seja automaticamente propagada para as tabelas réplicas nas outras [regiões](../capitulo-3/introducao-ao-oci.md#311-região) participantes.
 
