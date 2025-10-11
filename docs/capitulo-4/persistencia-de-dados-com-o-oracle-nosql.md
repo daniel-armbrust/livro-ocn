@@ -59,10 +59,6 @@ A maioria dos bancos de dados <a href="https://docs.oracle.com/en/cloud/paas/nos
 - **Colunar**
     - O armazenamento colunar é semelhante a uma tabela.
 
-O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> suporta tanto os tipos chave/valor, quanto documento e colunar na mesma tabela.
-
-![alt_text](./img/nosql-tipos-2.png "Tipos de NoSQL #1")
-
 ## 4.2.3 Introdução ao Oracle NoSQL Database Cloud Service
 
 O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL Database Cloud Service</a> é um serviço de banco de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a> disponível no [OCI](../capitulo-3/introducao-ao-oci.md), totalmente gerenciado e que oferece suporte ao armazenamento de documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, dados do tipo chave/valor e dados em colunas (tabelas).
@@ -80,6 +76,60 @@ O serviço também oferece outros recursos adicionais, incluindo:
 
 !!! note "NOTA"
     Para mais informações sobre o serviço, consulte o link <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank"><i>"Oracle NoSQL Database Cloud Service"</i></a>.
+
+### **Tabelas**
+
+No <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, é possível criar tabelas sem um esquema fixo (schemaless) ou definir tabelas com um esquema fixo.
+
+Uma **tabela sem esquema**, ou **schemaless**, é basicamente uma tabela que armazena documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, onde cada documento inserido pode ter uma estrutura única e independente. Nesse caso, o banco de dados não valida a estrutura interna do <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a> antes de persistir os dados, ele apenas verifica se o dado possui um documento <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a> válido.
+
+```sql linenums="1"
+CREATE TABLE IF NOT EXISTS produtos (
+    id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    propriedades JSON,
+    PRIMARY KEY(id))
+```
+
+Uma tabela com um **esquema fixo** possui colunas que têm tipos de dados específicos. Isso significa que, antes de persistir os dados, o banco de dados valida a estrutura dos dados em relação ao tipo de dados definido. Por exemplo, uma coluna definida para armazenar valores inteiros aceitará apenas números inteiros, enquanto uma coluna de texto permitirá apenas strings. 
+
+```sql linenums="1"
+CREATE TABLE IF NOT EXISTS produtos (
+    id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    nome STRING,
+    descricao STRING,
+    valor NUMBER NOT NULL DEFAULT 0,
+    frete_gratis BOOLEAN DEFAULT TRUE,
+    imagens ARRAY(STRING),
+    PRIMARY KEY(id))
+```
+
+!!! note "NOTA"
+    Consulte o link <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/rnpxl/index.html" target="_blank"><i>"Supported Data Types"</i></a> para acessar a lista dos tipos de dados suportados pelo <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>.
+
+O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> também suporta **tabelas híbridas (Hybrid Tables)**, que permitem a combinação de colunas do tipo <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a> para armazenar documentos sem estrutura fixa e colunas com tipos de dados específicos.
+
+```sql linenums="1"
+CREATE TABLE IF NOT EXISTS produtos (
+    id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+    propriedades JSON,
+    valor NUMBER NOT NULL DEFAULT 0,
+    frete_gratis BOOLEAN DEFAULT TRUE,
+    imagens ARRAY(STRING),   
+    PRIMARY KEY(id))
+```
+
+![alt_text](./img/nosql-tipos-2.png "Tipos de NoSQL #2")
+
+Independentemente de a tabela ter um esquema fixo ou não, é obrigatório criar uma coluna destinada a ser a chave primária da tabela (`PRIMARY KEY(id)`). 
+ 
+A chave primária dos comandos acima inclui uma coluna chamada `id`, designada como <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank">coluna de identidade (IDENTITY Column)</a>. Essa coluna especial é projetada para gerar automaticamente valores únicos e sequenciais para cada novo registro inserido, eliminando a necessidade de gerenciar os valores da chave primária manualmente pela aplicação.
+
+!!! note "NOTA"
+    Consulte o link <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank"><i>"Using the IDENTITY Column"</i></a> para obter mais informações sobre <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank"><i>"coluna de identidade"</i></a> no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>.
+
+### **Child Tables**
+
+Child tables não tem limites definidos. Ele herda da tabela superior da hierarquia.
 
 ### **Armazenamento, Unidades de Escrita e Leitura** 
 
@@ -162,7 +212,7 @@ Por outro lado, o valor `PROVISIONED`, utilizado pela aplicação **OCI PIZZA**,
 
 !!! note "NOTA"
     Permitir que o serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> escale automaticamente a tabela quando forem necessários mais armazenamento e throughput é financeiramente mais caro do que especificar esses valores antecipadamente (`PROVISIONED`).
-    
+
 Por exemplo, para ajustar o parâmetro `maxReadUnits` para o valor `15`, utilize o seguinte comando:
 
 ```bash linenums="1"
@@ -178,10 +228,6 @@ dUnits\": 15,\"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
 
 !!! note "NOTA"
     Independentemente de o ajuste de limites ser feito apenas em um dos parâmetros, todos eles devem estar incluídos no comando de atualização da tabela (`maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`).
-
-### **Child Tables**
-
-Child tables não tem limites definidos. Ele herda da tabela superior da hierarquia.
 
 ### **<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>**
 
