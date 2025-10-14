@@ -123,6 +123,6 @@ hide:
  	
 [Sadalage, Pramod J.; Fowler, Martin (2013). NoSQL Essencial. Novatec.](https://novatec.com.br/livros/nosql-essencial/)
 
-[Oracle NoSQL Database Release 25.1](https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/index.html)
+[Oracle NoSQL Database Documentation](https://docs.oracle.com/en/database/other-databases/nosql-database/index.html)
 
 [Oracle NoSQL Database Cloud Service](https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/)

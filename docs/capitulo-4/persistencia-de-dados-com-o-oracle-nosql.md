@@ -61,27 +61,25 @@ A maioria dos bancos de dados <a href="https://docs.oracle.com/en/cloud/paas/nos
 
 ## 4.2.3 Introdução ao Oracle NoSQL Database Cloud Service
 
-O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL Database Cloud Service</a> é um serviço de banco de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a> disponível no [OCI](../capitulo-3/introducao-ao-oci.md), totalmente gerenciado e que oferece suporte ao armazenamento de documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, dados do tipo chave/valor e dados em colunas (tabelas).
+O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL Database Cloud Service</a> é um serviço de banco de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a> disponível no [OCI](../capitulo-3/introducao-ao-oci.md), totalmente gerenciado e que oferece suporte ao armazenamento de documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, dados do tipo chave/valor e dados em colunas (<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a>).
 
-O serviço já inclui, por padrão, monitoramento, alta disponibilidade (com dados distribuídos automaticamente entre [Fault Domains](../capitulo-3/introducao-ao-oci.md#313-fault-domains-fd) e [Availability Domains](../capitulo-3/introducao-ao-oci.md#312-availability-domains-ad)), fácil escalabilidade com um tempo de resposta baixo. 
-
-O serviço também oferece outros recursos adicionais, incluindo:
+O serviço já inclui, por padrão, monitoramento, alta disponibilidade com dados distribuídos automaticamente entre [Fault Domains](../capitulo-3/introducao-ao-oci.md#313-fault-domains-fd) e [Availability Domains](../capitulo-3/introducao-ao-oci.md#312-availability-domains-ad), e fácil escalabilidade com baixo tempo de resposta. Além disso, oferece uma variedade de recursos adicionais, incluindo:
 
 - Suporte a transações ACID.
 - Atualizações parciais em documentos JSON.
 - Criação de índices adicionais.
 - Manipulação e acesso aos dados via linguagem SQL padrão.
 - TTL (Tempo de Vida), permitindo a definição de um tempo de expiração para as linhas da tabela.
-- Replicação de dados entre diferentes regiões por meio do _Global Active Tables_.
+- Replicação de dados entre diferentes regiões por meio da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>.
 
 !!! note "NOTA"
     Para mais informações sobre o serviço, consulte o link <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank"><i>"Oracle NoSQL Database Cloud Service"</i></a>.
 
-### **Tabelas**
+### **<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">Tabelas</a>**
 
-No <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, é possível criar tabelas sem um esquema fixo (schemaless) ou definir tabelas com um esquema fixo.
+No <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, os dados são armazenados e organizados em <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">Tabelas</a>, sendo possível criar tanto tabelas **sem um esquema fixo** quanto tabelas com **esquema fixo**.
 
-Uma **tabela sem esquema**, ou **schemaless**, é basicamente uma tabela que armazena documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, onde cada documento inserido pode ter uma estrutura única e independente. Nesse caso, o banco de dados não valida a estrutura interna do <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a> antes de persistir os dados, ele apenas verifica se o dado possui um documento <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a> válido.
+Uma **tabela sem esquema**, ou **schemaless**, é basicamente uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> que armazena documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, onde cada documento inserido pode ter uma estrutura única e independente. Nesse caso, o banco de dados não valida a estrutura interna do <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a> antes de persistir os dados, ele apenas verifica se o dado possui um documento <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a> válido.
 
 ```sql linenums="1"
 CREATE TABLE IF NOT EXISTS produtos (
@@ -90,7 +88,7 @@ CREATE TABLE IF NOT EXISTS produtos (
     PRIMARY KEY(id))
 ```
 
-Uma tabela com um **esquema fixo** possui colunas que têm tipos de dados específicos. Isso significa que, antes de persistir os dados, o banco de dados valida a estrutura dos dados em relação ao tipo de dados definido. Por exemplo, uma coluna definida para armazenar valores inteiros aceitará apenas números inteiros, enquanto uma coluna de texto permitirá apenas strings. 
+Uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> com um **esquema fixo** possui colunas que têm tipos de dados específicos. Isso significa que, antes de persistir os dados, o banco de dados valida a estrutura dos dados em relação ao tipo de dados definido. Por exemplo, uma coluna definida para armazenar valores inteiros aceitará apenas números inteiros, enquanto uma coluna de texto permitirá apenas strings. 
 
 ```sql linenums="1"
 CREATE TABLE IF NOT EXISTS produtos (
@@ -120,20 +118,16 @@ CREATE TABLE IF NOT EXISTS produtos (
 
 ![alt_text](./img/nosql-tipos-2.png "Tipos de NoSQL #2")
 
-Independentemente de a tabela ter um esquema fixo ou não, é obrigatório criar uma coluna destinada a ser a chave primária da tabela (`PRIMARY KEY(id)`). 
- 
-A chave primária dos comandos acima inclui uma coluna chamada `id`, designada como <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank">coluna de identidade (IDENTITY Column)</a>. Essa coluna especial é projetada para gerar automaticamente valores únicos e sequenciais para cada novo registro inserido, eliminando a necessidade de gerenciar os valores da chave primária manualmente pela aplicação.
+Independentemente de a <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> ter um esquema fixo ou não, é obrigatório criar pelo menos uma coluna destinada a ser a chave primária da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> por meio da instrução `PRIMARY KEY`. As colunas designadas como chave primária devem ser dos tipos `INTEGER`, `LONG`, `FLOAT`, `DOUBLE`, `NUMBER`, `STRING`, `ENUM`, `BOOLEAN` ou `TIMESTAMP`.
+
+A coluna `id` nas instruções SQL acima, além de ser a chave primária, é designada como <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank">coluna de identidade (IDENTITY Column)</a>. Essa coluna especial é projetada para gerar automaticamente valores únicos e sequenciais para cada novo registro inserido, eliminando a necessidade de gerenciar os valores da chave primária manualmente pela aplicação.
 
 !!! note "NOTA"
-    Consulte o link <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank"><i>"Using the IDENTITY Column"</i></a> para obter mais informações sobre <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank"><i>"coluna de identidade"</i></a> no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>.
-
-### **Child Tables**
-
-Child tables não tem limites definidos. Ele herda da tabela superior da hierarquia.
-
+    Consulte o link <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/create-table.html" target="_blank"><i>"CREATE TABLE Statement"</i></a> para obter mais informações sobre a sintaxe do comando `CREATE TABLE`, e <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank"><i>"Using the IDENTITY Column"</i></a> para saber mais sobre <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank">coluna de identidade</a> no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>.
+    
 ### **Armazenamento, Unidades de Escrita e Leitura** 
 
-Para utilizar o serviço, você precisa criar tabelas que representam o seu modelo de dados (esquema) e especificar a quantidade total de armazenamento, além de duas propriedades que controlam as capacidades de leitura e escrita da tabela (throughput). São elas:
+Toda <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, ao ser criada, é necessário especificar a quantidade total de armazenamento, além de duas propriedades que controlam as capacidades de leitura e escrita da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> (throughput).
 
 - **Unidades de Escrita ou Gravação (WU - Write Unit)**
     - Uma unidade de escrita corresponde a um throughput de até 1 kilobyte (KB) de dados por segundo para operações como inserção, atualização ou exclusão de um registro. Atualizações de índices também consomem unidades de escrita.
@@ -146,17 +140,44 @@ Para utilizar o serviço, você precisa criar tabelas que representam o seu mode
 - **Capacidade de Armazenamento (Storage)**
     - A capacidade de armazenamento refere-se ao total disponível em gigabytes (GB) para a tabela de dados NoSQL, representando a quantidade máxima de informações que podem ser armazenadas.
 
-Ao lidar com dados distribuídos, como nos bancos de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, outros dois conceitos se tornam fundamentais durante o processo de leitura dos dados que são:
+Ao lidar com dados distribuídos, como nos bancos de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, outros dois conceitos se tornam fundamentais durante o processo de **leitura dos dados** que são:
 
 - **Consistência de Leitura Eventual**
     - Isso indica que os dados retornados de uma operação de leitura podem não ser os mais recentemente gravados.
-    - Para uma melhor compreensão, imagine que uma operação de escrita (inserção, atualização ou exclusão) foi recentemente executada. Os dados dessa operação precisam ser replicados em todos os nós do cluster para garantir a consistência das informações. O tempo necessário para essa replicação pode impactar a consistência das leituras. Dependendo das exigências do seu negócio, essa latência pode ser aceitável e é denominada **consistência eventual** ou **eventualmente consistente**.
+    - Para uma melhor compreensão, imagine que uma operação de escrita foi recentemente executada (inserção, atualização ou exclusão). Os dados dessa operação precisam ser replicados em todos os nós do cluster para garantir a consistência das informações. O tempo necessário para essa replicação pode impactar a consistência das leituras. Dependendo das exigências do seu negócio, essa latência pode ser aceitável e é denominada **consistência eventual** ou **eventualmente consistente**.
 
 - **Consistência de Leitura Absoluta**
     - Os dados retornados a partir de uma operação de leitura, são os mais recentes gravados.
-    - Neste caso, uma operação de leitura é executada em vários nós do cluster para comparar a consistência dos dados entre eles.
+    - Nesse caso, uma operação de leitura é realizada em vários nós do cluster para comparar a consistência dos dados e retornar o registro mais recentemente gravado.
 
-Por meio das APIs do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, é possível especificar o tipo de leitura desejada, seja ela Eventual ou Absoluta.
+Por meio das APIs do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, é possível especificar o tipo de leitura desejada, seja ela **Eventual** ou **Absoluta**.
+
+### **<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-hierarchies.html" target="_blank">Hierarquias de Tabelas</a>**
+
+O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> permite criar <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> que seguem um relacionamento **_pai-filho_**. Isso é conhecido como <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-hierarchies.html" target="_blank">Hierarquias de Tabelas</a>. 
+
+<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-hierarchies.html" target="_blank">Hierarquias de Tabelas</a> são uma forma de estabelecer relações de dados do tipo **1 para N** entre uma ou mais <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a>, funcionando de maneira semelhante às chaves estrangeiras (`FOREIGN KEY`) que conectam duas ou mais tabelas em bancos de dados relacionais.
+
+Por exemplo, na aplicação **OCI PIZZA**, existe um relacionamento **pai-filho** entre a tabela **user** e a tabela **order**, formando assim a relação **user.order**.
+
+![alt_text](./img/nosql-table-hierarchies-user-order-1.png "User.Order #1")
+
+A **tabela filha**, ou **Child Table**, herda as colunas da chave primária de sua tabela pai, além das propriedades relacionadas ao total de armazenamento, unidades de escrita e unidades de leitura. 
+
+Por exemplo, a seguinte instrução `SELECT` demonstra como um `JOIN` no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> pode ser usado para recuperar todos os pedidos de pizzas feitos pelo usuário **Patricia Rocha** na aplicação **OCI PIZZA**:
+
+```sql linenums="1"
+SELECT name, email, telephone, pizza FROM user User
+    LEFT OUTER JOIN user.order UserOrder ON User.id=UserOrder.id
+WHERE User.name="Patricia Rocha"
+```
+
+!!! note "NOTA"
+    Consulte o link <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/nsdev/overview-left-outer-joins.html" target="_blank"><i>"Overview of Left Outer Joins"</i></a> para maiores informações sobre a instrução `LEFT OUTER JOIN`.
+
+### **<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>**
+
+<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a> permite a criação de <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> que podem ser replicadas várias [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md). Essa funcionalidade garante que qualquer inserção ou atualização de dados em uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> em uma [região](../capitulo-3/introducao-ao-oci.md#311-região) seja automaticamente propagada para as tabelas réplicas nas demais [regiões](../capitulo-3/introducao-ao-oci.md#311-região) participantes.
 
 ## 4.2.4 Tabelas da Aplicação OCI PIZZA
 
@@ -173,7 +194,7 @@ Abaixo, segue uma descrição de cada uma delas:
     - Cada novo usuário recebe um e-mail com um link para confirmar seu cadastro após a inscrição.
 
 - **user.order**
-    - A tabela **user.order** é do tipo **Child** e estabelece um relacionamento com a tabela **user**. Ela é utilizada para registrar os pedidos de pizzas realizados pelos usuários (ordens de compra).
+    - A tabela **order** é filha da tabela **user** e é utilizada para registrar os pedidos de pizzas feitos pelos usuários (ordens de compra).
     - O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> utiliza a notação de ponto entre os nomes das tabelas para representar relacionamentos entre elas.
 
 - **email_verification**
@@ -228,8 +249,3 @@ dUnits\": 15,\"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
 
 !!! note "NOTA"
     Independentemente de o ajuste de limites ser feito apenas em um dos parâmetros, todos eles devem estar incluídos no comando de atualização da tabela (`maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`).
-
-### **<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>**
-
-<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a> permite a criação de tabelas que podem ser replicadas em diversas [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md), garantindo que qualquer atualização realizada em uma tabela em uma [região](../capitulo-3/introducao-ao-oci.md#311-região) seja automaticamente propagada para as tabelas réplicas nas outras [regiões](../capitulo-3/introducao-ao-oci.md#311-região) participantes.
-
