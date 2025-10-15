@@ -127,20 +127,60 @@ A coluna `id` nas instruções SQL acima, além de ser a chave primária, é des
     
 ### **Armazenamento, Unidades de Escrita e Leitura** 
 
-Toda <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, ao ser criada, é necessário especificar a quantidade total de armazenamento, além de duas propriedades que controlam as capacidades de leitura e escrita da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> (throughput).
+Ao criar uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, é necessário especificar a **quantidade total de armazenamento em Gigabytes** (`maxStorageInGBs`), além de duas propriedades que determinam as **capacidades de leitura** (`maxReadUnits`) e **escrita** (`maxWriteUnits`) da tabela (**throughput**), as quais são:
 
-- **Unidades de Escrita ou Gravação (WU - Write Unit)**
+- **Unidades de Escrita ou Gravação** (`maxWriteUnits`)
     - Uma unidade de escrita corresponde a um throughput de até 1 kilobyte (KB) de dados por segundo para operações como inserção, atualização ou exclusão de um registro. Atualizações de índices também consomem unidades de escrita.
     - Por exemplo: um registro com menos de 1 KB requer 1 unidade de escrita. Para operações em registros de 1,5 KB, são necessárias 2 unidades de escrita.
 
-- **Unidades de Leitura (RU - Read Unit)**
+- **Unidades de Leitura** (`maxReadUnits`)
     - Uma unidade de leitura corresponde a um throughput de até 1 kilobyte (KB) de dados por segundo em operações de leitura eventualmente consistentes.
     - Por exemplo, um registro com menos de 1 KB de dados exige apenas 1 unidade de leitura eventualmente consistente. Para um registro que contém 1,5 KB de dados, serão necessárias 2 unidades de leitura eventualmente consistentes.
 
-- **Capacidade de Armazenamento (Storage)**
+- **Capacidade de Armazenamento em Gigabytes** (`maxStorageInGBs`)
     - A capacidade de armazenamento refere-se ao total disponível em gigabytes (GB) para a tabela de dados NoSQL, representando a quantidade máxima de informações que podem ser armazenadas.
 
-Ao lidar com dados distribuídos, como nos bancos de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, outros dois conceitos se tornam fundamentais durante o processo de **leitura dos dados** que são:
+Durante a criação da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, tanto a **capacidade de armazenamento** quanto as **unidades de leitura e escrita** são controladas pelo parâmetro `capacityMode`, que pode ser definido manualmente (`PROVISIONED`) ou, deixar o [OCI](../capitulo-3/introducao-ao-oci.md) ajustar automaticamente os valores conforme a demanda por algum deles aumentar mais do que o especificado (`ON_DEMAND`). 
+
+Utilizar `PROVISIONED` é financeiramente mais barato, porém exige que o administrador ou alguma funcionalidade da aplicação, ajuste os valores para cima quando a demanda aumenta. Em contrapartida, `ON_DEMAND` é mais custoso, pois o [OCI](../capitulo-3/introducao-ao-oci.md) ajustará esses valores automaticamente, sem necessidade de intervenção.
+
+Abaixo está um exemplo da criação de uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> em que seus limites de utilização são especificados pelo parâmetro `--table-limits`: 
+
+```bash linenums="1"
+$ oci nosql table create \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --name "pizza" \
+> --table-limits "{\"capacityMode\": \"PROVISIONED\", \"maxReadUnits\": 5, \"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
+> --wait-for-state "SUCCEEDED" \
+> --ddl-statement "
+     CREATE TABLE IF NOT EXISTS pizza (
+        id INTEGER,
+        name STRING,
+        description STRING,
+        image STRING,
+        price NUMBER
+     PRIMARY KEY(id))"
+```
+
+Para atualizar manualmente as capacidades da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, seja aumentando ou diminuindo, utilize o seguinte comando:
+
+```bash linenums="1"
+$ oci nosql table update \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --table-name-or-id "pizza" \
+> --table-limits "{\"capacityMode\": \"PROVISIONED\", \"maxReadUnits\": 15,\"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
+> --wait-for-state "SUCCEEDED" \
+> --force
+```
+
+!!! note "NOTA"
+    Para configurar o `capacityMode` como `ON_DEMAND`, os parâmetros `maxReadUnits` e `maxWriteUnits` devem ser definidos como zero (`0`), enquanto o parâmetro `maxStorageInGBs` deve ter um valor inicial superior a zero (`0`).
+
+#### **Leitura Eventual ou Absoluta**
+
+Ao lidar com dados distribuídos, como em bancos de dados do tipo <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, outros dois conceitos se tornam fundamentais durante o processo de **leitura dos dados** que são:
 
 - **Consistência de Leitura Eventual**
     - Isso indica que os dados retornados de uma operação de leitura podem não ser os mais recentemente gravados.
@@ -150,7 +190,32 @@ Ao lidar com dados distribuídos, como nos bancos de dados <a href="https://docs
     - Os dados retornados a partir de uma operação de leitura, são os mais recentes gravados.
     - Nesse caso, uma operação de leitura é realizada em vários nós do cluster para comparar a consistência dos dados e retornar o registro mais recentemente gravado.
 
-Por meio das APIs do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, é possível especificar o tipo de leitura desejada, seja ela **Eventual** ou **Absoluta**.
+Por meio das APIs do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> é possível especificar o tipo de leitura desejada, seja ela **Eventual** (`EVENTUAL`) ou **Absoluta** (`ABSOLUTE`).
+
+Por exemplo, o comando abaixo realiza uma **Leitura Absoluta** através do parâmetro `--consistency "ABSOLUTE"`:
+
+```bash linenums="1"
+$ oci nosql query execute \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --consistency "ABSOLUTE" \
+> --statement "SELECT name, email, telephone FROM user WHERE email='rita.cassia@ocipizza.com.br'"
+{
+  "data": {
+    "items": [
+      {
+        "email": "rita.cassia@ocipizza.com.br",
+        "name": "Rita de Cássia",
+        "telephone": "16999999999"
+      }
+    ],
+    "usage": {
+      "read-units-consumed": 20,
+      "write-units-consumed": 0
+    }
+  }
+}
+```
 
 ### **<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-hierarchies.html" target="_blank">Hierarquias de Tabelas</a>**
 
@@ -164,12 +229,12 @@ Por exemplo, na aplicação **OCI PIZZA**, existe um relacionamento **pai-filho*
 
 A **tabela filha**, ou **Child Table**, herda as colunas da chave primária de sua tabela pai, além das propriedades relacionadas ao total de armazenamento, unidades de escrita e unidades de leitura. 
 
-Por exemplo, a seguinte instrução `SELECT` demonstra como um `JOIN` no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> pode ser usado para recuperar todos os pedidos de pizzas feitos pelo usuário **Patricia Rocha** na aplicação **OCI PIZZA**:
+Por exemplo, a seguinte instrução `SELECT` demonstra como um `JOIN` no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> pode ser usado para recuperar todos os pedidos de pizzas feitos pelo usuário **"Rita de Cássia"** na aplicação **OCI PIZZA**:
 
 ```sql linenums="1"
 SELECT name, email, telephone, pizza FROM user User
     LEFT OUTER JOIN user.order UserOrder ON User.id=UserOrder.id
-WHERE User.name="Patricia Rocha"
+WHERE User.name="Rita de Cássia"
 ```
 
 !!! note "NOTA"
@@ -177,11 +242,75 @@ WHERE User.name="Patricia Rocha"
 
 ### **<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>**
 
-<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a> permite a criação de <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> que podem ser replicadas várias [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md). Essa funcionalidade garante que qualquer inserção ou atualização de dados em uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> em uma [região](../capitulo-3/introducao-ao-oci.md#311-região) seja automaticamente propagada para as tabelas réplicas nas demais [regiões](../capitulo-3/introducao-ao-oci.md#311-região) participantes.
+O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a> é uma funcionalidade do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> que permite a replicação de dados de <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> de forma transparente entre as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md). Isso significa que os dados escritos ou atualizados em uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> em uma [região](../capitulo-3/introducao-ao-oci.md#311-região) específica são automaticamente replicados para outras [regiões](../capitulo-3/introducao-ao-oci.md#311-região) que fazem parte do esquema de replicação.
+
+Essa funcionalidade é útil, pois possibilita a execução simultânea de aplicações em diferentes [regiões](../capitulo-3/introducao-ao-oci.md#311-região) **(modo ativo-ativo)**. Um exemplo disso é a aplicação **OCI PIZZA**, que opera simultaneamente nas [regiões](../capitulo-3/introducao-ao-oci.md#311-região) **sa-saopaulo-1** e **sa-vinhedo-1**. Além disso, oferece tolerância a falhas em caso de indisponibilidade de uma [região](../capitulo-3/introducao-ao-oci.md#311-região).
+
+A seguir, estão algumas considerações importantes para ativar o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>:
+
+#### **1. Freeze e Unfreeze**
+
+O esquema da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> deve ser alterado de **Mutável** para **Não Mutável** (<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/rcgat/index.html" target="_blank">FREEZE</a>) usando a instrução `ALTER TABLE <tabela> FREEZE SCHEMA FORCE`. Essa ação é necessária para evitar qualquer modificação no esquema da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> replicada e pode ser executada com o seguinte comando:
+
+```bash linenums="1"
+$ oci nosql table update \
+> --region "sa-saopaulo-1" \
+> --table-name-or-id "pizza" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --ddl-statement "ALTER TABLE pizza FREEZE SCHEMA FORCE" \
+> --wait-for-state "SUCCEEDED" \
+> --force
+```
+
+Após concluir o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/rcgat/index.html" target="_blank">FREEZE</a> do esquema, é possível configurar a replicação para a [região](../capitulo-3/introducao-ao-oci.md#311-região) desejada utilizando o seguinte comando:
+
+```bash linenums="1"
+$ oci nosql table create-replica \
+> --region "sa-saopaulo-1" \
+> --replica-region "sa-vinhedo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --table-name-or-id "pizza" \
+> --wait-for-state "SUCCEEDED"
+```
+
+Se for necessário fazer qualquer alteração no esquema, é preciso primeiro remover a réplica e, em seguida, retornar o esquema para **Mutável** (<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/rcgat/index.html" target="_blank">UNFREEZE</a>) usando a instrução `ALTER TABLE <tabela> UNFREEZE SCHEMA`. 
+
+Isso pode ser realizado usando a sequência de comandos a seguir:
+
+```bash linenums="1"
+$ oci nosql table delete-replica \
+> --region "sa-saopaulo-1" \
+> --replica-region "sa-vinhedo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --table-name-or-id "pizza" \
+> --wait-for-state "SUCCEEDED" \
+> --force
+```
+
+```bash linenums="1"
+$ oci nosql table update \
+> --region "sa-saopaulo-1" \
+> --table-name-or-id "pizza" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --ddl-statement "ALTER TABLE pizza UNFREEZE SCHEMA" \
+> --wait-for-state "SUCCEEDED" \
+> --force
+```
+
+!!! note "NOTA"
+    O script <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/nosql-replica.sh" target="_blank">"nosql-replica.sh"</a>, que é responsável pela criação das réplicas e pelo <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/rcgat/index.html" target="_blank">FREEZE</a> dos esquemas das <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> da aplicação **OCI PIZZA**, está localizado no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a>.
+
+#### **2. Colunas de Identidade**
+
+<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank">Colunas de identidade (IDENTITY Column)</a> não podem ser utilizadas, pois não é possível garantir a unicidade dos seus valores entre as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) que participam do esquema de replicação. Nesse cenário, a responsabilidade pela unicidade dos valores das chaves primárias recai sobre a aplicação.
+
+#### **3. Replicação Assíncrona**
+
+As atualizações das <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> que participam do esquema de replicação são realizadas de forma **assíncrona**. Isso significa que, ao executar uma operação de escrita ou atualização de dados em uma [região](../capitulo-3/introducao-ao-oci.md#311-região), essa ação é concluída primeiro nessa [região](../capitulo-3/introducao-ao-oci.md#311-região), antes que os dados sejam replicados para as demais [regiões](../capitulo-3/introducao-ao-oci.md#311-região). 
 
 ## 4.2.4 Tabelas da Aplicação OCI PIZZA
 
-A aplicação **OCI PIZZA** utiliza quatro tabelas do serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, cujos dados são replicados entre as regiões **sa-saopaulo-1** e **sa-vinhedo-1** através da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>. 
+A aplicação **OCI PIZZA** utiliza quatro <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> do serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, cujos dados são replicados entre as regiões **sa-saopaulo-1** e **sa-vinhedo-1** através da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>. 
 
 Abaixo, segue uma descrição de cada uma delas:
 
@@ -201,51 +330,3 @@ Abaixo, segue uma descrição de cada uma delas:
     - Tabela de dados temporários utilizada para confirmar o cadastro de novos usuários e para o processo de redefinição de senha.
     - Cada novo usuário recebe um e-mail com um link que contém um token temporário, utilizado para ativar o cadastro. O processo de redefinição de senha segue a mesma lógica.
     - Essa tabela também utiliza a funcionalidade que remove automaticamente registros com mais de um dia de idade (`TTL 1 DAYS`). Assim, qualquer registro que ultrapassar um dia, será automaticamente excluído pelo serviço.
-
-Para criar a tabela `pizza` na região **sa-saopaulo-1**, no [compartimento](../capitulo-3/iam-limites-cotas-e-audit.md#compartimentos) `cmp-appl` do ambiente de produção, utilize o seguinte comando:
-
-```bash linenums="1"
-$ oci nosql table create \
-> --region "sa-saopaulo-1" \
-> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
-> --name "pizza" \
-> --table-limits "{\"capacityMode\": \"PROVISIONED\", \"maxReadUnits\": 5, \"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
-> --wait-for-state "SUCCEEDED" \
-> --ddl-statement "
-     CREATE TABLE IF NOT EXISTS pizza (
-        id INTEGER,
-        name STRING,
-        description STRING,
-        image STRING,
-        price NUMBER,
-        json_replica JSON,
-     PRIMARY KEY(id))"
-```
-
-!!! note "NOTA"
-    Os scripts para a criação das tabelas de ambas as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md) estão localizados no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**. Os arquivos estão nomeados como <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/nosql-tables-saopaulo.sh" target="_blank">"nosql-tables-saopaulo.sh"</a> e <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/nosql-tables-vinhedo.sh" target="_blank">"nosql-tables-vinhedo.sh"</a>.
-
-O parâmetro `--table-limits` especifica o throughput máximo de escrita  (`maxReadUnits`), o throughput máximo de leitura (`maxWriteUnits`), a capacidade de armazenamento máxima em gigabytes (`maxStorageInGBs`) e o modo de capacidade da tabela (`capacityMode`).
-
-A capacidade da tabela (`capacityMode`) pode ser definida como `ON_DEMAND` ou `PROVISIONED`. Se o valor `ON_DEMAND` for especificado, o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> irá escalar automaticamente o armazenamento (`maxStorageInGBs`) e o throughput (unidades de escrita e leitura) conforme a demanda de utilização aumenta. 
-
-Por outro lado, o valor `PROVISIONED`, utilizado pela aplicação **OCI PIZZA**, exige especificar os valores para `maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`. Quando a capacidade máxima é atingida para qualquer um desses parâmetros, o serviço retorna um erro que requer a intervenção do administrador para ajuste da nova capacidade.
-
-!!! note "NOTA"
-    Permitir que o serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> escale automaticamente a tabela quando forem necessários mais armazenamento e throughput é financeiramente mais caro do que especificar esses valores antecipadamente (`PROVISIONED`).
-
-Por exemplo, para ajustar o parâmetro `maxReadUnits` para o valor `15`, utilize o seguinte comando:
-
-```bash linenums="1"
-$ oci nosql table update \
-> --region "sa-saopaulo-1" \
-> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
-> --table-name-or-id "pizza" \
-> --table-limits "{\"capacityMode\": \"PROVISIONED\", \"maxRea
-dUnits\": 15,\"maxWriteUnits\": 5, \"maxStorageInGBs\": 2}" \
-> --wait-for-state "SUCCEEDED" \
-> --force
-```
-
-!!! note "NOTA"
-    Independentemente de o ajuste de limites ser feito apenas em um dos parâmetros, todos eles devem estar incluídos no comando de atualização da tabela (`maxReadUnits`, `maxWriteUnits` e `maxStorageInGBs`).
