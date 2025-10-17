@@ -61,9 +61,9 @@ A maioria dos bancos de dados <a href="https://docs.oracle.com/en/cloud/paas/nos
 
 ## 4.2.3 Introdução ao Oracle NoSQL Database Cloud Service
 
-O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL Database Cloud Service</a> é um serviço de banco de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a> disponível no [OCI](../capitulo-3/introducao-ao-oci.md), totalmente gerenciado e que oferece suporte ao armazenamento de documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, dados do tipo chave/valor e dados em colunas (<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a>).
+O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL Database Cloud Service</a> é um serviço de banco de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a> totalmente gerenciado no [OCI](../capitulo-3/introducao-ao-oci.md), que permite aos desenvolvedores concentrar-se no desenvolvimento de aplicações, em vez de se preocupar com a configuração de servidores.
 
-O serviço já inclui, por padrão, monitoramento, alta disponibilidade com dados distribuídos automaticamente entre [Fault Domains](../capitulo-3/introducao-ao-oci.md#313-fault-domains-fd) e [Availability Domains](../capitulo-3/introducao-ao-oci.md#312-availability-domains-ad), e fácil escalabilidade com baixo tempo de resposta. Além disso, oferece uma variedade de recursos adicionais, incluindo:
+O serviço oferece suporte ao armazenamento de documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, dados do tipo chave/valor e dados em colunas (<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a>). Ele já inclui, por padrão, monitoramento, alta disponibilidade com dados distribuídos automaticamente entre [Fault Domains](../capitulo-3/introducao-ao-oci.md#313-fault-domains-fd) e [Availability Domains](../capitulo-3/introducao-ao-oci.md#312-availability-domains-ad), além de fácil escalabilidade com baixo tempo de resposta. Além disso, fornece uma variedade de recursos adicionais, incluindo:
 
 - Suporte a transações ACID.
 - Atualizações parciais em documentos JSON.
@@ -308,11 +308,83 @@ $ oci nosql table update \
 
 As atualizações das <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> que participam do esquema de replicação são realizadas de forma **assíncrona**. Isso significa que, ao executar uma operação de escrita ou atualização de dados em uma [região](../capitulo-3/introducao-ao-oci.md#311-região), essa ação é concluída primeiro nessa [região](../capitulo-3/introducao-ao-oci.md#311-região), antes que os dados sejam replicados para as demais [regiões](../capitulo-3/introducao-ao-oci.md#311-região). 
 
+### **Oracle NoSQL Database Python SDK**
+
+Existem duas formas para acessar e trabalhar com o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> em uma aplicação <a href="https://www.python.org/" target="_blank">Python</a>:
+
+#### **<a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">1. OCI Python SDK</a>**
+
+A forma mais simples de interagir com o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> é através do <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>. Nesse modo, o acesso ao serviço é realizado exclusivamente por meio das APIs REST do [OCI](../capitulo-3/introducao-ao-oci.md). No entanto, essa abordagem não é a mais recomendada para manipular grandes volumes de dados que exigem a execução de consultas mais complexas.
+
+```python linenums="1"
+import oci
+
+COMPARTMENT_ID = 'ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc'
+
+config = oci.config.from_file()
+nosql_client = oci.nosql.NosqlClient(config=config)
+
+query_details = oci.nosql.models.QueryDetails(
+    compartment_id=COMPARTMENT_ID,
+    consistency='ABSOLUTE',
+    statement='SELECT name, telephone FROM user WHERE id=1'
+)
+
+resp = nosql_client.query(query_details=query_details)
+
+print(resp.data)
+```
+
+Consultas mais complexas, como por exemplo a instrução `SELECT max(id) FROM user`, não são suportadas, resultando em mensagens de exceção como: `The driver or SDK being used does not support complex query`.
+
+#### **<a href="https://pypi.org/project/borneo/" target="_blank">2. Oracle NoSQL Database Python SDK (borneo)</a>**
+
+O <a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a> é um driver para o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> que utiliza um protocolo binário e que pode ser utlizado para lidar com grandes volumes de dados além de possibilitar a execução de consultas complexas.
+
+Além de ser a forma utilizada pela aplicação **OCI PIZZA**, é a opção mais recomendada para interagir com o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, tanto no [OCI](../capitulo-3/introducao-ao-oci.md) quanto em instalações on-premises.
+
+<a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a> requer o <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>, e ambos podem ser instalados com o comando a seguir:
+
+```bash linenums="1"
+$ pip install oci borneo
+```
+
+A utilização do <a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a>  requer mais parametrizações no código em comparação ao <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>. Por exemplo, o código a seguir pode ser utilizado para executar a instrução `SELECT max(id) FROM user`:
+
+```python linenums="1"
+from borneo.iam import SignatureProvider
+from borneo import NoSQLHandleConfig, NoSQLHandle, Regions
+from borneo import Consistency, QueryRequest
+
+COMPARTMENT_ID = 'ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc'
+
+sigprov = SignatureProvider(config_file='~/.oci/config')
+
+nosql_handle_config = NoSQLHandleConfig(Regions.SA_SAOPAULO_1)
+nosql_handle_config.set_authorization_provider(sigprov)
+nosql_handle_config.set_default_compartment(COMPARTMENT_ID)
+
+nosql_handle = NoSQLHandle(nosql_handle_config)
+
+query_request = QueryRequest()
+query_request.set_consistency(Consistency.ABSOLUTE)        
+query_request.set_statement('SELECT max(id) FROM user')
+
+resp = nosql_handle.query(query_request)
+
+nosql_handle.close()
+
+print(resp.get_results())
+```
+
+!!! note "NOTA"
+    Embora os exemplos usem a linguagem de programação <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-python-sdk-git" target="_blank">Python</a>, o <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/nsdev/getting-started-oracle-nosql-database1.html" target="_blank">Oracle NoSQL SDK</a>  está disponível para várias outras linguagens de programação, como <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-java-sdk-git" target="_blank">Java</a>, <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-go-sdk-git" target="_blank">Go</a>, <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-node-sdk-git" target="_blank">Node.js</a>, entre outras.  Para uma lista completa dos SDKs para as diferentes linguagens de programação suportadas, consulte o link <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/nsdev/getting-started-oracle-nosql-database1.html" target="_blank"><i>"Getting started with Oracle NoSQL Database"</i></a>.
+
 ## 4.2.4 Tabelas da Aplicação OCI PIZZA
 
-A aplicação **OCI PIZZA** utiliza quatro <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> do serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, cujos dados são replicados entre as regiões **sa-saopaulo-1** e **sa-vinhedo-1** através da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>. 
+A aplicação **OCI PIZZA** utiliza quatro <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> do serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, cujos dados são replicados entre as regiões **sa-saopaulo-1** e **sa-vinhedo-1** através da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>. 
 
-Abaixo, segue uma descrição de cada uma delas:
+Abaixo, segue uma descrição de cada uma das tabelas:
 
 - **pizza**
     - Tabela que armazena informações sobre o cardápio de pizzas, incluindo o nome da pizza, uma descrição e o nome do arquivo correspondente à imagem da pizza.
