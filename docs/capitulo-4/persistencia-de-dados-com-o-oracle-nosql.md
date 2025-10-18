@@ -25,7 +25,7 @@ Já os bancos de dados do tipo <a href="https://docs.oracle.com/en/cloud/paas/no
 
 Diferente dos bancos de dados do tipo <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a>, bancos de dados relacionais não conseguem [escalar horizontalmente](../capitulo-1/terminologias-da-computacao-em-nuvem.md#escalabilidade-scalability) devido ao funcionamento das <a href="https://pt.wikipedia.org/wiki/ACID" target="_blank">transações ACID</a>, que são incompatíveis com a execução em <a href="https://pt.wikipedia.org/wiki/Cluster" target="_blank">clusters de computadores</a>. Isso ocorre porque não é possível garantir a consistência dos dados nem realizar um <a href="https://pt.wikipedia.org/wiki/Join_(SQL)" target="_blank">JOIN</a> sobre dados distribuídos entre várias máquinas do cluster.
 
-Para exemplificar, imagine uma instrução SQL que realiza um <a href="https://pt.wikipedia.org/wiki/Join_(SQL)" target="_blank">JOIN</a> entre diferentes tabelas armazenadas em várias máquinas conectadas à rede (<a href="https://pt.wikipedia.org/wiki/Cluster" target="_blank">clusters de computadores</a>). Esse <a href="https://pt.wikipedia.org/wiki/Join_(SQL)" target="_blank">JOIN</a>, que precisa recuperar dados de diferentes tabelas pela rede, pode enfrentar problemas como alta latência ou até mesmo erros de conexão, resultando na impossibilidade de retornar dados ou em um retorno parcial das informações.
+Para exemplificar, imagine uma instrução SQL que realiza um <a href="https://pt.wikipedia.org/wiki/Join_(SQL)" target="_blank">JOIN</a> entre diferentes tabelas armazenadas em várias máquinas conectadas à rede (<a href="https://pt.wikipedia.org/wiki/Cluster" target="_blank">clusters de computadores</a>). Esse <a href="https://pt.wikipedia.org/wiki/Join_(SQL)" target="_blank">JOIN</a>, que precisa recuperar dados de diferentes tabelas pela rede, pode enfrentar problemas como alta latência ou até mesmo erros de conexão, resultando na impossibilidade de retornar os dados solicitados.
 
 ![alt_text](./img/sql-cluster-join-1.png "SQL Cluster JOIN #1")
 
@@ -63,13 +63,13 @@ A maioria dos bancos de dados <a href="https://docs.oracle.com/en/cloud/paas/nos
 
 O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL Database Cloud Service</a> é um serviço de banco de dados <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">NoSQL</a> totalmente gerenciado no [OCI](../capitulo-3/introducao-ao-oci.md), que permite aos desenvolvedores concentrar-se no desenvolvimento de aplicações, em vez de se preocupar com a configuração de servidores.
 
-O serviço oferece suporte ao armazenamento de documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, dados do tipo chave/valor e dados em colunas (<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a>). Ele já inclui, por padrão, monitoramento, alta disponibilidade com dados distribuídos automaticamente entre [Fault Domains](../capitulo-3/introducao-ao-oci.md#313-fault-domains-fd) e [Availability Domains](../capitulo-3/introducao-ao-oci.md#312-availability-domains-ad), além de fácil escalabilidade com baixo tempo de resposta. Além disso, fornece uma variedade de recursos adicionais, incluindo:
+O serviço oferece suporte ao armazenamento de documentos <a href="https://pt.wikipedia.org/wiki/JSON" target="_blank">JSON</a>, dados do tipo chave/valor e dados em colunas. Ele já inclui, por padrão, monitoramento, alta disponibilidade com dados distribuídos automaticamente entre [Fault Domains](../capitulo-3/introducao-ao-oci.md#313-fault-domains-fd) e [Availability Domains](../capitulo-3/introducao-ao-oci.md#312-availability-domains-ad), além de fácil escalabilidade com baixo tempo de resposta. Além disso, fornece uma variedade de recursos adicionais, incluindo:
 
 - Suporte a transações ACID.
 - Atualizações parciais em documentos JSON.
 - Criação de índices adicionais.
 - Manipulação e acesso aos dados via linguagem SQL padrão.
-- TTL (Tempo de Vida), permitindo a definição de um tempo de expiração para as linhas da tabela.
+- TTL (Tempo de Vida) permite definir um tempo de expiração para as linhas da tabela, de modo que, ao ultrapassar esse limite, a linha será automaticamente excluída.
 - Replicação de dados entre diferentes regiões por meio da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>.
 
 !!! note "NOTA"
@@ -85,10 +85,10 @@ Uma **tabela sem esquema**, ou **schemaless**, é basicamente uma <a href="https
 CREATE TABLE IF NOT EXISTS produtos (
     id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
     propriedades JSON,
-    PRIMARY KEY(id))
+PRIMARY KEY(id))
 ```
 
-Uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> com um **esquema fixo** possui colunas que têm tipos de dados específicos. Isso significa que, antes de persistir os dados, o banco de dados valida a estrutura dos dados em relação ao tipo de dados definido. Por exemplo, uma coluna definida para armazenar valores inteiros aceitará apenas números inteiros, enquanto uma coluna de texto permitirá apenas strings. 
+Uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> com um **esquema fixo** possui colunas que têm tipos de dados específicos. Isso significa que, antes de persistir os dados, o banco de dados valida os dados em relação ao tipo definido para cada coluna. Por exemplo, uma coluna definida para armazenar valores inteiros aceitará apenas números inteiros, enquanto uma coluna de texto permitirá apenas strings. 
 
 ```sql linenums="1"
 CREATE TABLE IF NOT EXISTS produtos (
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS produtos (
     valor NUMBER NOT NULL DEFAULT 0,
     frete_gratis BOOLEAN DEFAULT TRUE,
     imagens ARRAY(STRING),
-    PRIMARY KEY(id))
+PRIMARY KEY(id))
 ```
 
 !!! note "NOTA"
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS produtos (
     valor NUMBER NOT NULL DEFAULT 0,
     frete_gratis BOOLEAN DEFAULT TRUE,
     imagens ARRAY(STRING),   
-    PRIMARY KEY(id))
+PRIMARY KEY(id))
 ```
 
 ![alt_text](./img/nosql-tipos-2.png "Tipos de NoSQL #2")
@@ -127,7 +127,7 @@ A coluna `id` nas instruções SQL acima, além de ser a chave primária, é des
     
 ### **Armazenamento, Unidades de Escrita e Leitura** 
 
-Ao criar uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, é necessário especificar a **quantidade total de armazenamento em Gigabytes** (`maxStorageInGBs`), além de duas propriedades que determinam as **capacidades de leitura** (`maxReadUnits`) e **escrita** (`maxWriteUnits`) da tabela (**throughput**), as quais são:
+Ao criar uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, é necessário especificar a **quantidade total de armazenamento em Gigabytes** (`maxStorageInGBs`), além de duas propriedades que determinam as **capacidades de leitura** (`maxReadUnits`) e **escrita** (`maxWriteUnits`) da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, as quais são:
 
 - **Unidades de Escrita ou Gravação** (`maxWriteUnits`)
     - Uma unidade de escrita corresponde a um throughput de até 1 kilobyte (KB) de dados por segundo para operações como inserção, atualização ou exclusão de um registro. Atualizações de índices também consomem unidades de escrita.
@@ -142,7 +142,11 @@ Ao criar uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-
 
 Durante a criação da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a>, tanto a **capacidade de armazenamento** quanto as **unidades de leitura e escrita** são controladas pelo parâmetro `capacityMode`, que pode ser definido manualmente (`PROVISIONED`) ou, deixar o [OCI](../capitulo-3/introducao-ao-oci.md) ajustar automaticamente os valores conforme a demanda por algum deles aumentar mais do que o especificado (`ON_DEMAND`). 
 
-Utilizar `PROVISIONED` é financeiramente mais barato, porém exige que o administrador ou alguma funcionalidade da aplicação, ajuste os valores para cima quando a demanda aumenta. Em contrapartida, `ON_DEMAND` é mais custoso, pois o [OCI](../capitulo-3/introducao-ao-oci.md) ajustará esses valores automaticamente, sem necessidade de intervenção.
+Utilizar `PROVISIONED` é financeiramente mais barato, porém exige que o administrador ou alguma funcionalidade da aplicação, ajuste os valores para cima quando a demanda aumenta. 
+
+Por exemplo, no modo `PROVISIONED`, se a quantidade de leituras realizadas exceder o limite definido por `maxReadUnits`, uma exceção será retornada com a seguinte mensagem: `Operation failed with limit exception: Read throughput rate exceeded for table user. Limit: 1 Units/Sec`
+
+Em contrapartida, `ON_DEMAND` é mais custoso, pois o [OCI](../capitulo-3/introducao-ao-oci.md) ajustará esses valores automaticamente, sem necessidade de intervenção.
 
 Abaixo está um exemplo da criação de uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> em que seus limites de utilização são especificados pelo parâmetro `--table-limits`: 
 
@@ -176,7 +180,7 @@ $ oci nosql table update \
 ```
 
 !!! note "NOTA"
-    Para configurar o `capacityMode` como `ON_DEMAND`, os parâmetros `maxReadUnits` e `maxWriteUnits` devem ser definidos como zero (`0`), enquanto o parâmetro `maxStorageInGBs` deve ter um valor inicial superior a zero (`0`).
+    Para configurar o `capacityMode` como `ON_DEMAND`, os parâmetros `maxReadUnits` e `maxWriteUnits` devem ser definidos como zero (`0`), enquanto o parâmetro `maxStorageInGBs` deve ter um valor inicial superior a zero.
 
 #### **Leitura Eventual ou Absoluta**
 
@@ -184,7 +188,7 @@ Ao lidar com dados distribuídos, como em bancos de dados do tipo <a href="https
 
 - **Consistência de Leitura Eventual**
     - Isso indica que os dados retornados de uma operação de leitura podem não ser os mais recentemente gravados.
-    - Para uma melhor compreensão, imagine que uma operação de escrita foi recentemente executada (inserção, atualização ou exclusão). Os dados dessa operação precisam ser replicados em todos os nós do cluster para garantir a consistência das informações. O tempo necessário para essa replicação pode impactar a consistência das leituras. Dependendo das exigências do seu negócio, essa latência pode ser aceitável e é denominada **consistência eventual** ou **eventualmente consistente**.
+    - Para uma melhor compreensão, imagine que uma operação de escrita foi recentemente executada (inserção, atualização ou exclusão). Os dados dessa operação precisam ser replicados em todos os nós do cluster para garantir a consistência das informações. O tempo necessário para essa replicação pode impactar a consistência das leituras e, dependendo das exigências do seu negócio, essa latência pode ser aceitável e é denominada **consistência eventual** ou **eventualmente consistente**.
 
 - **Consistência de Leitura Absoluta**
     - Os dados retornados a partir de uma operação de leitura, são os mais recentes gravados.
@@ -227,9 +231,12 @@ Por exemplo, na aplicação **OCI PIZZA**, existe um relacionamento **pai-filho*
 
 ![alt_text](./img/nosql-table-hierarchies-user-order-1.png "User.Order #1")
 
-A **tabela filha**, ou **Child Table**, herda as colunas da chave primária de sua tabela pai, além das propriedades relacionadas ao total de armazenamento, unidades de escrita e unidades de leitura. 
+!!! note "NOTA"
+    O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> utiliza a notação de ponto entre os nomes das tabelas para representar os relacionamentos entre elas.
 
-Por exemplo, a seguinte instrução `SELECT` demonstra como um `JOIN` no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> pode ser usado para recuperar todos os pedidos de pizzas feitos pelo usuário **"Rita de Cássia"** na aplicação **OCI PIZZA**:
+A **tabela filha**, ou **Child Table**, herda as colunas da chave primária de sua tabela pai, além das propriedades relacionadas ao total de armazenamento, unidades de escrita e leitura. 
+
+Por exemplo, a seguinte instrução `SELECT` demonstra como um `JOIN` no <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> pode ser usado para recuperar todos os pedidos de pizzas feitos pela usuária **"Rita de Cássia"** na aplicação **OCI PIZZA**:
 
 ```sql linenums="1"
 SELECT name, email, telephone, pizza FROM user User
@@ -242,7 +249,7 @@ WHERE User.name="Rita de Cássia"
 
 ### **<a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>**
 
-O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a> é uma funcionalidade do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> que permite a replicação de dados de <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> de forma transparente entre as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md). Isso significa que os dados escritos ou atualizados em uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> em uma [região](../capitulo-3/introducao-ao-oci.md#311-região) específica são automaticamente replicados para outras [regiões](../capitulo-3/introducao-ao-oci.md#311-região) que fazem parte do esquema de replicação.
+O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a> é uma funcionalidade do <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> que permite a replicação de dados de <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> de forma transparente entre as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) do [OCI](../capitulo-3/introducao-ao-oci.md). Isso significa que os dados escritos ou atualizados em uma <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabela</a> em uma [região](../capitulo-3/introducao-ao-oci.md#311-região) específica, são automaticamente replicados para outras [regiões](../capitulo-3/introducao-ao-oci.md#311-região) que fazem parte do esquema de replicação.
 
 Essa funcionalidade é útil, pois possibilita a execução simultânea de aplicações em diferentes [regiões](../capitulo-3/introducao-ao-oci.md#311-região) **(modo ativo-ativo)**. Um exemplo disso é a aplicação **OCI PIZZA**, que opera simultaneamente nas [regiões](../capitulo-3/introducao-ao-oci.md#311-região) **sa-saopaulo-1** e **sa-vinhedo-1**. Além disso, oferece tolerância a falhas em caso de indisponibilidade de uma [região](../capitulo-3/introducao-ao-oci.md#311-região).
 
@@ -302,17 +309,17 @@ $ oci nosql table update \
 
 #### **2. Colunas de Identidade**
 
-<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank">Colunas de identidade (IDENTITY Column)</a> não podem ser utilizadas, pois não é possível garantir a unicidade dos seus valores entre as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) que participam do esquema de replicação. Nesse cenário, a responsabilidade pela unicidade dos valores das chaves primárias recai sobre a aplicação.
+<a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/identity-column.html" target="_blank">Colunas de identidade (IDENTITY Column)</a> não podem ser utilizadas, pois não é possível garantir a unicidade dos seus valores entre as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) que participam do esquema de replicação. Nesse cenário, a responsabilidade pela unicidade dos valores recai sobre a aplicação.
 
 #### **3. Replicação Assíncrona**
 
 As atualizações das <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> que participam do esquema de replicação são realizadas de forma **assíncrona**. Isso significa que, ao executar uma operação de escrita ou atualização de dados em uma [região](../capitulo-3/introducao-ao-oci.md#311-região), essa ação é concluída primeiro nessa [região](../capitulo-3/introducao-ao-oci.md#311-região), antes que os dados sejam replicados para as demais [regiões](../capitulo-3/introducao-ao-oci.md#311-região). 
 
-### **Oracle NoSQL Database Python SDK**
+## 4.2.4 Oracle NoSQL Database Python SDK
 
 Existem duas formas para acessar e trabalhar com o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> em uma aplicação <a href="https://www.python.org/" target="_blank">Python</a>:
 
-#### **<a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">1. OCI Python SDK</a>**
+### **<a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>**
 
 A forma mais simples de interagir com o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> é através do <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>. Nesse modo, o acesso ao serviço é realizado exclusivamente por meio das APIs REST do [OCI](../capitulo-3/introducao-ao-oci.md). No entanto, essa abordagem não é a mais recomendada para manipular grandes volumes de dados que exigem a execução de consultas mais complexas.
 
@@ -337,7 +344,7 @@ print(resp.data)
 
 Consultas mais complexas, como por exemplo a instrução `SELECT max(id) FROM user`, não são suportadas, resultando em mensagens de exceção como: `The driver or SDK being used does not support complex query`.
 
-#### **<a href="https://pypi.org/project/borneo/" target="_blank">2. Oracle NoSQL Database Python SDK (borneo)</a>**
+### **<a href="https://pypi.org/project/borneo/" target="_blank">Oracle NoSQL Database Python SDK (borneo)</a>**
 
 O <a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a> é um driver para o <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> que utiliza um protocolo binário e que pode ser utlizado para lidar com grandes volumes de dados além de possibilitar a execução de consultas complexas.
 
@@ -346,10 +353,12 @@ Além de ser a forma utilizada pela aplicação **OCI PIZZA**, é a opção mais
 <a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a> requer o <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>, e ambos podem ser instalados com o comando a seguir:
 
 ```bash linenums="1"
-$ pip install oci borneo
+(venv) $ pip install oci borneo
 ```
 
-A utilização do <a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a>  requer mais parametrizações no código em comparação ao <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>. Por exemplo, o código a seguir pode ser utilizado para executar a instrução `SELECT max(id) FROM user`:
+A utilização do <a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a>  requer mais parametrizações no código em comparação ao <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>. 
+
+Por exemplo, o código a seguir pode ser utilizado para executar a instrução `SELECT max(id) FROM user`:
 
 ```python linenums="1"
 from borneo.iam import SignatureProvider
@@ -380,11 +389,96 @@ print(resp.get_results())
 !!! note "NOTA"
     Embora os exemplos usem a linguagem de programação <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-python-sdk-git" target="_blank">Python</a>, o <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/nsdev/getting-started-oracle-nosql-database1.html" target="_blank">Oracle NoSQL SDK</a>  está disponível para várias outras linguagens de programação, como <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-java-sdk-git" target="_blank">Java</a>, <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-go-sdk-git" target="_blank">Go</a>, <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/database/other-databases/nosql-database/25.1/nsdev&id=nosql-node-sdk-git" target="_blank">Node.js</a>, entre outras.  Para uma lista completa dos SDKs para as diferentes linguagens de programação suportadas, consulte o link <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/nsdev/getting-started-oracle-nosql-database1.html" target="_blank"><i>"Getting started with Oracle NoSQL Database"</i></a>.
 
-## 4.2.4 Tabelas da Aplicação OCI PIZZA
+## 4.2.5 Escrita ou Atualização Condicional
 
-A aplicação **OCI PIZZA** utiliza quatro <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> do serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, cujos dados são replicados entre as regiões **sa-saopaulo-1** e **sa-vinhedo-1** através da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>. 
+Tanto o <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a> quanto o <a href="https://pypi.org/project/borneo/" target="_blank">Borneo</a> oferecem a funcionalidade de escrita e atualização condicional nos dados das <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a>.
 
-Abaixo, segue uma descrição de cada uma das tabelas:
+A escrita ou atualização condicional permite, de maneira simples, inserir novos dados ou atualizar os existentes, sem a necessidade de utilizar instruções SQL, como `INSERT` ou `UPDATE`. Esse processo é controlado pelos seguintes parâmetros:
+
+- `IF_ABSENT`
+    - Os novos valores serão inseridos somente se os dados não existirem.
+
+- `IF_PRESENT`
+    - Os valores serão atualizados apenas se os dados já existirem.
+
+`IF_ABSENT` e `IF_PRESENT` realizam verificações na chave primária da <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> para determinar se um novo registro deve ser inserido ou se um registro existente deve ser atualizado.
+
+Por exemplo, através do <a href="https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm" target="_blank">OCI Python SDK</a>, o novo usuário de nome **Giovanna Armbrust** não será inserido na tabela `users` pelo fato da chave primária informada já existir (`id=3`):
+
+```python linenums="1"
+#!/usr/bin/env python3
+
+import oci
+
+COMPARTMENT_ID = 'ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc'
+
+new_user_data = {
+    'id': 3, 
+    'name': 'Giovanna Armbrust', 
+    'email': 'gi.armbrust@ocipizza.com.br',
+    'telephone': '88777777777'
+}
+
+config = oci.config.from_file(file_location='~/.oci/config')
+nosql_client = oci.nosql.NosqlClient(config=config)
+
+update_row_details = oci.nosql.models.UpdateRowDetails(
+    compartment_id=COMPARTMENT_ID,
+    option='IF_ABSENT',
+    value=new_user_data
+)
+
+nosql_client.update_row(
+    table_name_or_id='user',
+    update_row_details=update_row_details
+)
+```
+
+Através do <a href="https://pypi.org/project/borneo/" target="_blank">Oracle NoSQL Database Python SDK (borneo)</a>, o código ficaria:
+
+```python linenums="1"
+#!/usr/bin/env python3
+
+from borneo.iam import SignatureProvider
+from borneo import NoSQLHandleConfig, NoSQLHandle, Regions
+from borneo import PutRequest, PutOption
+
+COMPARTMENT_ID = 'ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc'
+
+new_user_data = {
+    'id': 3,
+    'name': 'Giovanna Armbrust',
+    'email': 'gi.armbrust@ocipizza.com.br',
+    'telephone': '88777777777'
+}
+
+sigprov = SignatureProvider(config_file='~/.oci/config')
+
+nosql_handle_config = NoSQLHandleConfig(Regions.SA_SAOPAULO_1)
+nosql_handle_config.set_authorization_provider(sigprov)
+nosql_handle_config.set_default_compartment(COMPARTMENT_ID)
+
+nosql_handle = NoSQLHandle(nosql_handle_config)
+
+put_request = PutRequest()
+put_request.set_option(PutOption.IF_ABSENT)
+put_request.set_table_name('user')
+put_request.set_value(new_user_data)
+put_request.set_return_row(True)
+
+nosql_handle.put(put_request)
+
+nosql_handle.close()
+```
+
+!!! note "NOTA"
+    Os códigos apresentados nos exemplos acima podem ser encontrados no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**, com os seguintes nomes: <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/nosql-oci-sdk-absent.py" target="_blank">"nosql-oci-sdk-absent.py"</a> e <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/nosql-borneo-absent.py" target="_blank">"nosql-borneo-absent.py"</a>.
+
+## 4.2.6 Tabelas da Aplicação OCI PIZZA
+
+A aplicação **OCI PIZZA** utiliza quatro <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> do serviço <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a>, cujos dados são replicados entre as [regiões](../capitulo-3/introducao-ao-oci.md#311-região) **sa-saopaulo-1** e **sa-vinhedo-1** através da funcionalidade <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/gasnd/index.html" target="_blank">Global Active Tables</a>. 
+
+Abaixo, segue uma descrição de cada uma das <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a>:
 
 - **pizza**
     - Tabela que armazena informações sobre o cardápio de pizzas, incluindo o nome da pizza, uma descrição e o nome do arquivo correspondente à imagem da pizza.
@@ -396,10 +490,32 @@ Abaixo, segue uma descrição de cada uma das tabelas:
 
 - **user.order**
     - A tabela **order** é filha da tabela **user** e é utilizada para registrar os pedidos de pizzas feitos pelos usuários (ordens de compra).
-    - O <a href="https://docs.oracle.com/en/cloud/paas/nosql-cloud/dtddt/" target="_blank">Oracle NoSQL</a> utiliza a notação de ponto entre os nomes das tabelas para representar relacionamentos entre elas.
 
 - **email_verification**
     - Tabela de dados temporários utilizada para confirmar o cadastro de novos usuários e para o processo de redefinição de senha.
     - Cada novo usuário recebe um e-mail com um link que contém um token temporário, utilizado para ativar o cadastro. O processo de redefinição de senha segue a mesma lógica.
     - Essa tabela também utiliza a funcionalidade que remove automaticamente registros com mais de um dia de idade (`TTL 1 DAYS`). Assim, qualquer registro que ultrapassar um dia, será automaticamente excluído pelo serviço.
 
+### **Criação, Réplica e Dados**
+
+No diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**, você encontrará alguns scripts e um diretório de dados que servem para criar as <a href="https://docs.oracle.com/en/database/other-databases/nosql-database/25.1/sqlreferencefornosql/table-management.html" target="_blank">tabelas</a> da aplicação e ativar suas réplicas na região **sa-vinhedo-1**. 
+
+Abaixo está a descrição de cada um deles:
+
+- `data/`
+    - Diretório que contém os arquivos `pizza.data`, `user.data` e `order.data`. Esses arquivos contêm um conjunto de dados utilizados para popular as tabelas da aplicação.
+
+- `nosql-tables.sh`
+    - Script utilizado para criar as tabelas da aplicação no [compartimento](../capitulo-3/iam-limites-cotas-e-audit.md#compartimentos) `cmp-appl` do ambiente de produção na região **sa-saopaulo-1**.
+
+- `nosql-replica.sh`
+    - Script utilizado para criar as réplicas das tabelas na região **sa-vinhedo-1**. É importante notar que as tabelas nessa região serão criadas automaticamente assim que a réplica for ativada, não sendo necessário criá-las antes da ativação.
+
+- `nosql-data.sh`
+    - Script utilizado para popular as tabelas da aplicação com os arquivos de dados disponíveis no diretório `data/`.
+
+Por fim, esses scripts devem ser executados na seguinte ordem:
+
+1. `nosql-tables.sh`
+2. `nosql-replica.sh`
+3. `nosql-data.sh`
