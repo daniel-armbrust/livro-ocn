@@ -21,4 +21,3 @@ Logo após a criação dos **Serviços Auxiliares**, será possível acessá-los
 - [4.2 Persistência de dados com o Oracle NoSQL](./persistencia-de-dados-com-o-oracle-nosql.md)
 - [4.3 Registro de Logs com OCI Logging](./registro-de-logs-com-oci-logging.md)   
 - [4.4 Chatbot com OCI Language](./chatbot-com-oci-language.md)
-- [4.5 Email Delivery](./email-delivery.md)

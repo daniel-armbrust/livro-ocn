@@ -3,129 +3,88 @@ hide:
   - toc
 ---
 
-<h3 style="text-align: center; font-style: italic;">
-"O ser humano não será substituído pela inteligência artificial; no entanto, o ser humano que utiliza a IA terá uma vantagem sobre aquele que não a utiliza." - Autor: Anônimo
-</h3>
+# Capítulo 4: Serviços Auxiliares e Persistência de Dados
 
-# Capítulo 5: Inteligência Artificial (IA)
+# 4.4 Chatbot com OCI Language
 
-# 5.1 Introdução à Inteligência Artificial
+## 4.4.1 O que é um Chatbot?
 
-Big techs tem vários modelos prontos cada um para um uso específico desde respostas gerais ou mais focados em códigos e assuntos específicos.
-  - OpenAI: GPT4, Codex
-  - Microsoft em conjunto com a Nvidia: Megatron-LM
-  - Google: BERT, Minerva
-  - Meta: OPT, LLaMA
+Um **Chatbot**, também conhecido como **Assistente Virtual Inteligente (AVI)**, é um programa de computador projetado para interagir e auxiliar os clientes de uma empresa. Ele é desenvolvido para interpretar a linguagem natural, possibilitando simular uma conversa humana com os usuários por meio de interfaces de chat. Essas interfaces podem ser integradas de diversas maneiras, como em páginas da web, assistentes de voz como a Amazon Alexa, ou em aplicativos de mensagens, incluindo WhatsApp, Telegram, Facebook ou Instagram Messenger.
 
-https://github.com/oobabooga/text-generation-webui
+Uma vez que o chatbot pode interpretar e _"entender"_ a linguagem humana, ou seja, a linguagem que os humanos utilizam no dia a dia, ele pode ser programado, por exemplo, para realizar ações como fornecer informações sobre produtos e serviços e manter diálogos complexos com os usuários.
 
-- O tamanho do modelo pode afetar a qualidade das respostas. Quanto menor o modelo, mais simples seriam as respostas.
+No caso da aplicação **OCI PIZZA**, o chatbot tem a função de auxiliar os clientes da pizzaria em diversas questões, como:
 
-- Treinar um modelo de IA não é programar regras gramaticais com um monte de if, if, if. Aos invés disso, começamos com um corpo de dados gigante como, todos os artigos da Wikipedia.
+- Fazer pedidos de pizza
+- Verificar o andamento de um pedido já realizado
+- Cancelar um pedido
+- Consultar o cardápio e preços
+- Verificar a viabilidade de entrega no endereço solicitado
 
-- Modelo:
-  - A grosso modo, é uma lista de combinações de palavras junto com um número que indica a probabilidade da próxima palavra dada uma palavra anterior. Essas probabilidades é o que chamamos de "pesos".
-  - A quantidade de palavras e a probabilidade da próxima palavra, é obtida através de um conjunto de textos ou frases no qual o modelo foi treinado. É a partir dos dados de treinamento que é possível obter, a probabilidade, da próxima palavra.
-  - Para completar a próxima palavra o modelo vai usando os "pesos" aprendidos durante o treinamento.
-  - Para se obter a próxima palavra, a GPU é usada pois é preciso calcular sempre, com base em todas as frases de treinamento, a próxima palavra.
+Para compreender melhor o funcionamento de um chatbot, seus conceitos e como ele pode ser desenvolvido, é necessário entender como as máquinas interpretam palavras, frases e expressões por meio do **Processamento de Linguagem Natural**, tema que será abordado a seguir.
 
-NLP é um campo de estudo que foca em como fazer os computadores processar linguagem natural humana. A biblioteca NLTK prepara os dados ou pré-processa o texto, ajuda o computador a entender o que são palavras, tokens, gramática do texto, para então, ser possível treinar modelos de IA.
+## 4.4.2 Processamento de Linguagem Natural
 
-NLP envolve compreender expressões humanas completas até um ponto de ser capaz de dar respostas úteis.
+Um computador é uma máquina projetada para processar números, o que significa que ele não consegue interpretar ou processar letras, palavras ou textos nativamente. Em outras palavras, o computador não consegue, por conta própria, compreender a linguagem humana.
 
-Manipulação e processamento de dados linguísticos. 
+Por exemplo, como fazer com que o computador compreenda a ação presente em uma frase que solicita a entrega de uma pizza em um determinado endereço?
 
-Processamento de linguagem: Tagging, Classificação e extração de informação.
+![alt_text](./img/nlp-frase-1.png "NLP Frase #1")
 
-NLTK é usado para que seja possível construír programas de NLP em Python.
+No contexto de uma pizzaria, é possível desenvolver um código que verifique que qualquer texto que siga as palavras "Rua" ou "Avenida", tem alta probabilidade de indicar uma solicitação para entrega de pizza em um endereço específico. 
 
-Fluxo: Texto cru → Limpeza com NLTK → Vetorização → Treinamento com Scikit-learn ou rede neural
+Dessa forma, conseguimos reduzir a ambiguidade e os limites de interpretação, considerando que a palavra "Aparecida" faz referência exclusiva a uma "Rua" ou "Avenida", e não a uma cidade, verbo ou qualquer outro significado.
 
-NLP tem grande valor em aplicações de inteligência artificial. 
-NLP começa com textos não estruturados. A partir de textos não estruturados, precisa-se ter uma forma de estruturar os dados para que o computador entenda a informação e seja capaz de processar.
+```python linenums="1"
+#!/usr/bin/env python3
 
-NLP obtém dados não estruturados de entrada e os converte.
+import re
 
-Texto não estruturado:
-  - Adicione ovos e leite na minha lista de compras.
-Texto estruturado:
-  - <shopping-list> 
-        <item> ovos </item>
-        <item> leite </item>
-    </shopping-list>
+def verifica_entrega(localidade: str):
+    print('Localidade Encontrada!')
 
-Estruturar a informação para o computador ser capaz de processar ela. Isso pode ser chamado também de NLU - Natural Language Understanding.
-O NLP fica no meio de texto não estruturado para texto estruturado. Ele tem o papel de traduzir entre ambas as formas.
+frase = 'É possível entregar uma pizza grande na Rua Aparecida n123?'
 
-Quais tarefas o NLP é importante?
-  - Tradução (Machine Translation). Para traduzir algo é preciso entender o contexto e não tentar traduzir palavra por palavra.
-  - Assistentes Virtuais como Alexa ou chatbots. Através do entendimento de declarações humanas, é possível derivar/extraír um comando para ser executado. Fazer um de-para das sentenças humanas ou declarações humanas em uma árvore de decisão para tomar uma ação.
-  - Análise de sentimentos. Extraír sentimentos de sentenças (review de um produto que foi comprado). ------> A aplicação OCI PIZZA pode ter uma forma do usuário dizer o que achou da pizza e o NLP pode ser usado para analisar o sentimento.
-  - SPAM Detection. 
+# Retorna a string rua ou avenida, se presentes na frase.
+palavra_chave = ', '.join(re.findall(r'\b(rua|avenida)\b', frase, re.IGNORECASE)).lower()
 
-NLP não é somente um algoritmo e sim, é um conjunto de ferramentas que você usa para ajudar a resolver os casos de uso acima.
+if palavra_chave:
+    # Encontra a posição numérica da palavra chave na frase (rua ou avenida).
+    posicao = frase.lower().index(palavra_chave)
 
-Estágios do NLP ou Ferramentas que o NLP disponibiliza para converter um texto não estruturado para um texto estruturado que pode ser usado em aplicações de Inteligência Artificial.
-1. Tokenização. Obtém-se uma string e quebra ela em pedaços.
-    - A partir da Tokenização é possíver usar ou Steaming ou Lemmatization:
-        2. Stemmings. Running, Runs, Ran --> a palavra de stem para as três é run. Normalizar a sentença. Stem não funciona para todas as palavras como é o caso da palavra universidade ou universal.
-        3. Lemmatization. A partir do token é possível aprender o significado das palavras através de uma definição de dicionário. Deriva-se o raíz ou o lema da palavra que tem haver com extraír o significado. Better ==> GOOD.
-4. Part of Speach Tagging. Procura saber onde o token é usado dentro do contexto de uma sentença. Um verbo dentro de um contexto pode ser um pronome.
-5. N.E.R -> Reconhecimento de entidade. A partir de um token, este está associado a alguma entidade? 
+    # Extrai o texto após a palavra chave. O resultado será "Rua Aparecida n123?".
+    texto_apos_palvra_chave = frase[posicao + len(palavra_chave):].strip()
 
-NLTK é útil para construír bots que deêm respostas padronizadas.
+    # Remove todos os caracteres especiais. O resultado será "Rua Aparecida n123".
+    localidade = re.sub(r'[^\w\s]', '', texto_apos_palvra_chave)
 
+    # Chama uma função para verificar se é possível entregar uma pizza
+    # no endereço solicitado.
+    verifica_entrega(localidade)
 
+else:
+    print('Desculpe, não consegui entender ou não é possível entregar no endereço solicitado.')
+```
 
+Os primeiros chatbots eram capazes de fornecer respostas para prompts específicos. Foram programados de maneira semelhante, baseando-se na extração de palavras-chave dos textos para verificar se havia uma resposta ou ação pré-programada.
 
+!!! note "NOTA"
+    <a href="https://github.com/wadetb/eliza" target="_blank">ELIZA</a> foi um dos primeiros chatbots, desenvolvido na década de 1960, projetado para simular uma conversa entre uma pessoa e seu terapeuta. Seu funcionamento baseava-se em uma simples árvore de decisão `IF-ELSE`, onde o programa extraía palavras-chave do texto de entrada do usuário e consultava um arquivo de respostas pré-definidas para determinar a resposta a ser retornada. Você pode conferir a implementação em Python do chatbot <a href="https://github.com/wadetb/eliza" target="_blank">ELIZA</a> no seguinte link: <a href="https://github.com/wadetb/eliza" target="_blank">https://github.com/wadetb/eliza</a>
 
+No entanto, com o tempo, novas possibilidades de diálogo surgem, exigindo mais código e estruturas `IF-ELSE` para executar ações de correspondência. Com mais código, aumentam as chances de bugs e, ao interpretar a linguagem humana, a probabilidade de erros de interpretação também cresce. 
 
+Imagine desenvolver um chatbot que possa interpretar contextos mais amplos, além do ambiente de uma pizzaria. Nesse caso, a palavra "Aparecida" pode ter diversos significados, como:
 
+1. Nome próprio feminino comum no Brasil.
+2. Pode se referir a uma localidade, como a cidade de Aparecida do Norte.
+3. Verbo "aparecer", significando que algo ou alguém tornou-se visível. 
 
+Para superar as limitações que levam a erros de interpretação ao processar a linguagem humana, é necessário converter esses textos em representações numéricas por meio de um conjunto de técnicas conhecidas como **Processamento de Linguagem Natural**.
 
-Quando eu comecei a estudar sobre IA vi que existem vários termos em conjuntos. Para chegamos no entendimento de como um chatgpt funciona, necessitamos entender desde a base, onde os algoritimos de aprendizagem de máquina foram desenvolvidos. Tudo começa no Machine Learning, que é composto de algoritmos possibilitam as "máquinas aprenderem" a partir de grandes quantidades de dados.
+**Processamento de Linguagem Natural (PLN)**, ou em inglês, **Natural Language Processing (NLP)**, é uma subárea da **Inteligência Artificial (IA)** voltada para o processamento e análise de dados em linguagem natural.
 
-- Machine Learning
-  - É uma subárea da IA no qual estão presentes os algoritmos que permitem os computadores apreder a partir de dados.
-  - É a base para outras subárea da IA incluíndo Deep Learning e NLP.
-  - Tudo começa no Machine Learning.
-  - É a base que sustenta o Deep Learning.
+Aplicações que utilizam técnicas de **Processamento de Linguagem Natural** podem "entender" sentenças faladas e escritas por humanos, ou seja, em linguagem natural. Elas são capazes de gerar respostas úteis e manter diálogos complexos.
 
-- Deep Learning
-  - É uma subárea de Machine Learning que utiliza Redes Neurais Profundas para resolver problemas complexos.
-  - Eficaz sobre grandes quantidades de dados que permite reconhecer imagens e processamente de linguagem natural.
-  - É uma técnica avançada dentro do Machine Learning.
+Não se programam regras gramaticais. Em vez disso, são desenvolvidos modelos estatísticos que permitem identificar as probabilidades entre as palavras de um texto. Isso torna o processo muito mais assertivo ao programar algo capaz de "entender" e "responder" em linguagem humana, sem recorrer a um monte de `IF-ELSE`.
 
-- NLP
-  - Possibilita os computadores interpretar e gerar texto humanos ou, mais técnicamene dito, em linguagem natural.
-  - Uma vez que os textos são interpretados e entendidos, tarefas como tradução, análise de sentimentos e geração de texto humano podem ser feitos.
-  - Será que o NLP é uma espécie de acessório que ajuda o Machine Learning e o Deep Learning a interpretarem linguagem humana?
-  - NLP são algorítimos?
-  - Utiliza o Deep Learning para desenvolver modelos como os LLMs que são projetados para entender linguagem natural.
-  - 
-
-- LLMs
-  - São especificamente Modelos.
-  - São modelos de Deep Learning (treinados por meio de Deep Learning?)
-  - treinados em grandes quantidades de dados ttextuais para entender e gerar linguagem natural.
-  - Através do treinamento em grandes quantidades de dados, modelos LLMs podem realizar tarefas NLP com precisão.
-
-- Transformer
-  - Arquitetura de Deep Learning (Attention is ALL You Need)
-  - Mecanismo de atenção usado para entender contextos de uma frase.
-  - A paralelização ajuda a entender o contexto de uma frase. Pode-se dizer que entender o contexto através da paralelização significa observar a correlação entre todas as palavras de uma frase para enfim, entender o contexto da frase.
-
-- BERT (Bidirectional Encoder Representations from Transformers) 
-  - BERT é um modelo de linguagem (talvez ele represente o formato dos dados salvos em um arquivo) que foi treinado em grandes conjuntos de dados para realizar processamento de linguagem natural.
-  - Arquitetura do BERT é transformer.
-  - BERT é um algoritmo ou um modo para se treinar usando arquitura transformer?
-    - BERT (Bidirectional Encoder Representations from Transformers) é um modelo de linguagem que utiliza a arquitetura Transformer, mas não é um algoritmo em si
-  - Modelo de linguagem que utiliza uma arquitetura de rede neural chamada Transformer.
-  - Modelo de Linguagem desenvolvido pelo Google.
-  - BERT se baseia em princípios de Machine Learning.
-  - Usa técnicas de aprendizagem supervisionada e não supervisionada para treinar.
-  - Exemplo de Deep Learning.
-
-- Treinamento de Modelo
-  - Aprendizagem Supervisionada
-  - Aprendizagem Não Supervisionada
+Para construir um chatbot eficaz, é fundamental, em primeiro lugar, conhecer as técnicas e implementações que viabilizam o **Processamento de Linguagem Natural**. Isso, antes de tudo, prepara os textos utilizados no treinamento de modelos estatísticos, os quais ajudarão o chatbot a responder perguntas de forma eficiente.

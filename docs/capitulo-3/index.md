@@ -6,7 +6,7 @@ hide:
 # Capítulo 3: OCI Foundations
 
 <h3 style="text-align: center; font-style: italic;">
-"A verdadeira disrupção não acontece no seu data center, mas sim na nuvem." - Autor: Anônimo"
+"A verdadeira disrupção não acontece no seu data center, mas sim na nuvem." - Autor: Anônimo
 </h3>
 
 Este capítulo apresenta uma visão abrangente dos Fundamentos do <a href="https://www.oracle.com/cloud/" target="blank">OCI</a>, abordando desde a criação e ativação da sua nova conta até aspectos relacionados à cobrança dos serviços, controle de acesso e o uso do [OCI CLI](./gerenciando-o-oci-atraves-do-oci-cli.md). 

@@ -5,6 +5,10 @@ hide:
 
 # Capítulo 7: Conectividade e Redes
 
+<h3 style="text-align: center; font-style: italic;">
+"As melhores ideias e soluções de negócios geralmente são resultado de uma pessoa que tem dificuldade em executar uma atividade que deveria ser simples." - Autor: <a href="https://www.linkedin.com/in/anikdas/" target="_blank">Anik Das</a>
+</h3>
+
 Antes de iniciar a criação de qualquer recurso no OCI, é necessário configurar uma rede. Isso se deve ao fato de que a maioria dos serviços disponíveis no OCI, assim como os serviços que serão utilizados pela aplicação OCI Pizza, dependem de uma rede adequadamente configurada e pronta para uso.
 
 !!! note "NOTA"

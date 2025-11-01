@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# Como usar este Livro
+# Como usar este Livro (ou Leia Antes de Usar!)
 
 - todo: eu sou meio fanático por links pois é uma maneira de trazer a definição rápida de um termo quando estamos aprendendo algo.
 

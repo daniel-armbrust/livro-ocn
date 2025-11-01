@@ -506,7 +506,7 @@ Abaixo está a descrição de cada um deles:
     - Diretório que contém os arquivos `pizza.data`, `user.data` e `order.data`. Esses arquivos contêm um conjunto de dados utilizados para popular as tabelas da aplicação.
 
 - `nosql-tables.sh`
-    - Script utilizado para criar as tabelas da aplicação no [compartimento](../capitulo-3/iam-limites-cotas-e-audit.md#compartimentos) `cmp-appl` do ambiente de produção na região **sa-saopaulo-1**.
+    - Script utilizado para criar as tabelas da aplicação no [compartimento](../capitulo-3/iam-limites-cotas-e-audit.md#compartimentos) `cmp-database` do ambiente de produção na região **sa-saopaulo-1**.
 
 - `nosql-replica.sh`
     - Script utilizado para criar as réplicas das tabelas na região **sa-vinhedo-1**. É importante notar que as tabelas nessa região serão criadas automaticamente assim que a réplica for ativada, não sendo necessário criá-las antes da ativação.
