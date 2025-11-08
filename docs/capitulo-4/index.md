@@ -18,6 +18,6 @@ Neste capítulo, iniciaremos a criação de alguns desses serviços dos quais a 
 Logo após a criação dos **Serviços Auxiliares**, será possível acessá-los por meio de suas APIs pela Internet, permitindo a execução da aplicação **OCI PIZZA** localmente, ainda que de forma parcial. O objetivo é desenvolver e testar a aplicação de maneira já integrada à nuvem, uma vez que a maioria dos serviços oferecidos pelo <a href="https://ocn.dev.br/capitulo-3/">OCI</a> não pode ser emulada localmente.
 
 - [4.1 Object Storage](./object-storage.md)
-- [4.2 Persistência de dados com o Oracle NoSQL](./persistencia-de-dados-com-o-oracle-nosql.md)
-- [4.3 Registro de Logs com OCI Logging](./registro-de-logs-com-oci-logging.md)   
-- [4.4 Chatbot com OCI Language](./chatbot-com-oci-language.md)
+- [4.2 Persistência de dados com o Oracle NoSQL](./persistencia-de-dados-com-o-oracle-nosql.md) 
+- [4.3 Chatbot com OCI Language](./chatbot-com-oci-language.md)
+- [4.4 Registro de Logs com OCI Logging](./registro-de-logs-com-oci-logging.md) 

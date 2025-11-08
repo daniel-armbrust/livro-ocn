@@ -29,7 +29,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 01/11/2025         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 08/11/2025         | 1.0.0b   |
 
 ## Sumário
 
@@ -69,9 +69,9 @@ Boa leitura!
 
 - [Capítulo 4: Serviços Auxiliares e Persistência de Dados](./capitulo-4/index.md)
     - [4.1 Object Storage](./capitulo-4/object-storage.md)
-    - [4.2 Persistência de dados com o Oracle NoSQL](./capitulo-4/persistencia-de-dados-com-o-oracle-nosql.md)
-    - [4.3 Registro de Logs com OCI Logging](./capitulo-4/registro-de-logs-com-oci-logging.md)   
-    - [4.4 Chatbot com OCI Language](./capitulo-4/chatbot-com-oci-language.md)
+    - [4.2 Persistência de dados com o Oracle NoSQL](./capitulo-4/persistencia-de-dados-com-o-oracle-nosql.md)    
+    - [4.3 Chatbot com OCI Language](./capitulo-4/chatbot-com-oci-language.md)
+    - [4.4 Registro de Logs com OCI Logging](./capitulo-4/registro-de-logs-com-oci-logging.md)   
 <br><br>
 
 - [Capítulo 5: Conectividade e Redes](./capitulo-5/index.md)
