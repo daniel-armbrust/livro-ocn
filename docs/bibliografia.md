@@ -53,6 +53,10 @@ hide:
 
 - [Robinson, Ian; Webber, Jim; Parastatidis, Savas (2010). REST in Practice: Hypermedia and Systems Architecture (English Edition). O'Reilly.](https://www.oreilly.com/library/view/rest-in-practice/9781449383312/)
 
+## Inteligência Artificial (IA) e Chatbot
+
+https://www.oracle.com/br/artificial-intelligence/ai-model-training/
+
 ## Redes de Computadores
 
 - [Filippetti, Marco Aurélio (2019). CCNA 6.0 Guia Completo de Estudo. Editora Alta Books.](https://altabooks.com.br/produto/ccna-6-0/)

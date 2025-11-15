@@ -29,7 +29,7 @@ Boa leitura!
 
 | Status              | Última Atualização | Versão   |
 |---------------------|--------------------|----------|
-| <span class="blink">Ainda escrevendo...</span> | 08/11/2025         | 1.0.0b   |
+| <span class="blink">Ainda escrevendo...</span> | 15/11/2025         | 1.0.0b   |
 
 ## Sumário
 
@@ -119,16 +119,17 @@ Boa leitura!
 <br><br>
 
 - [Apêndice A: OCI HOWTOs](./apendice-a/index.md)
-    - [A.1 OCI CLI HOWTO](./apendice-a/oci-cli-howto.md)
-    - [A.2 Ansible Básico](./apendice-a/ansible-basico.md)
-    - [A.3 Roteamento Avançado com pfSense](./apendice-a/roteamento-avancado-com-pfsense.md)    
-    - [A.4 Kubernetes the Hard Way](./apendice-a/kubernetes-hard-way.md)
-    - [A.5 kubectl HOWTO](./apendice-a/kubectl-howto.md)
-    - [A.6 Continuous Delivery com Argo CD](./apendice-a/continuous-delivery-com-argo-cd.md)   
-    - [A.7 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
-    - [A.8 Monitorando o OCI através do Zabbix](./apendice-a/monitorando-o-oci-atraves-do-zabbix.md)
-    - [A.9 Perguntas e Respostas sobre OCI](./apendice-a/perguntas-e-respostas-sobre-oci.md)
-    - [A.10 Desktop Oracle Linux para Desenvolvimento](./apendice-a/desktop-oracle-linux-para-desenvolvimento.md)
+    - [A.1 Índice Geral dos Scripts Utilizados no Livro](./apendice-a/indice-geral-dos-scripts-utilizados-no-livro.md)
+    - [A.2 OCI CLI HOWTO](./apendice-a/oci-cli-howto.md)
+    - [A.3 Ansible Básico](./apendice-a/ansible-basico.md)
+    - [A.4 Roteamento Avançado com pfSense](./apendice-a/roteamento-avancado-com-pfsense.md)    
+    - [A.5 Kubernetes the Hard Way](./apendice-a/kubernetes-hard-way.md)
+    - [A.6 kubectl HOWTO](./apendice-a/kubectl-howto.md)
+    - [A.7 Continuous Delivery com Argo CD](./apendice-a/continuous-delivery-com-argo-cd.md)   
+    - [A.8 Federação com Microsoft Active Directory (AD)](./apendice-a/federacao-com-microsoft-active-directory.md)
+    - [A.9 Monitorando o OCI através do Zabbix](./apendice-a/monitorando-o-oci-atraves-do-zabbix.md)
+    - [A.10 Perguntas e Respostas sobre OCI](./apendice-a/perguntas-e-respostas-sobre-oci.md)
+    - [A.11 Desktop Oracle Linux para Desenvolvimento](./apendice-a/desktop-oracle-linux-para-desenvolvimento.md)
 <br><br>
 
 - [Bibliografia](./bibliografia.md)
