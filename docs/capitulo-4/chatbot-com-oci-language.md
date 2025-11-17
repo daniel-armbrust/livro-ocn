@@ -148,7 +148,7 @@ $ oci ai language project create \
 > --wait-for-state "SUCCEEDED"
 ```
 
-### **Dados de Treinamento**
+### <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/allowed-datasets.htm" target="_blank"><b>Dados de Treinamento</b></a>
 
 Algo que o <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/home.htm" target="_blank">OCI Language</a> não faz sozinho é identificar qual é a intenção do usuário. No contexto do chatbot, essa é uma das tarefas mais primordiais que ele deve desempenhar.
 
@@ -178,7 +178,7 @@ No diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main
 !!! note "NOTA"
     A boa prática é separar 70% do conjunto total de dados para realizar o treinamento e reservar os 30% restantes para testes. É muito importante que esses 30% sejam dados que não foram utilizados no processo de treinamento.
 
-### **Classificação de Texto**
+### <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/text-class.htm" target="_blank"><b>Classificação de Texto</b></a>
 
 <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/text-class.htm" target="_blank">Classificação de Texto</a> é uma técnica de aprendizagem supervisionada que usa dados previamente rotulados. 
 
@@ -210,7 +210,7 @@ Alguns detalhes que devem ser levados em consideração ao criar um arquivo para
 - `labels`
     - String que identifica a intenção com base na sentença contida na coluna `text`. O identificador de intenção pode ser multilabel e se este for o caso, deve seguir o formato `label_1|label_2|...`.
 
-O conjunto de intenções que o chatbot do OCI PIZZA processa inclui:
+O conjunto de intenções que o chatbot do **OCI PIZZA** processa incluem:
 
 - **saudacao**
 - **fazer_pedido**
@@ -222,11 +222,11 @@ O conjunto de intenções que o chatbot do OCI PIZZA processa inclui:
 !!! note "NOTA"
     São necessárias, no mínimo, dez frases de exemplo para cada intenção. Essa é uma exigência do processo de treinamento realizado pelo serviço <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/home.htm" target="_blank">OCI Language</a>.
 
-### **Treinamento**
+### <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/train-custom-models.htm" target="_blank"><b>Treinamento</b></a>
 
 Uma vez que existem dados previamente classificados, é possível iniciar a etapa de treinamento, que resulta na criação do que chamamos de modelo de Inteligência Artificial, ou simplesmente, modelo.
 
-De maneira simplificada, um modelo é o resultado matemático do processo de treinamento, no qual "treinar" se refere à ação de "alimentar" algoritmos de Inteligência Artificial com uma grande quantidade de dados. Isso permite a criação de um modelo capaz de fazer previsões ou classificações sobre conjuntos de dados ainda não vistos. Em outras palavras, o modelo resultante do treinamento é capaz de realizar previsões.
+De forma simplificada, um modelo pode ser comparado a um banco de dados que contém probabilidades. Ele é o resultado matemático do processo de treinamento, onde "treinar" significa "alimentar" algoritmos de Inteligência Artificial com uma grande quantidade de dados. Isso possibilita a criação de um modelo capaz de fazer previsões ou classificações sobre conjuntos de dados ainda não vistos. Em outras palavras, o modelo resultante do treinamento é habilitado para realizar previsões.
 
 !!! note "NOTA"
     Neste livro, não abordaremos em detalhes o que é Inteligência Artificial nem explicaremos seu funcionamento. A IA é uma área de estudos extremamente vasta e complexa. Aqui, apresentaremos apenas alguns aspectos básicos para que o leitor possa compreender temas relacionados à preparação do <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/home.htm" target="_blank">OCI Language</a> para ser utilizado em tarefas de classificação.
@@ -362,3 +362,144 @@ $ oci ai language model create \
 
 !!! note "NOTA"
     O script <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/language-model.sh" target="_blank">"language-model.sh"</a>, localizado no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**, contém os comandos necessários para criar e treinar o modelo de <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/text-class.htm" target="_blank">Classificação de Texto</a> nas regiões `sa-saopaulo-1` e `sa-vinhedo-1`.
+
+### **Acompanhando o Processo de Treinamento**
+
+Todo o processo de treinamento e testes pode levar algum tempo para ser concluído. É possível acompanhar o progresso consultando o [Work Request](../capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md#355-work-request) relacionado à criação do modelo.
+
+Para consultar o [Work Request](../capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md#355-work-request), é necessário, primeiramente, obter o OCID do modelo de <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/text-class.htm" target="_blank">Classificação de Texto</a> que foi submetido para criação, utilizando o comando abaixo:
+
+```bash linenums="1"
+$ oci ai language model list \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --display-name "model-text-classification" \
+> --lifecycle-state "CREATING" \
+> --all \
+> --query 'data.items[].id'
+[
+  "ocid1.ailanguagemodel.oc1.sa-saopaulo-1.abcdefghaikkkk"
+]
+```
+
+Com o OCID do modelo, é possível listar e obter os OCIDs correspondentes aos [Work Request](../capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md#355-work-request) utilizando o seguinte comando:
+
+```bash linenums="1"
+$ oci ai language work-request list \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --resource-id "ocid1.ailanguagemodel.oc1.sa-saopaulo-1.abcdefghaikkkk" \
+> --all \
+> --query 'data.items[].id'
+[
+  "ocid1.ailanguageworkrequest.oc1..yubvgsjalsoiauxnah"
+]
+```
+
+Por fim, utiliza-se o OCID do [Work Request](../capitulo-3/gerenciando-o-oci-atraves-do-oci-cli.md#355-work-request) para exibir as mensagens relacionadas ao processo de treinamento com o seguinte comando:
+
+```bash linenums="1"
+$ oci ai language work-request log list \
+> --region "sa-saopaulo-1" \
+> --work-request-id "ocid1.ailanguageworkrequest.oc1..yubvgsjalsoiauxnah" \
+> --all \
+> --query "data.items[].{log:message,hora:timestamp}" \
+> --output table
++----------------------------------+------------------------------------------+
+| hora                             | log                                      |
++----------------------------------+------------------------------------------+
+| 2025-11-16T12:51:07.152000+00:00 | Model Training execution In Progress     |
+| 2025-11-16T12:51:06.889000+00:00 | Model Training initiation In Progress    |
+| 2025-11-16T12:51:05.731000+00:00 | Preparing data for training and testing. |
+| 2025-11-16T12:51:04.842000+00:00 | Successfully started model creation.     |
+| 2025-11-16T12:51:04.150000+00:00 | Starting model creation.                 |
++----------------------------------+------------------------------------------+
+```
+
+!!! note "NOTA"
+    O script <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/language-model-logs.sh" target="_blank">"language-model-logs.sh"</a>, localizado no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**, inclui os comandos necessários para exibir as mensagens de log do processo de treinamento.
+
+### <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/endpoint.htm" target="_blank"><b>Endpoint</b></a>
+
+Para utilizar o modelo treinado, é necessário criar um <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/endpoint.htm" target="_blank">endpoint</a>, o que pode ser feito com o comando abaixo:
+
+```bash linenums="1"
+$ oci ai language endpoint create \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --model-id "ocid1.ailanguagemodel.oc1.sa-saopaulo-1.abcdefghaikkkk" \
+> --display-name "endpoint-chatbot-text-classification" \
+> --description "Endpoint para Acesso ao Modelo de Classificação de Texto." \
+> --wait-for-state "SUCCEEDED"
+```
+
+!!! note "NOTA"
+    O script <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/language-model-endpoint.sh" target="_blank">"language-model-endpoint.sh"</a>, localizado no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**, inclui os comandos necessários para criar os <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/endpoint.htm" target="_blank">endpoints</a> nas regiões `sa-saopaulo-1` e `sa-vinhedo-1`.
+
+### **Testando o Modelo**
+
+Com o <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/endpoint.htm" target="_blank">endpoint</a> criado, é possível testar o modelo para verificar se, ao processar novos dados, o modelo treinado consegue de fato classificar corretamente a intenção.
+
+!!! note "NOTA"
+    No campo da Inteligência Artificial, o termo "inferência" é frequentemente utilizado em vez de "teste"; no entanto, neste livro, optou-se pela palavra "teste". Para fins de informação, o termo "inferência" no contexto da Inteligência Artificial refere-se à "probabilidade a posteriori".
+ 
+Antes de testar o modelo com novos dados, é necessário obter o OCID do <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/endpoint.htm" target="_blank">endpoint</a> recém-criado. Isso pode ser feito utilizando o comando a seguir:
+
+```bash linenums="1"
+$ oci ai language endpoint list \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --display-name "endpoint-chatbot-text-classification" \
+> --lifecycle-state "ACTIVE" \
+> --all \
+> --query 'data.items[].id'
+[
+  "ocid1.ailanguageendpoint.oc1.sa-saopaulo-1.amaaaaaa7bbbbbbbbbb"
+]
+```
+
+Com o OCID do <a href="https://docs.oracle.com/pt-br/iaas/Content/language/using/endpoint.htm" target="_blank">endpoint</a>, é possível submeter um texto ao modelo utilizando o comando abaixo:
+
+```bash linenums="1"
+$ oci ai language batch-detect-text-classification \
+> --region "sa-saopaulo-1" \
+> --compartment-id "ocid1.compartment.oc1..aaaaaaaaaaaaaaaabbbbbbbbccc" \
+> --endpoint-id "ocid1.ailanguageendpoint.oc1.sa-saopaulo-1.amaaaaaa7bbbbbbbbbb" \
+> --documents '[{"key": "1", "text": "Vocês tem pizza de abobrinha?"}]"
+{
+  "data": {
+    "documents": [
+      {
+        "key": "1",
+        "language-code": "en",
+        "text-classification": [
+          {
+            "label": "ver_cardapio",
+            "score": 0.47043633460998535
+          }
+        ]
+      }
+    ],
+    "errors": []
+  }
+}
+```
+
+Algumas informações importantes sobre o resultado que são:
+
+- `key`
+    - Identificador único do documento definido pelo usuário. Você pode escolher qualquer valor numérico para `key`, que normalmente é utilizado para correlacionar o texto de entrada com o `label` de saída.
+
+- `label`
+    - String que representa a intenção identificada pelo modelo treinado.
+
+- `score`
+    - Pontuação de confiabilidade que indica a precisão da classificação das intenções. Quanto maior a pontuação, mais preciso o modelo está na identificação da intenção.
+
+!!! note "NOTA"
+    Quanto maior a quantidade de dados envolvidos no processo de treinamento, maiores serão as chances de alcançar uma pontuação maior. Algumas documentações sobre o tema indicam que uma boa pontuação deve ser, no mínimo, de `0.7` ou superior.
+
+!!! note "NOTA"
+    O script <a href="https://github.com/daniel-armbrust/ocn-ocipizza/blob/main/scripts/capitulo-4/language-model-test.sh" target="_blank">"language-model-test.sh"</a>, localizado no diretório <a href="https://github.com/daniel-armbrust/ocn-ocipizza/tree/main/scripts/capitulo-4" target="_blank">"scripts/capitulo-4"</a> do <a href="https://github.com/daniel-armbrust/ocn-ocipizza" target="_blank">repositório de códigos</a> da aplicação **OCI PIZZA**, pode ser utilizado para submeter um texto e testar o modelo.
+
+## 4.3.4 Arquitetura do Chatbot
